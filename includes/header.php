@@ -13,7 +13,6 @@ Template Name: Header Part
                             <a href="#" class="dropdown__link">Shop</a>
                             <img src="<?php bloginfo('template_directory'); ?>/assets/img/arrow.svg" class="dropdown__arrow" alt="">
                         </div>
-
                         <div class="dropdown__content">
                             <a href="#">All Products</a>
                             <a href="#">New Arrivals</a>

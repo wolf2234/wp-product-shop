@@ -16,6 +16,8 @@ function product_shop_styles() {
     wp_enqueue_style('main-style', get_template_directory_uri() . '/assets/css/main-style.css');
     wp_enqueue_style('menu-style', get_template_directory_uri() . '/assets/css/menu.css');
     wp_enqueue_style('head-style', get_template_directory_uri() . '/assets/css/head.css');
+    wp_enqueue_style('copyright-style', get_template_directory_uri() . '/assets/css/copyright.css');
+    wp_enqueue_style('bank-style', get_template_directory_uri() . '/assets/css/bank.css');
 }
 
 function product_shop_scripts() {
