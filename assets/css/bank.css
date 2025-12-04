@@ -12,6 +12,7 @@
     border-radius: 7px;
     background-color: #fff;
     padding: 12px 8px;
+    cursor: pointer;
 }
 
 .bank__link img {

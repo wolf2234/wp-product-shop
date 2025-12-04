@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Homr page
+Template Name: Home page
 Template Post Type: page
 */
 ?>
