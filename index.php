@@ -1,3 +1,9 @@
+<?php
+/*
+Template Name: Homr page
+Template Post Type: page
+*/
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
