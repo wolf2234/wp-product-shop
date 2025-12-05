@@ -1,3 +1,8 @@
+.header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 0px 0px 20px;
+}
+
 .footer {
     background-color: #F0F0F0;
     padding: 100px 0px 50px;
@@ -79,4 +84,11 @@
 
 .social__link:nth-child(2) {
     background-color: #000;
+}
+
+
+.page-hero {
+    display: flex;
+    justify-content: space-between;
+    /* padding: 40px 0px 0px; */
 }

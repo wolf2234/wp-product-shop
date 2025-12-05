@@ -20,6 +20,7 @@ function product_shop_styles() {
     wp_enqueue_style('bank-style', get_template_directory_uri() . '/assets/css/bank.css');
     wp_enqueue_style('banner-style', get_template_directory_uri() . '/assets/css/banner.css');
     wp_enqueue_style('product-style', get_template_directory_uri() . '/assets/css/product.css');
+    wp_enqueue_style('filters-style', get_template_directory_uri() . '/assets/css/filters.css');
 }
 
 function product_shop_scripts() {
