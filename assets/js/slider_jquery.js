@@ -7,18 +7,18 @@ $(document).ready(function () {
         autoplay: true,
         autoplaySpeed: 2000,
     });
-    // $("").slick({
-    //     arrows: true,
-    //     dots: false,
-    //     adaptiveHeight: true,
-    //     Infinity: true,
-    //     autoplay: true,
-    //     autoplaySpeed: 2000,
-    //     nextArrow: $("#next"),
-    //     prevArrow: $("#prev"),
-    //     draggable: false,
-    //     swipe: false,
-    // });
+    $(".slider").slick({
+        arrows: true,
+        dots: false,
+        adaptiveHeight: true,
+        Infinity: true,
+        autoplay: false,
+        autoplaySpeed: 2000,
+        nextArrow: $("#next"),
+        prevArrow: $("#prev"),
+        draggable: false,
+        swipe: false,
+    });
     // $("").slick({
     //     arrows: false,
     //     slidesToShow: 3,

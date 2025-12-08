@@ -21,6 +21,9 @@ function product_shop_styles() {
     wp_enqueue_style('banner-style', get_template_directory_uri() . '/assets/css/banner.css');
     wp_enqueue_style('product-style', get_template_directory_uri() . '/assets/css/product.css');
     wp_enqueue_style('filters-style', get_template_directory_uri() . '/assets/css/filters.css');
+    wp_enqueue_style('goods-cards-style', get_template_directory_uri() . '/assets/css/goods.css');
+    wp_enqueue_style('product-cards-style', get_template_directory_uri() . '/assets/css/product-cards.css');
+    wp_enqueue_style('time-style', get_template_directory_uri() . '/assets/css/time-style.css');
 }
 
 function product_shop_scripts() {

@@ -58,9 +58,6 @@
 }
 
 
-
-
-
 .social {
     display: flex;
     gap: 10px;
@@ -91,4 +88,29 @@
     display: flex;
     justify-content: space-between;
     /* padding: 40px 0px 0px; */
+}
+
+.subtitle {
+    display: flex;
+    column-gap: 15px;
+    align-items: center;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.1;
+    color: #000;
+}
+
+.subtitle::before {
+    display: inline-block;
+    content: "";
+    width: 20px;
+    height: 40px;
+    background-color: rgba(219, 68, 68, 1);
+    border-radius: 6px;
+}
+
+.title {
+    
+    letter-spacing: 4%;
+    color: #000;
 }

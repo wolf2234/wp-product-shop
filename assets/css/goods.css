@@ -1,0 +1,42 @@
+.goods__subtitle {
+    color: rgba(219, 68, 68, 1);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.2;
+}
+
+.goods {}
+
+.goods__content {
+    padding: 0px 0px;
+}
+
+.goods__header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.goods__buttons {
+    display: flex;
+    align-items: flex-end;
+}
+
+.goods__row {
+    display: flex;
+    align-items: center;
+    column-gap: 85px;
+}
+
+.goods__title {
+    align-self: flex-end;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 1.3;
+    margin-bottom: -5px;
+}
+
+.goods__info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+}
