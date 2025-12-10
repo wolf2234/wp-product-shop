@@ -24,6 +24,7 @@ function product_shop_styles() {
     wp_enqueue_style('goods-cards-style', get_template_directory_uri() . '/assets/css/goods.css');
     wp_enqueue_style('product-cards-style', get_template_directory_uri() . '/assets/css/product-cards.css');
     wp_enqueue_style('time-style', get_template_directory_uri() . '/assets/css/time-style.css');
+    wp_enqueue_style('view-all-style', get_template_directory_uri() . '/assets/css/view-all.css');
 }
 
 function product_shop_scripts() {
@@ -34,6 +35,7 @@ function product_shop_scripts() {
     wp_enqueue_script( 'slider-jquery', get_template_directory_uri() . '/assets/js/slider_jquery.js', array('jquery'), null, true);
     wp_enqueue_script( 'bootstrap-min-js', get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js', array('jquery'), null, true);
     wp_enqueue_script( 'bootstrap-min-map-js', get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js.map', array('jquery'), null, true);
+    wp_enqueue_script( 'view-all', get_template_directory_uri() . '/assets/js/view-all.js', array('jquery'), null, true);
     wp_enqueue_script( 'scripts', get_template_directory_uri() . '/assets/js/scripts.js', array('jquery'), null, true);
 }
 

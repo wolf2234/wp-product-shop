@@ -7,6 +7,10 @@
 
 .goods {}
 
+.goods__body_border-bottom {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 .goods__content {
     padding: 0px 0px;
 }
@@ -39,4 +43,15 @@
     display: flex;
     flex-direction: column;
     row-gap: 8px;
+}
+
+.goods__btn {
+    width: 100%;
+    text-align: center;
+}
+
+.goods__content .view-all.goods__view-all {
+    color: #fff;
+    background-color: rgba(219, 68, 68, 1);
+    border: 1px solid rgba(219, 68, 68, 1);
 }

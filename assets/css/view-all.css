@@ -1,0 +1,19 @@
+.view-all {
+    border-radius: 4px;
+    padding: 16px 48px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.2;
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    margin: 55px 0px;
+}
+
+
+.view-all.hide {
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s all ease;
+    margin: 0px;
+}
