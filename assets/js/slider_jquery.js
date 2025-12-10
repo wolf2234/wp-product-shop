@@ -19,6 +19,18 @@ $(document).ready(function () {
         draggable: false,
         swipe: false,
     });
+    $(".slider-category").slick({
+        arrows: true,
+        dots: false,
+        adaptiveHeight: true,
+        Infinity: true,
+        autoplay: false,
+        autoplaySpeed: 2000,
+        nextArrow: $("#category-prev"),
+        prevArrow: $("#category-next"),
+        draggable: false,
+        swipe: false,
+    });
     // $("").slick({
     //     arrows: false,
     //     slidesToShow: 3,
