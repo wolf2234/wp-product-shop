@@ -17,9 +17,9 @@
 }
 
 
-.product-cards .product-cards__item:nth-child(4)~.product-cards__item {
+/* .product-cards .product-cards__item:nth-child(4)~.product-cards__item {
     display: none;
-}
+} */
 
 .product-cards__image {
     position: relative;

@@ -83,7 +83,7 @@
                 <div class="goods__content">
                     <div class="slider">
                         <div class="slider__item">
-                            <div class="product-cards">
+                            <div class="product-cards" data-count="4">
                                 <div class="product-cards__item">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
@@ -279,7 +279,7 @@
                             </div>
                         </div>
                         <div class="slider__item">
-                            <div class="product-cards">
+                            <div class="product-cards" data-count="4">
                                 <div class="product-cards__item">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
@@ -475,7 +475,7 @@
                             </div>
                         </div>
                         <div class="slider__item">
-                            <div class="product-cards">
+                            <div class="product-cards" data-count="4">
                                 <div class="product-cards__item">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
@@ -804,7 +804,7 @@
                     </div>
                 </div>
                 <div class="goods__content">
-                    <div class="product-cards">
+                    <div class="product-cards" data-count="4">
                         <div class="product-cards__item">
                             <div class="product-cards__image">
                                 <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
