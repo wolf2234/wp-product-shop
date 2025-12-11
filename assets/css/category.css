@@ -1,0 +1,35 @@
+.category {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    column-gap: 25px;
+    padding: 10px 0px 0px 0px;
+}
+
+.category__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    flex-basis: 11.3333%;
+    padding: 30px 0px;
+}
+
+.category__img {}
+
+.category__name {}
+
+.category__item:hover {
+    background-color: rgba(219, 68, 68, 1);
+    transition: all 0.3s ease 0s;
+    border: 1px solid rgba(0, 0, 0, 0);
+}
+
+.category__item:hover .category__name {
+    color: #fff;
+    transition: all 0.3s ease 0s;
+}

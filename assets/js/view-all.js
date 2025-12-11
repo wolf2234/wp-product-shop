@@ -21,11 +21,9 @@ document.addEventListener("DOMContentLoaded", function () {
         let postLength = post.querySelectorAll(".product-cards__item").length;
         let buttonLoad = parent.querySelector(".view-all");
         buttonLoad.addEventListener("click", function (e) {
-            console.log(buttonLoad, "Str - buttonLoad");
             let elementList = [
                 ...post.querySelectorAll(".product-cards__item"),
             ];
-            console.log(elementList, "List - elementList");
             for (let i = currentItems; i <= currentItems + 4; i++) {
                 if (elementList[i]) {
                     setTimeout(function () {

@@ -13,8 +13,12 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+.goods__body_padding-bottom {
+    padding: 0px 0px 55px 0px;
+}
+
 .goods__content {
-    padding: 0px 0px;
+    padding: 40px 0px 0px 0px;
 }
 
 .goods__header {
@@ -52,8 +56,13 @@
     text-align: center;
 }
 
-.goods__content .view-all.goods__view-all {
+.goods .view-all.goods__view-all {
     color: #fff;
     background-color: rgba(219, 68, 68, 1);
     border: 1px solid rgba(219, 68, 68, 1);
+    margin: 50px 0px 0px 0px;
+}
+
+.goods .view-all.hide.goods__view-all {
+    margin: 0px;
 }
