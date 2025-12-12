@@ -27,6 +27,7 @@ function product_shop_styles() {
     wp_enqueue_style('view-all-style', get_template_directory_uri() . '/assets/css/view-all.css');
     wp_enqueue_style('category-style', get_template_directory_uri() . '/assets/css/category.css');
     wp_enqueue_style('banner-category-style', get_template_directory_uri() . '/assets/css/banner-category.css');
+    wp_enqueue_style('grid-wrapper-style', get_template_directory_uri() . '/assets/css/grid-wrapper.css');
 }
 
 function product_shop_scripts() {

@@ -2011,5 +2011,37 @@
                 </div>
             </div>
         </div>
+        <div class="goods">
+            <div class="goods__body goods__body_padding-bottom">
+                <div class="goods__header">
+                    <div class="goods__info">
+                        <span class="subtitle goods__subtitle">Featured</span>
+                        <div class="goods__row">
+                            <h4 class="title goods__title">New Arrival</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="goods__content">
+                    <div class="grid-wrapper">
+                        <div class="grid-wrapper__left">
+                            <div class="grid-wrapper__info">
+                                <h4 class="grid-wrapper__title">PlayStation 5</h4>
+                                <p class="grid-wrapper__text">Black and White version of the PS5 coming out on sale.</p>
+                                <a href="#" class="grid-wrapper__btn">Shop Now</a>
+                            </div>
+                        </div>
+                        <div class="grid-wrapper__right">
+                            <div class="grid-wrapper__top">
+                                
+                            </div>
+                            <div class="grid-wrapper__bottom">
+                                <div class="grid-wrapper__item"></div>
+                                <div class="grid-wrapper__item"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
