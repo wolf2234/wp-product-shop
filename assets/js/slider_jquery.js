@@ -31,6 +31,18 @@ $(document).ready(function () {
         draggable: false,
         swipe: false,
     });
+    $(".slider-products").slick({
+        arrows: true,
+        dots: false,
+        adaptiveHeight: true,
+        Infinity: true,
+        autoplay: false,
+        autoplaySpeed: 2000,
+        nextArrow: $("#products-prev"),
+        prevArrow: $("#products-next"),
+        draggable: false,
+        swipe: false,
+    });
     // $("").slick({
     //     arrows: false,
     //     slidesToShow: 3,

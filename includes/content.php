@@ -29,7 +29,7 @@
                                 <?php the_field('product-name'); ?>
                             </h3>
                             <span class="product__subtext"><?php the_field('product-subtext'); ?></span>
-                            <a href="#" class="product__btn">Shop Now</a>
+                            <a href="#" class="product__btn product__btn_white">Shop Now</a>
                         </div>
                         <img src="<?php the_field('product-image'); ?>" alt="">
                     </div>
@@ -835,7 +835,6 @@
                 </div>
             </div>
         </div>
-
         <div class="goods">
             <div class="goods__body goods__body_padding-bottom">
                 <div class="goods__header">
@@ -1046,6 +1045,969 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="banner-category">
+            <div class="banner-category__body">
+                <div class="product banner-category__product">
+                    <div class="product__info product__info_width">
+                        <h3 class="product__title product__title_green">
+                            <?php the_field('category-name'); ?>
+                        </h3>
+                        <span class="product__subtext product__subtext_padding"><?php the_field('category-subtext'); ?></span>
+                        <div class="product__time">
+                            <div class="product__hours">
+                                <span class="product__number">23</span>
+                                <span class="product__text">Hours</span>
+                            </div>
+                            <div class="product__days">
+                                <span class="product__number">05</span>
+                                <span class="product__text">Days</span>
+                            </div>
+                            <div class="product__minutes">
+                                <span class="product__number">59</span>
+                                <span class="product__text">Minutes</span>
+                            </div>
+                            <div class="product__seconds">
+                                <span class="product__number">35</span>
+                                <span class="product__text">Seconds</span>
+                            </div>
+                        </div>
+                        <a href="#" class="product__btn product__btn_green">Buy Now!</a>
+                    </div>
+                    <div class="product__wrapper">
+                        <img src="<?php the_field('category-image'); ?>" class="product__img product__img_width" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="goods">
+            <div class="goods__body goods__body_padding-bottom">
+                <div class="goods__header">
+                    <div class="goods__info">
+                        <span class="subtitle goods__subtitle">Our Products</span>
+                        <div class="goods__row">
+                            <h4 class="title goods__title">Explore Our Products</h4>
+                        </div>
+                    </div>
+                    <div class="goods__buttons">
+                        <div class="slider-btns">
+                            <button id="products-prev" class="slick-prev slick-arrow slider-body__btn"
+                                aria-label="Previous" type="button">
+                            </button>
+                            <button id="products-next" class="slick-next slick-arrow slider-body__btn" aria-label="Next"
+                                type="button">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="goods__content">
+                    <div class="slider-products">
+                        <div class="slider-products__item">
+                            <div class="product-cards" data-count="8">
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-products__item">
+                            <div class="product-cards" data-count="8">
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-products__item">
+                            <div class="product-cards" data-count="8">
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="goods__btn">
+                    <button class="view-all goods__view-all">View All Products</button>
                 </div>
             </div>
         </div>

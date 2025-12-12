@@ -171,9 +171,10 @@
 .slick-dots li.slick-active {}
 
 
-/* Slider of Category */
+/* Addition Sliders */
 
-.slider-category {
+.slider-category,
+.slider-products {
     position: relative;
     height: 100%;
     z-index: 1;
@@ -181,7 +182,8 @@
     padding: 40px 0px 0px 0px;
 }
 
-.slider-category__item {
+.slider-category__item,
+.slider-products__item {
     position: relative;
     width: 100%;
     height: 100%;
