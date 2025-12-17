@@ -1,0 +1,19 @@
+.happy-customers {}
+
+.happy-customers__body {}
+
+.happy-customers__title {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 1;
+    letter-spacing: 0%;
+}
+
+
+.happy-customers__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.happy-customers__content {}

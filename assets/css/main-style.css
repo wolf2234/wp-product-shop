@@ -110,7 +110,11 @@
 }
 
 .title {
-    
     letter-spacing: 4%;
     color: #000;
+}
+
+.stars {
+    display: flex;
+    column-gap: 5px;
 }

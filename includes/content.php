@@ -2011,7 +2011,7 @@
                 </div>
             </div>
         </div>
-        <div class="goods">
+        <!-- <div class="goods">
             <div class="goods__body goods__body_padding-bottom">
                 <div class="goods__header">
                     <div class="goods__info">
@@ -2037,6 +2037,167 @@
                             <div class="grid-wrapper__bottom">
                                 <div class="grid-wrapper__item"></div>
                                 <div class="grid-wrapper__item"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <div class="happy-customers">
+            <div class="happy-customers__body">
+                <div class="happy-customers__header">
+                    <h3 class="title happy-customers__title">
+                        OUR HAPPY CUSTOMERS
+                    </h3>
+                    <div class="happy-customers__buttons">
+                        <div class="slider-btns">
+                            <button id="happy-customers-prev" class="slick-prev slick-arrow slider-body__btn"
+                                aria-label="Previous" type="button">
+                            </button>
+                            <button id="happy-customers-next" class="slick-next slick-arrow slider-body__btn" aria-label="Next"
+                                type="button">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="happy-customers__content">
+                    <div class="slider-happy-customers">
+                        <div class="slider-happy-customers__item">
+                            <div class="comments">
+                                <div class="comment">
+                                    <div class="comment__body">
+                                        <div class="comment__header">
+                                            <div class="stars comment__stars">Stars</div>
+                                        </div>
+                                        <div class="comment__content">
+                                            <h3 class="comment__user">
+                                                Sarah M.
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/check-user.svg" alt="Сheck User">
+                                            </h3>
+                                            <p class="comment__text">"I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.”</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comment">
+                                    <div class="comment__body">
+                                        <div class="comment__header">
+                                            <div class="stars comment__stars">Stars</div>
+                                        </div>
+                                        <div class="comment__content">
+                                            <h3 class="comment__user">
+                                                Sarah M.
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/check-user.svg" alt="Сheck User">
+                                            </h3>
+                                            <p class="comment__text">"I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.”</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comment">
+                                    <div class="comment__body">
+                                        <div class="comment__header">
+                                            <div class="stars comment__stars">Stars</div>
+                                        </div>
+                                        <div class="comment__content">
+                                            <h3 class="comment__user">
+                                                Sarah M.
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/check-user.svg" alt="Сheck User">
+                                            </h3>
+                                            <p class="comment__text">"I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.”</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-happy-customers__item">
+                            <div class="comments">
+                                <div class="comment">
+                                    <div class="comment__body">
+                                        <div class="comment__header">
+                                            <div class="stars comment__stars">Stars</div>
+                                        </div>
+                                        <div class="comment__content">
+                                            <h3 class="comment__user">
+                                                Sarah M.
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/check-user.svg" alt="Сheck User">
+                                            </h3>
+                                            <p class="comment__text">"I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.”</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comment">
+                                    <div class="comment__body">
+                                        <div class="comment__header">
+                                            <div class="stars comment__stars">Stars</div>
+                                        </div>
+                                        <div class="comment__content">
+                                            <h3 class="comment__user">
+                                                Sarah M.
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/check-user.svg" alt="Сheck User">
+                                            </h3>
+                                            <p class="comment__text">"I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.”</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comment">
+                                    <div class="comment__body">
+                                        <div class="comment__header">
+                                            <div class="stars comment__stars">Stars</div>
+                                        </div>
+                                        <div class="comment__content">
+                                            <h3 class="comment__user">
+                                                Sarah M.
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/check-user.svg" alt="Сheck User">
+                                            </h3>
+                                            <p class="comment__text">"I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.”</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-happy-customers__item">
+                            <div class="comments">
+                                <div class="comment">
+                                    <div class="comment__body">
+                                        <div class="comment__header">
+                                            <div class="stars comment__stars">Stars</div>
+                                        </div>
+                                        <div class="comment__content">
+                                            <h3 class="comment__user">
+                                                Sarah M.
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/check-user.svg" alt="Сheck User">
+                                            </h3>
+                                            <p class="comment__text">"I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.”</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comment">
+                                    <div class="comment__body">
+                                        <div class="comment__header">
+                                            <div class="stars comment__stars">Stars</div>
+                                        </div>
+                                        <div class="comment__content">
+                                            <h3 class="comment__user">
+                                                Sarah M.
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/check-user.svg" alt="Сheck User">
+                                            </h3>
+                                            <p class="comment__text">"I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.”</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comment">
+                                    <div class="comment__body">
+                                        <div class="comment__header">
+                                            <div class="stars comment__stars">Stars</div>
+                                        </div>
+                                        <div class="comment__content">
+                                            <h3 class="comment__user">
+                                                Sarah M.
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/check-user.svg" alt="Сheck User">
+                                            </h3>
+                                            <p class="comment__text">"I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.”</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

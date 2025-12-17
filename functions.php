@@ -28,6 +28,8 @@ function product_shop_styles() {
     wp_enqueue_style('category-style', get_template_directory_uri() . '/assets/css/category.css');
     wp_enqueue_style('banner-category-style', get_template_directory_uri() . '/assets/css/banner-category.css');
     wp_enqueue_style('grid-wrapper-style', get_template_directory_uri() . '/assets/css/grid-wrapper.css');
+    wp_enqueue_style('happy-customers-style', get_template_directory_uri() . '/assets/css/happy-customers.css');
+    wp_enqueue_style('comment-style', get_template_directory_uri() . '/assets/css/comment.css');
 }
 
 function product_shop_scripts() {

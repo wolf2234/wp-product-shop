@@ -1,21 +1,4 @@
 /* Banner and slider */
-.banner {
-    position: relative;
-    height: 100%;
-    z-index: 1;
-    min-width: 0px;
-    width: 85%;
-    padding: 40px 0px 0px 40px;
-}
-
-.banner__item {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    min-width: 0px;
-    z-index: 2;
-}
-
 
 /* Обмежувальна оболонка */
 .slick-list {
@@ -27,6 +10,49 @@
     display: flex;
     align-items: flex-start;
 }
+
+/* Слайдер */
+
+.slick-slider {}
+
+/* Слайдер запущений */
+
+.slick-slider.slick-initialized {}
+
+/* Слайдер з крапками */
+
+.slick-slider.slick-dotted {}
+
+
+/* Слайд */
+
+.slick-slide {}
+
+/* Слайд активний (показується) */
+
+.slick-slide.slick-active {}
+
+/* Слайд основний */
+
+.slick-slide.slick-current {}
+
+/* Слайд по центру */
+
+.slick-slide.slick-center {}
+
+/* Клонований слайд */
+
+.slick-slide.slick-cloned {}
+
+/* Стрілка вліво */
+
+.slick-arrow.slick-prev {}
+
+/* Стрілка вправо */
+
+.slick-arrow.slick-next {}
+
+
 
 /* Стрілка */
 .banner .slick-arrow {
@@ -72,54 +98,6 @@
 }
 
 
-/* Слайдер */
-
-.slick-slider {}
-
-/* Слайдер запущений */
-
-.slick-slider.slick-initialized {}
-
-/* Слайдер з крапками */
-
-.slick-slider.slick-dotted {}
-
-
-/* Слайд */
-
-.slick-slide {}
-
-/* Слайд активний (показується) */
-
-.slick-slide.slick-active {}
-
-/* Слайд основний */
-
-.slick-slide.slick-current {}
-
-/* Слайд по центру */
-
-.slick-slide.slick-center {}
-
-/* Клонований слайд */
-
-.slick-slide.slick-cloned {}
-
-
-.slider {
-    position: relative;
-    height: 100%;
-    z-index: 1;
-    min-width: 0px;
-}
-
-.slider__item {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    min-width: 0px;
-    z-index: 2;
-}
 
 .slider-btns .slick-arrow {
     font-size: 0px;
@@ -127,15 +105,6 @@
     width: 50px;
     height: 70px;
 }
-
-
-/* Стрілка вліво */
-
-.slick-arrow.slick-prev {}
-
-/* Стрілка вправо */
-
-.slick-arrow.slick-next {}
 
 
 .slider-btns .slick-arrow.slick-prev {
@@ -173,8 +142,11 @@
 
 /* Addition Sliders */
 
+.banner,
+.slider,
 .slider-category,
-.slider-products {
+.slider-products,
+.slider-happy-customers {
     position: relative;
     height: 100%;
     z-index: 1;
@@ -182,11 +154,23 @@
     padding: 40px 0px 0px 0px;
 }
 
+.banner__item,
+.slider__item,
 .slider-category__item,
-.slider-products__item {
+.slider-products__item,
+.slider-happy-customers__item {
     position: relative;
     width: 100%;
     height: 100%;
     min-width: 0px;
     z-index: 2;
+}
+
+.banner {
+    width: 85%;
+    padding: 40px 0px 0px 40px;
+}
+
+.slider {
+    padding: 0px;
 }

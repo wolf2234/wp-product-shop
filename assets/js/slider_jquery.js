@@ -26,8 +26,8 @@ $(document).ready(function () {
         Infinity: true,
         autoplay: false,
         autoplaySpeed: 2000,
-        nextArrow: $("#category-prev"),
-        prevArrow: $("#category-next"),
+        nextArrow: $("#category-next"),
+        prevArrow: $("#category-prev"),
         draggable: false,
         swipe: false,
     });
@@ -38,8 +38,20 @@ $(document).ready(function () {
         Infinity: true,
         autoplay: false,
         autoplaySpeed: 2000,
-        nextArrow: $("#products-prev"),
-        prevArrow: $("#products-next"),
+        nextArrow: $("#products-next"),
+        prevArrow: $("#products-prev"),
+        draggable: false,
+        swipe: false,
+    });
+    $(".slider-happy-customers").slick({
+        arrows: true,
+        dots: false,
+        adaptiveHeight: true,
+        Infinity: true,
+        autoplay: false,
+        autoplaySpeed: 2000,
+        nextArrow: $("#happy-customers-next"),
+        prevArrow: $("#happy-customers-prev"),
         draggable: false,
         swipe: false,
     });
