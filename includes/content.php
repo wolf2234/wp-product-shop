@@ -42,7 +42,7 @@
                 </div>
             </div>
         </div>
-        <div class="goods">
+        <div class="goods" data-parent-of-view-all="">
             <div class="goods__body goods__body_border-bottom goods__body_padding-bottom">
                 <div class="goods__header">
                     <div class="goods__info">
@@ -83,8 +83,8 @@
                 <div class="goods__content">
                     <div class="slider">
                         <div class="slider__item">
-                            <div class="product-cards" data-count="4">
-                                <div class="product-cards__item">
+                            <div class="product-cards" data-items-wrapper="" data-count="4">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -108,7 +108,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -132,7 +132,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -156,7 +156,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -180,7 +180,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -204,7 +204,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -228,7 +228,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -252,7 +252,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -276,7 +276,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -300,203 +300,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
-                                    <div class="product-cards__image">
-                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
-                                        <div class="product-cards__icons">
-                                            <span class="product-cards__like">
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
-                                            </span>
-                                            <span class="product-cards__view">
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
-                                            </span>
-                                        </div>
-                                        <button class="product-cards__add">Add to Cart</button>
-                                    </div>
-                                    <div class="product-cards__info">
-                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
-                                        <span class="product-cards__price">
-                                            <span class="product-cards__currency">&#36</span>160
-                                        </span>
-                                        <span class="product-cards__stars">
-                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
-                                                alt="Star">
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slider__item">
-                            <div class="product-cards" data-count="4">
-                                <div class="product-cards__item">
-                                    <div class="product-cards__image">
-                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
-                                        <div class="product-cards__icons">
-                                            <span class="product-cards__like">
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
-                                            </span>
-                                            <span class="product-cards__view">
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
-                                            </span>
-                                        </div>
-                                        <button class="product-cards__add">Add to Cart</button>
-                                    </div>
-                                    <div class="product-cards__info">
-                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
-                                        <span class="product-cards__price">
-                                            <span class="product-cards__currency">&#36</span>160
-                                        </span>
-                                        <span class="product-cards__stars">
-                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
-                                                alt="Star">
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="product-cards__item">
-                                    <div class="product-cards__image">
-                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
-                                        <div class="product-cards__icons">
-                                            <span class="product-cards__like">
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
-                                            </span>
-                                            <span class="product-cards__view">
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
-                                            </span>
-                                        </div>
-                                        <button class="product-cards__add">Add to Cart</button>
-                                    </div>
-                                    <div class="product-cards__info">
-                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
-                                        <span class="product-cards__price">
-                                            <span class="product-cards__currency">&#36</span>160
-                                        </span>
-                                        <span class="product-cards__stars">
-                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
-                                                alt="Star">
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="product-cards__item">
-                                    <div class="product-cards__image">
-                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
-                                        <div class="product-cards__icons">
-                                            <span class="product-cards__like">
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
-                                            </span>
-                                            <span class="product-cards__view">
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
-                                            </span>
-                                        </div>
-                                        <button class="product-cards__add">Add to Cart</button>
-                                    </div>
-                                    <div class="product-cards__info">
-                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
-                                        <span class="product-cards__price">
-                                            <span class="product-cards__currency">&#36</span>160
-                                        </span>
-                                        <span class="product-cards__stars">
-                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
-                                                alt="Star">
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="product-cards__item">
-                                    <div class="product-cards__image">
-                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
-                                        <div class="product-cards__icons">
-                                            <span class="product-cards__like">
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
-                                            </span>
-                                            <span class="product-cards__view">
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
-                                            </span>
-                                        </div>
-                                        <button class="product-cards__add">Add to Cart</button>
-                                    </div>
-                                    <div class="product-cards__info">
-                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
-                                        <span class="product-cards__price">
-                                            <span class="product-cards__currency">&#36</span>160
-                                        </span>
-                                        <span class="product-cards__stars">
-                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
-                                                alt="Star">
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="product-cards__item">
-                                    <div class="product-cards__image">
-                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
-                                        <div class="product-cards__icons">
-                                            <span class="product-cards__like">
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
-                                            </span>
-                                            <span class="product-cards__view">
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
-                                            </span>
-                                        </div>
-                                        <button class="product-cards__add">Add to Cart</button>
-                                    </div>
-                                    <div class="product-cards__info">
-                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
-                                        <span class="product-cards__price">
-                                            <span class="product-cards__currency">&#36</span>160
-                                        </span>
-                                        <span class="product-cards__stars">
-                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
-                                                alt="Star">
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="product-cards__item">
-                                    <div class="product-cards__image">
-                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
-                                        <div class="product-cards__icons">
-                                            <span class="product-cards__like">
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
-                                            </span>
-                                            <span class="product-cards__view">
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
-                                            </span>
-                                        </div>
-                                        <button class="product-cards__add">Add to Cart</button>
-                                    </div>
-                                    <div class="product-cards__info">
-                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
-                                        <span class="product-cards__price">
-                                            <span class="product-cards__currency">&#36</span>160
-                                        </span>
-                                        <span class="product-cards__stars">
-                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
-                                                alt="Star">
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="product-cards__item">
-                                    <div class="product-cards__image">
-                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
-                                        <div class="product-cards__icons">
-                                            <span class="product-cards__like">
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
-                                            </span>
-                                            <span class="product-cards__view">
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
-                                            </span>
-                                        </div>
-                                        <button class="product-cards__add">Add to Cart</button>
-                                    </div>
-                                    <div class="product-cards__info">
-                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
-                                        <span class="product-cards__price">
-                                            <span class="product-cards__currency">&#36</span>160
-                                        </span>
-                                        <span class="product-cards__stars">
-                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
-                                                alt="Star">
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -523,8 +327,8 @@
                             </div>
                         </div>
                         <div class="slider__item">
-                            <div class="product-cards" data-count="4">
-                                <div class="product-cards__item">
+                            <div class="product-cards" data-items-wrapper="" data-count="4">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -548,7 +352,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -572,7 +376,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -596,7 +400,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -620,7 +424,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -644,7 +448,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -668,7 +472,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -692,7 +496,203 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider__item">
+                            <div class="product-cards" data-items-wrapper="" data-count="4">
+                                <div class="product-cards__item" data-items-item="">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item" data-items-item="">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item" data-items-item="">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item" data-items-item="">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item" data-items-item="">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item" data-items-item="">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item" data-items-item="">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -721,11 +721,11 @@
                     </div>
                 </div>
                 <div class="goods__btn">
-                    <button class="view-all goods__view-all">View All Products</button>
+                    <button class="view-all goods__view-all" view-all-btn="">View All Products</button>
                 </div>
             </div>
         </div>
-        <div class="goods">
+        <div class="goods" data-parent-of-view-all="">
             <div class="goods__body goods__body_border-bottom goods__body_padding-bottom">
                 <div class="goods__header">
                     <div class="goods__info">
@@ -835,7 +835,7 @@
                 </div>
             </div>
         </div>
-        <div class="goods">
+        <div class="goods" data-parent-of-view-all="">
             <div class="goods__body goods__body_padding-bottom">
                 <div class="goods__header">
                     <div class="goods__info">
@@ -846,13 +846,13 @@
                     </div>
                     <div class="goods__buttons">
                         <div class="goods__btn">
-                            <button class="view-all goods__view-all">View All</button>
+                            <button class="view-all goods__view-all" view-all-btn="">View All</button>
                         </div>
                     </div>
                 </div>
                 <div class="goods__content">
-                    <div class="product-cards" data-count="4">
-                        <div class="product-cards__item">
+                    <div class="product-cards"  data-items-wrapper="" data-count="4">
+                        <div class="product-cards__item" data-items-item="">
                             <div class="product-cards__image">
                                 <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                 <div class="product-cards__icons">
@@ -876,7 +876,7 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="product-cards__item">
+                        <div class="product-cards__item" data-items-item="">
                             <div class="product-cards__image">
                                 <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                 <div class="product-cards__icons">
@@ -900,7 +900,7 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="product-cards__item">
+                        <div class="product-cards__item" data-items-item="">
                             <div class="product-cards__image">
                                 <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                 <div class="product-cards__icons">
@@ -924,7 +924,7 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="product-cards__item">
+                        <div class="product-cards__item" data-items-item="">
                             <div class="product-cards__image">
                                 <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                 <div class="product-cards__icons">
@@ -948,7 +948,7 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="product-cards__item">
+                        <div class="product-cards__item" data-items-item="">
                             <div class="product-cards__image">
                                 <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                 <div class="product-cards__icons">
@@ -972,7 +972,7 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="product-cards__item">
+                        <div class="product-cards__item" data-items-item="">
                             <div class="product-cards__image">
                                 <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                 <div class="product-cards__icons">
@@ -996,7 +996,7 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="product-cards__item">
+                        <div class="product-cards__item" data-items-item="">
                             <div class="product-cards__image">
                                 <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                 <div class="product-cards__icons">
@@ -1020,7 +1020,7 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="product-cards__item">
+                        <div class="product-cards__item" data-items-item="">
                             <div class="product-cards__image">
                                 <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                 <div class="product-cards__icons">
@@ -1082,7 +1082,7 @@
                 </div>
             </div>
         </div>
-        <div class="goods">
+        <div class="goods" data-parent-of-view-all="">
             <div class="goods__body goods__body_padding-bottom">
                 <div class="goods__header">
                     <div class="goods__info">
@@ -1105,8 +1105,8 @@
                 <div class="goods__content">
                     <div class="slider-products">
                         <div class="slider-products__item">
-                            <div class="product-cards" data-count="8">
-                                <div class="product-cards__item">
+                            <div class="product-cards" data-items-wrapper="" data-count="8">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -1130,7 +1130,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -1154,7 +1154,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -1178,7 +1178,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -1202,7 +1202,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -1226,7 +1226,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -1250,7 +1250,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -1274,7 +1274,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -1298,7 +1298,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -1322,7 +1322,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -1346,7 +1346,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -1370,7 +1370,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -1394,7 +1394,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -1418,7 +1418,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -1442,203 +1442,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
-                                    <div class="product-cards__image">
-                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
-                                        <div class="product-cards__icons">
-                                            <span class="product-cards__like">
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
-                                            </span>
-                                            <span class="product-cards__view">
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
-                                            </span>
-                                        </div>
-                                        <button class="product-cards__add">Add to Cart</button>
-                                    </div>
-                                    <div class="product-cards__info">
-                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
-                                        <span class="product-cards__price">
-                                            <span class="product-cards__currency">&#36</span>160
-                                        </span>
-                                        <span class="product-cards__stars">
-                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
-                                                alt="Star">
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slider-products__item">
-                            <div class="product-cards" data-count="8">
-                                <div class="product-cards__item">
-                                    <div class="product-cards__image">
-                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
-                                        <div class="product-cards__icons">
-                                            <span class="product-cards__like">
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
-                                            </span>
-                                            <span class="product-cards__view">
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
-                                            </span>
-                                        </div>
-                                        <button class="product-cards__add">Add to Cart</button>
-                                    </div>
-                                    <div class="product-cards__info">
-                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
-                                        <span class="product-cards__price">
-                                            <span class="product-cards__currency">&#36</span>160
-                                        </span>
-                                        <span class="product-cards__stars">
-                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
-                                                alt="Star">
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="product-cards__item">
-                                    <div class="product-cards__image">
-                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
-                                        <div class="product-cards__icons">
-                                            <span class="product-cards__like">
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
-                                            </span>
-                                            <span class="product-cards__view">
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
-                                            </span>
-                                        </div>
-                                        <button class="product-cards__add">Add to Cart</button>
-                                    </div>
-                                    <div class="product-cards__info">
-                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
-                                        <span class="product-cards__price">
-                                            <span class="product-cards__currency">&#36</span>160
-                                        </span>
-                                        <span class="product-cards__stars">
-                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
-                                                alt="Star">
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="product-cards__item">
-                                    <div class="product-cards__image">
-                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
-                                        <div class="product-cards__icons">
-                                            <span class="product-cards__like">
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
-                                            </span>
-                                            <span class="product-cards__view">
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
-                                            </span>
-                                        </div>
-                                        <button class="product-cards__add">Add to Cart</button>
-                                    </div>
-                                    <div class="product-cards__info">
-                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
-                                        <span class="product-cards__price">
-                                            <span class="product-cards__currency">&#36</span>160
-                                        </span>
-                                        <span class="product-cards__stars">
-                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
-                                                alt="Star">
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="product-cards__item">
-                                    <div class="product-cards__image">
-                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
-                                        <div class="product-cards__icons">
-                                            <span class="product-cards__like">
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
-                                            </span>
-                                            <span class="product-cards__view">
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
-                                            </span>
-                                        </div>
-                                        <button class="product-cards__add">Add to Cart</button>
-                                    </div>
-                                    <div class="product-cards__info">
-                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
-                                        <span class="product-cards__price">
-                                            <span class="product-cards__currency">&#36</span>160
-                                        </span>
-                                        <span class="product-cards__stars">
-                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
-                                                alt="Star">
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="product-cards__item">
-                                    <div class="product-cards__image">
-                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
-                                        <div class="product-cards__icons">
-                                            <span class="product-cards__like">
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
-                                            </span>
-                                            <span class="product-cards__view">
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
-                                            </span>
-                                        </div>
-                                        <button class="product-cards__add">Add to Cart</button>
-                                    </div>
-                                    <div class="product-cards__info">
-                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
-                                        <span class="product-cards__price">
-                                            <span class="product-cards__currency">&#36</span>160
-                                        </span>
-                                        <span class="product-cards__stars">
-                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
-                                                alt="Star">
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="product-cards__item">
-                                    <div class="product-cards__image">
-                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
-                                        <div class="product-cards__icons">
-                                            <span class="product-cards__like">
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
-                                            </span>
-                                            <span class="product-cards__view">
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
-                                            </span>
-                                        </div>
-                                        <button class="product-cards__add">Add to Cart</button>
-                                    </div>
-                                    <div class="product-cards__info">
-                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
-                                        <span class="product-cards__price">
-                                            <span class="product-cards__currency">&#36</span>160
-                                        </span>
-                                        <span class="product-cards__stars">
-                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
-                                                alt="Star">
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="product-cards__item">
-                                    <div class="product-cards__image">
-                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
-                                        <div class="product-cards__icons">
-                                            <span class="product-cards__like">
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
-                                            </span>
-                                            <span class="product-cards__view">
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
-                                            </span>
-                                        </div>
-                                        <button class="product-cards__add">Add to Cart</button>
-                                    </div>
-                                    <div class="product-cards__info">
-                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
-                                        <span class="product-cards__price">
-                                            <span class="product-cards__currency">&#36</span>160
-                                        </span>
-                                        <span class="product-cards__stars">
-                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
-                                                alt="Star">
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -1665,8 +1469,8 @@
                             </div>
                         </div>
                         <div class="slider-products__item">
-                            <div class="product-cards" data-count="8">
-                                <div class="product-cards__item">
+                            <div class="product-cards" data-items-wrapper="" data-count="8">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -1690,7 +1494,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -1714,7 +1518,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -1738,7 +1542,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -1762,7 +1566,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -1786,7 +1590,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -1810,7 +1614,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -1834,7 +1638,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -1858,7 +1662,11 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                            </div>
+                        </div>
+                        <div class="slider-products__item">
+                            <div class="product-cards" data-items-wrapper="" data-count="8">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -1882,7 +1690,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -1906,7 +1714,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -1930,7 +1738,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -1954,7 +1762,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -1978,7 +1786,199 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="product-cards__item">
+                                <div class="product-cards__item" data-items-item="">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item" data-items-item="">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item" data-items-item="">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item" data-items-item="">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item" data-items-item="">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item" data-items-item="">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item" data-items-item="">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item" data-items-item="">
+                                    <div class="product-cards__image">
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
+                                        <div class="product-cards__icons">
+                                            <span class="product-cards__like">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                                            </span>
+                                            <span class="product-cards__view">
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                                            </span>
+                                        </div>
+                                        <button class="product-cards__add">Add to Cart</button>
+                                    </div>
+                                    <div class="product-cards__info">
+                                        <span class="product-cards__name">HAVIT HV-G92 Gamepad</span>
+                                        <span class="product-cards__price">
+                                            <span class="product-cards__currency">&#36</span>160
+                                        </span>
+                                        <span class="product-cards__stars">
+                                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/"
+                                                alt="Star">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
                                         <div class="product-cards__icons">
@@ -2007,11 +2007,11 @@
                     </div>
                 </div>
                 <div class="goods__btn">
-                    <button class="view-all goods__view-all">View All Products</button>
+                    <button class="view-all goods__view-all" view-all-btn="">View All Products</button>
                 </div>
             </div>
         </div>
-        <!-- <div class="goods">
+        <!-- <div class="goods" data-parent-of-view-all="">
             <div class="goods__body goods__body_padding-bottom">
                 <div class="goods__header">
                     <div class="goods__info">
