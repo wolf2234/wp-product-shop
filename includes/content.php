@@ -2074,7 +2074,8 @@
                                                 Sarah M.
                                                 <img src="<?php bloginfo('template_directory'); ?>/assets/img/check-user.svg" alt="Сheck User">
                                             </h3>
-                                            <p class="comment__text">"I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.”</p>
+                                            <p class="comment__text">"I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.”
+                                            </p>
                                         </div>
                                     </div>
                                 </div>

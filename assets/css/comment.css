@@ -1,6 +1,6 @@
 .comments {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     padding: 15px 0px 0px 0px;
     /* justify-content: flex-start;
@@ -10,7 +10,10 @@
 }
 
 .comment {
-    flex-basis: 32.333%;
+    /* flex-basis: 32.333%; */
+    width: 100%;
+    max-width: 515px;
+    height: auto;
 }
 
 .comment__body {
@@ -46,4 +49,6 @@
     font-size: 16px;
     line-height: 1.2;
     letter-spacing: 0%;
+    width: 100%;
+    overflow-wrap: anywhere;
 }
