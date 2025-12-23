@@ -2207,7 +2207,6 @@
         </div>
     </div>
 </div>
-
 <?php
 $args = [
     'post_type' => 'product',

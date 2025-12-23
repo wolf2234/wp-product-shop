@@ -1,9 +1,10 @@
 <?php
-defined('ABSPATH') || exit;
-get_header('shop');
+defined( 'ABSPATH' ) || exit;
+
+get_header(); // или get_header('shop'); если есть отдельный header-shop.php
 ?>
 
-<?php woocommerce_content(); ?>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto necessitatibus amet ipsum molestias illum quod deleniti. Minus sunt perferendis rerum tempora id eligendi harum accusamus reiciendis quasi aut, doloribus incidunt?</p>
 
-<?php get_footer('shop'); ?>
+<div class="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores quis nesciunt voluptatibus iure aperiam sint consequuntur nisi placeat iste eum.</div>
+
+<?php get_footer(); // или get_footer('shop'); ?>
