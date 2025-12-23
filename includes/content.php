@@ -2207,3 +2207,29 @@
         </div>
     </div>
 </div>
+
+<?php
+$args = [
+    'post_type' => 'product',
+    'posts_per_page' => 8,
+];
+
+$loop = new WP_Query($args);
+
+if ($loop->have_posts()) :
+    echo '<div class="product-cards">';
+    while ($loop->have_posts()) : $loop->the_post();
+        global $product;
+        ?>
+        <div class="product-card">
+            <a href="<?php the_permalink(); ?>">
+                <?php the_post_thumbnail('medium'); ?>
+                <h3><?php the_title(); ?></h3>
+                <span><?php echo wc_price($product->get_price()); ?></span>
+            </a>
+        </div>
+        <?php
+    endwhile;
+    echo '</div>';
+    wp_reset_postdata();
+endif;
