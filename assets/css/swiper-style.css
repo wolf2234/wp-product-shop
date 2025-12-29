@@ -1,0 +1,23 @@
+.swiper {
+    padding: 30px 0px 70px 0px;
+    width: 100%;
+    height: 400px;
+}
+
+.swiper-wrapper {}
+
+.swiper-slide {
+    text-align: center;
+}
+
+.swiper-slide img {
+    max-width: 100%;
+}
+
+.swiper-pagination {}
+
+/* .swiper .swiper-button-prev,
+.swiper .swiper-button-next {
+    color: #fff;
+    font-size: 80px;
+} */

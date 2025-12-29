@@ -12,6 +12,8 @@ function product_shop_styles() {
     wp_enqueue_style('null-style', get_template_directory_uri() . '/assets/css/null-style.css');
     wp_enqueue_style('bootstrap-min-css', get_template_directory_uri() . '/assets/css/bootstrap.min.css');
     wp_enqueue_style('bootstrap-min-map-css', get_template_directory_uri() . '/assets/css/bootstrap.min.css.map');
+    wp_enqueue_style('swiper-css', get_template_directory_uri() . '/modules/swiper/css/swiper-bundle.min.css');
+    wp_enqueue_style('swiper-style-css', get_template_directory_uri() . '/assets/css/swiper-style.css');
     wp_enqueue_style('null-style', get_template_directory_uri() . '/assets/css/null-style.css');
     wp_enqueue_style('main-style', get_template_directory_uri() . '/assets/css/main-style.css');
     wp_enqueue_style('menu-style', get_template_directory_uri() . '/assets/css/menu.css');
@@ -40,6 +42,8 @@ function product_shop_scripts() {
     wp_enqueue_script( 'slider-jquery', get_template_directory_uri() . '/assets/js/slider_jquery.js', array('jquery'), null, true);
     wp_enqueue_script( 'bootstrap-min-js', get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js', array('jquery'), null, true);
     wp_enqueue_script( 'bootstrap-min-map-js', get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js.map', array('jquery'), null, true);
+    wp_enqueue_script('swiper-js', get_template_directory_uri() . '/modules/swiper/js/swiper-bundle.min.js', array('jquery'), null, true);
+    wp_enqueue_script('swiper-script-js', get_template_directory_uri() . '/modules/swiper/js/swiper-script.js', array('jquery'), null, true);
     wp_enqueue_script( 'view-all', get_template_directory_uri() . '/assets/js/view-all.js', array('jquery'), null, true);
     wp_enqueue_script( 'scripts', get_template_directory_uri() . '/assets/js/scripts.js', array('jquery'), null, true);
 }
@@ -51,10 +55,10 @@ function theme_add_woocommerce_support() {
     add_theme_support( 'woocommerce' );
 }
 
-add_action( 'after_setup_theme', function() {
-    add_theme_support( 'wc-product-gallery-zoom' );
-    add_theme_support( 'wc-product-gallery-lightbox' );
-    add_theme_support( 'wc-product-gallery-slider' );
-});
+// add_action( 'after_setup_theme', function() {
+//     add_theme_support( 'wc-product-gallery-zoom' );
+//     add_theme_support( 'wc-product-gallery-lightbox' );
+//     add_theme_support( 'wc-product-gallery-slider' );
+// });
 
 ?>
