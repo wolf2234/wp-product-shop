@@ -54,12 +54,29 @@ if (!empty($gallery_image_ids)) {
         <?php endforeach; ?> 
     </div>
     <!-- If we need pagination -->
-    <div class="swiper-pagination"></div>
+    <!-- <div class="swiper-pagination"></div> -->
     <!-- If we need navigation buttons -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+    <!-- <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div> -->
     <!-- If we need scrollbar -->
-    <div class="swiper-scrollbar"></div>
+    <!-- <div class="swiper-scrollbar"></div> -->
+</div>
+
+<div class="mini-swiper">
+    <div class="mini-swiper-wrapper swiper-wrapper">
+        <?php foreach ($image_ids as $image_id): ?>
+            <div class="mini-swiper-slide swiper-slide">
+                <?php
+                    echo wp_get_attachment_image(
+                        $image_id,
+                        'thumbnail',
+                        false,
+                        ['class' => 'mini-product-img']
+                    );
+                ?>
+            </div>
+        <?php endforeach; ?> 
+    </div>
 </div>
 
 
