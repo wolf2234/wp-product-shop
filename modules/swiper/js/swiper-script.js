@@ -2,8 +2,9 @@ document.addEventListener("DOMContentLoaded", function () {
     new Swiper(".swiper", {
         direction: "vertical",
         slidesPerView: 1,
-        spaceBetween: 10,
+        spaceBetween: 15,
         mousewheel: true,
+        autoHeight: true,
         // If we need pagination
         // pagination: {
         //     el: ".swiper-pagination",

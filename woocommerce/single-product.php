@@ -36,46 +36,54 @@ if (!empty($gallery_image_ids)) {
     $image_ids = array_merge($image_ids, $gallery_image_ids);
 } 
 ?>
-<div class="swiper">
-    <!-- Additional required wrapper -->
-    <div class="swiper-wrapper">
-        <!-- Slides -->
-        <?php foreach ($image_ids as $image_id): ?>
-            <div class="swiper-slide">
-                <?php
-                    echo wp_get_attachment_image(
-                        $image_id,
-                        'medium',
-                        false,
-                        ['class' => 'product-img']
-                    );
-                ?>
-            </div>
-        <?php endforeach; ?> 
-    </div>
-    <!-- If we need pagination -->
-    <!-- <div class="swiper-pagination"></div> -->
-    <!-- If we need navigation buttons -->
-    <!-- <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div> -->
-    <!-- If we need scrollbar -->
-    <!-- <div class="swiper-scrollbar"></div> -->
-</div>
 
-<div class="mini-swiper">
-    <div class="mini-swiper-wrapper swiper-wrapper">
-        <?php foreach ($image_ids as $image_id): ?>
-            <div class="mini-swiper-slide swiper-slide">
-                <?php
-                    echo wp_get_attachment_image(
-                        $image_id,
-                        'thumbnail',
-                        false,
-                        ['class' => 'mini-product-img']
-                    );
-                ?>
-            </div>
-        <?php endforeach; ?> 
+
+
+<div class="slider-wrapper">
+    <div class="mini-swiper">
+        <div class="mini-swiper-wrapper swiper-wrapper">
+            <?php foreach ($image_ids as $image_id): ?>
+                <div class="mini-swiper-slide swiper-slide">
+                    <div class="image-wrapper">
+                        <?php
+                            echo wp_get_attachment_image(
+                                $image_id,
+                                'thumbnail',
+                                false,
+                                ['class' => 'mini-product-img']
+                            );
+                        ?>
+                    </div>
+                </div>
+            <?php endforeach; ?> 
+        </div>
+    </div>
+    <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <?php foreach ($image_ids as $image_id): ?>
+                <div class="swiper-slide">
+                    <div class="image-wrapper">
+                        <?php
+                            echo wp_get_attachment_image(
+                                $image_id,
+                                'large',
+                                false,
+                                ['class' => 'product-img']
+                            );
+                        ?>
+                    </div>
+                </div>
+            <?php endforeach; ?> 
+        </div>
+        <!-- If we need pagination -->
+        <!-- <div class="swiper-pagination"></div> -->
+        <!-- If we need navigation buttons -->
+        <!-- <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div> -->
+        <!-- If we need scrollbar -->
+        <!-- <div class="swiper-scrollbar"></div> -->
     </div>
 </div>
 
