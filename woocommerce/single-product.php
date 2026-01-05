@@ -2,30 +2,21 @@
 defined('ABSPATH') || exit;
 get_header();
 
-
 global $product;
 
 if ( ! $product || ! is_a( $product, 'WC_Product' ) ) {
     $product = wc_get_product( get_the_ID() );
 }
 ?>
-<?php echo $product->get_image('large'); ?>
-<h1><?php echo $product->get_name(); ?></h1>
-<div class="price">
-    <?php echo $product->get_price_html(); ?>
-</div>
 <div class="description">
     <?php the_content(); ?>
 </div>
-<div class="short-description">
-    <?php echo $product->get_short_description(); ?>
-</div>
-<?php woocommerce_template_single_add_to_cart(); ?>
 
 
 
 <?php
-global $product;
+$regular_price = $product->get_regular_price();
+$sale_price    = $product->get_sale_price();
 $main_image_id = $product->get_image_id();
 $gallery_image_ids = $product->get_gallery_image_ids();
 $image_ids = [];
@@ -39,8 +30,8 @@ if (!empty($gallery_image_ids)) {
 
 
 
-<div style="">
-    <div class="cart-product">
+<div class="cart-product container-large">
+    <div class="cart-product__images">
         <div class="mini-swiper">
             <div class="mini-swiper-wrapper swiper-wrapper">
                 <?php foreach ($image_ids as $image_id): ?>
@@ -86,6 +77,28 @@ if (!empty($gallery_image_ids)) {
             <!-- If we need scrollbar -->
             <!-- <div class="swiper-scrollbar"></div> -->
         </div>
+    </div>
+    <div class="cart-product__info">
+        <h2 class="title cart-product__title"><?php echo $product->get_name(); ?></h2>
+        <div class="stars">Stars</div>
+        <div class="cart-product__price">
+                    <?php if ( $product->is_on_sale() ) : ?>
+                        <span class="price">
+                            <?php echo wc_price( $sale_price ); ?>
+                        </span>
+                        <span class="price cart-product__price_regular">
+                            <?php echo wc_price( $regular_price ); ?>
+                        </span>
+                    <?php else : ?>
+                        <span class="price cart-product__price_regular">
+                            <?php echo wc_price( $regular_price ); ?>
+                        </span>
+                    <?php endif; ?>
+        </div>
+        <div class="cart-product__short-description">
+            <?php echo $product->get_short_description(); ?>
+        </div>
+        <div class="cart-product__add-cart"><?php woocommerce_template_single_add_to_cart(); ?></div>
     </div>
 </div>
 
