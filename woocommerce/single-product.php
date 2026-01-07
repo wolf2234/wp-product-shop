@@ -103,5 +103,22 @@ if (!empty($gallery_image_ids)) {
 </div>
 
 
+<?php
+$terms = wc_get_product_terms(
+    $product->get_id(),
+    'pa_color'
+);
+?>
+<div class="product-colors">
+    <?php foreach ($terms as $term): ?>
+        <label class="color-radio" style="">
+        <input type="radio"
+                name="attribute_pa_color"
+                value="<?php echo esc_attr($term->slug); ?>">
+        <span class="color-circle"></span>
+        </label>
+    <?php endforeach; ?>
+</div>
+
 
 <?php get_footer(); ?>

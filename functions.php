@@ -63,4 +63,9 @@ function theme_add_woocommerce_support() {
 //     add_theme_support( 'wc-product-gallery-slider' );
 // });
 
+// remove_action(
+//     'woocommerce_single_variation',
+//     20
+// );
+
 ?>
