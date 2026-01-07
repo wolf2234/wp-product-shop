@@ -7,14 +7,15 @@ global $product;
 if ( ! $product || ! is_a( $product, 'WC_Product' ) ) {
     $product = wc_get_product( get_the_ID() );
 }
-?>
-<div class="description">
-    <?php the_content(); ?>
-</div>
 
-
-
-<?php
+$colors = wc_get_product_terms(
+    $product->get_id(),
+    'pa_color'
+);
+$sizes = wc_get_product_terms(
+    $product->get_id(),
+    'pa_size'
+);
 $regular_price = $product->get_regular_price();
 $sale_price    = $product->get_sale_price();
 $main_image_id = $product->get_image_id();
@@ -27,7 +28,9 @@ if (!empty($gallery_image_ids)) {
     $image_ids = array_merge($image_ids, $gallery_image_ids);
 } 
 ?>
-
+<!-- <div class="description">
+    <?php the_content(); ?>
+</div> -->
 
 
 <div class="cart-product container-large">
@@ -98,27 +101,32 @@ if (!empty($gallery_image_ids)) {
         <div class="cart-product__short-description">
             <?php echo $product->get_short_description(); ?>
         </div>
+        <div class="cart-product__colors">
+            <h3 class="sub-title">Select Colors</h3>
+            <div class="colors">
+                <?php foreach ($colors as $color): ?>
+                    <label class="color-radio">
+                    <input type="radio"
+                            name="attribute_pa_color"
+                            value="<?php echo esc_attr($color->description); ?>">
+                    <span class="color-circle"
+                    style="background-color: <?php echo esc_attr($color->description); ?>"></span>
+                    </label>
+                <?php endforeach; ?>
+            </div>
+        </div>
+        <div class="cart-product__sizes">
+            <h3 class="sub-title">Choose Size</h3>
+            <div class="sizes">
+                <?php foreach ($sizes as $size): ?>
+                    <span class="sizes__name"><?php echo esc_attr($size->name); ?></span>
+                <?php endforeach; ?>
+            </div>
+        </div>
         <div class="cart-product__add-cart"><?php woocommerce_template_single_add_to_cart(); ?></div>
     </div>
 </div>
 
-
-<?php
-$terms = wc_get_product_terms(
-    $product->get_id(),
-    'pa_color'
-);
-?>
-<div class="product-colors">
-    <?php foreach ($terms as $term): ?>
-        <label class="color-radio" style="">
-        <input type="radio"
-                name="attribute_pa_color"
-                value="<?php echo esc_attr($term->slug); ?>">
-        <span class="color-circle"></span>
-        </label>
-    <?php endforeach; ?>
-</div>
 
 
 <?php get_footer(); ?>

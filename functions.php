@@ -47,6 +47,7 @@ function product_shop_scripts() {
     wp_enqueue_script('swiper-script-js', get_template_directory_uri() . '/modules/swiper/js/swiper-script.js', array('jquery'), null, true);
     wp_enqueue_script( 'view-all', get_template_directory_uri() . '/assets/js/view-all.js', array('jquery'), null, true);
     wp_enqueue_script( 'quantity-input', get_template_directory_uri() . '/assets/js/quantity-input.js', array('jquery'), null, true);
+    wp_enqueue_script( 'cart-product', get_template_directory_uri() . '/assets/js/cart-product.js', array('jquery'), null, true);
     wp_enqueue_script( 'scripts', get_template_directory_uri() . '/assets/js/scripts.js', array('jquery'), null, true);
 }
 
@@ -63,9 +64,9 @@ function theme_add_woocommerce_support() {
 //     add_theme_support( 'wc-product-gallery-slider' );
 // });
 
-// remove_action(
-//     'woocommerce_single_variation',
-//     20
-// );
+remove_action(
+    'woocommerce_single_variation',
+    20
+);
 
 ?>
