@@ -1,11 +1,23 @@
 document.addEventListener("DOMContentLoaded", function () {
-    let sizes = document.querySelectorAll(".sizes__name");
-    sizes.forEach((size) => {
-        size.addEventListener("click", function () {
-            sizes.forEach((size) => {
-                size.classList.remove("active");
-            });
-            size.classList.add("active");
+    let colors = document.querySelectorAll(".color-radio");
+    colors.forEach((color) => {
+        color.addEventListener("click", function (c) {
+            chooseOptions(colors, color);
         });
     });
+    let sizes = document.querySelectorAll(".size-radio");
+    sizes.forEach((size) => {
+        size.addEventListener("click", function (s) {
+            chooseOptions(sizes, size);
+        });
+    });
+
+    function chooseOptions(optionsList, optionSelected) {
+        optionsList.forEach((option) => {
+            option.classList.remove("active");
+            option.querySelector("input").setAttribute("checked", "false");
+        });
+        optionSelected.classList.add("active");
+        optionSelected.querySelector("input").setAttribute("checked", "true");
+    }
 });

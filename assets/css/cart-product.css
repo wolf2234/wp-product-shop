@@ -12,7 +12,8 @@
     /* height: 100%; */
 }
 
-.cart-product__info {
+.cart-product__info,
+.cart-column {
     display: flex;
     flex-direction: column;
     row-gap: 20px;
@@ -42,8 +43,8 @@
 }
 
 
-.cart-product__colors,
-.cart-product__sizes,
+.colors,
+.sizes,
 .cart-product__short-description,
 .cart-product__description {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -62,7 +63,7 @@
     max-width: 590px;
 }
 
-.cart-product__add-cart form {
+.cart-product__add-cart .cart-row {
     display: flex;
     align-items: center;
     column-gap: 20px;
@@ -152,46 +153,58 @@
 }
 
 
-.colors,
-.sizes {
+.colors__items,
+.sizes__items {
     display: flex;
     gap: 12px;
 }
 
-.sizes .sizes__name {
+
+.sizes__items .size-radio {
+    display: inline-block;
+    cursor: pointer;
+    padding: 12px 24px;
+    background-color: rgba(240, 240, 240, 1);
+    border-radius: 62px;
+}
+
+.sizes__items .sizes__name {
     cursor: pointer;
     color: rgba(0, 0, 0, 0.6);
-    border-radius: 62px;
     font-weight: 400;
     font-style: 'Regular';
     font-size: 16px;
-    padding: 12px 24px;
-    background-color: rgba(240, 240, 240, 1);
+    background-color: transparent;
 }
 
-.sizes .sizes__name.active {
+.sizes__items .size-radio.active,
+.sizes__items .size-radio.active .sizes__name {
     color: #fff;
     background-color: #000;
 }
 
-.cart-product__colors .color-radio {
+.colors .color-radio {
     position: relative;
     cursor: pointer;
+    width: 37px;
+    height: 37px;
 }
 
-.cart-product__colors .color-radio input {
+/* .colors .color-radio input {
     display: none;
-}
+} */
 
-.cart-product__colors .color-circle {
+.colors .color-circle {
     display: inline-block;
     width: 37px;
     height: 37px;
     border-radius: 50%;
+    width: 100%;
+    height: 100%;
     /* background-color: rgba(49, 79, 74, 1); */
 }
 
-.cart-product__colors .color-radio input:checked+.color-circle {
+.colors .color-radio input:checked+.color-circle {
     background-image: url('../img/Arrow-down.svg');
     background-repeat: no-repeat;
     background-position: center;
