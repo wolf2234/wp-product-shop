@@ -62,42 +62,58 @@ function theme_add_woocommerce_support() {
     add_theme_support( 'woocommerce' );
 }
 
-// add_action( 'after_setup_theme', function() {
-//     add_theme_support( 'wc-product-gallery-zoom' );
-//     add_theme_support( 'wc-product-gallery-lightbox' );
-//     add_theme_support( 'wc-product-gallery-slider' );
-// });
 
 remove_action(
     'woocommerce_single_variation',
     20
 );
 
+add_action( 'comment_post', function ( $comment_id ) {
+    if ( isset($_POST['rating']) ) {
+        update_comment_meta(
+            $comment_id,
+            'rating_half',
+            floatval($_POST['rating'])
+        );
+    }
+});
 
-// add_action( 'wp_enqueue_scripts', function () {
-//     wp_dequeue_script('wc-single-product');
-// });
+
+function get_product_average_rating_half( $product_id ) {
+    $comments = get_comments( [
+        'post_id' => $product_id,
+        'status'  => 'approve',
+        'meta_key'=> 'rating_half',
+    ] );
+
+    if ( empty( $comments ) ) {
+        return 0;
+    }
+
+    $sum = 0;
+    $count = 0;
+
+    foreach ( $comments as $comment ) {
+        $rating = floatval(
+            get_comment_meta( $comment->comment_ID, 'rating_half', true )
+        );
+
+        if ( $rating > 0 ) {
+            $sum += $rating;
+            $count++;
+        }
+    }
+
+    if ( ! $count ) {
+        return 0;
+    }
+
+    $average = $sum / $count;
+
+    return ceil( $average * 2 ) / 2;
+}
 
 
-// add_filter(
-//     'woocommerce_product_review_comment_form_args',
-//     function ($args) {
 
-//         $args['comment_field'] =
-//         '<p class="comment-form-rating custom-rating">
-//             <label>Your rating <span class="required">*</span></label>
-
-//             <div class="stars">
-//                 <input type="radio" name="rating" value="5" id="star5"><label for="star5">★</label>
-//                 <input type="radio" name="rating" value="4" id="star4"><label for="star4">★</label>
-//                 <input type="radio" name="rating" value="3" id="star3"><label for="star3">★</label>
-//                 <input type="radio" name="rating" value="2" id="star2"><label for="star2">★</label>
-//                 <input type="radio" name="rating" value="1" id="star1"><label for="star1">★</label>
-//             </div>
-//         </p>' . $args['comment_field'];
-
-//         return $args;
-//     }
-// );
 
 ?>

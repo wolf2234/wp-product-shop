@@ -9,6 +9,7 @@ if ( ! $product || ! is_a( $product, 'WC_Product' ) ) {
     $product = wc_get_product( get_the_ID() );
 }
 
+$avg_rating = get_product_average_rating_half( $product->get_id() );
 $regular_price = $product->get_regular_price();
 $sale_price    = $product->get_sale_price();
 $main_image_id = $product->get_image_id();
@@ -24,7 +25,6 @@ if (!empty($gallery_image_ids)) {
 <!-- <div class="description">
     <?php the_content(); ?>
 </div> -->
-
 
 <div class="cart-product container-large">
     <div class="cart-product__images">
@@ -77,7 +77,19 @@ if (!empty($gallery_image_ids)) {
     <div class="cart-product__info">
         <h2 class="title cart-product__title"><?php echo $product->get_name(); ?></h2>
         <div class="stars">
-            Stars
+            <?php 
+                $avg_rating = get_product_average_rating_half( $product->get_id() );
+            ?>
+            <div class="review-rating">
+                <div
+                    class="rating-stars-display"
+                    style="--rating: <?php echo esc_attr( $avg_rating ); ?>;"
+                    aria-label="Rating <?php echo esc_attr( $avg_rating ); ?> out of 5"
+                >
+                    ★★★★★
+                </div>
+                <span class="review-rating__count"><?php echo $avg_rating; ?>/<span>5</span></span>
+        </div>
         </div>
         <div class="cart-product__price">
                     <?php if ( $product->is_on_sale() ) : ?>
@@ -101,25 +113,34 @@ if (!empty($gallery_image_ids)) {
 </div>
 
 
-<p><?php echo $product->get_id(); ?></p>
-<div>
-    <?php echo floatval( $product->get_average_rating() ); ?>
-</div>
-
-
 <form action="<?php echo site_url('/wp-comments-post.php'); ?>" method="post" id="commentform" class="comment-form">
     <div class="comment-form-rating">
-        <div class="rating-stars">
-            <input type="radio" name="rating_radio" id="star5" value="5" hidden>
-            <label for="star5" title="5 stars">★</label>
-            <input type="radio" name="rating_radio" id="star4" value="4" hidden>
-            <label for="star4" title="4 stars">★</label>
-            <input type="radio" name="rating_radio" id="star3" value="3" hidden>
-            <label for="star3" title="3 stars">★</label>
-            <input type="radio" name="rating_radio" id="star2" value="2" hidden>
-            <label for="star2" title="2 stars">★</label>
-            <input type="radio" name="rating_radio" id="star1" value="1" hidden>
-            <label for="star1" title="1 star">★</label>
+        <div class="rating-stars" data-rating="0">
+            <span class="star" data-value="1">
+                <span class="half left" data-value="0.5"></span>
+                <span class="half right" data-value="1"></span>
+                ★
+            </span>
+            <span class="star" data-value="2">
+                <span class="half left" data-value="1.5"></span>
+                <span class="half right" data-value="2"></span>
+                ★
+            </span>
+            <span class="star" data-value="3">
+                <span class="half left" data-value="2.5"></span>
+                <span class="half right" data-value="3"></span>
+                ★
+            </span>
+            <span class="star" data-value="4">
+                <span class="half left" data-value="3.5"></span>
+                <span class="half right" data-value="4"></span>
+                ★
+            </span>
+            <span class="star" data-value="5">
+                <span class="half left" data-value="4.5"></span>
+                <span class="half right" data-value="5"></span>
+                ★
+            </span>
         </div>
         <input type="hidden" name="rating" id="rating" value="0">
     </div>
@@ -143,15 +164,13 @@ $comments = get_comments( array(
     'status'  => 'approve',
 ) );
 foreach ( $comments as $comment ) :
-    $rating = floatval( get_comment_meta( $comment->comment_ID, 'rating', true ));
+    $rating = floatval(
+        get_comment_meta( $comment->comment_ID, 'rating_half', true )
+    );
 ?>
     <div class="review">
         <strong><?php echo esc_html( $comment->comment_author ); ?></strong>
         <p><?php echo esc_html( $comment->comment_content ); ?></p>
-        <div class="review-rating">
-            Rating: <?php echo esc_html( $rating ); ?>/5
-            Rating: <?php echo $rating ?>/5
-        </div>
         <div class="review-rating">
             <div
                 class="rating-stars-display"

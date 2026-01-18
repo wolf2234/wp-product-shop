@@ -1,11 +1,29 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const radios = document.querySelectorAll(
-        '.rating-stars input[type="radio"]',
-    );
-    const hiddenRating = document.getElementById("rating");
-    radios.forEach((radio) => {
-        radio.addEventListener("change", function () {
-            hiddenRating.value = this.value;
-        });
+    const ratingBlock = document.querySelector(".rating-stars");
+    const stars = ratingBlock.querySelectorAll(".star");
+    const hiddenInput = document.getElementById("rating");
+
+    ratingBlock.addEventListener("click", function (e) {
+        const half = e.target.closest(".half");
+        if (!half) return;
+
+        const value = parseFloat(half.dataset.value);
+        hiddenInput.value = value;
+
+        paintStars(value);
     });
+
+    function paintStars(value) {
+        stars.forEach((star, index) => {
+            const starNumber = index + 1;
+
+            star.classList.remove("filled", "half-filled");
+
+            if (value >= starNumber) {
+                star.classList.add("filled");
+            } else if (value >= starNumber - 0.5) {
+                star.classList.add("half-filled");
+            }
+        });
+    }
 });

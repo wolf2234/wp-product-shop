@@ -1,37 +1,72 @@
+.comment-form-rating p.stars {
+    display: none;
+}
+
 .rating-stars {
     display: inline-flex;
-    flex-direction: row-reverse;
-    justify-content: flex-start;
-}
-
-/* .rating-stars input {
-    display: none;
-} */
-
-.rating-stars label {
+    gap: 6px;
     font-size: 32px;
-    color: #ccc;
     cursor: pointer;
-    transition: color 0.2s ease;
 }
 
-/* При наведении */
-.rating-stars label:hover,
-.rating-stars label:hover~label {
+.star {
+    position: relative;
+    color: #ccc;
+}
+
+.star .half {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 2;
+}
+
+.star .half.left {
+    left: 0;
+}
+
+.star .half.right {
+    right: 0;
+}
+
+.star.filled {
     color: rgba(255, 198, 51, 1);
 }
 
-/* При выборе */
-.rating-stars input:checked~label {
-    color: rgba(255, 198, 51, 1);
+/* половинка */
+.star.half-filled {
+    background: linear-gradient(90deg,
+            rgba(255, 198, 51, 1) 50%,
+            #ccc 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 
+.review-rating {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.review-rating__count,
+.review-rating__count span {
+    font-weight: 400;
+    font-style: 'Regular';
+    font-size: 16px;
+    letter-spacing: 0%;
+    color: rgba(0, 0, 0, 1);
+}
+
+.review-rating__count span {
+    color: rgba(0, 0, 0, 0.6);
+}
 
 .rating-stars-display {
     position: relative;
     display: inline-block;
-    font-size: 24px;
+    font-size: 25px;
     line-height: 1;
     color: #ddd;
     --rating: 0;
