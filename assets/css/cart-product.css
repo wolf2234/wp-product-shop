@@ -1,3 +1,23 @@
+.cart-wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    align-items: center;
+}
+
+.cart-wrapper__comments {
+    width: 100%;
+    max-width: 1245px;
+}
+
+.cart-wrapper__comments.comments {
+    row-gap: 30px;
+}
+
+.cart-wrapper__comments .comment {
+    max-width: 605px;
+}
+
 .cart-product {
     display: flex;
     column-gap: 35px;
