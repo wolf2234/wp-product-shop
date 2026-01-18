@@ -4,6 +4,7 @@ get_header();
 
 global $product;
 
+
 if ( ! $product || ! is_a( $product, 'WC_Product' ) ) {
     $product = wc_get_product( get_the_ID() );
 }
@@ -75,7 +76,9 @@ if (!empty($gallery_image_ids)) {
     </div>
     <div class="cart-product__info">
         <h2 class="title cart-product__title"><?php echo $product->get_name(); ?></h2>
-        <div class="stars">Stars</div>
+        <div class="stars">
+            Stars
+        </div>
         <div class="cart-product__price">
                     <?php if ( $product->is_on_sale() ) : ?>
                         <span class="price">
@@ -98,5 +101,67 @@ if (!empty($gallery_image_ids)) {
 </div>
 
 
+<p><?php echo $product->get_id(); ?></p>
+<div>
+    <?php echo floatval( $product->get_average_rating() ); ?>
+</div>
+
+
+<form action="<?php echo site_url('/wp-comments-post.php'); ?>" method="post" id="commentform" class="comment-form">
+    <div class="comment-form-rating">
+        <div class="rating-stars">
+            <input type="radio" name="rating_radio" id="star5" value="5" hidden>
+            <label for="star5" title="5 stars">★</label>
+            <input type="radio" name="rating_radio" id="star4" value="4" hidden>
+            <label for="star4" title="4 stars">★</label>
+            <input type="radio" name="rating_radio" id="star3" value="3" hidden>
+            <label for="star3" title="3 stars">★</label>
+            <input type="radio" name="rating_radio" id="star2" value="2" hidden>
+            <label for="star2" title="2 stars">★</label>
+            <input type="radio" name="rating_radio" id="star1" value="1" hidden>
+            <label for="star1" title="1 star">★</label>
+        </div>
+        <input type="hidden" name="rating" id="rating" value="0">
+    </div>
+    <p class="comment-form-comment">
+        <label for="comment">
+            Your review&nbsp;<span class="required">*</span>
+        </label>
+        <textarea id="comment" name="comment" cols="45" rows="8" required=""></textarea>
+    </p>
+    <p class="form-submit">
+        <input name="submit" type="submit" id="submit" class="submit" value="Submit">
+        <input type="hidden" name="comment_post_ID" value="<?php echo $product->get_id(); ?>" id="comment_post_ID">
+        <input type="hidden" name="comment_parent" id="comment_parent" value="0">
+    </p>
+    <?php wp_nonce_field('comment_nonce', '_wp_unfiltered_html_comment'); ?>
+</form>
+
+<?php
+$comments = get_comments( array(
+    'post_id' => get_the_ID(),
+    'status'  => 'approve',
+) );
+foreach ( $comments as $comment ) :
+    $rating = floatval( get_comment_meta( $comment->comment_ID, 'rating', true ));
+?>
+    <div class="review">
+        <strong><?php echo esc_html( $comment->comment_author ); ?></strong>
+        <p><?php echo esc_html( $comment->comment_content ); ?></p>
+        <div class="review-rating">
+            Rating: <?php echo esc_html( $rating ); ?>/5
+            Rating: <?php echo $rating ?>/5
+        </div>
+        <div class="review-rating">
+            <div
+                class="rating-stars-display"
+                style="--rating: <?php echo esc_attr( $rating ); ?>;"
+                aria-label="Rating <?php echo esc_attr( $rating ); ?> out of 5"
+            >
+                ★★★★★
+            </div>
+        </div>
+    </div>
+<?php endforeach; ?>
 
 <?php get_footer(); ?>

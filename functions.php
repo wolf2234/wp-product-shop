@@ -3,6 +3,7 @@ add_action('wp_enqueue_scripts', 'product_shop_styles');
 add_action('wp_enqueue_scripts', 'product_shop_scripts');
 add_action('after_setup_theme', 'product_shop_nav_menu');
 
+
 function product_shop_nav_menu() {
     register_nav_menu( 'top', 'menu in header' );
     register_nav_menu( 'bottom', 'menu in footer' );
@@ -33,12 +34,14 @@ function product_shop_styles() {
     wp_enqueue_style('happy-customers-style', get_template_directory_uri() . '/assets/css/happy-customers.css');
     wp_enqueue_style('comment-style', get_template_directory_uri() . '/assets/css/comment.css');
     wp_enqueue_style('cart-product-style', get_template_directory_uri() . '/assets/css/cart-product.css');
+    wp_enqueue_style('stars-style', get_template_directory_uri() . '/assets/css/stars.css');
 }
 
 function product_shop_scripts() {
     wp_deregister_script( 'jquery' );
     wp_register_script( 'jquery', "https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js");
     wp_enqueue_script( 'jquery' );
+    wp_enqueue_script('comment-reply');
     wp_enqueue_script( 'slick-slider', get_template_directory_uri() . '/assets/js/slick.min.js', array('jquery'), null, true);
     wp_enqueue_script( 'slider-jquery', get_template_directory_uri() . '/assets/js/slider_jquery.js', array('jquery'), null, true);
     wp_enqueue_script( 'bootstrap-min-js', get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js', array('jquery'), null, true);
@@ -48,6 +51,7 @@ function product_shop_scripts() {
     wp_enqueue_script( 'view-all', get_template_directory_uri() . '/assets/js/view-all.js', array('jquery'), null, true);
     wp_enqueue_script( 'quantity-input', get_template_directory_uri() . '/assets/js/quantity-input.js', array('jquery'), null, true);
     wp_enqueue_script( 'cart-product', get_template_directory_uri() . '/assets/js/cart-product.js', array('jquery'), null, true);
+    wp_enqueue_script( 'stars', get_template_directory_uri() . '/assets/js/stars.js', array('jquery'), null, true);
     wp_enqueue_script( 'scripts', get_template_directory_uri() . '/assets/js/scripts.js', array('jquery'), null, true);
 }
 
@@ -68,5 +72,32 @@ remove_action(
     'woocommerce_single_variation',
     20
 );
+
+
+// add_action( 'wp_enqueue_scripts', function () {
+//     wp_dequeue_script('wc-single-product');
+// });
+
+
+// add_filter(
+//     'woocommerce_product_review_comment_form_args',
+//     function ($args) {
+
+//         $args['comment_field'] =
+//         '<p class="comment-form-rating custom-rating">
+//             <label>Your rating <span class="required">*</span></label>
+
+//             <div class="stars">
+//                 <input type="radio" name="rating" value="5" id="star5"><label for="star5">★</label>
+//                 <input type="radio" name="rating" value="4" id="star4"><label for="star4">★</label>
+//                 <input type="radio" name="rating" value="3" id="star3"><label for="star3">★</label>
+//                 <input type="radio" name="rating" value="2" id="star2"><label for="star2">★</label>
+//                 <input type="radio" name="rating" value="1" id="star1"><label for="star1">★</label>
+//             </div>
+//         </p>' . $args['comment_field'];
+
+//         return $args;
+//     }
+// );
 
 ?>
