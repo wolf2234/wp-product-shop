@@ -36,9 +36,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             }
         }
-        currentItems += currentItems;
-        if (currentItems >= elementList.length) {
-            buttonLoad.classList.add("hide");
-        }
+        // currentItems += currentItems;
+        // if (currentItems >= elementList.length) {
+        buttonLoad.classList.add("hide");
+        // }
     }
 });

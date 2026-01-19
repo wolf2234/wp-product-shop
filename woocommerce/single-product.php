@@ -90,21 +90,21 @@ if (!empty($gallery_image_ids)) {
                         ★★★★★
                     </div>
                     <span class="review-rating__count"><?php echo $avg_rating; ?>/<span>5</span></span>
-            </div>
+                </div>
             </div>
             <div class="cart-product__price">
-                        <?php if ( $product->is_on_sale() ) : ?>
-                            <span class="price">
-                                <?php echo wc_price( $sale_price ); ?>
-                            </span>
-                            <span class="price cart-product__price_regular">
-                                <?php echo wc_price( $regular_price ); ?>
-                            </span>
-                        <?php else : ?>
-                            <span class="price cart-product__price_regular">
-                                <?php echo wc_price( $regular_price ); ?>
-                            </span>
-                        <?php endif; ?>
+                <?php if ( $product->is_on_sale() ) : ?>
+                    <span class="price cart-product__price_sale">
+                        <?php echo wc_price( $sale_price ); ?>
+                    </span>
+                    <span class="price cart-product__price_regular">
+                        <?php echo wc_price( $regular_price ); ?>
+                    </span>
+                <?php else : ?>
+                    <span class="price cart-product__price_regular">
+                        <?php echo wc_price( $regular_price ); ?>
+                    </span>
+                <?php endif; ?>
             </div>
             <div class="cart-product__short-description">
                 <?php echo $product->get_short_description(); ?>

@@ -1,0 +1,15 @@
+.price {
+    /* font-weight: 700;
+    font-style: Bold;
+    font-size: 32px;
+    letter-spacing: 0%; */
+    color: #000;
+}
+
+
+.__price_sale {}
+
+.__price_regular {
+    color: #b4b4b4;
+    text-decoration: line-through;
+}

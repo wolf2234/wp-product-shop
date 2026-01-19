@@ -34,6 +34,7 @@ function product_shop_styles() {
     wp_enqueue_style('happy-customers-style', get_template_directory_uri() . '/assets/css/happy-customers.css');
     wp_enqueue_style('comment-style', get_template_directory_uri() . '/assets/css/comment.css');
     wp_enqueue_style('cart-product-style', get_template_directory_uri() . '/assets/css/cart-product.css');
+    wp_enqueue_style('price-style', get_template_directory_uri() . '/assets/css/price.css');
     wp_enqueue_style('stars-style', get_template_directory_uri() . '/assets/css/stars.css');
 }
 

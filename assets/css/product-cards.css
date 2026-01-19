@@ -14,6 +14,7 @@
     flex-basis: 23.3333%;
     row-gap: 15px;
     border-radius: 4px;
+    text-decoration: none;
 }
 
 
@@ -28,9 +29,14 @@
     justify-content: center;
     background-color: #F5F5F5;
     padding: 40px 50px;
+    /* max-width: 450px;
+    max-height: 256px; */
 }
 
-.product-cards__img {}
+.product-cards__image img {
+    width: 190px;
+    height: 180px;
+}
 
 .product-cards__icons {
     position: absolute;
@@ -96,9 +102,22 @@
 }
 
 .product-cards__price {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.product-cards__price span {
     color: #DB4444;
 }
 
-.product-cards__currency {}
+.product-cards__regular-price span {
+    color: #b4b4b4;
+    text-decoration: line-through;
+}
+
+.product-cards__sale-price span {
+    color: #DB4444;
+}
 
 .product-cards__stars {}
