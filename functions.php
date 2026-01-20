@@ -110,8 +110,11 @@ function get_product_average_rating_half( $product_id ) {
     }
 
     $average = $sum / $count;
+    $rounded = ceil( $average * 2 ) / 2;
 
-    return ceil( $average * 2 ) / 2;
+    update_post_meta( $product_id, 'rating_half', $rounded );
+
+    return $rounded;
 }
 
 
