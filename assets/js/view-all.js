@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
         });
+
         if (buttonLoad) {
             buttonLoad.addEventListener("click", function (btn) {
                 let parent = btn.target.closest("[data-parent-of-view-all]");
@@ -20,25 +21,32 @@ document.addEventListener("DOMContentLoaded", function () {
                 elements.forEach(function (element) {
                     showPosts(element, parent);
                 });
+                console.log("click Viw All");
             });
         }
     });
 
     function showPosts(post, parent) {
         let currentItems = parseInt(post.getAttribute("data-count"));
-        // let postLength = post.querySelectorAll("[data-items-item]").length;
-        let buttonLoad = parent.querySelector("[view-all-btn]");
-        let elementList = [...post.querySelectorAll("[data-items-item]")];
-        for (let i = currentItems; i <= elementList.length; i++) {
-            if (elementList[i]) {
-                setTimeout(function () {
-                    elementList[i].style.display = "flex";
-                });
+        let items = post.querySelectorAll("[data-items-item]");
+        let button = parent.querySelector("[view-all-btn]");
+        let step = parseInt(post.getAttribute("data-step"));
+        console.log(step);
+        // сколько показываем за клик
+
+        // показываем следующие 2 элемента
+        for (let i = currentItems; i < currentItems + step; i++) {
+            if (items[i]) {
+                items[i].style.display = "flex";
             }
         }
-        // currentItems += currentItems;
-        // if (currentItems >= elementList.length) {
-        buttonLoad.classList.add("hide");
-        // }
+
+        // увеличиваем счётчик НА 2
+        currentItems += step;
+        post.setAttribute("data-count", currentItems);
+        // если всё показано — скрываем кнопку
+        if (currentItems >= items.length) {
+            button.classList.add("hide");
+        }
     }
 });

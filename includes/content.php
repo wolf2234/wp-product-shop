@@ -92,7 +92,7 @@
                                 $loop = new WP_Query($args);
 
                                 if ($loop->have_posts()) :
-                                    echo '<div class="product-cards" data-items-wrapper="" data-count="4">';
+                                    echo '<div class="product-cards" data-items-wrapper="" data-step="2" data-count="4">';
                                     while ($loop->have_posts()) : $loop->the_post();
                                         global $product;
                                         $regular_price = $product->get_regular_price();
@@ -163,7 +163,7 @@
                                 $loop = new WP_Query($args);
 
                                 if ($loop->have_posts()) :
-                                    echo '<div class="product-cards" data-items-wrapper="" data-count="4">';
+                                    echo '<div class="product-cards" data-items-wrapper="" data-step="2" data-count="4">';
                                     while ($loop->have_posts()) : $loop->the_post();
                                         global $product;
                                         $regular_price = $product->get_regular_price();
@@ -234,7 +234,7 @@
                                 $loop = new WP_Query($args);
 
                                 if ($loop->have_posts()) :
-                                    echo '<div class="product-cards" data-items-wrapper="" data-count="4">';
+                                    echo '<div class="product-cards" data-items-wrapper="" data-step="2" data-count="4">';
                                     while ($loop->have_posts()) : $loop->the_post();
                                         global $product;
                                         $regular_price = $product->get_regular_price();
@@ -432,28 +432,29 @@
                         $args = [
                             'post_type'      => 'product',
                             'post_status'    => 'publish',
-                            'posts_per_page' => 8,
+                            // 'posts_per_page' => 8,
+                            'posts_per_page' => -1,
 
                             // 🔥 сортировка по кастомному рейтингу
-                            'meta_key'       => 'rating_half',
-                            'orderby'        => 'meta_value_num',
-                            'order'          => 'DESC',
+                            // 'meta_key'       => 'rating_half',
+                            // 'orderby'        => 'meta_value_num',
+                            // 'order'          => 'DESC',
 
                             // исключаем товары без рейтинга
-                            'meta_query' => [
-                                [
-                                    'key'     => 'rating_half',
-                                    'value'   => 0,
-                                    'compare' => '>',
-                                    'type'    => 'NUMERIC',
-                                ],
-                            ],
+                            // 'meta_query' => [
+                            //     [
+                            //         'key'     => 'rating_half',
+                            //         'value'   => 0,
+                            //         'compare' => '>',
+                            //         'type'    => 'NUMERIC',
+                            //     ],
+                            // ],
                         ];
 
                         $loop = new WP_Query($args);
 
                         if ($loop->have_posts()) :
-                            echo '<div class="product-cards" data-items-wrapper="" data-count="4">';
+                            echo '<div class="product-cards" data-items-wrapper="" data-step="2" data-count="2">';
                             while ($loop->have_posts()) : $loop->the_post();
                                 global $product;
                                 $regular_price = $product->get_regular_price();
@@ -573,7 +574,7 @@
                 <div class="goods__content">
                     <div class="slider-products">
                         <div class="slider-products__item">
-                            <div class="product-cards" data-items-wrapper="" data-count="8">
+                            <div class="product-cards" data-items-wrapper="" data-step="2" data-count="8">
                                 <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
@@ -937,7 +938,7 @@
                             </div>
                         </div>
                         <div class="slider-products__item">
-                            <div class="product-cards" data-items-wrapper="" data-count="8">
+                            <div class="product-cards" data-items-wrapper="" data-step="2" data-count="8">
                                 <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">
@@ -1133,7 +1134,7 @@
                             </div>
                         </div>
                         <div class="slider-products__item">
-                            <div class="product-cards" data-items-wrapper="" data-count="8">
+                            <div class="product-cards" data-items-wrapper="" data-step="2" data-count="8">
                                 <div class="product-cards__item" data-items-item="">
                                     <div class="product-cards__image">
                                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/product.png" class="product-cards__img" alt="Card Image">

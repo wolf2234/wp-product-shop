@@ -1,17 +1,21 @@
 document.addEventListener("DOMContentLoaded", function () {
     const ratingBlock = document.querySelector(".rating-stars");
-    const stars = ratingBlock.querySelectorAll(".star");
+    if (ratingBlock) {
+        const stars = ratingBlock.querySelectorAll(".star");
+    }
     const hiddenInput = document.getElementById("rating");
 
-    ratingBlock.addEventListener("click", function (e) {
-        const half = e.target.closest(".half");
-        if (!half) return;
+    if (ratingBlock) {
+        ratingBlock.addEventListener("click", function (e) {
+            const half = e.target.closest(".half");
+            if (!half) return;
 
-        const value = parseFloat(half.dataset.value);
-        hiddenInput.value = value;
+            const value = parseFloat(half.dataset.value);
+            hiddenInput.value = value;
 
-        paintStars(value);
-    });
+            paintStars(value);
+        });
+    }
 
     function paintStars(value) {
         stars.forEach((star, index) => {
