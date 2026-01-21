@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 elements.forEach(function (element) {
                     showPosts(element, parent);
                 });
-                console.log("click Viw All");
             });
         }
     });
@@ -31,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
         let items = post.querySelectorAll("[data-items-item]");
         let button = parent.querySelector("[view-all-btn]");
         let step = parseInt(post.getAttribute("data-step"));
-        console.log(step);
         // сколько показываем за клик
 
         // показываем следующие 2 элемента

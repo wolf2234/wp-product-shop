@@ -432,23 +432,23 @@
                         $args = [
                             'post_type'      => 'product',
                             'post_status'    => 'publish',
-                            // 'posts_per_page' => 8,
-                            'posts_per_page' => -1,
+                            'posts_per_page' => 8,
+                            // 'posts_per_page' => -1,
 
                             // 🔥 сортировка по кастомному рейтингу
-                            // 'meta_key'       => 'rating_half',
-                            // 'orderby'        => 'meta_value_num',
-                            // 'order'          => 'DESC',
+                            'meta_key'       => 'rating_half',
+                            'orderby'        => 'meta_value_num',
+                            'order'          => 'DESC',
 
                             // исключаем товары без рейтинга
-                            // 'meta_query' => [
-                            //     [
-                            //         'key'     => 'rating_half',
-                            //         'value'   => 0,
-                            //         'compare' => '>',
-                            //         'type'    => 'NUMERIC',
-                            //     ],
-                            // ],
+                            'meta_query' => [
+                                [
+                                    'key'     => 'rating_half',
+                                    'value'   => 0,
+                                    'compare' => '>',
+                                    'type'    => 'NUMERIC',
+                                ],
+                            ],
                         ];
 
                         $loop = new WP_Query($args);
