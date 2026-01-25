@@ -36,6 +36,7 @@ function product_shop_styles() {
     wp_enqueue_style('cart-product-style', get_template_directory_uri() . '/assets/css/cart-product.css');
     wp_enqueue_style('price-style', get_template_directory_uri() . '/assets/css/price.css');
     wp_enqueue_style('stars-style', get_template_directory_uri() . '/assets/css/stars.css');
+    wp_enqueue_style('burger-style', get_template_directory_uri() . '/assets/css/burger.css');
 }
 
 function product_shop_scripts() {
@@ -53,6 +54,7 @@ function product_shop_scripts() {
     wp_enqueue_script( 'quantity-input', get_template_directory_uri() . '/assets/js/quantity-input.js', array('jquery'), null, true);
     wp_enqueue_script( 'cart-product', get_template_directory_uri() . '/assets/js/cart-product.js', array('jquery'), null, true);
     wp_enqueue_script( 'stars', get_template_directory_uri() . '/assets/js/stars.js', array('jquery'), null, true);
+    wp_enqueue_script( 'burger', get_template_directory_uri() . '/assets/js/burger.js', array('jquery'), null, true);
     wp_enqueue_script( 'scripts', get_template_directory_uri() . '/assets/js/scripts.js', array('jquery'), null, true);
 }
 

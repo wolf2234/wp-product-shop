@@ -168,9 +168,15 @@
 
 .banner {
     width: 85%;
-    padding: 40px 0px 0px 40px;
+    padding: 70px 0px 0px 40px;
 }
 
 .slider {
     padding: 0px;
+}
+
+@media (max-width: 768px) {
+    .banner {
+        padding: 30px 0px 0px 40px;
+    }
 }

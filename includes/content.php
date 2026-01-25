@@ -432,7 +432,7 @@
                         $args = [
                             'post_type'      => 'product',
                             'post_status'    => 'publish',
-                            'posts_per_page' => 8,
+                            'posts_per_page' => 16,
                             // 'posts_per_page' => -1,
 
                             // 🔥 сортировка по кастомному рейтингу
@@ -454,7 +454,7 @@
                         $loop = new WP_Query($args);
 
                         if ($loop->have_posts()) :
-                            echo '<div class="product-cards" data-items-wrapper="" data-step="2" data-count="2">';
+                            echo '<div class="product-cards" data-items-wrapper="" data-step="4" data-count="4">';
                             while ($loop->have_posts()) : $loop->the_post();
                                 global $product;
                                 $regular_price = $product->get_regular_price();
@@ -1480,38 +1480,6 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="goods" data-parent-of-view-all="">
-            <div class="goods__body goods__body_padding-bottom">
-                <div class="goods__header">
-                    <div class="goods__info">
-                        <span class="subtitle goods__subtitle">Featured</span>
-                        <div class="goods__row">
-                            <h4 class="title goods__title">New Arrival</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="goods__content">
-                    <div class="grid-wrapper">
-                        <div class="grid-wrapper__left">
-                            <div class="grid-wrapper__info">
-                                <h4 class="grid-wrapper__title">PlayStation 5</h4>
-                                <p class="grid-wrapper__text">Black and White version of the PS5 coming out on sale.</p>
-                                <a href="#" class="grid-wrapper__btn">Shop Now</a>
-                            </div>
-                        </div>
-                        <div class="grid-wrapper__right">
-                            <div class="grid-wrapper__top">
-                                
-                            </div>
-                            <div class="grid-wrapper__bottom">
-                                <div class="grid-wrapper__item"></div>
-                                <div class="grid-wrapper__item"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
         <div class="happy-customers">
             <div class="happy-customers__body">
                 <div class="happy-customers__header">

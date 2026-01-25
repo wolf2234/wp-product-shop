@@ -1,5 +1,5 @@
 .filters {
-    padding: 40px 30px 0px 0px;
+    padding: 70px 30px 0px 0px;
     width: 15%;
     border-right: 1px solid rgba(0, 0, 0, 0.2);
 }
@@ -24,3 +24,9 @@
 }
 
 .filters__link img {}
+
+@media (max-width: 768px) {
+    .filters {
+        padding: 30px 30px 0px 0px;
+    }
+}

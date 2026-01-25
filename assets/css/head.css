@@ -1,15 +1,50 @@
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    padding: 6px 0px 10px;
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    /* box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); */
+    z-index: 2;
+}
+
 .head {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     column-gap: 40px;
     width: 100%;
+    z-index: 3;
 }
 
 
-.logo {}
+.logo {
+    position: relative;
+    z-index: 3;
+}
+
+.logo img {
+    max-width: 100%;
+    display: block;
+}
 
 .account-cart {
+    position: relative;
+    z-index: 3;
     display: flex;
     align-items: center;
     column-gap: 20px;
@@ -22,6 +57,7 @@
     align-items: center;
     padding: 0px 0px 0px 0px;
     width: 100%;
+    z-index: 2;
 }
 
 .search-icon {
@@ -39,3 +75,101 @@
     border-radius: 62px;
     color: rgba(0, 0, 0, 0.4);
 }
+
+@media (max-width: 1760px) {
+    .search {
+        width: 30%;
+    }
+
+    .head {
+        padding: 0px 150px;
+    }
+}
+
+@media (max-width: 1330px) {
+    .head {
+        padding: 0px 80px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .search img {
+        width: 16px;
+        height: 16px;
+    }
+
+    .search-icon {
+        margin-left: 15px;
+    }
+
+    .search input {
+        font-size: 14px;
+        padding: 10px 30px 10px 45px;
+    }
+
+    .head {
+        padding: 0px 30px;
+    }
+
+    .account-cart .account img,
+    .account-cart .cart img {
+        width: 18px;
+        height: 16px;
+    }
+
+    /* .logo img {
+        width: 120px;
+        height: 18px;
+    } */
+}
+
+
+
+@media (max-width: 1000px) {
+    .search img {
+        width: 13px;
+        height: 13px;
+    }
+
+    .search-icon {
+        margin-left: 12px;
+    }
+
+    .search input {
+        font-size: 12px;
+        padding: 8px 20px 8px 35px;
+    }
+
+    .logo img {
+        width: 80px;
+        height: 15px;
+    }
+
+    .head {
+        justify-content: center;
+        padding: 0px 10px;
+        column-gap: 20px;
+    }
+}
+
+@media (max-width: 940px) {
+    .head {
+        justify-content: flex-start;
+        column-gap: 5%;
+    }
+}
+
+@media (max-width: 900px) {
+    .head {
+        justify-content: flex-start;
+        column-gap: 3%;
+    }
+}
+
+@media (max-width: 800px) {
+    .head {
+        column-gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {}
