@@ -167,38 +167,68 @@
 }
 
 @media (max-width: 768px) {
+    .menu-item {
+        width: 100%;
+        background-color: #f0f2f5;
+        padding: 10px 20px;
+        border-radius: 10px;
+    }
+
+    .menu-item a {
+        display: inline-block;
+        width: 100%;
+        font-size: 16px;
+    }
+
     .nav-menu {
+        flex-direction: column;
         position: fixed;
-        top: -100%;
-        left: 0px;
+        left: -100%;
+        top: 0px;
         width: 100%;
         height: 100%;
         background-color: #fff;
         z-index: 2;
         transition: all 0.3s ease-in-out;
         overflow: auto;
-        padding-right: 15%;
+        padding: 0px 40px 0px 0px;
     }
 
     .nav-menu.active {
-        top: 0px;
+        left: 0px;
         width: 35%;
     }
 
     .menu {
+        position: relative;
+        top: 105px;
+        left: 20px;
         flex-direction: column;
         align-items: flex-start;
-        padding-top: 150px;
         gap: 15px 0px;
         overflow: auto;
         background-color: #fff;
         width: 100%;
-        border: 1px solid rgba(255, 0, 0, 1);
     }
 
     .dropdown {
         position: relative;
-        left: 54px;
+        top: 90px;
+        left: 20px;
+        width: 100%;
+        background-color: #f0f2f5;
+        padding: 10px 20px;
+        border-radius: 10px;
+    }
+
+    .dropdown__link {
+        font-size: 16px;
+    }
+
+    .dropdown__dropbtn {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
     }
 }
 
