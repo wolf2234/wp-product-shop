@@ -6,6 +6,18 @@ body.lock {
     overflow: hidden;
 }
 
+body.lock::before {
+    overflow: hidden;
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+}
+
 .footer {
     background-color: #F0F0F0;
     padding: 100px 0px 50px;

@@ -3,11 +3,11 @@
     width: 100%;
     top: 0;
     left: 0;
-    z-index: 50;
+    z-index: 5;
     padding: 6px 0px 10px;
     background-color: #fff;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     max-width: 100vw;
 }
 
@@ -17,7 +17,7 @@
     top: 0;
     height: 100%;
     background-color: #fff;
-    z-index: 2;
+    z-index: 3;
     left: 0;
     right: 0;
     max-width: 100vw;
@@ -33,7 +33,7 @@
     z-index: 3;
     min-width: 0;
     max-width: 100vw;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 
@@ -62,10 +62,11 @@
     display: flex;
     align-items: center;
     padding: 0px 0px 0px 0px;
-    flex: 1 1 300px;
+    /* flex: 1 1 300px; */
     min-width: 120px;
-    max-width: 400px;
-    z-index: 2;
+    /* max-width: 400px; */
+    width: 100%;
+    z-index: 5;
 }
 
 .search-icon {
@@ -86,15 +87,15 @@
 
 @media (max-width: 1760px) {
     .search {
-        width: 30%;
+        width: 100%;
+    }
+
+    .head {
+        padding: 0px 20px;
     }
 }
 
-@media (max-width: 1400px) {
-    .search {
-        max-width: 30%;
-    }
-}
+@media (max-width: 1400px) {}
 
 @media (max-width: 1330px) {}
 
@@ -124,7 +125,7 @@
 
 @media (max-width: 1000px) {
     .search {
-        max-width: 200px;
+        max-width: 400px;
     }
 
     .search img {
@@ -151,16 +152,37 @@
 
 @media (max-width: 900px) {}
 
-@media (max-width: 800px) {}
-
 @media (max-width: 768px) {
-    /* .search {
-        position: relative;
-        top: 600px;
-        right: 110px;
-        background-color: #fff;
-        z-index: 2;
-        transition: all 0.3s ease-in-out;
-        overflow: auto;
-    } */
+
+    .header.active {
+        border-bottom: 0px solid rgba(0, 0, 0, 0.2);
+    }
+
+    .header.active::before {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    .head {
+        column-gap: 25px;
+        padding: 0px 10px;
+    }
+
+    .logo {
+        order: 2;
+    }
+
+    .search {
+        max-width: 100%;
+        order: 3;
+    }
+
+    .account-cart {
+        order: 4;
+    }
+}
+
+@media (max-width: 600px) {
+    .head {
+        padding: 0px 10px;
+    }
 }

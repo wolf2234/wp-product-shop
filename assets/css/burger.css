@@ -6,11 +6,13 @@
 
 @media (max-width: 768px) {
     .burger {
+        order: 1;
         display: block;
         position: relative;
         cursor: pointer;
         width: 30px;
         height: 20px;
+        min-width: 25px;
         z-index: 3;
     }
 
