@@ -188,3 +188,110 @@
     line-height: 1.4;
     color: #000;
 }
+
+
+@media (max-width: 1270px) {
+
+    .product__info {
+        row-gap: 5px;
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .product img {
+        height: 248px;
+        width: 366px;
+    }
+
+    .product__title img {
+        width: 28px;
+        height: 35px;
+    }
+
+    .product__title {
+        display: flex;
+        column-gap: 25px;
+        justify-content: flex-start;
+        align-items: center;
+        color: #fff;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 1.2;
+    }
+
+    .product__subtext {
+        display: inline-block;
+        color: #fff;
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 1.5;
+        letter-spacing: 4%;
+    }
+}
+
+@media (max-width: 900px) {
+    .product {
+        padding: 20px 0px 20px 50px;
+    }
+
+    .product__title img {
+        width: 25px;
+        height: 33px;
+    }
+
+    .product__title {
+        display: flex;
+        column-gap: 25px;
+        justify-content: flex-start;
+        align-items: center;
+        color: #fff;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.2;
+    }
+
+    .product__subtext {
+        display: inline-block;
+        color: #fff;
+        font-weight: 600;
+        font-size: 25px;
+        line-height: 1.5;
+        letter-spacing: 4%;
+    }
+}
+
+@media (max-width: 830px) {
+    .product {
+        padding: 20px 0px 20px 50px;
+    }
+
+    .product img {
+        height: 238px;
+        width: 336px;
+    }
+
+    .product__title img {
+        width: 22px;
+        height: 30px;
+    }
+
+    .product__title {
+        display: flex;
+        column-gap: 25px;
+        justify-content: flex-start;
+        align-items: center;
+        color: #fff;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.2;
+    }
+
+    .product__subtext {
+        display: inline-block;
+        color: #fff;
+        font-weight: 600;
+        font-size: 22px;
+        line-height: 1.5;
+        letter-spacing: 4%;
+    }
+}
