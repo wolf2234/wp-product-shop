@@ -42,6 +42,9 @@
                     ));
                     ?>
                     <div class="nav-menu__filters">
+                        <button class="nav-menu__btn" data-text-default="Show 22 more filters" data-text-active="Hide filters">
+                            Show 22 more filters
+                        </button>
                         <div class="filters">
                             <div class="filters__body">
                                 <a href="#" class="filters__link">
