@@ -41,6 +41,27 @@
                         'menu_class' => 'menu',
                     ));
                     ?>
+                    <div class="nav-menu__filters">
+                        <div class="filters">
+                            <div class="filters__body">
+                                <a href="#" class="filters__link">
+                                    Woman’s Fashion
+                                    <img src="<?php bloginfo('template_directory'); ?>/assets/img/black-arrow-right.svg" alt="">
+                                </a>
+                                <a href="#" class="filters__link">
+                                    Men’s Fashion
+                                    <img src="<?php bloginfo('template_directory'); ?>/assets/img/black-arrow-right.svg" alt="">
+                                </a>
+                                <a href="#" class="filters__link">Electronics</a>
+                                <a href="#" class="filters__link">Home & Lifestyle</a>
+                                <a href="#" class="filters__link">Medicine</a>
+                                <a href="#" class="filters__link">Sports & Outdoor</a>
+                                <a href="#" class="filters__link">Baby’s & Toys</a>
+                                <a href="#" class="filters__link">Groceries & Pets</a>
+                                <a href="#" class="filters__link">Health & Beauty</a>
+                            </div>
+                        </div>
+                    </div>
                 </nav>
                 <div class="search">
                     <img src='<?php echo get_template_directory_uri(); ?>/assets/img/shop-search.svg' class="search-icon" alt="">
