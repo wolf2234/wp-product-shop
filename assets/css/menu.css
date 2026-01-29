@@ -230,6 +230,15 @@
         justify-content: space-between;
         width: 100%;
     }
+
+    .dropdown__arrow {
+        transform: rotate(-90deg);
+    }
+
+    .dropdown__arrow.show {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
 }
 
 @media (max-width: 600px) {
