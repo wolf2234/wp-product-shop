@@ -3,8 +3,10 @@ $(document).ready(function () {
         arrows: false,
         dots: true,
         adaptiveHeight: true,
-        Infinity: true,
-        autoplay: true,
+        // Infinity: true,
+        // autoplay: true,
+        Infinity: false,
+        autoplay: false,
         autoplaySpeed: 2000,
     });
     $(".slider").slick({

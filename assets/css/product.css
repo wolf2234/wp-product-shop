@@ -271,27 +271,111 @@
     }
 
     .product__title img {
-        width: 22px;
-        height: 30px;
+        width: 20px;
+        height: 22px;
     }
 
     .product__title {
-        display: flex;
-        column-gap: 25px;
-        justify-content: flex-start;
-        align-items: center;
-        color: #fff;
-        font-weight: 400;
         font-size: 14px;
-        line-height: 1.2;
+        column-gap: 15px;
     }
 
     .product__subtext {
-        display: inline-block;
-        color: #fff;
-        font-weight: 600;
         font-size: 22px;
-        line-height: 1.5;
-        letter-spacing: 4%;
+    }
+
+    .product__btn_white {
+        font-size: 16px;
+        max-width: 76px;
+    }
+
+    .product__btn.product__btn_white::after {
+        width: 20px;
+        height: 15px;
+        margin-left: 8px;
+        margin-right: -28px;
+    }
+}
+
+@media (max-width: 600px) {
+    .product {
+        padding: 20px 0px 20px 30px;
+    }
+
+    .product img {
+        height: 200px;
+        width: 250px;
+    }
+
+    .product__title img {
+        width: 20px;
+        height: 22px;
+    }
+
+    .product__title {
+        font-size: 12px;
+    }
+
+    .product__subtext {
+        font-size: 20px;
+    }
+
+    .product__info {
+        row-gap: 5px;
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .product {
+        padding: 20px 0px 20px 30px;
+    }
+
+    .product img {
+        height: 180px;
+        width: 230px;
+    }
+
+    .product__title img {
+        width: 20px;
+        height: 22px;
+    }
+}
+
+@media (max-width: 500px) {
+    .product {
+        padding: 20px 0px 20px 20px;
+    }
+
+    .product img {
+        height: 150px;
+        width: 200px;
+    }
+
+    .product__title img {
+        width: 20px;
+        height: 22px;
+    }
+
+    .product__title {
+        font-size: 10px;
+    }
+
+    .product__subtext {
+        font-size: 16px;
+    }
+
+    .product__btn_white {
+        font-size: 14px;
+        max-width: 65px;
+    }
+
+    .product__btn.product__btn_white::after {
+        width: 16px;
+        height: 14px;
+        margin-left: 8px;
+        margin-right: -28px;
     }
 }
