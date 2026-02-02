@@ -66,3 +66,124 @@
 .goods .view-all.hide.goods__view-all {
     margin: 0px;
 }
+
+
+@media (max-width: 1650px) {
+    .goods {
+        padding: 100px 30px 0px 30px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .goods {
+        padding: 100px 20px 0px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .goods__header {
+        position: relative;
+    }
+
+    .goods__header {
+        position: relative;
+    }
+
+    .goods__subtitle {
+        font-size: 14px;
+    }
+
+    .goods__title {
+        font-size: 28px;
+        align-self: flex-start;
+    }
+
+    .goods .time {
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+    }
+
+    .goods .time .time__text {
+        font-size: 10px;
+    }
+
+    .goods .time .time__number {
+        font-size: 22px;
+    }
+
+    .goods__info {
+        row-gap: 26px;
+    }
+
+    .goods__buttons {
+        align-items: flex-start;
+    }
+
+    .goods__buttons .slider-btns .slick-arrow.slick-prev {
+        background-size: 15px 15px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .goods__buttons .slider-btns .slick-arrow.slick-next {
+        background-size: 15px 15px;
+        width: 36px;
+        height: 36px;
+    }
+}
+
+@media (max-width: 530px) {
+    .goods {
+        padding: 100px 10px 0px 10px;
+    }
+
+    .subtitle.goods__subtitle::before {
+        width: 10px;
+        height: 30px;
+    }
+
+    .goods__subtitle {
+        font-size: 12px;
+    }
+
+    .goods__title {
+        font-size: 24px;
+    }
+
+    .goods .time {
+        column-gap: 8px;
+    }
+
+    .goods .time__number::after {
+        margin-left: 6px;
+    }
+
+    .goods .time .time__text {
+        font-size: 10px;
+    }
+
+    .goods .time .time__number {
+        font-size: 18px;
+    }
+
+    .goods__info {
+        row-gap: 26px;
+    }
+
+    .goods__buttons {
+        align-items: flex-start;
+    }
+
+    .goods__buttons .slider-btns .slick-arrow.slick-prev {
+        background-size: 15px 15px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .goods__buttons .slider-btns .slick-arrow.slick-next {
+        background-size: 15px 15px;
+        width: 36px;
+        height: 36px;
+    }
+}
