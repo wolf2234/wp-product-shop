@@ -5,3 +5,27 @@
 .banner-category__product {
     padding: 70px 150px 70px 80px;
 }
+
+@media (max-width: 1400px) {
+    .banner-category__product {
+        padding: 70px 80px 70px 80px;
+    }
+}
+
+@media (max-width: 1300px) {
+    .banner-category__product {
+        padding: 50px;
+    }
+}
+
+@media (max-width: 830px) {
+    .banner-category__product {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 650px) {
+    .banner-category__product {
+        padding: 20px;
+    }
+}
