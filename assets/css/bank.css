@@ -1,6 +1,8 @@
 .bank {
     display: flex;
     column-gap: 15px;
+    flex-wrap: wrap;
+    row-gap: 15px;
 }
 
 .bank__link {

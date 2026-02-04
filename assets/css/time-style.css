@@ -40,3 +40,7 @@
 .time__item:last-of-type .time__number::after {
     display: none;
 }
+
+@media (max-width: 600px) {
+    .time {}
+}

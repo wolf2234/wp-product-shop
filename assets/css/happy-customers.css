@@ -17,3 +17,45 @@
 }
 
 .happy-customers__content {}
+
+
+
+@media (max-width: 1700px) {
+    .happy-customers {
+        padding: 0px 10px;
+    }
+}
+
+@media (max-width: 1500px) {
+    .happy-customers__title {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 768px) {
+    .happy-customers__title {
+        font-size: 25px;
+    }
+
+    .happy-customers__buttons .slider-btns .slick-arrow.slick-prev {
+        background-size: 15px 15px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .happy-customers__buttons .slider-btns .slick-arrow.slick-next {
+        background-size: 18px 18px;
+        width: 36px;
+        height: 36px;
+    }
+}
+
+@media (max-width: 500px) {
+    .happy-customers {
+        padding: 0px 6px;
+    }
+
+    .happy-customers__title {
+        font-size: 18px;
+    }
+}

@@ -193,6 +193,10 @@
         width: 100%;
         padding: 30px 0px 0px 0px;
     }
+
+    .slider-happy-customers {
+        padding: 15px 0px 0px 0px;
+    }
 }
 
 @media (max-width: 600px) {

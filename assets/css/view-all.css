@@ -16,3 +16,10 @@
     transition: 0.3s all ease;
     margin: 0px;
 }
+
+@media (max-width: 650px) {
+    .view-all {
+        padding: 10px 22px;
+        font-size: 14px;
+    }
+}
