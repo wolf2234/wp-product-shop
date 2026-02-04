@@ -13,12 +13,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    let infoItems = document.querySelectorAll(".info__item");
-    infoItems.forEach((infoItem) => {
-        if (infoItem.querySelector(".info__title")) {
-            infoItem.addEventListener("click", () => {
-                infoItem.classList.toggle("is-open");
-            });
-        }
-    });
+    // let infoItems = document.querySelectorAll(".info__item");
+    // infoItems.forEach((infoItem) => {
+    //     if (infoItem.querySelector(".info__title")) {
+    //         infoItem.addEventListener("click", () => {
+    //             infoItem.classList.toggle("is-open");
+    //         });
+    //     }
+    // });
 });
