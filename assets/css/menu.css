@@ -320,4 +320,8 @@
     .menu {
         width: 100%;
     }
+
+    .nav-menu.active {
+        width: 65%;
+    }
 }
