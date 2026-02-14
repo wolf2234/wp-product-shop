@@ -83,6 +83,62 @@
                 <div class="goods__content">
                     <div class="slider">
                         <div class="slider__item">
+                            <div class="product-cards" data-items-wrapper="" data-step="2" data-count="4" data-slide="0"></div>
+                        </div>
+                        <div class="slider__item">
+                            <div class="product-cards" data-items-wrapper="" data-step="2" data-count="4" data-slide="1"></div>
+                        </div>
+                        <div class="slider__item">
+                            <div class="product-cards" data-items-wrapper="" data-step="2" data-count="4" data-slide="2"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="goods__btn">
+                    <button class="view-all goods__view-all" view-all-btn="">View All Products</button>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="goods" data-parent-of-view-all="">
+            <div class="goods__body goods__body_border-bottom goods__body_padding-bottom">
+                <div class="goods__header">
+                    <div class="goods__info">
+                        <span class="subtitle goods__subtitle">Today’s</span>
+                        <div class="goods__row">
+                            <h4 class="title goods__title">Flash Sales</h4>
+                            <div class="time">
+                                <div class="time__item">
+                                    <span class="time__text">Days</span>
+                                    <span class="time__number">03</span>
+                                </div>
+                                <div class="time__item">
+                                    <span class="time__text">Hours</span>
+                                    <span class="time__number">23</span>
+                                </div>
+                                <div class="time__item">
+                                    <span class="time__text">Minutes</span>
+                                    <span class="time__number">19</span>
+                                </div>
+                                <div class="time__item">
+                                    <span class="time__text">Seconds</span>
+                                    <span class="time__number">56</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="goods__buttons">
+                        <div class="slider-btns">
+                            <button id="prev" class="slick-prev slick-arrow slider-body__btn"
+                                aria-label="Previous" type="button">
+                            </button>
+                            <button id="next" class="slick-next slick-arrow slider-body__btn" aria-label="Next"
+                                type="button">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="goods__content">
+                    <div class="slider">
+                        <div class="slider__item">
                             <?php
                                 $args = [
                                     'post_type' => 'product',
@@ -301,7 +357,7 @@
                     <button class="view-all goods__view-all" view-all-btn="">View All Products</button>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="goods" data-parent-of-view-all="">
             <div class="goods__body goods__body_border-bottom goods__body_padding-bottom">
                 <div class="goods__header">

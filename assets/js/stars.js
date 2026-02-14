@@ -1,8 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const ratingBlock = document.querySelector(".rating-stars");
-    if (ratingBlock) {
-        const stars = ratingBlock.querySelectorAll(".star");
-    }
+
     const hiddenInput = document.getElementById("rating");
 
     if (ratingBlock) {
@@ -18,16 +16,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function paintStars(value) {
-        stars.forEach((star, index) => {
-            const starNumber = index + 1;
+        if (ratingBlock) {
+            const stars = ratingBlock.querySelectorAll(".star");
+            stars.forEach((star, index) => {
+                const starNumber = index + 1;
 
-            star.classList.remove("filled", "half-filled");
+                star.classList.remove("filled", "half-filled");
 
-            if (value >= starNumber) {
-                star.classList.add("filled");
-            } else if (value >= starNumber - 0.5) {
-                star.classList.add("half-filled");
-            }
-        });
+                if (value >= starNumber) {
+                    star.classList.add("filled");
+                } else if (value >= starNumber - 0.5) {
+                    star.classList.add("half-filled");
+                }
+            });
+        }
     }
 });

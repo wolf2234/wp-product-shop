@@ -50,10 +50,12 @@ function product_shop_scripts() {
     wp_enqueue_script( 'bootstrap-min-map-js', get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js.map', array('jquery'), null, true);
     wp_enqueue_script('swiper-js', get_template_directory_uri() . '/modules/swiper/js/swiper-bundle.min.js', array('jquery'), null, true);
     wp_enqueue_script('swiper-script-js', get_template_directory_uri() . '/modules/swiper/js/swiper-script.js', array('jquery'), null, true);
-    wp_enqueue_script( 'view-all', get_template_directory_uri() . '/assets/js/view-all.js', array('jquery'), null, true);
+    wp_enqueue_script( 'stars', get_template_directory_uri() . '/assets/js/stars.js', array('jquery'), null, true);
+    // wp_enqueue_script( 'view-all', get_template_directory_uri() . '/assets/js/view-all.js', array('jquery'), null, true);
+    wp_enqueue_script( 'view-all-db', get_template_directory_uri() . '/assets/js/view-all-db.js', array('jquery'), null, true);
+    wp_localize_script('view-all-db', 'product_obj', array('ajaxurl' => admin_url('admin-ajax.php')));
     wp_enqueue_script( 'quantity-input', get_template_directory_uri() . '/assets/js/quantity-input.js', array('jquery'), null, true);
     wp_enqueue_script( 'cart-product', get_template_directory_uri() . '/assets/js/cart-product.js', array('jquery'), null, true);
-    wp_enqueue_script( 'stars', get_template_directory_uri() . '/assets/js/stars.js', array('jquery'), null, true);
     wp_enqueue_script( 'burger', get_template_directory_uri() . '/assets/js/burger.js', array('jquery'), null, true);
     wp_enqueue_script( 'filters', get_template_directory_uri() . '/assets/js/filters.js', array('jquery'), null, true);
     wp_enqueue_script( 'scripts', get_template_directory_uri() . '/assets/js/scripts.js', array('jquery'), null, true);
@@ -122,5 +124,104 @@ function get_product_average_rating_half( $product_id ) {
 
 
 
+
+
+add_action('wp_ajax_load_products', 'load_products');
+add_action('wp_ajax_nopriv_load_products', 'load_products');
+
+function load_products() {
+    $offset = intval($_POST['offset']); #0
+    $limit  = intval($_POST['limit']); #12
+
+    $args = [
+    'post_type'      => 'product',
+    'posts_per_page' => $limit,
+    'offset'         => $offset,
+    'meta_query'     => [
+        'relation' => 'OR',
+        [
+            'key'     => 'rating_half',
+            'compare' => 'EXISTS',
+        ],
+        [
+            'key'     => 'rating_half',
+            'compare' => 'NOT EXISTS',
+        ],
+    ],
+    'meta_key'       => 'rating_half',
+    'orderby'  => 'meta_value_num',
+    'order'    => 'DESC',
+];
+
+    $query = new WP_Query($args);
+
+    ob_start();
+
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            global $product;
+            $regular_price = $product->get_regular_price();
+            $sale_price = $product->get_sale_price();
+            ?>
+            <a href="<?php the_permalink(); ?>" class="product-cards__item" data-items-item="">
+                <div class="product-cards__image">
+                    <?php the_post_thumbnail('medium'); ?>
+                    <div class="product-cards__icons">
+                        <span class="product-cards__like">
+                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
+                        </span>
+                        <span class="product-cards__view">
+                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
+                        </span>
+                    </div>
+                    <button class="product-cards__add">Add to Cart</button>
+                </div>
+                <div class="product-cards__info">
+                    <span class="product-cards__name"><?php the_title(); ?></span>
+                    <span class="product-cards__price">
+                        <?php if ( $product->is_on_sale() ) : ?>
+                            <span class="price product-cards__sale-price">
+                                <?php echo wc_price( $sale_price ); ?>
+                            </span>
+                            <span class="price product-cards__regular-price">
+                                <?php echo wc_price( $regular_price ); ?>
+                            </span>
+                        <?php else : ?>
+                            <span class="price product-cards__regular-price">
+                                <?php echo wc_price( $regular_price ); ?>
+                            </span>
+                        <?php endif; ?>
+                    </span>
+                    <span class="product-cards__stars">
+                        <div class="stars">
+                            <?php 
+                                $avg_rating = get_product_average_rating_half( $product->get_id() );
+                            ?>
+                            <div class="review-rating">
+                                <div
+                                    class="rating-stars-display"
+                                    style="--rating: <?php echo esc_attr( $avg_rating ); ?>;"
+                                    aria-label="Rating <?php echo esc_attr( $avg_rating ); ?> out of 5"
+                                >
+                                    ★★★★★
+                                </div>
+                                <span class="review-rating__count"><?php echo $avg_rating; ?>/<span>5</span></span>
+                            </div>
+                        </div>
+                    </span>
+                </div>
+            </a>
+            <?php
+        }
+    }
+
+    wp_reset_postdata();
+
+    wp_send_json_success([
+        'html' => ob_get_clean(),
+        'count' => $query->post_count,
+    ]);
+}
 
 ?>
