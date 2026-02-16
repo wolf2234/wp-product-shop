@@ -83,13 +83,13 @@
                 <div class="goods__content">
                     <div class="slider">
                         <div class="slider__item">
-                            <div class="product-cards" data-items-wrapper="" data-step="2" data-count="4" data-slide="0"></div>
+                            <div class="product-cards" data-items-wrapper="" data-step="2" data-count="4" data-slider="0"></div>
                         </div>
                         <div class="slider__item">
-                            <div class="product-cards" data-items-wrapper="" data-step="2" data-count="4" data-slide="1"></div>
+                            <div class="product-cards" data-items-wrapper="" data-step="2" data-count="4" data-slider="1"></div>
                         </div>
                         <div class="slider__item">
-                            <div class="product-cards" data-items-wrapper="" data-step="2" data-count="4" data-slide="2"></div>
+                            <div class="product-cards" data-items-wrapper="" data-step="2" data-count="4" data-slider="2"></div>
                         </div>
                     </div>
                 </div>

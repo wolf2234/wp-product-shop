@@ -1,8 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
     let offset = 0; // сколько товаров уже загружено
     const step = 4; // сколько товаров на один слайд
-    const slidesCount = 3; // количество слайдов
-    const slides = document.querySelectorAll(".slider .product-cards");
+    // const slidesCount = 3; // количество слайдов
+    const slides = document.querySelectorAll(
+        ".slider .slider__item:not(.slick-cloned) [data-slider]",
+    );
+    const slidesCount = slides.length;
 
     function loadProducts() {
         fetch(product_obj.ajaxurl, {
@@ -20,21 +23,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 const temp = document.createElement("div");
                 temp.innerHTML = data.data.html;
                 const items = Array.from(temp.children);
-                console.log(items);
                 items.forEach((item, index) => {
                     const slideIndex = index % slidesCount;
-                    let child = document.querySelector(
-                        `[data-slide="${slideIndex}"]`,
-                    );
-                    if (child) {
-                        child.appendChild(item);
-                    }
+                    slides[slideIndex].appendChild(item);
                 });
-
+                console.log("Items found:", items.length);
+                console.log("STEP found:", step * slidesCount);
+                console.log("Slides found:", slidesCount);
+                console.log("Array items found:", slides);
                 offset += data.data.count;
-                console.log(data.data.count);
                 $(".slider").slick("refresh");
-                console.log(data.data.count);
             });
     }
     loadProducts();

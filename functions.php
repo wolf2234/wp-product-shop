@@ -74,6 +74,19 @@ remove_action(
     20
 );
 
+
+add_action( 'save_post_product', function( $post_id ) {
+
+    if ( wp_is_post_autosave( $post_id ) || wp_is_post_revision( $post_id ) ) {
+        return;
+    }
+
+    if ( ! metadata_exists( 'post', $post_id, 'rating_half' ) ) {
+        update_post_meta( $post_id, 'rating_half', 0 );
+    }
+
+});
+
 add_action( 'comment_post', function ( $comment_id ) {
     if ( isset($_POST['rating']) ) {
         update_comment_meta(
@@ -134,24 +147,14 @@ function load_products() {
     $limit  = intval($_POST['limit']); #12
 
     $args = [
-    'post_type'      => 'product',
-    'posts_per_page' => $limit,
-    'offset'         => $offset,
-    'meta_query'     => [
-        'relation' => 'OR',
-        [
-            'key'     => 'rating_half',
-            'compare' => 'EXISTS',
-        ],
-        [
-            'key'     => 'rating_half',
-            'compare' => 'NOT EXISTS',
-        ],
-    ],
-    'meta_key'       => 'rating_half',
-    'orderby'  => 'meta_value_num',
-    'order'    => 'DESC',
-];
+        'post_type'      => 'product',
+        'posts_per_page' => $limit,
+        'offset'         => $offset,
+        'meta_key'       => 'rating_half',
+        'orderby'        => 'meta_value_num',
+        'order'          => 'DESC',
+        'meta_type'      => 'NUMERIC',
+    ];
 
     $query = new WP_Query($args);
 
