@@ -75,6 +75,31 @@ remove_action(
 );
 
 
+// Нужно один раз обновить старые товары.
+// Добавь временно в functions.php:
+// add_action('init', function() {
+//     if ( isset($_GET['fix_ratings']) ) {
+//         $products = get_posts([
+//             'post_type' => 'product',
+//             'posts_per_page' => -1,
+//             'fields' => 'ids'
+//         ]);
+//         foreach ( $products as $product_id ) {
+//             if ( ! metadata_exists( 'post', $product_id, 'rating_half' ) ) {
+//                 update_post_meta( $product_id, 'rating_half', 0 );
+//             }
+//         }
+//         echo 'Ratings fixed';
+//         exit;
+//     }
+// });
+// Открой в браузере:
+// https://your-site.com/?fix_ratings=1
+// Он пройдётся по всем товарам и поставит 0 тем, у кого нет.
+// После этого код можно удалить.
+
+
+
 add_action( 'save_post_product', function( $post_id ) {
 
     if ( wp_is_post_autosave( $post_id ) || wp_is_post_revision( $post_id ) ) {
