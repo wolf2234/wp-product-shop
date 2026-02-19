@@ -15,13 +15,13 @@ document.addEventListener("DOMContentLoaded", function () {
         let slidesCount = slides.length;
         let offset = 0; // сколько товаров уже загружено
 
-        loadProducts(slides, slidesCount, sliderName);
+        loadProducts(slides, slidesCount, sliderName, viewAllButton);
         viewAllButton.addEventListener("click", function () {
-            loadProducts(slides, slidesCount, sliderName);
+            loadProducts(slides, slidesCount, sliderName, viewAllButton);
             console.log("Offset:", offset);
         });
 
-        function loadProducts(slides, slidesCount, sliderName) {
+        function loadProducts(slides, slidesCount, sliderName, viewAllButton) {
             const params = new URLSearchParams({
                 action: "load_products",
                 offset: offset,
@@ -35,10 +35,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 .then((data) => {
                     if (!data.success) return;
                     console.log("Data received:", data);
-                    fillSlids(slides, data, slidesCount, sliderName);
+                    fillSlids(
+                        slides,
+                        data,
+                        slidesCount,
+                        sliderName,
+                        viewAllButton,
+                    );
                 });
         }
-        function fillSlids(slides, data, slidesCount, sliderName) {
+        function fillSlids(
+            slides,
+            data,
+            slidesCount,
+            sliderName,
+            viewAllButton,
+        ) {
             const products = data.data.products;
             products.forEach((product, index) => {
                 const slideIndex = index % slidesCount;
@@ -46,6 +58,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 slides[slideIndex].appendChild(item);
             });
             offset += data.data.count;
+            if (offset >= data.data.total) {
+                viewAllButton.classList.add("hide");
+            }
             if ($(sliderName).hasClass("slick-initialized")) {
                 $(sliderName).slick("refresh");
             }
@@ -70,10 +85,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
                 <button class="product-cards__add">Add to Cart</button>
             </div>
-
             <div class="product-cards__info">
                 <span class="product-cards__name">${product.title}</span>
-
                 <span class="product-cards__price">
                     ${
                         product.is_on_sale
@@ -92,7 +105,6 @@ document.addEventListener("DOMContentLoaded", function () {
                             `
                     }
                 </span>
-
                 <span class="product-cards__stars">
                     <div class="review-rating">
                         <div

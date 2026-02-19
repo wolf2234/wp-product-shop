@@ -182,6 +182,7 @@ function load_products() {
     ];
 
     $query = new WP_Query($args);
+    $total_products = wp_count_posts('product')->publish;
     $products = [];
 
     if ($query->have_posts()) {
@@ -208,6 +209,7 @@ function load_products() {
     wp_send_json_success([
         'products' => $products,
         'count' => count($products),
+        'total' => $total_products,
     ]);
 }
 
