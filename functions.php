@@ -168,8 +168,8 @@ add_action('wp_ajax_load_products', 'load_products');
 add_action('wp_ajax_nopriv_load_products', 'load_products');
 
 function load_products() {
-    $offset = intval($_POST['offset']); #0
-    $limit  = intval($_POST['limit']); #12
+    $offset = intval($_GET['offset']); #0
+    $limit  = intval($_GET['limit']); #12
 
     $args = [
         'post_type'      => 'product',
