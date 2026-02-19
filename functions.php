@@ -182,73 +182,32 @@ function load_products() {
     ];
 
     $query = new WP_Query($args);
-
-    ob_start();
+    $products = [];
 
     if ($query->have_posts()) {
         while ($query->have_posts()) {
             $query->the_post();
             global $product;
-            $regular_price = $product->get_regular_price();
-            $sale_price = $product->get_sale_price();
-            ?>
-            <a href="<?php the_permalink(); ?>" class="product-cards__item" data-items-item="">
-                <div class="product-cards__image">
-                    <?php the_post_thumbnail('medium'); ?>
-                    <div class="product-cards__icons">
-                        <span class="product-cards__like">
-                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/like.svg" alt="">
-                        </span>
-                        <span class="product-cards__view">
-                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/view.svg" alt="">
-                        </span>
-                    </div>
-                    <button class="product-cards__add">Add to Cart</button>
-                </div>
-                <div class="product-cards__info">
-                    <span class="product-cards__name"><?php the_title(); ?></span>
-                    <span class="product-cards__price">
-                        <?php if ( $product->is_on_sale() ) : ?>
-                            <span class="price product-cards__sale-price">
-                                <?php echo wc_price( $sale_price ); ?>
-                            </span>
-                            <span class="price product-cards__regular-price">
-                                <?php echo wc_price( $regular_price ); ?>
-                            </span>
-                        <?php else : ?>
-                            <span class="price product-cards__regular-price">
-                                <?php echo wc_price( $regular_price ); ?>
-                            </span>
-                        <?php endif; ?>
-                    </span>
-                    <span class="product-cards__stars">
-                        <div class="stars">
-                            <?php 
-                                $avg_rating = get_product_average_rating_half( $product->get_id() );
-                            ?>
-                            <div class="review-rating">
-                                <div
-                                    class="rating-stars-display"
-                                    style="--rating: <?php echo esc_attr( $avg_rating ); ?>;"
-                                    aria-label="Rating <?php echo esc_attr( $avg_rating ); ?> out of 5"
-                                >
-                                    ★★★★★
-                                </div>
-                                <span class="review-rating__count"><?php echo $avg_rating; ?>/<span>5</span></span>
-                            </div>
-                        </div>
-                    </span>
-                </div>
-            </a>
-            <?php
+
+            $products[] = [
+                'id'        => $product->get_id(),
+                'title'     => get_the_title(),
+                'permalink' => get_permalink(),
+                'image'     => get_the_post_thumbnail_url(get_the_ID(), 'medium'),
+                'regular_price' => wc_price($product->get_regular_price()),
+                'sale_price'    => $product->is_on_sale() ? wc_price($product->get_sale_price()) : null,
+                'rating'    => get_product_average_rating_half($product->get_id()),
+                'is_on_sale'=> $product->is_on_sale(),
+                'home_domain' => get_template_directory_uri(),
+            ];
         }
     }
 
     wp_reset_postdata();
 
     wp_send_json_success([
-        'html' => ob_get_clean(),
-        'count' => $query->post_count,
+        'products' => $products,
+        'count' => count($products),
     ]);
 }
 
