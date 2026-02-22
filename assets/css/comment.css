@@ -5,6 +5,7 @@
     padding: 15px 0px 35px 0px;
     flex-wrap: wrap;
     row-gap: 15px;
+    z-index: 2;
 }
 
 .comment {

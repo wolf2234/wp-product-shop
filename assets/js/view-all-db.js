@@ -71,7 +71,6 @@ document.addEventListener("DOMContentLoaded", function () {
             a.href = product.permalink;
             a.className = "product-cards__item";
             a.setAttribute("data-items-item", "");
-
             a.innerHTML = `
             <div class="product-cards__image">
                 <img src="${product.image}" alt="${product.title}">
