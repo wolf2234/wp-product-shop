@@ -14,10 +14,14 @@
     column-gap: 15px;
 }
 
-.swiper {
-    max-width: 400px;
+.swiper,
+.mini-swiper .mini-swiper-wrapper .mini-swiper-slide {
     background-color: rgba(240, 238, 237, 1);
     border-radius: 20px;
+}
+
+.swiper {
+    max-width: 400px;
 }
 
 .swiper .swiper-slide {
@@ -47,8 +51,6 @@
     max-width: 150px;
     max-height: 158px;
     padding: 14px;
-    border-radius: 20px;
-    background-color: rgba(240, 238, 237, 1);
     box-sizing: border-box;
 }
 
