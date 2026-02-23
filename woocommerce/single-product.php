@@ -33,16 +33,14 @@ if (!empty($gallery_image_ids)) {
                 <div class="mini-swiper-wrapper swiper-wrapper">
                     <?php foreach ($image_ids as $image_id): ?>
                         <div class="mini-swiper-slide swiper-slide">
-                            <div class="image-wrapper">
-                                <?php
-                                    echo wp_get_attachment_image(
-                                        $image_id,
-                                        'thumbnail',
-                                        false,
-                                        ['class' => 'mini-product-img']
-                                    );
-                                ?>
-                            </div>
+                            <?php
+                                echo wp_get_attachment_image(
+                                    $image_id,
+                                    'thumbnail',
+                                    false,
+                                    ['class' => 'mini-product-img']
+                                );
+                            ?>
                         </div>
                     <?php endforeach; ?> 
                 </div>
@@ -53,16 +51,14 @@ if (!empty($gallery_image_ids)) {
                     <!-- Slides -->
                     <?php foreach ($image_ids as $image_id): ?>
                         <div class="swiper-slide">
-                            <div class="image-wrapper">
-                                <?php
-                                    echo wp_get_attachment_image(
-                                        $image_id,
-                                        'large',
-                                        false,
-                                        ['class' => 'product-img']
-                                    );
-                                ?>
-                            </div>
+                            <?php
+                                echo wp_get_attachment_image(
+                                    $image_id,
+                                    'large',
+                                    false,
+                                    ['class' => 'product-img']
+                                );
+                            ?>
                         </div>
                     <?php endforeach; ?> 
                 </div>

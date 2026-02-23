@@ -1,71 +1,53 @@
-.swiper {
+.swiper,
+.swiper .swiper-slide img {
     width: 100%;
     height: 100%;
+}
+
+.swiper,
+.mini-swiper {
     max-height: 512px;
+}
+
+.swiper {
     max-width: 400px;
     background-color: rgba(240, 238, 237, 1);
     border-radius: 20px;
 }
 
-.swiper .swiper-wrapper {
-    width: 100%;
-    row-gap: 20px;
+.swiper .swiper-slide {
+    padding: 30px 40px;
 }
 
-.cart-product__images {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    column-gap: 20px;
-}
-
-.cart-product__images .swiper .swiper-slide {
-    padding: 50px 20px;
-}
-
-.swiper .swiper-slide .product-img {
-    width: 100%;
-    height: 100%;
-}
-
-.swiper .swiper-pagination {}
-
-.mini-swiper {
-    height: 100%;
-    max-height: 512px;
-}
-
-.mini-swiper .mini-swiper-wrapper {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    row-gap: 20px;
-}
-
-
-.mini-swiper .mini-swiper-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.mini-swiper .mini-swiper-slide.swiper-slide-thumb-active {
-    border: 1px solid #000;
-    margin-left: -2px;
-}
-
-.mini-swiper .mini-swiper-slide.swiper-slide-thumb-active img {
-    object-fit: cover;
-}
-
-.swiper .image-wrapper {
-    height: 100%;
-    width: 100%;
-    background-color: rgba(240, 238, 237, 1);
-    border-radius: 20px;
+.swiper .swiper-slide img {
+    max-width: 400px;
+    max-height: 450px;
+    object-fit: contain;
 }
 
 .mini-swiper .mini-swiper-slide img {
     width: 100%;
     height: 100%;
+    max-width: 122px;
+    max-height: 128px;
+}
+
+.mini-swiper .mini-swiper-wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 19px;
+}
+
+.mini-swiper .mini-swiper-wrapper .mini-swiper-slide {
+    width: 100%;
+    height: 100%;
+    max-width: 150px;
+    max-height: 158px;
+    padding: 14px;
+    border-radius: 20px;
+    background-color: rgba(240, 238, 237, 1);
+}
+
+.mini-swiper .mini-swiper-wrapper .mini-swiper-slide.swiper-slide-thumb-active {
+    border: 1px solid rgba(0, 0, 0, 1);
 }
