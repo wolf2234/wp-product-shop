@@ -6,13 +6,9 @@
 
 .swiper,
 .mini-swiper {
-    max-height: 512px;
+    max-height: 540px;
 }
 
-.cart-product__images {
-    display: flex;
-    column-gap: 15px;
-}
 
 .swiper,
 .mini-swiper .mini-swiper-wrapper .mini-swiper-slide {
@@ -48,8 +44,8 @@
 .mini-swiper .mini-swiper-wrapper .mini-swiper-slide {
     width: 100%;
     height: 100%;
-    max-width: 150px;
-    max-height: 158px;
+    max-width: 160px;
+    max-height: 168px;
     padding: 14px;
     box-sizing: border-box;
 }
