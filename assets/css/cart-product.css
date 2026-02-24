@@ -233,3 +233,140 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+
+
+@media (max-width: 1360px) {
+    .cart-wrapper {
+        padding: 0px 50px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .cart-product__info .cart-product__title {
+        font-size: 38px;
+    }
+
+    .cart-product__price {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 1180px) {
+    .cart-product {
+        column-gap: 25px;
+    }
+
+    .sub-title {
+        font-size: 14px;
+    }
+
+    .cart-product__price {
+        font-size: 25px;
+    }
+
+    .cart-product__info .cart-product__title {
+        font-size: 30px;
+    }
+
+    .sizes__items .size-radio {
+        padding: 10px 20px 12px;
+    }
+
+    .sizes__items .sizes__name {
+        font-size: 14px;
+    }
+
+    .cart-product__short-description {
+        font-size: 14px;
+    }
+}
+
+
+@media (max-width: 1030px) {
+    .cart-product__add-cart .single_add_to_cart_button {
+        max-width: 100%;
+    }
+
+    .cart-product__images {
+        column-gap: 25px;
+    }
+
+    .cart-product__title {
+        font-size: 25px;
+    }
+
+    .sub-title {
+        font-size: 14px;
+    }
+
+    .cart-product__price {
+        font-size: 22px;
+    }
+
+    .cart-product__add-cart .cart-row {
+        row-gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .cart-product__add-cart .quantity {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .sizes__items {
+        flex-wrap: wrap;
+    }
+
+    .sizes__items .size-radio {
+        padding: 6px 16px 10px;
+    }
+
+    .sizes__items .sizes__name {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 920px) {
+    .cart-wrapper {
+        padding: 0px 30px;
+    }
+
+    .cart-product {
+        flex-direction: column;
+        row-gap: 30px;
+    }
+
+    .cart-product__images {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cart-product__info .cart-product__title {
+        font-size: 38px;
+    }
+
+    .cart-product__price {
+        font-size: 32px;
+    }
+
+    .sub-title {
+        font-size: 16px;
+    }
+
+    .sizes__items .size-radio {
+        padding: 12px 24px 14px;
+    }
+
+    .sizes__items .sizes__name {
+        font-size: 16px;
+    }
+
+    .cart-product__short-description {
+        font-size: 16px;
+    }
+
+    .cart-product__add-cart .cart-row {
+        column-gap: 20px;
+        flex-wrap: nowrap;
+    }
+}
