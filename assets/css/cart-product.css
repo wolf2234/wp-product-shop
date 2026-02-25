@@ -395,6 +395,9 @@
     }
 
     .cart-product__price {
+        display: flex;
+        align-items: center;
+        column-gap: 12px;
         font-size: 22px;
     }
 
