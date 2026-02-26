@@ -101,44 +101,57 @@ if (!empty($gallery_image_ids)) {
             <div class="cart-product__add-cart"><?php woocommerce_template_single_add_to_cart(); ?></div>
         </div>
     </div>
-    <div class="comments cart-wrapper__comments">
-        <?php
-        $comments = get_comments( array(
-            'post_id' => get_the_ID(),
-            'status'  => 'approve',
-        ) );
-        foreach ( $comments as $comment ) :
-            $rating = floatval(
-                get_comment_meta( $comment->comment_ID, 'rating_half', true )
-            );
-        ?>
-            <div class="comment">
-                <div class="comment__body">
-                    <div class="comment__header">
-                        <div class="review-rating">
-                            <div
-                                class="rating-stars-display"
-                                style="--rating: <?php echo esc_attr( $rating ); ?>;"
-                                aria-label="Rating <?php echo esc_attr( $rating ); ?> out of 5"
-                            >
-                                ★★★★★
+    <div class="cart-wrapper__sections" data-block-parent>
+        <div class="cart-wrapper__links">
+            <a href="#" class="cart-wrapper__link" data-block-link="1">Product Details</a>
+            <a href="#" class="cart-wrapper__link active" data-block-link="2">Rating & Reviews</a>
+            <a href="#" class="cart-wrapper__link" data-block-link="3">FAQs</a>
+        </div>
+        <div class="cart-wrapper__items">
+            <div class="cart-wrapper__item" data-block-item="1"></div>
+            <div class="cart-wrapper__item active" data-block-item="2">
+                <div class="comments cart-wrapper__comments">
+                    <?php
+                    $comments = get_comments( array(
+                        'post_id' => get_the_ID(),
+                        'status'  => 'approve',
+                    ) );
+                    foreach ( $comments as $comment ) :
+                        $rating = floatval(
+                            get_comment_meta( $comment->comment_ID, 'rating_half', true )
+                        );
+                    ?>
+                        <div class="comment">
+                            <div class="comment__body">
+                                <div class="comment__header">
+                                    <div class="review-rating">
+                                        <div
+                                            class="rating-stars-display"
+                                            style="--rating: <?php echo esc_attr( $rating ); ?>;"
+                                            aria-label="Rating <?php echo esc_attr( $rating ); ?> out of 5"
+                                        >
+                                            ★★★★★
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comment__content">
+                                    <h3 class="comment__user">
+                                        <span class="comment__user-name">
+                                            <?php echo esc_html( $comment->comment_author ); ?>
+                                        </span>
+                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/check-user.svg" alt="Сheck User">
+                                    </h3>
+                                    <p class="comment__text">
+                                        <?php echo esc_html( $comment->comment_content ); ?>
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="comment__content">
-                        <h3 class="comment__user">
-                            <span class="comment__user-name">
-                                <?php echo esc_html( $comment->comment_author ); ?>
-                            </span>
-                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/check-user.svg" alt="Сheck User">
-                        </h3>
-                        <p class="comment__text">
-                            <?php echo esc_html( $comment->comment_content ); ?>
-                        </p>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
-        <?php endforeach; ?>
+            <div class="cart-wrapper__item" data-block-item="3"></div>
+        </div>
     </div>
 </div>
 

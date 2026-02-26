@@ -18,6 +18,55 @@
     max-width: 605px;
 }
 
+.cart-wrapper__sections {
+    width: 100%;
+}
+
+.cart-wrapper__links {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.cart-wrapper__link {
+    display: inline-block;
+    text-align: center;
+    padding: 0px 0px 20px 0px;
+    width: 100%;
+    color: rgba(0, 0, 0, 0.6);
+    text-decoration: none;
+    font-family: 'Satoshi';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: 0%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.cart-wrapper__link:hover {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.cart-wrapper__link.active {
+    color: rgba(0, 0, 0, 1);
+    font-weight: 700;
+    border-bottom: 2px solid rgba(0, 0, 0, 1);
+}
+
+.cart-wrapper__items {
+    display: flex;
+    width: 100%;
+}
+
+.cart-wrapper__item {
+    display: none;
+    width: 100%;
+}
+
+.cart-wrapper__item.active {
+    display: block;
+}
+
 .cart-product {
     display: flex;
     column-gap: 35px;
