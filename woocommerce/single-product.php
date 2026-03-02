@@ -107,6 +107,64 @@ if (!empty($gallery_image_ids)) {
             <a href="#" class="cart-wrapper__link active" data-block-link="2">Rating & Reviews</a>
             <a href="#" class="cart-wrapper__link" data-block-link="3">FAQs</a>
         </div>
+        <div class="cart-wrapper__row">
+            <div class="cart-wrapper__column"></div>
+            <div class="cart-wrapper__column">
+                <button id="openModalBtn" class="cart-wrapper__btn cart-wrapper__btn_black">Write a Review</button>
+                <div class="modal-overlay" id="modalOverlay">
+                    <div class="modal">
+                        <button class="modal-close" id="closeModalBtn">&times;</button>
+                        <form action="<?php echo site_url('/wp-comments-post.php'); ?>" method="post" id="commentform" class="comment-form">
+                            <div class="comment-form-rating">
+                                <label for="rating">
+                                    Rate the product&nbsp;<span class="required"></span>
+                                </label>
+                                <div class="rating-stars" data-rating="0">
+                                    <span class="star" data-value="1">
+                                        <span class="half left" data-value="0.5"></span>
+                                        <span class="half right" data-value="1"></span>
+                                        ★
+                                    </span>
+                                    <span class="star" data-value="2">
+                                        <span class="half left" data-value="1.5"></span>
+                                        <span class="half right" data-value="2"></span>
+                                        ★
+                                    </span>
+                                    <span class="star" data-value="3">
+                                        <span class="half left" data-value="2.5"></span>
+                                        <span class="half right" data-value="3"></span>
+                                        ★
+                                    </span>
+                                    <span class="star" data-value="4">
+                                        <span class="half left" data-value="3.5"></span>
+                                        <span class="half right" data-value="4"></span>
+                                        ★
+                                    </span>
+                                    <span class="star" data-value="5">
+                                        <span class="half left" data-value="4.5"></span>
+                                        <span class="half right" data-value="5"></span>
+                                        ★
+                                    </span>
+                                </div>
+                                <input type="hidden" name="rating" id="rating" value="0">
+                            </div>
+                            <p class="comment-form-comment">
+                                <label for="comment">
+                                    Comment&nbsp;<span class="required"></span>
+                                </label>
+                                <textarea id="comment" name="comment" cols="45" rows="8" required=""></textarea>
+                            </p>
+                            <p class="form-submit">
+                                <input name="submit" type="submit" id="submit" class="submit" value="Submit">
+                                <input type="hidden" name="comment_post_ID" value="<?php echo $product->get_id(); ?>" id="comment_post_ID">
+                                <input type="hidden" name="comment_parent" id="comment_parent" value="0">
+                            </p>
+                            <?php wp_nonce_field('comment_nonce', '_wp_unfiltered_html_comment'); ?>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="cart-wrapper__items">
             <div class="cart-wrapper__item" data-block-item="1"></div>
             <div class="cart-wrapper__item active" data-block-item="2">
@@ -154,63 +212,6 @@ if (!empty($gallery_image_ids)) {
         </div>
     </div>
 </div>
-
-
-<button id="openModalBtn">Открыть окно</button>
-<div class="modal-overlay" id="modalOverlay">
-    <div class="modal">
-        <button class="modal-close" id="closeModalBtn">&times;</button>
-        <h2 class="modal-title">Введите сообщение</h2>
-        <textarea class="modal-textarea" placeholder="Напишите что-нибудь..."></textarea>
-    </div>
-</div>
-
-
-
-<form action="<?php echo site_url('/wp-comments-post.php'); ?>" method="post" id="commentform" class="comment-form">
-    <div class="comment-form-rating">
-        <div class="rating-stars" data-rating="0">
-            <span class="star" data-value="1">
-                <span class="half left" data-value="0.5"></span>
-                <span class="half right" data-value="1"></span>
-                ★
-            </span>
-            <span class="star" data-value="2">
-                <span class="half left" data-value="1.5"></span>
-                <span class="half right" data-value="2"></span>
-                ★
-            </span>
-            <span class="star" data-value="3">
-                <span class="half left" data-value="2.5"></span>
-                <span class="half right" data-value="3"></span>
-                ★
-            </span>
-            <span class="star" data-value="4">
-                <span class="half left" data-value="3.5"></span>
-                <span class="half right" data-value="4"></span>
-                ★
-            </span>
-            <span class="star" data-value="5">
-                <span class="half left" data-value="4.5"></span>
-                <span class="half right" data-value="5"></span>
-                ★
-            </span>
-        </div>
-        <input type="hidden" name="rating" id="rating" value="0">
-    </div>
-    <p class="comment-form-comment">
-        <label for="comment">
-            Your review&nbsp;<span class="required">*</span>
-        </label>
-        <textarea id="comment" name="comment" cols="45" rows="8" required=""></textarea>
-    </p>
-    <p class="form-submit">
-        <input name="submit" type="submit" id="submit" class="submit" value="Submit">
-        <input type="hidden" name="comment_post_ID" value="<?php echo $product->get_id(); ?>" id="comment_post_ID">
-        <input type="hidden" name="comment_parent" id="comment_parent" value="0">
-    </p>
-    <?php wp_nonce_field('comment_nonce', '_wp_unfiltered_html_comment'); ?>
-</form>
 
 
 <?php get_footer(); ?>
