@@ -156,6 +156,17 @@ if (!empty($gallery_image_ids)) {
 </div>
 
 
+<button id="openModalBtn">Открыть окно</button>
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+        <button class="modal-close" id="closeModalBtn">&times;</button>
+        <h2 class="modal-title">Введите сообщение</h2>
+        <textarea class="modal-textarea" placeholder="Напишите что-нибудь..."></textarea>
+    </div>
+</div>
+
+
+
 <form action="<?php echo site_url('/wp-comments-post.php'); ?>" method="post" id="commentform" class="comment-form">
     <div class="comment-form-rating">
         <div class="rating-stars" data-rating="0">
