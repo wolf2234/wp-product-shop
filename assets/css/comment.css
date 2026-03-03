@@ -51,6 +51,15 @@
     overflow-wrap: anywhere;
 }
 
+.comment__date {
+    font-family: 'Satoshi';
+    font-weight: 500;
+    font-style: 'Medium';
+    font-size: 16px;
+    line-height: 1.2;
+    color: rgba(0, 0, 0, 0.6);
+}
+
 
 @media (max-width: 1700px) {
     .comment {

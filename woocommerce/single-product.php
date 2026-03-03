@@ -168,50 +168,16 @@ if (!empty($gallery_image_ids)) {
         <div class="cart-wrapper__items">
             <div class="cart-wrapper__item" data-block-item="1"></div>
             <div class="cart-wrapper__item active" data-block-item="2">
-                <div class="comments cart-wrapper__comments">
-                    <?php
-                    $comments = get_comments( array(
-                        'post_id' => get_the_ID(),
-                        'status'  => 'approve',
-                    ) );
-                    foreach ( $comments as $comment ) :
-                        $rating = floatval(
-                            get_comment_meta( $comment->comment_ID, 'rating_half', true )
-                        );
-                    ?>
-                        <div class="comment">
-                            <div class="comment__body">
-                                <div class="comment__header">
-                                    <div class="review-rating">
-                                        <div
-                                            class="rating-stars-display"
-                                            style="--rating: <?php echo esc_attr( $rating ); ?>;"
-                                            aria-label="Rating <?php echo esc_attr( $rating ); ?> out of 5"
-                                        >
-                                            ★★★★★
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="comment__content">
-                                    <h3 class="comment__user">
-                                        <span class="comment__user-name">
-                                            <?php echo esc_html( $comment->comment_author ); ?>
-                                        </span>
-                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/check-user.svg" alt="Сheck User">
-                                    </h3>
-                                    <p class="comment__text">
-                                        <?php echo esc_html( $comment->comment_content ); ?>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
+                <div class="cart-wrapper__comments" data-product-id="<?php echo get_the_ID(); ?>">
+                    <div class="comments">
+                    </div>
+                    <button class="view-all cart-wrapper__view-all">
+                        load more reviews
+                    </button>
                 </div>
             </div>
             <div class="cart-wrapper__item" data-block-item="3"></div>
         </div>
     </div>
 </div>
-
-
 <?php get_footer(); ?>

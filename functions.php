@@ -62,6 +62,8 @@ function product_shop_scripts() {
     wp_enqueue_script( 'filters', get_template_directory_uri() . '/assets/js/filters.js', array('jquery'), null, true);
     wp_enqueue_script( 'clickToShowBlock', get_template_directory_uri() . '/modules/clickToShowBlock/js/show-block.js', array('jquery'), null, true);
     wp_enqueue_script( 'modal-view', get_template_directory_uri() . '/assets/js/modal-view.js', array('jquery'), null, true);
+    wp_enqueue_script( 'load-comments', get_template_directory_uri() . '/assets/js/load-comments.js', array('jquery'), null, true);
+    wp_localize_script('load-comments', 'comment_obj', array('ajaxurl' => admin_url('admin-ajax.php')));
     wp_enqueue_script( 'scripts', get_template_directory_uri() . '/assets/js/scripts.js', array('jquery'), null, true);
 }
 
@@ -78,6 +80,8 @@ remove_action(
     20
 );
 
+
+add_filter('duplicate_comment_id', '__return_false');
 
 // Нужно один раз обновить старые товары.
 // Добавь временно в functions.php:
@@ -214,6 +218,60 @@ function load_products() {
         'products' => $products,
         'count' => count($products),
         'total' => $total_products,
+    ]);
+}
+
+
+
+
+
+add_action('wp_ajax_load_product_reviews', 'load_product_reviews');
+add_action('wp_ajax_nopriv_load_product_reviews', 'load_product_reviews');
+
+function load_product_reviews() {
+
+    $product_id = intval($_GET['product_id']);
+    $offset     = intval($_GET['offset']);
+    $limit      = intval($_GET['limit']);
+
+    $args = [
+        'post_id' => $product_id,
+        'status'  => 'approve',
+        'number'  => $limit,
+        'offset'  => $offset,
+        'type'    => 'review',
+        'orderby' => 'comment_date',
+        'order'   => 'DESC',
+    ];
+
+    $comments = get_comments($args);
+
+    $total = get_comments([
+        'post_id' => $product_id,
+        'status'  => 'approve',
+        'count'   => true,
+        'type'    => 'review',
+    ]);
+
+    $reviews = [];
+
+    foreach ($comments as $comment) {
+
+        $rating = get_comment_meta( $comment->comment_ID, 'rating_half', true );
+
+        $reviews[] = [
+            'author'  => $comment->comment_author,
+            'content' => wpautop($comment->comment_content),
+            'date'    => get_comment_date('F j, Y', $comment),
+            'rating'  => floatval($rating),
+            'home_domain' => get_template_directory_uri(),
+        ];
+    }
+
+    wp_send_json_success([
+        'reviews' => $reviews,
+        'count'   => count($reviews),
+        'total'   => $total,
     ]);
 }
 
