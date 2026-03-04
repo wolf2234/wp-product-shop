@@ -109,7 +109,7 @@ if (!empty($gallery_image_ids)) {
         </div>
         <div class="cart-wrapper__row">
             <div class="cart-wrapper__column">
-                <span class="cart-wrapper__all-reviews">All Reviews <span>(<?php echo $product->get_review_count(); ?>)</span></span>
+                <span class="cart-wrapper__all-reviews">All Reviews <span class="cart-wrapper__reviews-count">(<?php echo $product->get_review_count(); ?>)</span></span>
             </div>
             <div class="cart-wrapper__column">
                 <button id="openModalBtn" class="cart-wrapper__btn cart-wrapper__btn_black">Write a Review</button>
