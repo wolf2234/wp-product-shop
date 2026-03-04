@@ -108,7 +108,9 @@ if (!empty($gallery_image_ids)) {
             <a href="#" class="cart-wrapper__link" data-block-link="3">FAQs</a>
         </div>
         <div class="cart-wrapper__row">
-            <div class="cart-wrapper__column"></div>
+            <div class="cart-wrapper__column">
+                <span class="cart-wrapper__all-reviews">All Reviews <span>(<?php echo $product->get_review_count(); ?>)</span></span>
+            </div>
             <div class="cart-wrapper__column">
                 <button id="openModalBtn" class="cart-wrapper__btn cart-wrapper__btn_black">Write a Review</button>
                 <div class="modal-overlay" id="modalOverlay">

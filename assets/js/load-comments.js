@@ -29,7 +29,6 @@ document.addEventListener("DOMContentLoaded", function () {
             .then((res) => res.json())
             .then((data) => {
                 if (!data.success) return;
-
                 fillReviews(data, loadMoreBtn);
             });
     }

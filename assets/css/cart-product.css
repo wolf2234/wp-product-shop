@@ -322,13 +322,26 @@
 
 .cart-wrapper__row {}
 
-.cart-wrapper__column:last-of-type {
-    text-align: end;
-}
-
 .cart-wrapper__column {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     width: 50%;
 }
+
+.cart-wrapper__column:last-of-type {
+    justify-content: flex-end;
+}
+
+.cart-wrapper__all-reviews {
+    font-family: 'Satoshi';
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: 0%;
+}
+
 
 .cart-wrapper__btn {
     /* font-family: 'Satoshi'; */
