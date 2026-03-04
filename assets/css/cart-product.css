@@ -567,6 +567,14 @@
     .cart-product__add-cart .quantity {
         width: auto;
     }
+
+    .cart-wrapper__reviews-count {
+        font-size: 14px;
+    }
+
+    .cart-wrapper__all-reviews {
+        font-size: 20px;
+    }
 }
 
 
@@ -626,6 +634,14 @@
     .cart-wrapper__btn_black {
         padding: 16px 25px;
     }
+
+    .cart-wrapper__link:last-of-type {
+        max-width: 70px;
+    }
+
+    .cart-wrapper__link {
+        font-size: 15px;
+    }
 }
 
 @media (max-width: 460px) {
@@ -647,10 +663,10 @@
     }
 
     .cart-wrapper__link:last-of-type {
-        max-width: 70px;
+        max-width: 50px;
     }
 
     .cart-wrapper__link {
-        font-size: 15px;
+        font-size: 14px;
     }
 }
