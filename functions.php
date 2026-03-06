@@ -38,6 +38,7 @@ function product_shop_styles() {
     wp_enqueue_style('stars-style', get_template_directory_uri() . '/assets/css/stars.css');
     wp_enqueue_style('comment-form', get_template_directory_uri() . '/assets/css/comment-form.css');
     wp_enqueue_style('modal-view', get_template_directory_uri() . '/assets/css/modal-view.css');
+    wp_enqueue_style( 'customSelectField', get_template_directory_uri() . '/modules/customSelectField/css/select-custom.css');
     wp_enqueue_style('burger-style', get_template_directory_uri() . '/assets/css/burger.css');
 }
 
@@ -61,6 +62,7 @@ function product_shop_scripts() {
     wp_enqueue_script( 'burger', get_template_directory_uri() . '/assets/js/burger.js', array('jquery'), null, true);
     wp_enqueue_script( 'filters', get_template_directory_uri() . '/assets/js/filters.js', array('jquery'), null, true);
     wp_enqueue_script( 'clickToShowBlock', get_template_directory_uri() . '/modules/clickToShowBlock/js/show-block.js', array('jquery'), null, true);
+    wp_enqueue_script( 'customSelectField', get_template_directory_uri() . '/modules/customSelectField/js/select-custom.js', array('jquery'), null, true);
     wp_enqueue_script( 'modal-view', get_template_directory_uri() . '/assets/js/modal-view.js', array('jquery'), null, true);
     wp_enqueue_script( 'load-comments', get_template_directory_uri() . '/assets/js/load-comments.js', array('jquery'), null, true);
     wp_localize_script('load-comments', 'comment_obj', array('ajaxurl' => admin_url('admin-ajax.php')));

@@ -112,6 +112,13 @@ if (!empty($gallery_image_ids)) {
                 <span class="cart-wrapper__all-reviews">All Reviews <span class="cart-wrapper__reviews-count">(<?php echo $product->get_review_count(); ?>)</span></span>
             </div>
             <div class="cart-wrapper__column">
+                <div class="cart-wrapper__select">
+                    <select name="select" id="cat1" data-custom-select>
+                        <option value="0" selected>Latest</option>
+                        <option value="1">Popular</option>
+                        <option value="2">Oldest</option>
+                    </select>
+                </div>
                 <button id="openModalBtn" class="cart-wrapper__btn cart-wrapper__btn_black">Write a Review</button>
                 <div class="modal-overlay" id="modalOverlay">
                     <div class="modal">
