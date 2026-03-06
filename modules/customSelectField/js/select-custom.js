@@ -91,8 +91,10 @@ document.addEventListener("DOMContentLoaded", function () {
             );
             let selectBlock = removeSelectedOptions(selectOrigin);
             for (let option of selectBlock.options) {
-                if (selectValue.innerText == option.textContent.trim()) {
-                    console.log(option.textContent);
+                if (
+                    selectValue.innerText.toUpperCase() ==
+                    option.textContent.trim().toUpperCase()
+                ) {
                     option.setAttribute("selected", "");
                 }
             }

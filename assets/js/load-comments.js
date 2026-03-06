@@ -5,9 +5,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const productId = reviewsBlock.dataset.productId;
     const reviewsList = reviewsBlock.querySelector(".comments");
     const loadMoreBtn = reviewsBlock.querySelector(".cart-wrapper__view-all");
+    // const sortSelect = document.querySelector("select[data-custom-select]");
 
     const step = 6;
     let offset = 0;
+    let sort = "latest";
 
     loadReviews();
 
@@ -15,12 +17,23 @@ document.addEventListener("DOMContentLoaded", function () {
         loadReviews();
     });
 
+    // if (sortSelect) {
+    //     sortSelect.addEventListener("change", function (e) {
+    //         sort = e.target.value;
+    //         offset = 0;
+    //         reviewsList.innerHTML = "";
+    //         loadMoreBtn.classList.remove("hide");
+    //         loadReviews();
+    //     });
+    // }
+
     function loadReviews() {
         const params = new URLSearchParams({
             action: "load_product_reviews",
             product_id: productId,
             offset: offset,
             limit: step,
+            sort: sort,
         });
 
         fetch(`${comment_obj.ajaxurl}?${params.toString()}`, {
@@ -31,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (!data.success) return;
                 fillReviews(data, loadMoreBtn);
             });
+        console.log(sort);
     }
 
     function fillReviews(data, loadMoreBtn) {

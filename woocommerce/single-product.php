@@ -114,9 +114,9 @@ if (!empty($gallery_image_ids)) {
             <div class="cart-wrapper__column">
                 <div class="cart-wrapper__select">
                     <select name="select" id="cat1" data-custom-select>
-                        <option value="0" selected>Latest</option>
-                        <option value="1">Popular</option>
-                        <option value="2">Oldest</option>
+                        <option value="0" selected>latest</option>
+                        <option value="1">popular</option>
+                        <option value="2">oldest</option>
                     </select>
                 </div>
                 <button id="openModalBtn" class="cart-wrapper__btn cart-wrapper__btn_black">Write a Review</button>

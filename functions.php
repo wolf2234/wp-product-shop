@@ -235,16 +235,31 @@ function load_product_reviews() {
     $product_id = intval($_GET['product_id']);
     $offset     = intval($_GET['offset']);
     $limit      = intval($_GET['limit']);
+    $sort = $_GET['sort'] ?? 'latest';
 
     $args = [
         'post_id' => $product_id,
-        'status'  => 'approve',
         'number'  => $limit,
         'offset'  => $offset,
+        'status'  => 'approve',
         'type'    => 'review',
-        'orderby' => 'comment_date',
-        'order'   => 'DESC',
     ];
+
+    if ($sort === 'latest') {
+        $args['orderby'] = 'comment_date';
+        $args['order']   = 'DESC';
+    }
+
+    if ($sort === 'oldest') {
+        $args['orderby'] = 'comment_date';
+        $args['order']   = 'ASC';
+    }
+
+    if ($sort === 'popular') {
+        $args['meta_key'] = 'rating_half';
+        $args['orderby']  = 'meta_value_num';
+        $args['order']    = 'DESC';
+    }
 
     $comments = get_comments($args);
 
@@ -254,6 +269,7 @@ function load_product_reviews() {
         'count'   => true,
         'type'    => 'review',
     ]);
+    error_log($sort);
 
     $reviews = [];
 

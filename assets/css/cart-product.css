@@ -21,6 +21,7 @@
     max-width: 1200px;
 }
 
+
 .cart-wrapper__comments .comments {
     row-gap: 25px;
 }
@@ -96,9 +97,11 @@
 }
 
 
+
 .cart-wrapper__select .select-custom,
 .cart-wrapper__select .select-custom .select-custom__value,
 .cart-wrapper__select .select-custom .select-custom__item {
+    text-transform: capitalize;
     font-family: 'Satoshi';
     font-weight: 500;
     font-style: Medium;
