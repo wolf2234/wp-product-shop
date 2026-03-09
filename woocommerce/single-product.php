@@ -94,6 +94,9 @@ if (!empty($gallery_image_ids)) {
                         <?php echo wc_price( $regular_price ); ?>
                     </span>
                 <?php endif; ?>
+                <span class="cart-product__discount">
+                    <?php echo get_product_discount_percent($product); ?>
+                </span>
             </div>
             <div class="cart-product__short-description">
                 <?php echo $product->get_short_description(); ?>
@@ -186,6 +189,18 @@ if (!empty($gallery_image_ids)) {
                 </div>
             </div>
             <div class="cart-wrapper__item" data-block-item="3"></div>
+        </div>
+    </div>
+    <div class="goods" data-parent-of-view-all="">
+        <div class="goods__body goods__body_padding-bottom">
+            <div class="goods__header">
+                <div class="goods__info">
+                    <span class="subtitle goods__subtitle_capitalize">You might also like</span>
+                </div>
+            </div>
+            <div class="goods__content" data-slider="">
+                <div class="product-cards" data-items-wrapper="" data-step="2" data-count="4"></div>
+            </div>
         </div>
     </div>
 </div>

@@ -5,12 +5,20 @@
     line-height: 1.2;
 }
 
+.goods__subtitle_capitalize {
+    text-transform: capitalize;
+}
+
 .goods {
     padding: 100px 0px 0px 0px;
 }
 
 .goods__body_border-bottom {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.goods__header.goods__header_center {
+    justify-content: center;
 }
 
 .goods__body_padding-bottom {

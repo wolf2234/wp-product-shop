@@ -171,6 +171,18 @@ function get_product_average_rating_half( $product_id ) {
 }
 
 
+function get_product_discount_percent($product) {
+
+    if (!$product->is_on_sale()) {
+        return 0;
+    }
+
+    $regular = $product->get_regular_price();
+    $sale = $product->get_sale_price();
+    $result = round((($regular - $sale) / $regular) * 100);
+    return '-' . $result . '%';
+}
+
 
 
 
@@ -180,16 +192,20 @@ add_action('wp_ajax_nopriv_load_products', 'load_products');
 function load_products() {
     $offset = intval($_GET['offset']); #0
     $limit  = intval($_GET['limit']); #12
+    $sort = $_GET['sort'] ?? 'latest';
 
     $args = [
         'post_type'      => 'product',
         'posts_per_page' => $limit,
         'offset'         => $offset,
-        'meta_key'       => 'rating_half',
-        'orderby'        => 'meta_value_num',
-        'order'          => 'DESC',
         'meta_type'      => 'NUMERIC',
     ];
+
+    if ($sort === 'popular') {
+        $args['meta_key'] = 'rating_half';
+        $args['orderby']  = 'meta_value_num';
+        $args['order']    = 'DESC';
+    }
 
     $query = new WP_Query($args);
     $total_products = wp_count_posts('product')->publish;
