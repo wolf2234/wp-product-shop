@@ -51,6 +51,16 @@
     column-gap: 10px;
 }
 
+.review__count {
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-style: 'SemiBold';
+    font-size: 14px;
+    letter-spacing: 0%;
+    color: #b4b4b4;
+    margin-top: 3px;
+}
+
 .review-rating__count,
 .review-rating__count span {
     font-weight: 400;

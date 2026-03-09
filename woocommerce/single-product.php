@@ -94,7 +94,7 @@ if (!empty($gallery_image_ids)) {
                         <?php echo wc_price( $regular_price ); ?>
                     </span>
                 <?php endif; ?>
-                <span class="cart-product__discount">
+                <span class="discount cart-product__discount">
                     <?php echo get_product_discount_percent($product); ?>
                 </span>
             </div>

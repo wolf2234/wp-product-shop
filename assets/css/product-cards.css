@@ -17,6 +17,21 @@
     text-decoration: none;
 }
 
+.product-cards__discount {
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-style: 'Regular';
+    font-size: 12px;
+    line-height: 1.8;
+    background-color: rgba(219, 68, 68, 1);
+    border-radius: 4px;
+    padding: 4px 12px;
+    color: #fff;
+}
+
 
 /* .product-cards .product-cards__item:nth-child(4)~.product-cards__item {
     display: none;

@@ -143,6 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
         a.innerHTML = `
         <div class="product-cards__image">
             <img src="${product.image}" alt="${product.title}">
+            <span class="discount product-cards__discount">${product.discount}</span>
             <div class="product-cards__icons">
                 <span class="product-cards__like">
                     <img src="${product.home_domain}/assets/img/like.svg">
@@ -153,15 +154,11 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
             <button class="product-cards__add">Add to Cart</button>
         </div>
-
         <div class="product-cards__info">
-
             <span class="product-cards__name">
                 ${product.title}
             </span>
-
             <span class="product-cards__price">
-
                 ${
                     product.is_on_sale
                         ? `
@@ -179,28 +176,20 @@ document.addEventListener("DOMContentLoaded", function () {
                         </span>
                         `
                 }
-
             </span>
-
             <span class="product-cards__stars">
-
                 <div class="review-rating">
-
                     <div
                         class="rating-stars-display"
                         style="--rating: ${product.rating};"
                     >
                         ★★★★★
                     </div>
-
-                    <span class="review-rating__count">
-                        ${product.rating}/5
+                    <span class="review__count">
+                        ${product.reviews}
                     </span>
-
                 </div>
-
             </span>
-
         </div>
         `;
 

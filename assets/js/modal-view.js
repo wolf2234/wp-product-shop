@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         overlay.classList.remove("active");
         document.body.style.overflow = "";
     }
-
+    if (!openBtn || !closeBtn || !overlay) return;
     openBtn.addEventListener("click", openModal);
     closeBtn.addEventListener("click", closeModal);
 

@@ -226,6 +226,8 @@ function load_products() {
                 'rating'    => get_product_average_rating_half($product->get_id()),
                 'is_on_sale'=> $product->is_on_sale(),
                 'home_domain' => get_template_directory_uri(),
+                'discount' => get_product_discount_percent($product),
+                'reviews' => '(' . $product->get_review_count() . ')',
             ];
         }
     }
