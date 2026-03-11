@@ -37,6 +37,7 @@ function product_shop_styles() {
     wp_enqueue_style('price-style', get_template_directory_uri() . '/assets/css/price.css');
     wp_enqueue_style('stars-style', get_template_directory_uri() . '/assets/css/stars.css');
     wp_enqueue_style('comment-form', get_template_directory_uri() . '/assets/css/comment-form.css');
+    wp_enqueue_style('subscribe-form', get_template_directory_uri() . '/assets/css/subscribe-form.css');
     wp_enqueue_style('modal-view', get_template_directory_uri() . '/assets/css/modal-view.css');
     wp_enqueue_style( 'customSelectField', get_template_directory_uri() . '/modules/customSelectField/css/select-custom.css');
     wp_enqueue_style('burger-style', get_template_directory_uri() . '/assets/css/burger.css');

@@ -32,13 +32,13 @@ body.lock::before {
 
 .info {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 0px 0px 50px;
+    padding: 25px 0px 50px;
 }
 
 .info__links,
 .info__items {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     flex-wrap: wrap;
 }

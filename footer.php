@@ -1,5 +1,23 @@
         <footer class="footer">
             <div class="container-large">
+                <div class="subscribe">
+                    <form action="#" class="subscribe-form">
+                        <div class="subscribe-form__wrapper">
+                            <div class="subscribe-form__column">
+                                <h2 class="subscribe-form__title">
+                                    STAY UPTO DATE ABOUT OUR LATEST OFFERS
+                                </h2>
+                            </div>
+                            <div class="subscribe-form__column">
+                                <div class="subscribe-form__input">
+                                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/Email.svg" alt="">
+                                    <input type="text" class="" placeholder="Enter your email address">
+                                </div>
+                                <button type="submit" class="subscribe-form__btn">Subscribe to Newsletter</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
                 <div class="info">
                     <div class="info__items">
                         <div class="info__wrapper">
