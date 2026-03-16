@@ -3,21 +3,41 @@
         <div class="page-hero">
             <div class="filters">
                 <div class="filters__body">
-                    <a href="#" class="filters__link">
-                        Woman’s Fashion
-                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/black-arrow-right.svg" alt="">
-                    </a>
-                    <a href="#" class="filters__link">
-                        Men’s Fashion
-                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/black-arrow-right.svg" alt="">
-                    </a>
-                    <a href="#" class="filters__link">Electronics</a>
-                    <a href="#" class="filters__link">Home & Lifestyle</a>
-                    <a href="#" class="filters__link">Medicine</a>
-                    <a href="#" class="filters__link">Sports & Outdoor</a>
-                    <a href="#" class="filters__link">Baby’s & Toys</a>
-                    <a href="#" class="filters__link">Groceries & Pets</a>
-                    <a href="#" class="filters__link">Health & Beauty</a>
+                    <div class="filters__header">
+                        <h3 class="filters__title">Filters</h3>
+                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/Setting.svg" alt="">
+                    </div>
+                    <div class="filters__content">
+                        <div class="filters__item">
+                            <a href="#" class="filters__link">
+                                Woman’s Fashion
+                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/Gray-arrow.svg" alt="">
+                            </a>
+                            <a href="#" class="filters__link">
+                                Men’s Fashion
+                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/Gray-arrow.svg" alt="">
+                            </a>
+                            <a href="#" class="filters__link">Electronics</a>
+                            <a href="#" class="filters__link">Home & Lifestyle</a>
+                            <a href="#" class="filters__link">Medicine</a>
+                            <a href="#" class="filters__link">Sports & Outdoor</a>
+                            <a href="#" class="filters__link">Baby’s & Toys</a>
+                            <a href="#" class="filters__link">Groceries & Pets</a>
+                            <a href="#" class="filters__link">Health & Beauty</a>
+                        </div>
+                        <div class="filters__item">
+                            <h3 class="filters__title">Price</h3>
+                            <div id="price-slider"></div>
+                            <div class="price-values"></div>
+                        </div>
+                        <div class="filters__item">
+                            <h3 class="filters__title">Colors</h3>
+                        </div>
+                        <div class="filters__item">
+                            <h3 class="filters__title">Size</h3>
+                        </div>
+                        <button class="filters__btn">Apply Filter</button>
+                    </div>
                 </div>
             </div>
             <div class="banner">

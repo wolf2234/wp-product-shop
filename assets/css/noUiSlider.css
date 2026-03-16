@@ -1,0 +1,56 @@
+.noUi-tooltip {
+    background: transparent;
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 14px;
+    font-family: 'Satoshi';
+    font-weight: 500;
+    font-style: Medium;
+    letter-spacing: 0%;
+}
+
+.noUi-horizontal .noUi-tooltip {
+    top: 90%;
+    bottom: auto;
+}
+
+.noUi-connect {
+    background: #000;
+}
+
+.noUi-target,
+.noUi-connects {
+    background-color: rgba(240, 240, 240, 1);
+    border-radius: 20px;
+    border: none;
+    height: 6px;
+}
+
+
+.noUi-touch-area,
+.noUi-handle,
+.noUi-handle-upper {
+    border-radius: 50%;
+    background-color: #000;
+    box-shadow: none;
+    border: none;
+    cursor: pointer;
+    top: -8px;
+}
+
+.noUi-handle::after,
+.noUi-handle::before {
+    display: none;
+}
+
+.noUi-horizontal .noUi-handle {
+    width: 20px;
+    height: 20px;
+}
+
+
+.price-values {
+    padding: 10px 0px;
+}
