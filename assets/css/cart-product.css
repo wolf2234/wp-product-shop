@@ -230,8 +230,8 @@
 }
 
 
-.colors,
-.sizes,
+.cart-product .colors,
+.cart-product .sizes,
 .cart-product__short-description,
 .cart-product__description {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -350,7 +350,7 @@
 .sizes__items .size-radio {
     display: inline-block;
     cursor: pointer;
-    padding: 12px 24px;
+    padding: 8px 24px 12px 24px;
     background-color: rgba(240, 240, 240, 1);
     border-radius: 62px;
 }

@@ -2,6 +2,14 @@
     color: #000;
 }
 
+.price-slider {
+    padding: 10px 0px 10px;
+}
+
+.price-values {
+    padding: 10px 0px 10px;
+}
+
 .discount {
     font-family: 'Satoshi';
     font-weight: 500;

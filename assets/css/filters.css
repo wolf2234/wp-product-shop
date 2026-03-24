@@ -49,6 +49,7 @@
     height: 18px;
 }
 
+.product-filters__title,
 .filters__title {
     display: inline-block;
     font-family: 'Satoshi';
@@ -62,7 +63,48 @@
 
 .filters__link img {}
 
-.filters__content {}
+.filters__categories {
+    display: flex;
+    flex-direction: column;
+}
+
+.filters__category {}
+
+
+.product-filters__head img {
+    transition: all 0.3s ease;
+}
+
+.product-filters.active .product-filters__head img {
+    transform: rotate(180deg);
+}
+
+.product-filters__content {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.product-filters.active .product-filters__content {
+    max-height: 100%;
+}
+
+.product-filters__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.product-filters.active .product-filters__head {
+    padding: 0px 0px 16px;
+}
+
+.product-filters .product-filters__content .sizes .sizes__items,
+.product-filters .product-filters__content .colors .colors__items {
+    flex-wrap: wrap;
+    gap: 12px;
+}
 
 .filters__item {
     padding: 20px 0px;
