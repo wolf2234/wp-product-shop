@@ -14,6 +14,8 @@
     align-items: center;
     justify-content: space-between;
     text-decoration: none;
+    text-align: left;
+    text-transform: capitalize;
     font-family: 'Satoshi';
     font-weight: 400;
     font-style: 'Regular';
@@ -22,7 +24,6 @@
     letter-spacing: 0%;
     color: rgba(0, 0, 0, 0.6);
     width: 100%;
-    text-align: left;
     padding: 0px 0px 15px;
 }
 
