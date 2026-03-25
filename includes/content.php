@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="product-filters__content">
                                     <div class="price-slider">
-                                        <div id="price-slider"></div>
+                                        <div id="price-slider" class="noui-body"></div>
                                         <div class="price-values"></div>
                                     </div>
                                 </div>

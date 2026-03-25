@@ -1,12 +1,14 @@
 .filters {
     padding: 70px 30px 0px 0px;
-    width: 15%;
-    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    width: 22%;
 }
 
 .filters__body {
     display: flex;
     flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 30px;
 }
 
 .filters__link {
@@ -108,8 +110,12 @@
 }
 
 .filters__item {
-    padding: 20px 0px;
+    padding: 25px 0px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.filters__item:first-of-type {
+    padding-top: 8px;
 }
 
 .filters__item:last-of-type {
