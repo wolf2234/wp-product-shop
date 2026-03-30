@@ -30,8 +30,9 @@
 }
 
 .filters__link:hover {
-    color: rgba(0, 0, 0, 0.6);
+    color: #000;
 }
+
 
 .filters__link:first-of-type {}
 
@@ -83,6 +84,10 @@
 }
 
 .product-filters__content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    position: relative;
     max-height: 0;
     overflow: hidden;
     transition: all 0.3s ease;
@@ -90,6 +95,7 @@
 
 .product-filters.active .product-filters__content {
     max-height: 100%;
+    overflow: visible;
 }
 
 .product-filters__head {
@@ -147,5 +153,11 @@
     .filters {
         display: none;
         padding: 30px 30px 0px 0px;
+    }
+
+    .product-filters__content .menu {
+        display: flex;
+        flex-direction: column;
+        row-gap: 5px;
     }
 }

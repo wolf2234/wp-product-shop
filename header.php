@@ -22,29 +22,28 @@
                     <span class="burger-line"></span>
                 </div>
                 <nav class="nav-menu">
-                    <div class="dropdown">
-                        <div class="dropdown__dropbtn">
-                            <a href="#" class="dropdown__link">Shop</a>
-                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/arrow.svg" class="dropdown__arrow" alt="">
+                    <div class="nav-menu__main">
+                        <div class="dropdown">
+                            <div class="dropdown__dropbtn">
+                                <a href="#" class="dropdown__link">Shop</a>
+                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/arrow.svg" class="dropdown__arrow" alt="">
+                            </div>
+                            <div class="dropdown__content">
+                                <a href="#">All Products</a>
+                                <a href="#">New Arrivals</a>
+                                <a href="#">Best Sellers</a>
+                                <a href="#">Sale Items</a>
+                            </div>
                         </div>
-                        <div class="dropdown__content">
-                            <a href="#">All Products</a>
-                            <a href="#">New Arrivals</a>
-                            <a href="#">Best Sellers</a>
-                            <a href="#">Sale Items</a>
-                        </div>
+                        <?php wp_nav_menu(array(
+                            'theme_location' => 'top', 
+                            'menu' => 'nav-menu',
+                            'container' => null,
+                            'menu_class' => 'menu',
+                        ));
+                        ?>
                     </div>
-                    <?php wp_nav_menu(array(
-                        'theme_location' => 'top', 
-                        'menu' => 'nav-menu',
-                        'container' => null,
-                        'menu_class' => 'menu',
-                    ));
-                    ?>
                     <div class="nav-menu__filters">
-                        <button class="nav-menu__btn" data-text-default="Show 22 more filters" data-text-active="Hide filters">
-                            Show 22 more filters
-                        </button>
                         <div class="filters">
                             <?php
                                 $categories = get_terms([
@@ -130,6 +129,35 @@
                                                         <?php endforeach; ?>
                                                     </div>
                                                 </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="filters__item">
+                                        <div class="product-filters active">
+                                            <div class="product-filters__head">
+                                                <h3 class="product-filters__title">Menu</h3>
+                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/arrow.svg" alt="">
+                                            </div>
+                                            <div class="product-filters__content">
+                                                <div class="dropdown">
+                                                    <div class="dropdown__dropbtn">
+                                                        <a href="#" class="dropdown__link">Shop</a>
+                                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/arrow.svg" class="dropdown__arrow" alt="">
+                                                    </div>
+                                                    <div class="dropdown__content">
+                                                        <a href="#">All Products</a>
+                                                        <a href="#">New Arrivals</a>
+                                                        <a href="#">Best Sellers</a>
+                                                        <a href="#">Sale Items</a>
+                                                    </div>
+                                                </div>
+                                                <?php wp_nav_menu(array(
+                                                    'theme_location' => 'top', 
+                                                    'menu' => 'nav-menu',
+                                                    'container' => null,
+                                                    'menu_class' => 'menu',
+                                                ));
+                                                ?>
                                             </div>
                                         </div>
                                     </div>
