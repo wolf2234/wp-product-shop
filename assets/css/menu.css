@@ -391,6 +391,6 @@
 
 @media (max-width: 600px) {
     .nav-menu.active {
-        min-width: 280px;
+        min-width: 300px;
     }
 }
