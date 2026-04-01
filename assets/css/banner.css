@@ -167,7 +167,8 @@
 }
 
 .banner {
-    width: 85%;
+    /* width: 85%; */
+    width: 100%;
     padding: 70px 0px 0px 40px;
 }
 
@@ -177,15 +178,15 @@
 
 @media (max-width: 1200px) {
     .banner {
-        width: 78%;
+        /* width: 78%; */
         padding: 40px 0px 0px 0px;
     }
 }
 
 @media (max-width: 1150px) {
-    .banner {
+    /* .banner {
         width: 78%;
-    }
+    } */
 }
 
 @media (max-width: 768px) {

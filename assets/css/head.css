@@ -123,7 +123,7 @@
 
 
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
     .search {
         max-width: 400px;
     }
@@ -152,34 +152,35 @@
 
 @media (max-width: 900px) {}
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) { */
 
-    .header.active {
-        border-bottom: 0px solid rgba(0, 0, 0, 0.2);
-    }
-
-    .header.active::before {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    }
-
-    .head {
-        column-gap: 25px;
-        padding: 0px 10px;
-    }
-
-    .logo {
-        order: 2;
-    }
-
-    .search {
-        max-width: 100%;
-        order: 3;
-    }
-
-    .account-cart {
-        order: 4;
-    }
+.header.active {
+    border-bottom: 0px solid rgba(0, 0, 0, 0.2);
 }
+
+.header.active::before {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.head {
+    column-gap: 25px;
+    padding: 0px 10px;
+}
+
+.logo {
+    order: 2;
+}
+
+.search {
+    max-width: 100%;
+    order: 4;
+}
+
+.account-cart {
+    order: 5;
+}
+
+/* } */
 
 @media (max-width: 600px) {
     .head {

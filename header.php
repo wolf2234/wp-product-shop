@@ -22,27 +22,6 @@
                     <span class="burger-line"></span>
                 </div>
                 <nav class="nav-menu">
-                    <div class="nav-menu__main">
-                        <div class="dropdown">
-                            <div class="dropdown__dropbtn">
-                                <a href="#" class="dropdown__link">Shop</a>
-                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/arrow.svg" class="dropdown__arrow" alt="">
-                            </div>
-                            <div class="dropdown__content">
-                                <a href="#">All Products</a>
-                                <a href="#">New Arrivals</a>
-                                <a href="#">Best Sellers</a>
-                                <a href="#">Sale Items</a>
-                            </div>
-                        </div>
-                        <?php wp_nav_menu(array(
-                            'theme_location' => 'top', 
-                            'menu' => 'nav-menu',
-                            'container' => null,
-                            'menu_class' => 'menu',
-                        ));
-                        ?>
-                    </div>
                     <div class="nav-menu__filters">
                         <div class="filters">
                             <?php
@@ -161,12 +140,37 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="filters__btn-wrapper">
                                     <button class="filters__btn">Apply Filter</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </nav>
+                <div class="nav-menu-header">
+                    <div class="nav-menu__main">
+                        <div class="dropdown">
+                            <div class="dropdown__dropbtn">
+                                <a href="#" class="dropdown__link">Shop</a>
+                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/arrow.svg" class="dropdown__arrow" alt="">
+                            </div>
+                            <div class="dropdown__content">
+                                <a href="#">All Products</a>
+                                <a href="#">New Arrivals</a>
+                                <a href="#">Best Sellers</a>
+                                <a href="#">Sale Items</a>
+                            </div>
+                        </div>
+                        <?php wp_nav_menu(array(
+                            'theme_location' => 'top', 
+                            'menu' => 'nav-menu',
+                            'container' => null,
+                            'menu_class' => 'menu',
+                        ));
+                        ?>
+                    </div>
+                </div>
                 <div class="search">
                     <img src='<?php echo get_template_directory_uri(); ?>/assets/img/shop-search.svg' class="search-icon" alt="">
                     <input type="text" class="search-input" placeholder="Search for products...">
