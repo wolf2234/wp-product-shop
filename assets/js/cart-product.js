@@ -1,23 +1,36 @@
 document.addEventListener("DOMContentLoaded", function () {
-    let colors = document.querySelectorAll(".color-radio");
-    colors.forEach((color) => {
-        color.addEventListener("click", function (c) {
-            chooseOptions(colors, color);
+    let parentFilters = document.querySelectorAll("[data-parent-filter]");
+    parentFilters.forEach((parentFilter) => {
+        let colors = parentFilter.querySelectorAll(".color-radio");
+        colors.forEach((color) => {
+            color
+                .querySelector("input")
+                .addEventListener("change", function (c) {
+                    chooseOptions(color);
+                });
+        });
+        let sizes = parentFilter.querySelectorAll(".size-radio");
+        sizes.forEach((size) => {
+            size.querySelector("input").addEventListener(
+                "change",
+                function (s) {
+                    chooseOptions(size);
+                },
+            );
         });
     });
-    let sizes = document.querySelectorAll(".size-radio");
-    sizes.forEach((size) => {
-        size.addEventListener("click", function (s) {
-            chooseOptions(sizes, size);
-        });
-    });
-
-    function chooseOptions(optionsList, optionSelected) {
-        optionsList.forEach((option) => {
-            option.classList.remove("active");
-            option.querySelector("input").setAttribute("checked", "false");
-        });
-        optionSelected.classList.add("active");
-        optionSelected.querySelector("input").setAttribute("checked", "true");
+    function chooseOptions(optionSelected) {
+        console.log(optionSelected.querySelector("input").checked);
+        if (optionSelected.querySelector("input").checked === true) {
+            optionSelected.classList.add("active");
+            optionSelected
+                .querySelector("input")
+                .setAttribute("checked", "true");
+        } else {
+            optionSelected.classList.remove("active");
+            optionSelected
+                .querySelector("input")
+                .setAttribute("checked", "false");
+        }
     }
 });

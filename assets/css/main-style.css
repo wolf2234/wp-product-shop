@@ -18,6 +18,10 @@ body.lock::before {
     z-index: 5;
 }
 
+.content {
+    padding-bottom: 130px;
+}
+
 .footer {
     background-color: #F0F0F0;
     padding: 100px 0px 50px;

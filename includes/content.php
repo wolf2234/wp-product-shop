@@ -1,7 +1,7 @@
 <div class="content">
     <div class="container-large">
         <div class="page-hero">
-            <div class="filters">
+            <div class="filters" data-parent-filter="">
                 <?php
                     $categories = get_terms([
                         'taxonomy' => 'product_cat',
@@ -65,8 +65,8 @@
                                         <div class="colors__items">
                                             <?php foreach ($colors as $color): ?>
                                                 <label class="color-radio">
-                                                    <input type="radio"
-                                                            name="attribute_pa_color"
+                                                    <input type="checkbox"
+                                                            name="attribute_pa_color[]"
                                                             value="<?php echo esc_attr($color->slug); ?>" hidden>
                                                     <span class="color-circle" style="background-color: <?php echo esc_attr($color->description); ?>"></span>
                                                 </label>
@@ -87,8 +87,8 @@
                                         <div class="sizes__items">
                                             <?php foreach ($sizes as $size): ?>
                                                 <label class="size-radio">
-                                                    <input type="radio"
-                                                        name="attribute_pa_size"
+                                                    <input type="checkbox"
+                                                        name="attribute_pa_size[]"
                                                         value="<?php echo esc_attr($size->slug); ?>" hidden>
                                                     <span class="sizes__name"><?php echo esc_attr($size->name); ?></span>
                                                 </label>
