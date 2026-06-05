@@ -1,0 +1,25 @@
+.cupon {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.cupon__btn {
+    display: inline-block;
+    border-radius: 4px;
+    padding: 16px 48px;
+    background-color: rgba(219, 68, 68, 1);
+    color: #fff;
+    text-decoration: none;
+}
+
+.cupon input {
+    display: inline-block;
+    padding: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    color: #000;
+    width: 100%;
+    max-width: 300px;
+}

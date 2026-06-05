@@ -7,6 +7,7 @@
     <title><?php bloginfo('name'); ?></title>
 </head>
 <body>
+<!-- <a href="href="<?php ## echo esc_url(get_permalink(get_page_by_path('basket'))); ?>"" class="cart-link"> -->
 <div class="wrapper">
     <header class="header">
         <div class="container-large">
@@ -177,7 +178,7 @@
                 </div>
                 <div class="account-cart">
                     <div class="cart">
-                        <a href="#" class="cart-link">
+                        <a href="<?php echo wc_get_cart_url(); ?>" class="cart-link">
                             <img src="<?php bloginfo('template_directory'); ?>/assets/img/shop-box.svg" alt="">
                         </a>
                     </div>
