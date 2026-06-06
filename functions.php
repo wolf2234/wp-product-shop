@@ -76,8 +76,8 @@ function product_shop_scripts() {
     wp_enqueue_script( 'load-comments', get_template_directory_uri() . '/assets/js/load-comments.js', array('jquery'), null, true);
     wp_localize_script('load-comments', 'comment_obj', array('ajaxurl' => admin_url('admin-ajax.php')));
     wp_enqueue_script( 'scripts', get_template_directory_uri() . '/assets/js/scripts.js', array('jquery'), null, true);
-    wp_localize_script('cart', 'cart_obj', array('ajaxurl' => admin_url('admin-ajax.php')));
     wp_enqueue_script( 'cart', get_template_directory_uri() . '/assets/js/cart.js', array('jquery'), null, true);
+    wp_localize_script('cart', 'cart_obj', array('ajaxurl' => admin_url('admin-ajax.php')));
     wp_enqueue_script( 'orders', get_template_directory_uri() . '/assets/js/orders.js', array('jquery'), null, true);
 }
 
