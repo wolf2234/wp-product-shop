@@ -67,11 +67,110 @@
     text-align: center;
 }
 
-.proceed-to-checkout {
+.proceed-to-checkout,
+.proceed-to-checkout:hover {
     display: inline-block;
     border-radius: 4px;
     padding: 16px 48px;
     background-color: rgba(219, 68, 68, 1);
     color: #fff;
     text-decoration: none;
+}
+
+.return-to-shop,
+.update-cart {
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 16px;
+    background-color: #fff;
+    color: #000000;
+    line-height: 1.3;
+    text-decoration: none;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    padding: 16px 48px;
+    border-radius: 4px;
+}
+
+.return-to-shop:hover {
+    color: #000000;
+}
+
+
+@media (max-width: 1640px) {
+    .cart-content .container-large {
+        padding: 0px 30px;
+    }
+
+    .return-to-shop,
+    .update-cart {
+        font-size: 14px;
+        padding: 14px 25px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .cart-content {
+        padding: 50px 0px 150px;
+    }
+}
+
+@media (max-width: 1080px) {
+    .cart-total__row {
+        padding: 12px 0px;
+    }
+
+    .cart-total {
+        border: 1px solid rgba(0, 0, 0, 1);
+        border-radius: 4px;
+        padding: 30px 20px;
+        width: 100%;
+        height: 100%;
+        max-width: 470px;
+        max-height: 324px;
+    }
+
+    .cart-total__title {
+        font-size: 14px;
+    }
+
+    .cart-total__label,
+    .cart-total__value {
+        font-size: 14px;
+    }
+
+    .proceed-to-checkout {
+        font-size: 14px;
+        padding: 14px 25px;
+    }
+}
+
+@media (max-width: 852px) {
+    .cart-total__title {
+        font-size: 12px;
+    }
+
+    .cart-total__label,
+    .cart-total__value {
+        font-size: 12px;
+    }
+
+    .proceed-to-checkout {
+        font-size: 12px;
+        padding: 14px 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cart-content .container-large {
+        padding: 0px 20px;
+    }
+
+    .cart-content .woocommerce-breadcrumb {
+        font-size: 12px;
+    }
+
+    .cart-content {
+        padding: 40px 0px 150px;
+    }
 }

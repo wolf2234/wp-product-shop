@@ -39,9 +39,7 @@
                                     >
                                 </div>
                                 <div class="orders__column">
-                                    <span style="display: inline-block">
                                         <?php echo wc_price($price * $quantity); ?>
-                                    </span>
                                 </div>
                             </div>
     
