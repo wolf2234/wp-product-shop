@@ -1,4 +1,5 @@
-.orders {
+.orders,
+.orders__body {
     display: flex;
     flex-direction: column;
     row-gap: 40px;
@@ -8,7 +9,8 @@
 .orders__row {
     display: flex;
     align-items: center;
-    padding: 20px 0;
+    width: 100%;
+    padding: 20px 45px;
     border-radius: 10px;
     box-shadow: 0 0 18px rgba(0, 0, 0, 0.05);
 }
@@ -28,22 +30,23 @@
     display: flex;
     align-items: center;
     gap: 15px;
+    padding: 0;
+    flex: 6;
 }
 
 /* первая колонка — прижата влево */
-.orders__column:first-child {
-    justify-content: flex-start;
+
+.orders__column:first-of-type {}
+
+.orders__column:last-of-type {
+    flex: 1;
 }
 
-/* последняя колонка — прижата вправо */
-.orders__column:last-child {
-    justify-content: flex-end;
+.orders__column:first-of-type {
+    flex: 6;
 }
 
 /* центр — по центру */
-.orders__column:not(:first-child):not(:last-child) {
-    justify-content: center;
-}
 
 .orders__column img {
     width: 100%;

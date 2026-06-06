@@ -5,33 +5,30 @@
                 <?php woocommerce_breadcrumb(); ?>
             </div>
             <div class="orders">
-                <form method="post" action="<?php echo esc_url( wc_get_cart_url() ); ?>">
-                    <?php
-                        $page = get_page_by_path('home-page');
-                    ?>
-                    <div class="orders">
-                        <div class="orders__row">
-                            <div class="orders__column">Product</div>
-                            <div class="orders__column">Price</div>
-                            <div class="orders__column">Quantity</div>
-                            <div class="orders__column">Subtotal</div>
-                        </div>
-
+                <div class="orders__row">
+                    <div class="orders__column">Product</div>
+                    <div class="orders__column">Price</div>
+                    <div class="orders__column">Quantity</div>
+                    <div class="orders__column">Subtotal</div>
+                </div>
+                <form method="post" action="<?php echo esc_url( wc_get_cart_url() ); ?>" >
+                    <?php $page = get_page_by_path('home-page'); ?>
+                    <div class="orders__body">
                         <?php foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item): ?>
                             <?php 
                                 $product = $cart_item['data'];
                                 $price = $product->get_price();
                                 $quantity = $cart_item['quantity'];
                             ?>
-
+    
                             <div class="orders__row">
                                 <div class="orders__column">
                                     <?php echo $product->get_image(); ?>
                                     <h3><?php echo $product->get_name(); ?></h3>
                                 </div>
-
+    
                                 <div class="orders__column"><?php echo wc_price($price); ?></div>
-
+    
                                 <div class="orders__column">
                                     <input
                                         type="number"
@@ -41,12 +38,13 @@
                                         class="quantity-input"
                                     >
                                 </div>
-
                                 <div class="orders__column">
-                                    <?php echo wc_price($price * $quantity); ?>
+                                    <span style="display: inline-block">
+                                        <?php echo wc_price($price * $quantity); ?>
+                                    </span>
                                 </div>
                             </div>
-
+    
                         <?php endforeach; ?>
                     </div>
                     <div class="cart-actions">
