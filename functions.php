@@ -465,4 +465,25 @@ function remove_cart_item_ajax() {
     ]);
 }
 
+add_action('template_redirect', function () {
+
+    if (is_user_logged_in()) {
+        return;
+    }
+
+    $allowed = [
+        'home-page',
+        'shop',
+        'cart',
+        'checkout',
+    ];
+
+    if (is_page($allowed) || is_front_page() || is_shop() || is_product()) {
+        return;
+    }
+
+    wp_redirect(wp_login_url());
+    exit;
+});
+
 ?>
