@@ -50,7 +50,7 @@
                                         class="remove-item"
                                         data-cart-item-key="<?php echo esc_attr($cart_item_key); ?>"
                                     >
-                                        ×
+                                        delete
                                     </button>
                                 </div>
                             </div>
