@@ -10,6 +10,7 @@
                     <div class="orders__column">Price</div>
                     <div class="orders__column">Quantity</div>
                     <div class="orders__column">Subtotal</div>
+                    <div class="orders__column">Remove</div>
                 </div>
                 <form method="post" action="<?php echo esc_url( wc_get_cart_url() ); ?>" >
                     <?php $page = get_page_by_path('home-page'); ?>
@@ -27,7 +28,9 @@
                                     <h3><?php echo $product->get_name(); ?></h3>
                                 </div>
     
-                                <div class="orders__column"><?php echo wc_price($price); ?></div>
+                                <div class="orders__column product-price" data-price="<?php echo $price; ?>">
+                                    <?php echo wc_price($price); ?>
+                                </div>
     
                                 <div class="orders__column">
                                     <input
@@ -38,8 +41,17 @@
                                         class="quantity-input"
                                     >
                                 </div>
+                                <div class="orders__column product-subtotal">
+                                    <?php echo wc_price($price * $quantity); ?>
+                                </div>
                                 <div class="orders__column">
-                                        <?php echo wc_price($price * $quantity); ?>
+                                    <button
+                                        type="button"
+                                        class="remove-item"
+                                        data-cart-item-key="<?php echo esc_attr($cart_item_key); ?>"
+                                    >
+                                        ×
+                                    </button>
                                 </div>
                             </div>
     
@@ -68,7 +80,9 @@
                             -->
                             <div class="cart-total__row">
                                 <span class="cart-total__label">Subtotal:</span>
-                                <span class="cart-total__value"><?php echo WC()->cart->get_total(); ?></span>
+                                <span class="cart-total__value cart-subtotal">
+                                    <?php echo WC()->cart->get_total(); ?>
+                                </span>
                             </div>
                             <div class="cart-total__row">
                                 <span class="cart-total__label">Shipping:</span>
@@ -76,7 +90,7 @@
                             </div>
                             <div class="cart-total__row">
                                 <span class="cart-total__label">Total:</span>
-                                <span class="cart-total__value"><?php echo WC()->cart->get_total(); ?></span>
+                                <span class="cart-total__value cart-total-price"><?php echo WC()->cart->get_total(); ?></span>
                             </div>
                         </div>
                         <div class="cart-total__footer">

@@ -445,4 +445,24 @@ function custom_update_cart_quantities() {
     }
 }
 
+add_action('wp_ajax_remove_cart_item_ajax', 'remove_cart_item_ajax');
+add_action('wp_ajax_nopriv_remove_cart_item_ajax', 'remove_cart_item_ajax');
+
+function remove_cart_item_ajax() {
+
+    $cart_key = sanitize_text_field($_POST['cart_key']);
+
+    if (!$cart_key) {
+        wp_send_json_error();
+    }
+
+    WC()->cart->remove_cart_item($cart_key);
+    WC()->cart->calculate_totals();
+
+    wp_send_json_success([
+        'cart_total' => WC()->cart->get_total(),
+        'cart_count' => WC()->cart->get_cart_contents_count(),
+    ]);
+}
+
 ?>
