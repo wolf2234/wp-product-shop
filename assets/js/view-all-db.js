@@ -231,21 +231,27 @@ document.addEventListener("DOMContentLoaded", function () {
             $(sliderName).slick("refresh");
         }
     }
+});
 
-    function createProductCard(product) {
-        const div = document.createElement("div");
-        div.className = "product-cards__item";
-        div.setAttribute("data-items-item", "");
+function createProductCard(product) {
+    const div = document.createElement("div");
+    div.className = "product-cards__item";
+    div.setAttribute("data-items-item", "");
 
-        div.innerHTML = `
+    div.innerHTML = `
             <div class="product-cards__image">
                 <a href="${product.permalink}">
                     <img src="${product.image}" alt="${product.title}">
                 </a>
                 ${product.discount ? `<span class="discount product-cards__discount">${product.discount}</span>` : ""}
                 <div class="product-cards__icons">
-                    <span class="product-cards__like"><img src="${product.home_domain}/assets/img/like.svg" alt=""></span>
-                    <span class="product-cards__view"><img src="${product.home_domain}/assets/img/view.svg" alt=""></span>
+                    <span class="product-cards__like" 
+                    data-product-id="${product.id}">
+                        <img src="${product.home_domain}/assets/img/like.svg" alt="">
+                    </span>
+                    <span class="product-cards__view">
+                        <img src="${product.home_domain}/assets/img/view.svg" alt="">
+                    </span>
                 </div>
             </div>
             <div class="product-cards__info">
@@ -276,6 +282,5 @@ document.addEventListener("DOMContentLoaded", function () {
                 </a>
             </div>
         `;
-        return div;
-    }
-});
+    return div;
+}

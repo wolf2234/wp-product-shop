@@ -71,6 +71,7 @@
     padding: 8px 6px;
     background-color: #fff;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .product-cards__add {

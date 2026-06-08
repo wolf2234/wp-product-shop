@@ -177,6 +177,11 @@
                     <input type="text" class="search-input" placeholder="Search for products...">
                 </div>
                 <div class="account-cart">
+                    <div class="wish-list">
+                        <a href="<?php echo get_permalink(get_page_by_path('wish-list')); ?>" class="wish-list__link">
+                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/wish-list.svg" alt="">
+                        </a>
+                    </div>
                     <div class="cart">
                         <a href="<?php echo wc_get_cart_url(); ?>" class="cart-link">
                             <img src="<?php bloginfo('template_directory'); ?>/assets/img/shop-box.svg" alt="">

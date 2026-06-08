@@ -1,0 +1,12 @@
+.wish-list {}
+
+.wish-list-content {
+    padding: 0px 0px 150px;
+}
+
+.wish-list__link {}
+
+.wish-list img {
+    width: 23px;
+    height: 21px;
+}
