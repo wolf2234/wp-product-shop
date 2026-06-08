@@ -34,8 +34,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const subtotal = price * qty;
 
-            row.querySelector(".product-subtotal").textContent =
-                "$" + subtotal.toFixed(2);
+            const subtotalElement = row.querySelector(".product-subtotal");
+            subtotalElement.textContent = "$" + subtotal.toFixed(2);
+            subtotalElement.dataset.subtotal = subtotal;
             updateCartTotal();
         });
     });
@@ -74,10 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let total = 0;
 
         document.querySelectorAll(".product-subtotal").forEach(function (item) {
-            const value =
-                parseFloat(item.textContent.replace(/[^0-9.]/g, "")) || 0;
-
-            total += value;
+            total += parseFloat(item.dataset.subtotal || 0);
         });
 
         document.querySelector(".cart-subtotal").textContent =

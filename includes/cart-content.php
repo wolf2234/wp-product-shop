@@ -41,7 +41,7 @@
                                         class="quantity-input"
                                     >
                                 </div>
-                                <div class="orders__column product-subtotal">
+                                <div class="orders__column product-subtotal" data-subtotal="<?php echo $price * $quantity; ?>">
                                     <?php echo wc_price($price * $quantity); ?>
                                 </div>
                                 <div class="orders__column">
