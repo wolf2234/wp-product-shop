@@ -16,7 +16,7 @@
                     </div>
                     <div class="goods__buttons">
                         <div class="goods__btn">
-                            <button class="view-all" view-all-btn="">Move All To Bag</button>
+                            <button class="view-all">Move All To Bag</button>
                         </div>
                     </div>
                 </div>

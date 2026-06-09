@@ -197,7 +197,52 @@ function get_product_discount_percent($product) {
     return '-' . $result . '%';
 }
 
+function prepare_product_data($product) {
+    return [
+        'id'            => $product->get_id(), 
+        'title'         => get_the_title(), 
+        'permalink'     => get_permalink(), 
+        'image'         => get_the_post_thumbnail_url(get_the_ID(), 'medium') ?: wc_placeholder_img_src(), 
+        'regular_price' => wc_price($product->get_regular_price()),
+        'sale_price'    => $product->is_on_sale() ? wc_price($product->get_sale_price()) : null, 
+        'rating'        => function_exists('get_product_average_rating_half') ? get_product_average_rating_half($product->get_id()) : 5, 
+        'is_on_sale'    => $product->is_on_sale(),
+        'home_domain'   => get_template_directory_uri(),
+        'discount'      => function_exists('get_product_discount_percent') ? get_product_discount_percent($product) : '', 
+        'reviews'       => '(' . $product->get_review_count() . ')',
+    ];
+}
 
+function get_sorting_args($sort)
+{
+    switch ($sort) {
+
+        case 'latest':
+            return [
+                'orderby' => 'comment_date',
+                'order'   => 'DESC',
+            ];
+
+        case 'oldest':
+            return [
+                'orderby' => 'comment_date',
+                'order'   => 'ASC',
+            ];
+
+        case 'popular':
+            return [
+                'meta_key' => 'rating_half',
+                'orderby'  => 'meta_value_num',
+                'order'    => 'DESC',
+            ];
+
+        default:
+            return [
+                'orderby' => 'date',
+                'order'   => 'DESC',
+            ];
+    }
+}
 
 add_action('wp_ajax_load_products', 'load_products'); 
 add_action('wp_ajax_nopriv_load_products', 'load_products'); 
@@ -215,14 +260,10 @@ function load_products() {
     ]; 
 
     // Сортировка
-    if ($sort === 'popular') { 
-        $args['meta_key'] = 'rating_half'; 
-        $args['orderby']  = 'meta_value_num'; 
-        $args['order']    = 'DESC'; 
-    } else {
-        $args['orderby']  = 'date';
-        $args['order']    = 'DESC';
-    }
+    $args = array_merge(
+        $args,
+        get_sorting_args($sort)
+    );
 
     // --- ФИЛЬТР ЦЕНЫ ---
     $min_price = isset($_GET['minprice']) ? intval($_GET['minprice']) : 0;
@@ -295,19 +336,7 @@ function load_products() {
         while ($query->have_posts()) { 
             $query->the_post();
             global $product;
-            $products[] = [ 
-                'id'            => $product->get_id(), 
-                'title'         => get_the_title(), 
-                'permalink'     => get_permalink(), 
-                'image'         => get_the_post_thumbnail_url(get_the_ID(), 'medium') ?: wc_placeholder_img_src(), 
-                'regular_price' => wc_price($product->get_regular_price()), 
-                'sale_price'    => $product->is_on_sale() ? wc_price($product->get_sale_price()) : null, 
-                'rating'        => function_exists('get_product_average_rating_half') ? get_product_average_rating_half($product->get_id()) : 5, 
-                'is_on_sale'    => $product->is_on_sale(), 
-                'home_domain'   => get_template_directory_uri(), 
-                'discount'      => function_exists('get_product_discount_percent') ? get_product_discount_percent($product) : '', 
-                'reviews'       => '(' . $product->get_review_count() . ')', 
-            ]; 
+            $products[] = prepare_product_data($product); 
         } 
     }
     wp_reset_postdata(); 
@@ -338,22 +367,10 @@ function load_product_reviews() {
         'type'    => 'review',
     ];
 
-
-    if ($sort === 'latest') {
-        $args['orderby'] = 'comment_date';
-        $args['order']   = 'DESC';
-    }
-
-    if ($sort === 'oldest') {
-        $args['orderby'] = 'comment_date';
-        $args['order']   = 'ASC';
-    }
-
-    if ($sort === 'popular') {
-        $args['meta_key'] = 'rating_half';
-        $args['orderby']  = 'meta_value_num';
-        $args['order']    = 'DESC';
-    }
+    $args = array_merge(
+        $args,
+        get_sorting_args($sort)
+    );
 
     $comments = get_comments($args);
 
@@ -540,30 +557,7 @@ function load_wishlist_ajax() {
 
         global $product;
 
-        $products[] = [
-            'id'            => $product->get_id(),
-            'title'         => get_the_title(),
-            'permalink'     => get_permalink(),
-            'image'         => get_the_post_thumbnail_url(
-                get_the_ID(),
-                'medium'
-            ) ?: wc_placeholder_img_src(),
-            'regular_price' => wc_price(
-                $product->get_regular_price()
-            ),
-            'sale_price'    => $product->is_on_sale()
-                ? wc_price($product->get_sale_price())
-                : null,
-            'rating'        => function_exists('get_product_average_rating_half')
-                ? get_product_average_rating_half($product->get_id())
-                : 5,
-            'is_on_sale'    => $product->is_on_sale(),
-            'home_domain'   => get_template_directory_uri(),
-            'discount'      => function_exists('get_product_discount_percent')
-                ? get_product_discount_percent($product)
-                : '',
-            'reviews'       => '(' . $product->get_review_count() . ')',
-        ];
+        $products[] = prepare_product_data($product);
     }
 
     wp_reset_postdata();
