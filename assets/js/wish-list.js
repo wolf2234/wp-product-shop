@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener("click", function (e) {
-        const btn = e.target.closest(".product-cards__like");
+        const btn = e.target.closest("[data-like]");
 
         if (!btn) return;
 
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     });
 
-    const container = document.querySelector(".wishlist-products");
+    const container = document.querySelector("[data-wishlist-products]");
 
     if (!container) return;
 

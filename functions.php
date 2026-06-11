@@ -213,8 +213,7 @@ function prepare_product_data($product) {
     ];
 }
 
-function get_sorting_args($sort)
-{
+function get_sorting_args($sort) {
     switch ($sort) {
 
         case 'latest':
@@ -243,6 +242,37 @@ function get_sorting_args($sort)
             ];
     }
 }
+
+function build_taxonomy_filter($taxonomy, $request_value) {
+    if (empty($request_value)) {
+        return null;
+    }
+
+    $value = sanitize_text_field($request_value);
+
+    if ($value === 'undefined' || trim($value) === '') {
+        return null;
+    }
+
+    return [
+        'taxonomy' => $taxonomy,
+        'field'    => 'slug',
+        'terms'    => explode(',', $value),
+        'operator' => 'IN',
+    ];
+}
+function build_tax_query(array $filters): array{
+    $tax_query = array_filter($filters);
+    return $tax_query;
+}
+
+function add_relation_to_tax_query($tax_query, $relation) {
+    if (count($tax_query) > 1) {
+        $tax_query['relation'] = $relation;
+    }
+    return $tax_query;
+}
+
 
 add_action('wp_ajax_load_products', 'load_products'); 
 add_action('wp_ajax_nopriv_load_products', 'load_products'); 
@@ -283,41 +313,14 @@ function load_products() {
     }
 
     // --- ФИЛЬТР ПО АТРИБУТАМ ---
-    $tax_query = [];
-
-    // Цвета
-    if (!empty($_GET['colors'])) {
-        $colors_raw = sanitize_text_field($_GET['colors']);
-        if ($colors_raw !== 'undefined' && trim($colors_raw) !== '') {
-            $colors_array = explode(',', $colors_raw);
-            $tax_query[] = [
-                'taxonomy' => 'pa_color',
-                'field'    => 'slug',
-                'terms'    => $colors_array,
-                'operator' => 'IN',
-            ];
-        }
-    }
-
-    // Размеры
-    if (!empty($_GET['sizes'])) {
-        $sizes_raw = sanitize_text_field($_GET['sizes']);
-        if ($sizes_raw !== 'undefined' && trim($sizes_raw) !== '') {
-            $sizes_array = explode(',', $sizes_raw);
-            $tax_query[] = [
-                'taxonomy' => 'pa_size',
-                'field'    => 'slug',
-                'terms'    => $sizes_array,
-                'operator' => 'IN',
-            ];
-        }
-    }
+    $tax_query = build_tax_query([
+        build_taxonomy_filter('pa_color', $_GET['colors'] ?? ''),
+        build_taxonomy_filter('pa_size', $_GET['sizes'] ?? ''),
+    ]);
+    $$tax_query = add_relation_to_tax_query($tax_query, 'AND');
 
     // Если есть хотя бы одна таксономия, добавляем её в запрос
     if (!empty($tax_query)) {
-        if (count($tax_query) > 1) {
-            $tax_query['relation'] = 'AND';
-        }
         $args['tax_query'] = $tax_query;
     }
 

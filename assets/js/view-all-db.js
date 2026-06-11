@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // --- ФУНКЦИЯ ЗАГРУЗКИ ТОВАРОВ (AJAX) ---
-    function loadProducts(
+    async function loadProducts(
         parent,
         slides,
         slidesCount,
@@ -170,23 +170,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const params = new URLSearchParams(queryParams);
 
-        fetch(`${product_obj.ajaxurl}?${params.toString()}`, {
+        const requestData = {
+            url: product_obj.ajaxurl,
             method: "GET",
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                console.log("Ответ от сервера:", data); // ЛОГ ДЛЯ ОТЛАДКИ
-                if (!data.success) return;
-                fillSlides(
-                    parent,
-                    slides,
-                    slidesCount,
-                    sliderName,
-                    viewAllButton,
-                    data,
-                );
-            })
-            .catch((err) => console.error("Ошибка запроса:", err));
+            params: params,
+        };
+        const result = await getProducts(requestData);
+        if (result.success) {
+            fillSlides(
+                parent,
+                slides,
+                slidesCount,
+                sliderName,
+                viewAllButton,
+                result.data,
+            );
+        } else {
+            console.log("Ошибка:", result.error);
+        }
     }
 
     // --- ФУНКЦИЯ ЗАПОЛНЕНИЯ СЛАЙДОВ ---
@@ -198,13 +199,13 @@ document.addEventListener("DOMContentLoaded", function () {
         viewAllButton,
         data,
     ) {
-        const products = data.data.products;
+        const products = data.products;
 
         if (!products || products.length === 0) {
             // Если товары не найдены, можно вывести сообщение (опционально)
             slides[0].innerHTML =
                 "<p class='no-products'>No products found matching your selection.</p>";
-            viewAllButton?.classList.add("hide");
+            viewAllButton.classList.add("hide");
             return;
         }
 
@@ -215,13 +216,13 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         const blockState = state.get(parent);
-        blockState.offset += data.data.count;
+        blockState.offset += data.count;
         state.set(parent, blockState);
 
-        if (blockState.offset >= data.data.total) {
-            viewAllButton?.classList.add("hide");
+        if (blockState.offset >= data.total) {
+            viewAllButton.classList.add("hide");
         } else {
-            viewAllButton?.classList.remove("hide");
+            viewAllButton.classList.remove("hide");
         }
 
         if (
@@ -233,54 +234,288 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-function createProductCard(product) {
-    const div = document.createElement("div");
-    div.className = "product-cards__item";
-    div.setAttribute("data-items-item", "");
+async function getProducts(request) {
+    try {
+        const {
+            url,
+            method = "GET",
+            params = null,
+            body = null,
+            headers = {},
+        } = request;
 
-    div.innerHTML = `
-            <div class="product-cards__image">
-                <a href="${product.permalink}">
-                    <img src="${product.image}" alt="${product.title}">
-                </a>
-                ${product.discount ? `<span class="discount product-cards__discount">${product.discount}</span>` : ""}
-                <div class="product-cards__icons">
-                    <span class="product-cards__like" 
-                    data-product-id="${product.id}">
-                        <img src="${product.home_domain}/assets/img/like.svg" alt="">
-                    </span>
-                    <span class="product-cards__view">
-                        <img src="${product.home_domain}/assets/img/view.svg" alt="">
-                    </span>
-                </div>
-            </div>
-            <div class="product-cards__info">
-                <span class="product-cards__name">${product.title}</span>
-                <span class="product-cards__price">
-                    ${
-                        product.is_on_sale
-                            ? `<span class="price product-cards__sale-price">${product.sale_price}</span>
-                            <span class="price product-cards__regular-price">${product.regular_price}</span>`
-                            : `<span class="price product-cards__regular-price">${product.regular_price}</span>`
-                    }
-                </span>
-                <span class="product-cards__stars">
-                    <div class="stars">
-                        <div class="review-rating">
-                            <div class="rating-stars-display" style="--rating: ${product.rating};">
-                                ★★★★★
-                            </div>
-                            <span class="review-rating__count">${product.reviews}</span>
-                        </div>
-                    </div>
-                </span>
-                <a 
-                    href="?add-to-cart=${product.id}"
-                    class="product-cards__add"
-                    data-product-id="${product.id}">
-                    Add to Cart
-                </a>
-            </div>
-        `;
-    return div;
+        const upperMethod = method.trim().toUpperCase();
+
+        let finalUrl = url;
+
+        const options = {
+            method: upperMethod,
+            headers: {
+                ...headers,
+            },
+        };
+
+        // GET → query string
+        if (upperMethod === "GET" && params) {
+            const query = new URLSearchParams(params).toString();
+            if (query) finalUrl += `?${query}`;
+        }
+
+        // POST → body
+        if (upperMethod === "POST" && body) {
+            options.headers["Content-Type"] = "application/json";
+            options.body = JSON.stringify(body);
+        }
+
+        const response = await fetch(finalUrl, options);
+        const data = await response.json();
+
+        if (!data.success) {
+            return {
+                success: false,
+                error: data?.data?.message || "Request failed",
+                data: null,
+            };
+        }
+
+        return {
+            success: true,
+            error: null,
+            data: data.data ?? data,
+        };
+    } catch (err) {
+        return {
+            success: false,
+            error: err.message,
+            data: null,
+        };
+    }
+}
+
+// function createProductCard(product) {
+//     const div = document.createElement("div");
+//     div.className = "product-cards__item";
+//     div.setAttribute("data-items-item", "");
+
+//     div.innerHTML = `
+//             <div class="product-cards__image">
+//                 <a href="${product.permalink}">
+//                     <img src="${product.image}" alt="${product.title}">
+//                 </a>
+//                 ${product.discount ? `<span class="discount product-cards__discount">${product.discount}</span>` : ""}
+//                 <div class="product-cards__icons">
+//                     <span class="product-cards__like"
+//                     data-product-id="${product.id}">
+//                         <img src="${product.home_domain}/assets/img/like.svg" alt="">
+//                     </span>
+//                     <span class="product-cards__view">
+//                         <img src="${product.home_domain}/assets/img/view.svg" alt="">
+//                     </span>
+//                 </div>
+//             </div>
+//             <div class="product-cards__info">
+//                 <span class="product-cards__name">${product.title}</span>
+//                 <span class="product-cards__price">
+//                     ${
+//                         product.is_on_sale
+//                             ? `<span class="price product-cards__sale-price">${product.sale_price}</span>
+//                             <span class="price product-cards__regular-price">${product.regular_price}</span>`
+//                             : `<span class="price product-cards__regular-price">${product.regular_price}</span>`
+//                     }
+//                 </span>
+//                 <span class="product-cards__stars">
+//                     <div class="stars">
+//                         <div class="review-rating">
+//                             <div class="rating-stars-display" style="--rating: ${product.rating};">
+//                                 ★★★★★
+//                             </div>
+//                             <span class="review-rating__count">${product.reviews}</span>
+//                         </div>
+//                     </div>
+//                 </span>
+//                 <a
+//                     href="?add-to-cart=${product.id}"
+//                     class="product-cards__add"
+//                     data-product-id="${product.id}">
+//                     Add to Cart
+//                 </a>
+//             </div>
+//         `;
+//     return div;
+// }
+
+function createElement(tag, className = "") {
+    const element = document.createElement(tag);
+
+    if (className) {
+        element.className = className;
+    }
+
+    return element;
+}
+
+function createProductImage(product) {
+    const link = document.createElement("a");
+
+    link.href = product.permalink;
+
+    const img = document.createElement("img");
+
+    img.src = product.image;
+    img.alt = product.title;
+
+    link.append(img);
+
+    return link;
+}
+
+function createDiscount(product) {
+    if (!product.discount) {
+        return null;
+    }
+
+    const discount = createElement("span", "discount product-cards__discount");
+
+    discount.textContent = product.discount;
+
+    return discount;
+}
+
+function createProductIcon(image, action, productId) {
+    const icon = createElement("span", "product-cards__icon");
+
+    icon.setAttribute(`data-${action}`, "");
+
+    icon.dataset.productId = productId;
+
+    const img = document.createElement("img");
+
+    img.src = image;
+
+    icon.append(img);
+
+    return icon;
+}
+
+function createProductName(product) {
+    const name = createElement("span", "product-cards__name");
+
+    name.textContent = product.title;
+
+    return name;
+}
+
+function createProductPrice(product) {
+    const wrapper = createElement("span", "product-cards__price");
+
+    if (product.is_on_sale) {
+        const sale = createElement("span", "price product-cards__sale-price");
+
+        sale.innerHTML = product.sale_price;
+
+        const regular = createElement(
+            "span",
+            "price product-cards__regular-price",
+        );
+
+        regular.innerHTML = product.regular_price;
+
+        wrapper.append(sale, regular);
+    } else {
+        const regular = createElement(
+            "span",
+            "price product-cards__regular-price",
+        );
+
+        regular.innerHTML = product.regular_price;
+
+        wrapper.append(regular);
+    }
+
+    return wrapper;
+}
+
+function createProductRating(product) {
+    const wrapper = createElement("div", "review-rating");
+
+    const stars = createElement("div", "rating-stars-display");
+
+    stars.style.setProperty("--rating", product.rating);
+
+    stars.textContent = "★★★★★";
+
+    const count = createElement("span", "review-rating__count");
+
+    count.textContent = product.reviews;
+
+    wrapper.append(stars, count);
+
+    return wrapper;
+}
+
+function createAddToCartButton(product) {
+    const button = document.createElement("a");
+
+    button.href = `?add-to-cart=${product.id}`;
+
+    button.className = "product-cards__add";
+
+    button.dataset.productId = product.id;
+
+    button.textContent = "Add to Cart";
+
+    return button;
+}
+
+function createProductCard(product) {
+    const card = createElement("div", "product-cards__item");
+
+    card.dataset.itemsItem = "";
+
+    const imageBlock = createElement("div", "product-cards__image");
+
+    const iconsBlock = createElement("div", "product-cards__icons");
+
+    const infoBlock = createElement("div", "product-cards__info");
+
+    const image = createProductImage(product);
+
+    const discount = createDiscount(product);
+
+    const likeIcon = createProductIcon(
+        `${product.home_domain}/assets/img/like.svg`,
+        "like",
+        product.id,
+    );
+
+    const viewIcon = createProductIcon(
+        `${product.home_domain}/assets/img/view.svg`,
+        "view",
+        product.id,
+    );
+
+    const name = createProductName(product);
+
+    const price = createProductPrice(product);
+
+    const rating = createProductRating(product);
+
+    const addToCart = createAddToCartButton(product);
+
+    iconsBlock.append(likeIcon, viewIcon);
+
+    imageBlock.append(image);
+
+    if (discount) {
+        imageBlock.append(discount);
+    }
+
+    imageBlock.append(iconsBlock);
+
+    infoBlock.append(name, price, rating, addToCart);
+
+    card.append(imageBlock, infoBlock);
+    console.log(card);
+
+    return card;
 }

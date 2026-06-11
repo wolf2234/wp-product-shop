@@ -21,7 +21,9 @@
                     </div>
                 </div>
                 <div class="goods__content" data-slider="">
-                    <div class="product-cards wishlist-products" data-items-wrapper="" 
+                    <div class="product-cards" 
+                    data-items-wrapper="" 
+                    data-wishlist-products=""
                         data-step="2" data-count="4"></div>
                 </div>
             </div>
