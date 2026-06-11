@@ -211,7 +211,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         products.forEach((product, index) => {
             const slideIndex = index % slidesCount;
-            const item = createProductCard(product);
+            const productOptions = {
+                discount: true,
+                like: true,
+                view: true,
+                rating: true,
+                addToCart: true,
+            };
+            const item = createProductCard(product, productOptions);
             slides[slideIndex].appendChild(item);
         });
 
@@ -409,23 +416,17 @@ function createProductPrice(product) {
     const wrapper = createElement("span", "product-cards__price");
 
     if (product.is_on_sale) {
-        const sale = createElement("span", "price product-cards__sale-price");
+        const sale = createElement("span", "price");
 
         sale.innerHTML = product.sale_price;
 
-        const regular = createElement(
-            "span",
-            "price product-cards__regular-price",
-        );
+        const regular = createElement("span", "price regular-price");
 
         regular.innerHTML = product.regular_price;
 
         wrapper.append(sale, regular);
     } else {
-        const regular = createElement(
-            "span",
-            "price product-cards__regular-price",
-        );
+        const regular = createElement("span", "price");
 
         regular.innerHTML = product.regular_price;
 
@@ -467,7 +468,17 @@ function createAddToCartButton(product) {
     return button;
 }
 
-function createProductCard(product) {
+function createProductCard(product, options = {}) {
+    const settings = {
+        discount: false,
+        like: false,
+        view: false,
+        remove: false,
+        rating: false,
+        addToCart: false,
+        ...options,
+    };
+
     const card = createElement("div", "product-cards__item");
 
     card.dataset.itemsItem = "";
@@ -478,44 +489,51 @@ function createProductCard(product) {
 
     const infoBlock = createElement("div", "product-cards__info");
 
-    const image = createProductImage(product);
+    imageBlock.append(createProductImage(product));
 
-    const discount = createDiscount(product);
+    if (settings.discount) {
+        const discount = createDiscount(product);
 
-    const likeIcon = createProductIcon(
-        `${product.home_domain}/assets/img/like.svg`,
-        "like",
-        product.id,
-    );
-
-    const viewIcon = createProductIcon(
-        `${product.home_domain}/assets/img/view.svg`,
-        "view",
-        product.id,
-    );
-
-    const name = createProductName(product);
-
-    const price = createProductPrice(product);
-
-    const rating = createProductRating(product);
-
-    const addToCart = createAddToCartButton(product);
-
-    iconsBlock.append(likeIcon, viewIcon);
-
-    imageBlock.append(image);
-
-    if (discount) {
-        imageBlock.append(discount);
+        if (discount) {
+            imageBlock.append(discount);
+        }
     }
 
-    imageBlock.append(iconsBlock);
+    if (settings.like) {
+        iconsBlock.append(
+            createProductIcon(
+                `${product.home_domain}/assets/img/like.svg`,
+                "like",
+                product.id,
+            ),
+        );
+    }
 
-    infoBlock.append(name, price, rating, addToCart);
+    if (settings.view) {
+        iconsBlock.append(
+            createProductIcon(
+                `${product.home_domain}/assets/img/view.svg`,
+                "view",
+                product.id,
+            ),
+        );
+    }
+
+    if (iconsBlock.children.length) {
+        imageBlock.append(iconsBlock);
+    }
+
+    infoBlock.append(createProductName(product), createProductPrice(product));
+
+    if (settings.rating) {
+        infoBlock.append(createProductRating(product));
+    }
+
+    if (settings.addToCart) {
+        infoBlock.append(createAddToCartButton(product));
+    }
 
     card.append(imageBlock, infoBlock);
-    console.log(card);
 
     return card;
 }

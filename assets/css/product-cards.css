@@ -137,14 +137,14 @@
     color: #DB4444;
 }
 
-.product-cards__regular-price span {
+.regular-price span {
     color: #b4b4b4;
     text-decoration: line-through;
 }
 
-.product-cards__sale-price span {
+/* .product-cards__sale-price span {
     color: #DB4444;
-}
+} */
 
 .product-cards__stars {}
 
