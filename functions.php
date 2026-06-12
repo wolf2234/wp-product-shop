@@ -531,6 +531,39 @@ function add_to_wishlist_ajax() {
     ]);
 }
 
+
+
+add_action('wp_ajax_remove_from_wishlist_ajax', 'remove_from_wishlist_ajax');
+add_action('wp_ajax_nopriv_remove_from_wishlist_ajax', 'remove_from_wishlist_ajax');
+
+function remove_from_wishlist_ajax() {
+
+    $product_id = intval($_POST['product_id']);
+
+    if (!$product_id) {
+        wp_send_json_error();
+    }
+
+    $wishlist = WC()->session->get('wishlist', []);
+
+    if (!is_array($wishlist)) {
+        $wishlist = [];
+    }
+
+    // удаляем товар
+    $wishlist = array_values(array_filter($wishlist, function($id) use ($product_id) {
+        return (int)$id !== $product_id;
+    }));
+
+    WC()->session->set('wishlist', $wishlist);
+
+    wp_send_json_success([
+        'wishlist' => $wishlist,
+        'count' => count($wishlist)
+    ]);
+}
+
+
 add_action('wp_ajax_load_wishlist_ajax', 'load_wishlist_ajax');
 add_action('wp_ajax_nopriv_load_wishlist_ajax', 'load_wishlist_ajax');
 

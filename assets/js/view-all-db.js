@@ -252,6 +252,8 @@ async function getProducts(request) {
         } = request;
 
         const upperMethod = method.trim().toUpperCase();
+        console.log("body =", body);
+        console.log("url =", url);
 
         let finalUrl = url;
 
@@ -270,8 +272,14 @@ async function getProducts(request) {
 
         // POST → body
         if (upperMethod === "POST" && body) {
-            options.headers["Content-Type"] = "application/json";
-            options.body = JSON.stringify(body);
+            if (body instanceof FormData) {
+                options.body = body;
+                // НЕ ставим headers вообще
+            } else {
+                options.headers["Content-Type"] =
+                    "application/x-www-form-urlencoded";
+                options.body = new URLSearchParams(body);
+            }
         }
 
         const response = await fetch(finalUrl, options);
@@ -514,6 +522,15 @@ function createProductCard(product, options = {}) {
             createProductIcon(
                 `${product.home_domain}/assets/img/view.svg`,
                 "view",
+                product.id,
+            ),
+        );
+    }
+    if (settings.remove) {
+        iconsBlock.append(
+            createProductIcon(
+                `${product.home_domain}/assets/img/remove.svg`,
+                "remove",
                 product.id,
             ),
         );
