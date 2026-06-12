@@ -83,20 +83,22 @@ if (!empty($gallery_image_ids)) {
             </div>
             <div class="cart-product__price">
                 <?php if ( $product->is_on_sale() ) : ?>
-                    <span class="price cart-product__price_sale">
+                    <span class="price">
                         <?php echo wc_price( $sale_price ); ?>
                     </span>
-                    <span class="price cart-product__price_regular">
+                    <span class="price regular-price">
                         <?php echo wc_price( $regular_price ); ?>
                     </span>
                 <?php else : ?>
-                    <span class="price cart-product__price_regular">
+                    <span class="price">
                         <?php echo wc_price( $regular_price ); ?>
                     </span>
                 <?php endif; ?>
-                <span class="discount cart-product__discount">
-                    <?php echo get_product_discount_percent($product); ?>
-                </span>
+                <?php if ($discount = get_product_discount_percent($product)): ?>
+                    <span class="discount cart-product__discount">
+                        <?php echo $discount; ?>
+                    </span>
+                <?php endif; ?>
             </div>
             <div class="cart-product__short-description">
                 <?php echo $product->get_short_description(); ?>

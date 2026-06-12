@@ -1,9 +1,6 @@
+const state = new Map();
 document.addEventListener("DOMContentLoaded", function () {
-    const step = 4;
-    let sort = "popular";
-
     // Хранилище состояний для каждого блока товаров на странице
-    const state = new Map();
     const viewAllButtons = document.querySelectorAll("[view-all-btn]");
 
     // 1. Инициализация блоков товаров
@@ -29,8 +26,9 @@ document.addEventListener("DOMContentLoaded", function () {
         let slidesCount = slides.length;
 
         state.set(parent, {
+            step: 4,
             offset: 0,
-            sort: sort,
+            sort: "popular",
             minprice: 0,
             maxprice: 0,
             colors: "",
@@ -111,6 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
                 let slidesCount = slides.length;
                 let viewAllBtn = goodsBlock.querySelector("[view-all-btn]");
+                console.log("BUTTON HERE:", viewAllBtn);
 
                 const blockState = state.get(goodsBlock);
                 if (blockState) {
@@ -138,108 +137,109 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     });
-
-    // --- ФУНКЦИЯ ЗАГРУЗКИ ТОВАРОВ (AJAX) ---
-    async function loadProducts(
-        parent,
-        slides,
-        slidesCount,
-        sliderName,
-        viewAllButton,
-    ) {
-        const blockState = state.get(parent);
-        if (!blockState) return;
-
-        const queryParams = {
-            action: "load_products",
-            offset: blockState.offset,
-            limit: step * slidesCount,
-            sort: blockState.sort,
-        };
-
-        // Передаем параметры только если они реально выбраны
-        if (blockState.minprice > 0) queryParams.minprice = blockState.minprice;
-        if (blockState.maxprice > 0) queryParams.maxprice = blockState.maxprice;
-        if (blockState.colors && blockState.colors.trim() !== "")
-            queryParams.colors = blockState.colors;
-        if (blockState.sizes && blockState.sizes.trim() !== "")
-            queryParams.sizes = blockState.sizes;
-
-        // ЛОГ ДЛЯ ОТЛАДКИ: Показывает в консоли, что именно отправляется при клике
-        console.log("Отправка AJAX параметров:", queryParams);
-
-        const params = new URLSearchParams(queryParams);
-
-        const requestData = {
-            url: product_obj.ajaxurl,
-            method: "GET",
-            params: params,
-        };
-        const result = await getProducts(requestData);
-        if (result.success) {
-            fillSlides(
-                parent,
-                slides,
-                slidesCount,
-                sliderName,
-                viewAllButton,
-                result.data,
-            );
-        } else {
-            console.log("Ошибка:", result.error);
-        }
-    }
-
-    // --- ФУНКЦИЯ ЗАПОЛНЕНИЯ СЛАЙДОВ ---
-    function fillSlides(
-        parent,
-        slides,
-        slidesCount,
-        sliderName,
-        viewAllButton,
-        data,
-    ) {
-        const products = data.products;
-
-        if (!products || products.length === 0) {
-            // Если товары не найдены, можно вывести сообщение (опционально)
-            slides[0].innerHTML =
-                "<p class='no-products'>No products found matching your selection.</p>";
-            viewAllButton.classList.add("hide");
-            return;
-        }
-
-        products.forEach((product, index) => {
-            const slideIndex = index % slidesCount;
-            const productOptions = {
-                discount: true,
-                like: true,
-                view: true,
-                rating: true,
-                addToCart: true,
-            };
-            const item = createProductCard(product, productOptions);
-            slides[slideIndex].appendChild(item);
-        });
-
-        const blockState = state.get(parent);
-        blockState.offset += data.count;
-        state.set(parent, blockState);
-
-        if (blockState.offset >= data.total) {
-            viewAllButton.classList.add("hide");
-        } else {
-            viewAllButton.classList.remove("hide");
-        }
-
-        if (
-            typeof $ !== "undefined" &&
-            $(sliderName).hasClass("slick-initialized")
-        ) {
-            $(sliderName).slick("refresh");
-        }
-    }
 });
+
+// --- ФУНКЦИЯ ЗАГРУЗКИ ТОВАРОВ (AJAX) ---
+async function loadProducts(
+    parent,
+    slides,
+    slidesCount,
+    sliderName,
+    viewAllButton,
+) {
+    const blockState = state.get(parent);
+    if (!blockState) return;
+
+    const queryParams = {
+        action: "load_products",
+        offset: blockState.offset,
+        limit: blockState.step * slidesCount,
+        sort: blockState.sort,
+    };
+
+    // Передаем параметры только если они реально выбраны
+    if (blockState.minprice > 0) queryParams.minprice = blockState.minprice;
+    if (blockState.maxprice > 0) queryParams.maxprice = blockState.maxprice;
+    if (blockState.colors && blockState.colors.trim() !== "")
+        queryParams.colors = blockState.colors;
+    if (blockState.sizes && blockState.sizes.trim() !== "")
+        queryParams.sizes = blockState.sizes;
+
+    // ЛОГ ДЛЯ ОТЛАДКИ: Показывает в консоли, что именно отправляется при клике
+    console.log("Отправка AJAX параметров:", queryParams);
+
+    const params = new URLSearchParams(queryParams);
+
+    const requestData = {
+        url: product_obj.ajaxurl,
+        method: "GET",
+        params: params,
+    };
+    const result = await getProducts(requestData);
+
+    if (result.success) {
+        fillSlides(
+            parent,
+            slides,
+            slidesCount,
+            sliderName,
+            viewAllButton,
+            result.data,
+        );
+    } else {
+        console.log("Ошибка:", result.error);
+    }
+}
+
+// --- ФУНКЦИЯ ЗАПОЛНЕНИЯ СЛАЙДОВ ---
+function fillSlides(
+    parent,
+    slides,
+    slidesCount,
+    sliderName,
+    viewAllButton,
+    data,
+) {
+    const products = data.products;
+
+    if (!products || products.length === 0) {
+        // Если товары не найдены, можно вывести сообщение (опционально)
+        slides[0].innerHTML =
+            "<p class='no-products'>No products found matching your selection.</p>";
+        if (viewAllButton) viewAllButton.classList.add("hide");
+        return;
+    }
+
+    products.forEach((product, index) => {
+        const slideIndex = index % slidesCount;
+        const productOptions = {
+            discount: true,
+            like: true,
+            view: true,
+            rating: true,
+            addToCart: true,
+        };
+        const item = createProductCard(product, productOptions);
+        slides[slideIndex].appendChild(item);
+    });
+
+    const blockState = state.get(parent);
+    blockState.offset += data.count;
+    state.set(parent, blockState);
+
+    if (blockState.offset >= data.total) {
+        if (viewAllButton) viewAllButton.classList.add("hide");
+    } else {
+        if (viewAllButton) viewAllButton.classList.remove("hide");
+    }
+
+    if (
+        typeof $ !== "undefined" &&
+        $(sliderName).hasClass("slick-initialized")
+    ) {
+        $(sliderName).slick("refresh");
+    }
+}
 
 async function getProducts(request) {
     try {

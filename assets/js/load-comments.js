@@ -4,12 +4,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const productId = reviewsBlock.dataset.productId;
     const reviewsList = reviewsBlock.querySelector(".comments");
-    const loadMoreBtn = reviewsBlock.querySelector(".cart-wrapper__view-all");
+    let loadMoreBtn = reviewsBlock.querySelector(".cart-wrapper__view-all");
     const sortSelect = document.querySelector(".select-custom");
 
     const step = 6;
     let offset = 0;
     let sort = "latest";
+
+    // state.set(parent, {
+    //     step: 6,
+    //     offset: 0,
+    //     sort: "latest",
+    // });
 
     loadReviews();
 
@@ -25,11 +31,12 @@ document.addEventListener("DOMContentLoaded", function () {
             offset = 0;
             reviewsList.innerHTML = "";
             loadMoreBtn.classList.remove("hide");
+            console.log("RESULT", loadMoreBtn);
             loadReviews();
         });
     }
 
-    function loadReviews() {
+    async function loadReviews() {
         const params = new URLSearchParams({
             action: "load_product_reviews",
             product_id: productId,
@@ -38,27 +45,41 @@ document.addEventListener("DOMContentLoaded", function () {
             sort: sort,
         });
 
-        fetch(`${comment_obj.ajaxurl}?${params.toString()}`, {
+        const requestData = {
+            url: comment_obj.ajaxurl,
             method: "GET",
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                if (!data.success) return;
-                fillReviews(data, loadMoreBtn);
-            });
+            params: params,
+        };
+        const result = await getProducts(requestData);
+        console.log("RESULT DATA", result.data);
+        console.log("RESULT DATA", result.success);
+        if (result.success) {
+            fillReviews(result.data, loadMoreBtn);
+        } else {
+            console.log("Ошибка:", result.error);
+        }
+
+        // fetch(`${comment_obj.ajaxurl}?${params.toString()}`, {
+        //     method: "GET",
+        // })
+        //     .then((res) => res.json())
+        //     .then((data) => {
+        //         if (!data.success) return;
+        //         fillReviews(data, loadMoreBtn);
+        //     });
     }
 
     function fillReviews(data, loadMoreBtn) {
-        const reviews = data.data.reviews;
+        const reviews = data.reviews;
 
         reviews.forEach((review) => {
             const reviewItem = createReviewItem(review);
             reviewsList.appendChild(reviewItem);
         });
 
-        offset += data.data.count;
+        offset += data.count;
 
-        if (offset >= data.data.total) {
+        if (offset >= data.total) {
             loadMoreBtn.classList.add("hide");
         }
     }
