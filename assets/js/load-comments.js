@@ -51,8 +51,6 @@ document.addEventListener("DOMContentLoaded", function () {
             params: params,
         };
         const result = await getProducts(requestData);
-        console.log("RESULT DATA", result.data);
-        console.log("RESULT DATA", result.success);
         if (result.success) {
             fillReviews(result.data, loadMoreBtn);
         } else {
@@ -85,38 +83,44 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function createReviewItem(review) {
-        const div = document.createElement("div");
-        div.className = "comment";
+        const comment = createElement("div", "comment");
 
-        div.innerHTML = `
-        <div class="comment__body">
-            <div class="comment__header">
-                <div class="review-rating">
-                    <div
-                        class="rating-stars-display"
-                        style="--rating: ${review.rating};"
-                        aria-label="Rating ${review.rating} out of 5"
-                    >
-                        ★★★★★
-                    </div>
-                </div>
-            </div>
-            <div class="comment__content">
-                <h3 class="comment__user">
-                    <span class="comment__user-name">
-                        ${review.author}
-                    </span>
-                    <img src="${review.home_domain}/assets/img/check-user.svg" alt="Сheck User">
-                </h3>
-                <p class="comment__text">
-                    ${review.content}
-                </p>
-                <div class="comment__date">
-                    Posted on ${review.date}
-                </div>
-            </div>
-        </div>
-        `;
-        return div;
+        const body = createElement("div", "comment__body");
+
+        const header = createElement("div", "comment__header");
+
+        const content = createElement("div", "comment__content");
+
+        const user = createElement("h3", "comment__user");
+
+        const userName = createElement("span", "comment__user-name");
+
+        userName.textContent = review.author;
+
+        const userIcon = createElement("img");
+
+        userIcon.src = `${review.home_domain}/assets/img/check-user.svg`;
+
+        userIcon.alt = "Check User";
+
+        const text = createElement("p", "comment__text");
+
+        text.innerHTML = review.content;
+
+        const date = createElement("div", "comment__date");
+
+        date.textContent = `Posted on ${review.date}`;
+
+        header.append(createProductRating(review));
+
+        user.append(userName, userIcon);
+
+        content.append(user, text, date);
+
+        body.append(header, content);
+
+        comment.append(body);
+
+        return comment;
     }
 });
