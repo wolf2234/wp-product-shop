@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", async function () {
     document.addEventListener("click", async function (e) {
-        console.log(e);
         const btn = e.target.closest("[data-like]");
         if (!btn) return;
         e.preventDefault();
@@ -49,7 +48,6 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     async function addToWishlist(button) {
         const productId = button.dataset.productId;
-        console.log("productId =", productId);
         const formData = new FormData();
 
         formData.append("action", "add_to_wishlist_ajax");

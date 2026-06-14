@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
             offset = 0;
             reviewsList.innerHTML = "";
             loadMoreBtn.classList.remove("hide");
-            console.log("RESULT", loadMoreBtn);
             loadReviews();
         });
     }

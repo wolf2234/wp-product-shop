@@ -22,8 +22,14 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!slider) return;
 
         let sliderName = "." + slider.classList[0];
-        let slides = parent.querySelectorAll("[data-items-wrapper]");
+        let slides = parent.querySelectorAll(
+            `${sliderName} ${sliderName}__item:not(.slick-cloned) [data-items-wrapper]`,
+        );
+        if (!slides || slides.length === 0) {
+            slides = slider.querySelectorAll("[data-items-wrapper]");
+        }
         let slidesCount = slides.length;
+        console.log("!!!slidesCount = ", parent);
 
         state.set(parent, {
             step: 4,
@@ -109,7 +115,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
                 let slidesCount = slides.length;
                 let viewAllBtn = goodsBlock.querySelector("[view-all-btn]");
-                console.log("BUTTON HERE:", viewAllBtn);
 
                 const blockState = state.get(goodsBlock);
                 if (blockState) {
@@ -166,7 +171,6 @@ async function loadProducts(
         queryParams.sizes = blockState.sizes;
 
     // ЛОГ ДЛЯ ОТЛАДКИ: Показывает в консоли, что именно отправляется при клике
-    console.log("Отправка AJAX параметров:", queryParams);
 
     const params = new URLSearchParams(queryParams);
 
@@ -175,7 +179,20 @@ async function loadProducts(
         method: "GET",
         params: params,
     };
+
+    console.log({
+        step: blockState.step,
+        limit: blockState.step * slidesCount,
+        info: `${blockState.step} - ${slidesCount}`,
+    });
+
     const result = await getProducts(requestData);
+
+    console.log({
+        count: result.data.count,
+        total: result.data.total,
+        products: result.data.products.length,
+    });
 
     if (result.success) {
         fillSlides(
@@ -204,10 +221,10 @@ function fillSlides(
 
     if (!products || products.length === 0) {
         // Если товары не найдены, можно вывести сообщение (опционально)
-        slides[0].innerHTML =
-            "<p class='no-products'>No products found matching your selection.</p>";
+        // slides[0].innerHTML =
+        //     "<p class='no-products'>No products found matching your selection.</p>";
         if (viewAllButton) viewAllButton.classList.add("hide");
-        return;
+        // return;
     }
 
     products.forEach((product, index) => {
@@ -252,8 +269,6 @@ async function getProducts(request) {
         } = request;
 
         const upperMethod = method.trim().toUpperCase();
-        console.log("body =", body);
-        console.log("url =", url);
 
         let finalUrl = url;
 
@@ -306,58 +321,6 @@ async function getProducts(request) {
         };
     }
 }
-
-// function createProductCard(product) {
-//     const div = document.createElement("div");
-//     div.className = "product-cards__item";
-//     div.setAttribute("data-items-item", "");
-
-//     div.innerHTML = `
-//             <div class="product-cards__image">
-//                 <a href="${product.permalink}">
-//                     <img src="${product.image}" alt="${product.title}">
-//                 </a>
-//                 ${product.discount ? `<span class="discount product-cards__discount">${product.discount}</span>` : ""}
-//                 <div class="product-cards__icons">
-//                     <span class="product-cards__like"
-//                     data-product-id="${product.id}">
-//                         <img src="${product.home_domain}/assets/img/like.svg" alt="">
-//                     </span>
-//                     <span class="product-cards__view">
-//                         <img src="${product.home_domain}/assets/img/view.svg" alt="">
-//                     </span>
-//                 </div>
-//             </div>
-//             <div class="product-cards__info">
-//                 <span class="product-cards__name">${product.title}</span>
-//                 <span class="product-cards__price">
-//                     ${
-//                         product.is_on_sale
-//                             ? `<span class="price product-cards__sale-price">${product.sale_price}</span>
-//                             <span class="price product-cards__regular-price">${product.regular_price}</span>`
-//                             : `<span class="price product-cards__regular-price">${product.regular_price}</span>`
-//                     }
-//                 </span>
-//                 <span class="product-cards__stars">
-//                     <div class="stars">
-//                         <div class="review-rating">
-//                             <div class="rating-stars-display" style="--rating: ${product.rating};">
-//                                 ★★★★★
-//                             </div>
-//                             <span class="review-rating__count">${product.reviews}</span>
-//                         </div>
-//                     </div>
-//                 </span>
-//                 <a
-//                     href="?add-to-cart=${product.id}"
-//                     class="product-cards__add"
-//                     data-product-id="${product.id}">
-//                     Add to Cart
-//                 </a>
-//             </div>
-//         `;
-//     return div;
-// }
 
 function createElement(tag, className = "") {
     const element = document.createElement(tag);
