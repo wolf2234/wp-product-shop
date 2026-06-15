@@ -1,0 +1,67 @@
+.auth {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    column-gap: 130px;
+    padding: 80px 0px 150px 0px;
+}
+
+.auth__img {}
+
+.auth__form {
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth__title {
+    font-family: 'Inter';
+    font-weight: 500;
+    font-style: 'Medium';
+    font-size: 36px;
+    line-height: 1.3;
+    letter-spacing: 4%;
+}
+
+.auth__subtitle {
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-style: 'Regular';
+    font-size: 16px;
+    line-height: 1.5px;
+}
+
+.auth__field-group {}
+
+.auth__options {}
+
+
+
+.auth__fields,
+.auth__field,
+.auth__field input {
+    width: 100%;
+}
+
+.auth__fields {
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+    padding: 30px 0px;
+}
+
+.auth__field input {
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.4px;
+    height: 100%;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 0px 0px 10px 0px;
+}
+
+.auth__btn {}
+
+.auth__footer {}
+
+.auth__link {}

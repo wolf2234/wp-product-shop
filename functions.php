@@ -47,6 +47,7 @@ function product_shop_styles() {
     wp_enqueue_style('orders-style', get_template_directory_uri() . '/assets/css/orders.css');
     wp_enqueue_style('cupon-style', get_template_directory_uri() . '/assets/css/cupon.css');
     wp_enqueue_style('wish-list-style', get_template_directory_uri() . '/assets/css/wish-list.css');
+    wp_enqueue_style('signup-style', get_template_directory_uri() . '/assets/css/signup.css');
 }
 
 function product_shop_scripts() {
