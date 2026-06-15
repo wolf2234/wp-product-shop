@@ -1,7 +1,29 @@
 .wish-list {}
 
+.wish-list-content .wishlist-count {
+    color: #000;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+
 .wish-list-content {
     padding: 0px 0px 150px;
+}
+
+.wish-list-content .goods {
+    padding: 70px 0px 0px 0px;
+}
+
+.wish-list-content .goods__row {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.wish-list-content .goods__row .title {
+    line-height: 1;
 }
 
 .wish-list__link {}
@@ -9,4 +31,11 @@
 .wish-list img {
     width: 23px;
     height: 21px;
+}
+
+@media (max-width: 1200px) {
+    .account-cart .wish-list img {
+        width: 18px;
+        height: 16px;
+    }
 }

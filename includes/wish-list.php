@@ -1,22 +1,19 @@
 <div class="wish-list-content">
     <div class="container-large">
-        <?php $wishlist = WC()->session->get('wishlist', []);?>
-    <?php
-        echo '<pre>';
-        print_r($wishlist);
-        echo '</pre>';
-    ?>
         <div class="goods">
             <div class="goods__body goods__body_padding-bottom">
                 <div class="goods__header">
                     <div class="goods__info">
                         <div class="goods__row">
-                            <h4 class="title">Wishlist</h4>
+                            <h4 class="title">
+                                Wishlist
+                                <span data-wishlist-count>(0)</span>
+                        </h4>
                         </div>
                     </div>
                     <div class="goods__buttons">
                         <div class="goods__btn">
-                            <button class="view-all">Move All To Bag</button>
+                            <button class="view-all" data-move-all-to-cart="">Move All To Bag</button>
                         </div>
                     </div>
                 </div>
