@@ -80,8 +80,9 @@ function product_shop_scripts() {
     wp_enqueue_script( 'scripts', get_template_directory_uri() . '/assets/js/scripts.js', array('jquery'), null, true);
     wp_enqueue_script( 'cart', get_template_directory_uri() . '/assets/js/cart.js', array('jquery'), null, true);
     wp_localize_script('cart', 'cart_obj', array('ajaxurl' => admin_url('admin-ajax.php')));
-    wp_enqueue_script( 'orders', get_template_directory_uri() . '/assets/js/orders.js', array('jquery'), null, true);
+    wp_enqueue_script('orders', get_template_directory_uri() . '/assets/js/orders.js', array('jquery'), null, true);
     wp_enqueue_script( 'wish-list', get_template_directory_uri() . '/assets/js/wish-list.js', array('jquery'), null, true);
+    wp_enqueue_script('signup-list', get_template_directory_uri() . '/assets/js/signup.js', array('jquery'), null, true);
 }
 
 add_theme_support('custom-logo');
@@ -628,6 +629,52 @@ function move_wishlist_to_cart_ajax() {
     wp_send_json_success([
         'moved' => count($wishlist),
         'cart_count' => WC()->cart->get_cart_contents_count()
+    ]);
+}
+
+
+add_action('wp_ajax_nopriv_register_user_ajax', 'register_user_ajax');
+add_action('wp_ajax_register_user_ajax', 'register_user_ajax');
+function register_user_ajax() {
+    $username = sanitize_text_field(
+        $_POST['username'] ?? ''
+    );
+    $email = sanitize_email(
+        $_POST['email'] ?? ''
+    );
+    $password = $_POST['password'] ?? '';
+    if (
+        empty($username) ||
+        empty($email) ||
+        empty($password)
+    ) {
+        wp_send_json_error([
+            'message' => 'Fill all fields'
+        ]);
+    }
+    if (email_exists($email)) {
+        wp_send_json_error([
+            'message' => 'Email already exists'
+        ]);
+    }
+    if (username_exists($username)) {
+        wp_send_json_error([
+            'message' => 'Username already exists'
+        ]);
+    }
+    $user_id = wp_create_user(
+        $username,
+        $password,
+        $email
+    );
+    if (is_wp_error($user_id)) {
+        wp_send_json_error([
+            'message' => $user_id->get_error_message()
+        ]);
+    }
+    wp_send_json_success([
+        'user_id' => $user_id,
+        'message' => 'Registration successful'
     ]);
 }
 
