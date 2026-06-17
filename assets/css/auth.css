@@ -67,8 +67,8 @@
     padding: 0px 0px 10px 0px;
 }
 
+
 .auth__btn {
-    width: 100%;
     color: #fff;
     background-color: rgba(219, 68, 68, 1);
     border: 1px solid rgba(219, 68, 68, 1);
@@ -77,6 +77,10 @@
     font-weight: 600;
     font-size: 16px;
     line-height: 1.2;
+}
+
+.auth__btn.auth__btn_width {
+    width: 100%;
 }
 
 .auth__footer span {
@@ -91,9 +95,13 @@
 .auth__footer {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     column-gap: 10px;
+}
+
+.auth__footer.auth__footer_center {
     padding: 30px 0px 0px 0px;
+    justify-content: center;
 }
 
 .auth__link:hover,
@@ -105,4 +113,8 @@
     font-style: 'Medium';
     font-size: 16px;
     line-height: 1.2;
+}
+
+.auth__link_color {
+    color: rgba(219, 68, 68, 1);
 }

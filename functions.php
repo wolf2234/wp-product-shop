@@ -47,7 +47,7 @@ function product_shop_styles() {
     wp_enqueue_style('orders-style', get_template_directory_uri() . '/assets/css/orders.css');
     wp_enqueue_style('cupon-style', get_template_directory_uri() . '/assets/css/cupon.css');
     wp_enqueue_style('wish-list-style', get_template_directory_uri() . '/assets/css/wish-list.css');
-    wp_enqueue_style('signup-style', get_template_directory_uri() . '/assets/css/signup.css');
+    wp_enqueue_style('auth-style', get_template_directory_uri() . '/assets/css/auth.css');
 }
 
 function product_shop_scripts() {
@@ -82,7 +82,7 @@ function product_shop_scripts() {
     wp_localize_script('cart', 'cart_obj', array('ajaxurl' => admin_url('admin-ajax.php')));
     wp_enqueue_script('orders', get_template_directory_uri() . '/assets/js/orders.js', array('jquery'), null, true);
     wp_enqueue_script( 'wish-list', get_template_directory_uri() . '/assets/js/wish-list.js', array('jquery'), null, true);
-    wp_enqueue_script('signup-list', get_template_directory_uri() . '/assets/js/signup.js', array('jquery'), null, true);
+    wp_enqueue_script('auth-list', get_template_directory_uri() . '/assets/js/auth.js', array('jquery'), null, true);
 }
 
 add_theme_support('custom-logo');
@@ -275,6 +275,78 @@ function add_relation_to_tax_query($tax_query, $relation) {
     return $tax_query;
 }
 
+function prepare_auth_data($data) {
+    if (!is_array($data)) {
+        return [];
+    }
+    $auth_data = [];
+    $fields = [
+        'username' => 'sanitize_text_field',
+        'email'    => 'sanitize_email',
+        'password' => 'trim',
+    ];
+    foreach ($fields as $field => $callback) {
+        if (!array_key_exists($field, $data)) {
+            continue;
+        }
+        $auth_data[$field] =
+            $callback($data[$field] ?? '');
+    }
+    return $auth_data;
+}
+
+function validate_auth_data($data, $mode = 'register')
+{
+    $errors = [];
+    $username = trim(
+        $data['username'] ?? ''
+    );
+    $email = trim(
+        $data['email'] ?? ''
+    );
+    $password =
+        $data['password'] ?? '';
+    if ($mode === 'register') {
+        if (empty($username)) {
+            $errors[] = 'Name is required';
+        }
+        if (
+            !empty($username) &&
+            mb_strlen($username) < 2
+        ) {
+            $errors[] = 'Name is too short';
+        }
+        if (
+            !empty($email) &&
+            email_exists($email)
+        ) {
+            $errors[] =
+                'Email already exists';
+        }
+        if (
+            !empty($username) &&
+            username_exists($username)
+        ) {
+            $errors[] =
+                'Username already exists';
+        }
+    }
+    if (!is_email($email)) {
+        $errors[] = 'Invalid email';
+    }
+    if (empty($password)) {
+        $errors[] =
+            'Password is required';
+    }
+    if (
+        $mode === 'register' &&
+        strlen($password) < 4
+    ) {
+        $errors[] =
+            'Password is too short';
+    }
+    return $errors;
+}
 
 add_action('wp_ajax_load_products', 'load_products'); 
 add_action('wp_ajax_nopriv_load_products', 'load_products'); 
@@ -613,19 +685,15 @@ add_action('wp_ajax_nopriv_move_wishlist_to_cart_ajax', 'move_wishlist_to_cart_a
 function move_wishlist_to_cart_ajax() {
 
     $wishlist = WC()->session->get('wishlist', []);
-
     if (empty($wishlist)) {
         wp_send_json_error([
             'message' => 'Wishlist is empty'
         ]);
     }
-
     foreach ($wishlist as $product_id) {
         WC()->cart->add_to_cart($product_id);
     }
-
     WC()->session->set('wishlist', []);
-
     wp_send_json_success([
         'moved' => count($wishlist),
         'cart_count' => WC()->cart->get_cart_contents_count()
@@ -636,6 +704,13 @@ function move_wishlist_to_cart_ajax() {
 add_action('wp_ajax_nopriv_register_user_ajax', 'register_user_ajax');
 add_action('wp_ajax_register_user_ajax', 'register_user_ajax');
 function register_user_ajax() {
+    $data = prepare_auth_data($_POST);
+    $errors = validate_auth_data($data, 'register');
+    if (!empty($errors)) {
+        wp_send_json_error([
+            'errors' => $errors
+        ]);
+    }
     $username = sanitize_text_field(
         $_POST['username'] ?? ''
     );
@@ -652,16 +727,6 @@ function register_user_ajax() {
             'message' => 'Fill all fields'
         ]);
     }
-    if (email_exists($email)) {
-        wp_send_json_error([
-            'message' => 'Email already exists'
-        ]);
-    }
-    if (username_exists($username)) {
-        wp_send_json_error([
-            'message' => 'Username already exists'
-        ]);
-    }
     $user_id = wp_create_user(
         $username,
         $password,
@@ -672,9 +737,65 @@ function register_user_ajax() {
             'message' => $user_id->get_error_message()
         ]);
     }
+    // wp_set_current_user($user_id);
+    // wp_set_auth_cookie($user_id);
     wp_send_json_success([
         'user_id' => $user_id,
         'message' => 'Registration successful'
+    ]);
+}
+
+
+add_action('wp_ajax_nopriv_login_user_ajax','login_user_ajax');
+add_action('wp_ajax_login_user_ajax', 'login_user_ajax');
+
+function login_user_ajax() {
+    $data = prepare_auth_data($_POST);
+    $errors = validate_auth_data($data, 'login');
+    if (!empty($errors)) {
+        wp_send_json_error([
+            'errors' => $errors
+        ]);
+    }
+
+    $user = get_user_by(
+        'email',
+        $data['email']
+    );
+
+    if (!$user) {
+
+        wp_send_json_error([
+            'message' => 'User not found'
+        ]);
+    }
+
+    $credentials = [
+        'user_login' =>
+            $user->user_login,
+
+        'user_password' =>
+            $data['password'],
+
+        'remember' => true,
+    ];
+
+    $result = wp_signon(
+        $credentials,
+        false
+    );
+
+    if (is_wp_error($result)) {
+
+        wp_send_json_error([
+            'message' =>
+                'Invalid password'
+        ]);
+    }
+
+    wp_send_json_success([
+        'user_id' => $user->ID,
+        'message' => 'Login successful'
     ]);
 }
 

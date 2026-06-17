@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Sign Up
+Template Name: Log In
 */
 get_header();
 ?>
@@ -10,15 +10,12 @@ get_header();
             <div class="auth__img">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/dl-beatsnoop_signup.png" alt="beatsnoop">
             </div>
-            <form id="signup-form" class="auth__form">
+            <form id="login-form" class="auth__form">
                 <div class="auth__header">
-                    <h1 class="auth__title">Create an account</h1>
+                    <h1 class="auth__title">Log in to Exclusive</h1>
                     <p class="auth__subtitle">Enter your details below</p>
                 </div>
                 <div class="auth__fields">
-                    <label class="auth__field" for="username">
-                        <input id="username" type="text" name="username" placeholder="Name" required>
-                    </label>
                     <label class="auth__field" for="email">
                         <input id="email" type="email" name="email" placeholder="Email" required>
                     </label>
@@ -26,14 +23,11 @@ get_header();
                         <input id="password" type="password" name="password" placeholder="Password" required>
                     </label>
                 </div>
-                <!-- Submit -->
-                <button type="submit" class="auth__btn auth__btn_width">
-                    Create account
-                </button>
-                <!-- Login link -->
-                <div class="auth__footer auth__footer_center">
-                    <span>Already have an account?</span>
-                    <a href="#" class="auth__link">Log in</a>
+                <div class="auth__footer">
+                    <button type="submit" class="auth__btn">
+                        Login
+                    </button>
+                    <a href="#" class="auth__link auth__link_color">Forget password?</a>
                 </div>
             </form>
     </div>
