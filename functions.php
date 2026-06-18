@@ -295,8 +295,7 @@ function prepare_auth_data($data) {
     return $auth_data;
 }
 
-function validate_auth_data($data, $mode = 'register')
-{
+function validate_auth_data($data, $mode = 'register') {
     $errors = [];
     $username = trim(
         $data['username'] ?? ''
@@ -308,42 +307,42 @@ function validate_auth_data($data, $mode = 'register')
         $data['password'] ?? '';
     if ($mode === 'register') {
         if (empty($username)) {
-            $errors[] = 'Name is required';
+            $errors[] = 'Name is required.';
         }
         if (
             !empty($username) &&
             mb_strlen($username) < 2
         ) {
-            $errors[] = 'Name is too short';
+            $errors[] = 'Name is too short. Must be at least 2 characters.';
         }
         if (
             !empty($email) &&
             email_exists($email)
         ) {
             $errors[] =
-                'Email already exists';
+                'Email already exists.';
         }
         if (
             !empty($username) &&
             username_exists($username)
         ) {
             $errors[] =
-                'Username already exists';
+                'Username already exists.';
         }
     }
     if (!is_email($email)) {
-        $errors[] = 'Invalid email';
+        $errors[] = 'Invalid email. Please enter a valid email address.';
     }
     if (empty($password)) {
         $errors[] =
-            'Password is required';
+            'Password is required.';
     }
     if (
         $mode === 'register' &&
         strlen($password) < 4
     ) {
         $errors[] =
-            'Password is too short';
+            'Password is too short. Must be at least 4 characters.';
     }
     return $errors;
 }
@@ -428,7 +427,6 @@ function load_products() {
 
 add_action('wp_ajax_load_product_reviews', 'load_product_reviews');
 add_action('wp_ajax_nopriv_load_product_reviews', 'load_product_reviews');
-
 function load_product_reviews() {
 
     $product_id = intval($_GET['product_id']);
@@ -484,7 +482,6 @@ function load_product_reviews() {
 
 add_action('wp_ajax_add_to_cart_ajax', 'add_to_cart_ajax');
 add_action('wp_ajax_nopriv_add_to_cart_ajax', 'add_to_cart_ajax');
-
 function add_to_cart_ajax() {
 
     $product_id = intval($_POST['product_id']);
@@ -509,7 +506,6 @@ add_filter('woocommerce_breadcrumb_defaults', function($defaults) {
 
 
 add_action('init', 'custom_update_cart_quantities');
-
 function custom_update_cart_quantities() {
 
     if (
@@ -543,7 +539,6 @@ function custom_update_cart_quantities() {
 
 add_action('wp_ajax_remove_cart_item_ajax', 'remove_cart_item_ajax');
 add_action('wp_ajax_nopriv_remove_cart_item_ajax', 'remove_cart_item_ajax');
-
 function remove_cart_item_ajax() {
 
     $cart_key = sanitize_text_field($_POST['cart_key']);
@@ -609,7 +604,6 @@ function add_to_wishlist_ajax() {
 
 add_action('wp_ajax_remove_from_wishlist_ajax', 'remove_from_wishlist_ajax');
 add_action('wp_ajax_nopriv_remove_from_wishlist_ajax', 'remove_from_wishlist_ajax');
-
 function remove_from_wishlist_ajax() {
 
     $product_id = intval($_POST['product_id']);
@@ -641,7 +635,6 @@ function remove_from_wishlist_ajax() {
 
 add_action('wp_ajax_load_wishlist_ajax', 'load_wishlist_ajax');
 add_action('wp_ajax_nopriv_load_wishlist_ajax', 'load_wishlist_ajax');
-
 function load_wishlist_ajax() {
 
     $wishlist = WC()->session->get('wishlist', []);
@@ -681,7 +674,6 @@ function load_wishlist_ajax() {
 
 add_action('wp_ajax_move_wishlist_to_cart_ajax', 'move_wishlist_to_cart_ajax');
 add_action('wp_ajax_nopriv_move_wishlist_to_cart_ajax', 'move_wishlist_to_cart_ajax');
-
 function move_wishlist_to_cart_ajax() {
 
     $wishlist = WC()->session->get('wishlist', []);
@@ -711,13 +703,9 @@ function register_user_ajax() {
             'errors' => $errors
         ]);
     }
-    $username = sanitize_text_field(
-        $_POST['username'] ?? ''
-    );
-    $email = sanitize_email(
-        $_POST['email'] ?? ''
-    );
-    $password = $_POST['password'] ?? '';
+    $username = $data['username'];
+    $email = $data['email'];
+    $password = $data['password'];
     if (
         empty($username) ||
         empty($email) ||
@@ -748,7 +736,6 @@ function register_user_ajax() {
 
 add_action('wp_ajax_nopriv_login_user_ajax','login_user_ajax');
 add_action('wp_ajax_login_user_ajax', 'login_user_ajax');
-
 function login_user_ajax() {
     $data = prepare_auth_data($_POST);
     $errors = validate_auth_data($data, 'login');
@@ -786,7 +773,6 @@ function login_user_ajax() {
     );
 
     if (is_wp_error($result)) {
-
         wp_send_json_error([
             'message' =>
                 'Invalid password'
