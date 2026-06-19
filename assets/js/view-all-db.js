@@ -303,7 +303,7 @@ async function getProducts(request) {
         if (!data.success) {
             return {
                 success: false,
-                error: data?.data?.message || "Request failed",
+                error: data?.data?.message || data?.message || "Request failed",
                 data: null,
             };
         }

@@ -66,13 +66,14 @@ document.addEventListener("DOMContentLoaded", async function () {
         };
         const result = await getProducts(request);
         if (!result.success) {
-            console.log(result.error);
+            showAuthAlert(result.error || "Something went wrong", "error");
             return;
         }
         showAuthAlert(
             action === "register_user_ajax"
                 ? "Registration successful. You are now logged in."
                 : "Login successful.",
+            "success",
         );
         if (result.data.redirect) {
             setTimeout(() => {
@@ -184,10 +185,9 @@ document.addEventListener("DOMContentLoaded", async function () {
             btn.disabled = false;
         }
     }
-    function showAuthAlert(message) {
+    function showAuthAlert(message, type = "success") {
         const alert = document.createElement("div");
-
-        alert.className = "auth-alert";
+        alert.className = `auth-alert auth-alert_${type}`;
         alert.textContent = message;
 
         document.body.appendChild(alert);

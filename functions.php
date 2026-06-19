@@ -724,7 +724,7 @@ function register_user_ajax() {
     );
     if (is_wp_error($user_id)) {
         wp_send_json_error([
-            'message' => $user_id->get_error_message()
+            'message' => $user_id->get_error_message() ?? 'User already exists'
         ]);
     }
     wp_set_current_user($user_id);
@@ -735,7 +735,6 @@ function register_user_ajax() {
         'redirect' => home_url('/'),
     ]);
 }
-
 
 add_action('wp_ajax_nopriv_login_user_ajax','login_user_ajax');
 add_action('wp_ajax_login_user_ajax', 'login_user_ajax');
