@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", async function () {
                 validateField(loginForm, input, "login");
                 updateSubmitButton(loginForm);
             });
-
             input.addEventListener("input", () => {
                 clearFieldState(input);
                 validateField(loginForm, input, "login");
@@ -53,7 +52,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             });
             updateSubmitButton(loginForm);
             if (hasErrors) return;
-            await authRequest(loginForm, "register_user_ajax");
+            await authRequest(loginForm, "login_user_ajax");
         });
     }
 
@@ -69,6 +68,16 @@ document.addEventListener("DOMContentLoaded", async function () {
         if (!result.success) {
             console.log(result.error);
             return;
+        }
+        showAuthAlert(
+            action === "register_user_ajax"
+                ? "Registration successful. You are now logged in."
+                : "Login successful.",
+        );
+        if (result.data.redirect) {
+            setTimeout(() => {
+                window.location.href = result.data.redirect;
+            }, 2000);
         }
         console.log("User created", action);
     }
@@ -174,5 +183,21 @@ document.addEventListener("DOMContentLoaded", async function () {
             btn.classList.remove("disabled");
             btn.disabled = false;
         }
+    }
+    function showAuthAlert(message) {
+        const alert = document.createElement("div");
+
+        alert.className = "auth-alert";
+        alert.textContent = message;
+
+        document.body.appendChild(alert);
+
+        setTimeout(() => {
+            alert.classList.add("auth-alert_show");
+        }, 10);
+
+        setTimeout(() => {
+            alert.remove();
+        }, 3000);
     }
 });

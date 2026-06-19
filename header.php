@@ -188,9 +188,35 @@
                         </a>
                     </div>
                     <div class="account">
-                        <a href="#" class="account-link">
-                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/shop-user.svg" alt="">
-                        </a>
+                        <?php if (is_user_logged_in()) : ?>
+                            <?php $current_user = wp_get_current_user(); ?>
+                            <a href="#"
+                            class="account-link">
+                                <img
+                                    src="<?php bloginfo('template_directory'); ?>/assets/img/shop-user.svg"
+                                    alt="Account">
+                            </a>
+                            <div class="account-menu">
+                                <?php $current_user = wp_get_current_user();?>
+                                <span class="account-menu__name">
+                                    <?php echo esc_html($current_user->display_name); ?>
+                                </span>
+                                <a href="<?php echo wp_logout_url(home_url()); ?>">
+                                    Logout
+                                </a>
+                            </div>
+                        <?php else : ?>
+                            <a href="#"
+                            class="account-link">
+                                <img
+                                    src="<?php bloginfo('template_directory'); ?>/assets/img/logout.png"
+                                    alt="Login">
+                            </a>
+                            <div class="account-menu">
+                                <a href="/sign-up">Sign up</a>
+                                <a href="/log-in">Login</a>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

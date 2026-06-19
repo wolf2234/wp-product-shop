@@ -567,6 +567,8 @@ add_action('template_redirect', function () {
         'shop',
         'cart',
         'checkout',
+        'sign-up',
+        'log-in',
     ];
 
     if (is_page($allowed) || is_front_page() || is_shop() || is_product()) {
@@ -725,11 +727,12 @@ function register_user_ajax() {
             'message' => $user_id->get_error_message()
         ]);
     }
-    // wp_set_current_user($user_id);
-    // wp_set_auth_cookie($user_id);
+    wp_set_current_user($user_id);
+    wp_set_auth_cookie($user_id);
     wp_send_json_success([
         'user_id' => $user_id,
-        'message' => 'Registration successful'
+        'message' => 'Registration successful',
+        'redirect' => home_url('/'),
     ]);
 }
 
@@ -781,7 +784,8 @@ function login_user_ajax() {
 
     wp_send_json_success([
         'user_id' => $user->ID,
-        'message' => 'Login successful'
+        'message' => 'Login successful',
+        'redirect' => home_url('/'),
     ]);
 }
 
