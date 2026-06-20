@@ -119,9 +119,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     function validateField(form, input, mode) {
         const name = input.name;
         const value = input.value.trim();
-
         let error = "";
-
         if (value === "") {
             error = "This field is required";
         } else {
@@ -159,6 +157,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             input.classList.add("valid");
             if (errorEl) errorEl.textContent = "";
         }
+        return error;
     }
     function updateSubmitButton(form) {
         const btn = form.querySelector("button[type='submit']");
