@@ -29,8 +29,6 @@ document.addEventListener("DOMContentLoaded", function () {
             slides = slider.querySelectorAll("[data-items-wrapper]");
         }
         let slidesCount = slides.length;
-        console.log("!!!slidesCount = ", parent);
-
         state.set(parent, {
             step: 4,
             offset: 0,
@@ -180,19 +178,7 @@ async function loadProducts(
         params: params,
     };
 
-    console.log({
-        step: blockState.step,
-        limit: blockState.step * slidesCount,
-        info: `${blockState.step} - ${slidesCount}`,
-    });
-
     const result = await getProducts(requestData);
-
-    console.log({
-        count: result.data.count,
-        total: result.data.total,
-        products: result.data.products.length,
-    });
 
     if (result.success) {
         fillSlides(
@@ -299,7 +285,6 @@ async function getProducts(request) {
 
         const response = await fetch(finalUrl, options);
         const data = await response.json();
-        console.log("Response:", data);
 
         if (!data.success) {
             return {

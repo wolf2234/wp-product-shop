@@ -1,58 +1,44 @@
 document.addEventListener("DOMContentLoaded", async function () {
-    const registerForm = document.querySelector("#signup-form");
-    const loginForm = document.querySelector("#login-form");
-    if (registerForm) {
-        const inputs = registerForm.querySelectorAll("input");
+    const authForms = document.querySelectorAll("[data-auth-type]");
+    authForms.forEach((form) => {
+        if (!form) return;
+        initAuthForm(form);
+    });
+    function initAuthForm(form) {
+        const inputs = form.querySelectorAll("input");
+        const mode = form.dataset.authType;
+        const actions = {
+            register: "register_user_ajax",
+            login: "login_user_ajax",
+        };
+        const action = actions[mode];
+        if (!action) {
+            return;
+        }
         inputs.forEach((input) => {
             input.addEventListener("blur", () => {
-                validateField(registerForm, input, "register");
-                updateSubmitButton(registerForm);
-            });
-            input.addEventListener("input", () => {
-                // clearFieldState(input);
-                validateField(registerForm, input, "register");
-                updateSubmitButton(registerForm);
-            });
-        });
-        registerForm.addEventListener("submit", async function (e) {
-            e.preventDefault();
-            clearFieldState(registerForm);
-            const inputs = registerForm.querySelectorAll("input");
-            let hasErrors = false;
-            inputs.forEach((input) => {
-                const error = validateField(registerForm, input, "register");
-                if (error) hasErrors = true;
-            });
-            updateSubmitButton(registerForm);
-            if (hasErrors) return;
-            await authRequest(registerForm, "register_user_ajax");
-        });
-    }
-    if (loginForm) {
-        const inputs = loginForm.querySelectorAll("input");
-        inputs.forEach((input) => {
-            input.addEventListener("blur", () => {
-                validateField(loginForm, input, "login");
-                updateSubmitButton(loginForm);
+                validateField(form, input, mode);
+                updateSubmitButton(form);
             });
             input.addEventListener("input", () => {
                 clearFieldState(input);
-                validateField(loginForm, input, "login");
-                updateSubmitButton(loginForm);
+                validateField(form, input, mode);
+                updateSubmitButton(form);
             });
         });
-        loginForm.addEventListener("submit", async function (e) {
+        form.addEventListener("submit", async function (e) {
             e.preventDefault();
-            clearFieldState(loginForm);
-            const inputs = loginForm.querySelectorAll("input");
+            clearFieldState(form);
             let hasErrors = false;
             inputs.forEach((input) => {
-                const error = validateField(loginForm, input, "login");
-                if (error) hasErrors = true;
+                const error = validateField(form, input, mode);
+                if (error) {
+                    hasErrors = true;
+                }
             });
-            updateSubmitButton(loginForm);
+            updateSubmitButton(form);
             if (hasErrors) return;
-            await authRequest(loginForm, "login_user_ajax");
+            await authRequest(form, action);
         });
     }
 
@@ -65,7 +51,6 @@ document.addEventListener("DOMContentLoaded", async function () {
             body: formData,
         };
         const result = await getProducts(request);
-        console.log("Auth result object:", result);
         if (!result.success) {
             if (result.errors) {
                 Object.values(result.errors).forEach((message) => {
@@ -74,7 +59,6 @@ document.addEventListener("DOMContentLoaded", async function () {
             } else {
                 showAuthAlert(result.errors || "Something went wrong", "error");
             }
-
             return;
         }
         showAuthAlert(
@@ -88,7 +72,6 @@ document.addEventListener("DOMContentLoaded", async function () {
                 window.location.href = result.data.redirect;
             }, 2000);
         }
-        console.log("User created", action);
     }
     // function validateAuthForm(form, mode = "register") {
     //     const errors = {};
@@ -149,17 +132,14 @@ document.addEventListener("DOMContentLoaded", async function () {
                         "Invalid email. Please enter a valid email address.";
                 }
             }
-
             if (name === "password") {
-                if (mode === "register" && value.length < 4) {
+                if (!value.length) {
+                    error = "Password required";
+                } else if (value.length < 4) {
                     error =
                         "Password too short. Must be at least 4 characters.";
                 }
-                if (mode === "login" && !value.length) {
-                    error = "Password required";
-                }
             }
-
             if (name === "username" && mode === "register") {
                 if (value.length < 2) {
                     error =

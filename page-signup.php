@@ -10,7 +10,7 @@ get_header();
             <div class="auth__img">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/dl-beatsnoop_signup.png" alt="beatsnoop">
             </div>
-            <form id="signup-form" class="auth__form" novalidate>
+            <form id="signup-form" class="auth__form" data-auth-type="register" novalidate>
                 <div class="auth__header">
                     <h1 class="auth__title">Create an account</h1>
                     <p class="auth__subtitle">Enter your details below</p>
