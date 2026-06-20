@@ -1,23 +1,9 @@
 document.addEventListener("DOMContentLoaded", async function () {
     document.addEventListener("click", async function (e) {
-        const btn = e.target.closest("[data-like]");
+        const btn = e.target.closest("[data-action]");
         if (!btn) return;
         e.preventDefault();
-        addToWishlist(btn);
-    });
-
-    document.addEventListener("click", function (e) {
-        const btn = e.target.closest("[data-remove]");
-        if (!btn) return;
-        e.preventDefault();
-        removeFromWishlist(btn.dataset.productId, btn);
-    });
-
-    document.addEventListener("click", async function (e) {
-        const btn = e.target.closest("[data-move-all-to-cart]");
-        if (!btn) return;
-        e.preventDefault();
-        moveAllToCart();
+        handleAction(btn);
     });
 
     const container = document.querySelector("[data-wishlist-products]");
@@ -52,6 +38,23 @@ document.addEventListener("DOMContentLoaded", async function () {
         });
     } else {
         console.log("Ошибка:", result.error);
+    }
+
+    async function handleAction(btn) {
+        const action = btn.dataset.action;
+        switch (action) {
+            case "like":
+                await addToWishlist(btn);
+                break;
+
+            case "remove":
+                removeFromWishlist(btn.dataset.productId, btn);
+                break;
+
+            case "move-all-to-cart":
+                await moveAllToCart();
+                break;
+        }
     }
 
     async function addToWishlist(button) {

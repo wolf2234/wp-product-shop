@@ -13,7 +13,7 @@
                     </div>
                     <div class="goods__buttons">
                         <div class="goods__btn">
-                            <button class="view-all" data-move-all-to-cart="">Move All To Bag</button>
+                            <button class="view-all" data-action="move-all-to-cart">Move All To Bag</button>
                         </div>
                     </div>
                 </div>

@@ -434,7 +434,6 @@ function load_products() {
     ]); 
 }
 
-
 add_action('wp_ajax_load_product_reviews', 'load_product_reviews');
 add_action('wp_ajax_nopriv_load_product_reviews', 'load_product_reviews');
 function load_product_reviews() {
@@ -579,6 +578,7 @@ add_action('template_redirect', function () {
         'checkout',
         'sign-up',
         'log-in',
+        'wish-list',
     ];
 
     if (is_page($allowed) || is_front_page() || is_shop() || is_product()) {

@@ -349,7 +349,7 @@ function createDiscount(product) {
 function createProductIcon(image, action, productId) {
     const icon = createElement("span", "product-cards__icon");
 
-    icon.setAttribute(`data-${action}`, "");
+    icon.setAttribute(`data-action`, action);
 
     icon.dataset.productId = productId;
 
