@@ -305,45 +305,55 @@ function validate_auth_data($data, $mode = 'register') {
     );
     $password =
         $data['password'] ?? '';
+
     if ($mode === 'register') {
         if (empty($username)) {
-            $errors[] = 'Name is required.';
+            $errors['username'] =
+                'Name is required.';
         }
         if (
             !empty($username) &&
             mb_strlen($username) < 2
         ) {
-            $errors[] = 'Name is too short. Must be at least 2 characters.';
+            $errors['username'] =
+                'Name is too short. Must be at least 2 characters.';
         }
         if (
             !empty($email) &&
             email_exists($email)
         ) {
-            $errors[] =
+            $errors['email'] =
                 'Email already exists.';
         }
+
         if (
             !empty($username) &&
             username_exists($username)
         ) {
-            $errors[] =
+            $errors['username'] =
                 'Username already exists.';
         }
     }
+
     if (!is_email($email)) {
-        $errors[] = 'Invalid email. Please enter a valid email address.';
+        $errors['email'] =
+            'Invalid email. Please enter a valid email address.';
     }
+
     if (empty($password)) {
-        $errors[] =
+        $errors['password'] =
             'Password is required.';
     }
+
     if (
         $mode === 'register' &&
+        !empty($password) &&
         strlen($password) < 4
     ) {
-        $errors[] =
+        $errors['password'] =
             'Password is too short. Must be at least 4 characters.';
     }
+
     return $errors;
 }
 
@@ -702,6 +712,7 @@ function register_user_ajax() {
     $errors = validate_auth_data($data, 'register');
     if (!empty($errors)) {
         wp_send_json_error([
+            'message' => 'WTF! ERRORS',
             'errors' => $errors
         ]);
     }
@@ -753,9 +764,8 @@ function login_user_ajax() {
     );
 
     if (!$user) {
-
         wp_send_json_error([
-            'message' => 'User not found'
+            'errors' => ['email'=>'User not found']
         ]);
     }
 
@@ -776,8 +786,7 @@ function login_user_ajax() {
 
     if (is_wp_error($result)) {
         wp_send_json_error([
-            'message' =>
-                'Invalid password'
+            'errors' => ['password'=>'Invalid password']
         ]);
     }
 

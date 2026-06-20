@@ -299,11 +299,13 @@ async function getProducts(request) {
 
         const response = await fetch(finalUrl, options);
         const data = await response.json();
+        console.log("Response:", data);
 
         if (!data.success) {
             return {
                 success: false,
-                error: data?.data?.message || data?.message || "Request failed",
+                errors:
+                    data.data.errors || data.data.errors || "Request failed",
                 data: null,
             };
         }

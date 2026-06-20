@@ -65,8 +65,16 @@ document.addEventListener("DOMContentLoaded", async function () {
             body: formData,
         };
         const result = await getProducts(request);
+        console.log("Auth result object:", result);
         if (!result.success) {
-            showAuthAlert(result.error || "Something went wrong", "error");
+            if (result.errors) {
+                Object.values(result.errors).forEach((message) => {
+                    showAuthAlert(message, "error");
+                });
+            } else {
+                showAuthAlert(result.errors || "Something went wrong", "error");
+            }
+
             return;
         }
         showAuthAlert(
@@ -82,30 +90,28 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
         console.log("User created", action);
     }
-
-    function validateAuthForm(form, mode = "register") {
-        const errors = {};
-        const email = form.email?.value.trim() || "";
-        const password = form.password?.value || "";
-        const username = form.username?.value.trim() || "";
-        if (mode === "register" && username.length < 2) {
-            errors.username =
-                "Username is too short. Must be at least 2 characters";
-        }
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            errors.email = "Invalid email. Please enter a valid email address.";
-        }
-        if (mode === "register" && password.length < 4) {
-            errors.password =
-                "Password is too short. Must be at least 4 characters";
-        }
-        if (mode === "login" && !password.length) {
-            errors.password = "Password is required";
-        }
-        return errors;
-    }
-
+    // function validateAuthForm(form, mode = "register") {
+    //     const errors = {};
+    //     const email = form.email?.value.trim() || "";
+    //     const password = form.password?.value || "";
+    //     const username = form.username?.value.trim() || "";
+    //     if (mode === "register" && username.length < 2) {
+    //         errors.username =
+    //             "Username is too short. Must be at least 2 characters";
+    //     }
+    //     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    //     if (!emailRegex.test(email)) {
+    //         errors.email = "Invalid email. Please enter a valid email address.";
+    //     }
+    //     if (mode === "register" && password.length < 4) {
+    //         errors.password =
+    //             "Password is too short. Must be at least 4 characters";
+    //     }
+    //     if (mode === "login" && !password.length) {
+    //         errors.password = "Password is required";
+    //     }
+    //     return errors;
+    // }
     function showFormErrors(form, errors) {
         Object.entries(errors).forEach(([field, message]) => {
             const input = form[field];
@@ -187,15 +193,14 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
     function showAuthAlert(message, type = "success") {
         const alert = document.createElement("div");
+        const count = document.querySelectorAll(".auth-alert").length;
         alert.className = `auth-alert auth-alert_${type}`;
+        alert.style.top = `${20 + count * 70}px`;
         alert.textContent = message;
-
         document.body.appendChild(alert);
-
         setTimeout(() => {
             alert.classList.add("auth-alert_show");
         }, 10);
-
         setTimeout(() => {
             alert.remove();
         }, 3000);
