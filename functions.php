@@ -48,6 +48,7 @@ function product_shop_styles() {
     wp_enqueue_style('cupon-style', get_template_directory_uri() . '/assets/css/cupon.css');
     wp_enqueue_style('wish-list-style', get_template_directory_uri() . '/assets/css/wish-list.css');
     wp_enqueue_style('auth-style', get_template_directory_uri() . '/assets/css/auth.css');
+    wp_enqueue_style('profile-style', get_template_directory_uri() . '/assets/css/profile.css');
 }
 
 function product_shop_scripts() {
@@ -83,6 +84,7 @@ function product_shop_scripts() {
     wp_enqueue_script('orders', get_template_directory_uri() . '/assets/js/orders.js', array('jquery'), null, true);
     wp_enqueue_script( 'wish-list', get_template_directory_uri() . '/assets/js/wish-list.js', array('jquery'), null, true);
     wp_enqueue_script('auth-list', get_template_directory_uri() . '/assets/js/auth.js', array('jquery'), null, true);
+    wp_enqueue_script('profile-list', get_template_directory_uri() . '/assets/js/profile.js', array('jquery'), null, true);
 }
 
 add_theme_support('custom-logo');
@@ -334,24 +336,37 @@ function validate_auth_data($data, $mode = 'register') {
                 'Username already exists.';
         }
     }
+    if ($mode === 'profile') {
+        if (empty($username)) {
+            $errors['username'] = 'Name is required.';
+        }
+        if (mb_strlen($username) < 2) {
+            $errors['username'] =
+                'Name is too short. Must be at least 2 characters.';
+        }
+        if (!is_email($email)) {
+            $errors['email'] =
+                'Invalid email.';
+        }
+    } else {
+        if (!is_email($email)) {
+            $errors['email'] =
+                'Invalid email. Please enter a valid email address.';
+        }
 
-    if (!is_email($email)) {
-        $errors['email'] =
-            'Invalid email. Please enter a valid email address.';
-    }
+        if (empty($password)) {
+            $errors['password'] =
+                'Password is required.';
+        }
 
-    if (empty($password)) {
-        $errors['password'] =
-            'Password is required.';
-    }
-
-    if (
-        $mode === 'register' &&
-        !empty($password) &&
-        strlen($password) < 4
-    ) {
-        $errors['password'] =
-            'Password is too short. Must be at least 4 characters.';
+        if (
+            $mode === 'register' &&
+            !empty($password) &&
+            strlen($password) < 4
+        ) {
+            $errors['password'] =
+                'Password is too short. Must be at least 4 characters.';
+        }
     }
 
     return $errors;
@@ -794,6 +809,153 @@ function login_user_ajax() {
         'user_id' => $user->ID,
         'message' => 'Login successful',
         'redirect' => home_url('/'),
+    ]);
+}
+
+
+add_action(
+    'wp_ajax_update_profile_ajax',
+    'update_profile_ajax'
+);
+function update_profile_ajax() {
+    if (!is_user_logged_in()) {
+        wp_send_json_error([
+            'message' => 'You are not authorized.'
+        ]);
+    }
+    $data = prepare_auth_data($_POST);
+    $errors = validate_auth_data($data, 'profile');
+    $current_user = wp_get_current_user();
+    $email_owner = email_exists($email);
+    if (
+        $email_owner &&
+        $email_owner != $current_user->ID
+    ) {
+        $errors['email'] = 'Email already exists.';
+    }
+    if (!empty($errors)) {
+        wp_send_json_error([
+            'errors' => $errors
+        ]);
+    }
+    $update_data = [
+        'ID' => $current_user->ID,
+        'user_email' => $data['email'],
+        'display_name' => $data['username'],
+    ];
+    $result = wp_update_user($update_data);
+    if (is_wp_error($result)) {
+        wp_send_json_error([
+            'errors' => ['massage' => $result->get_error_message()]
+        ]);
+    }
+    if (!empty($_FILES['avatar']['name'])) {
+        require_once ABSPATH . 'wp-admin/includes/file.php';
+        require_once ABSPATH . 'wp-admin/includes/image.php';
+        require_once ABSPATH . 'wp-admin/includes/media.php';
+        $allowed = [
+            'image/jpeg',
+            'image/png',
+            'image/webp'
+        ];
+        if (!in_array($_FILES['avatar']['type'], $allowed)) {
+            wp_send_json_error([
+                'errors' => [
+                    'avatar' => 'Only JPG, PNG and WEBP images are allowed.'
+                ]
+            ]);
+        }
+        if ($_FILES['avatar']['size'] > 2 * 1024 * 1024) {
+            wp_send_json_error([
+                'errors' => [
+                    'avatar' => 'Maximum image size is 2 MB.'
+                ]
+            ]);
+        }
+        $upload = wp_handle_upload(
+            $_FILES['avatar'],
+            [
+                'test_form' => false
+            ]
+        );
+        if (isset($upload['error'])) {
+            wp_send_json_error([
+                'errors' => [
+                    'avatar' => $upload['error']
+                ]
+            ]);
+        }
+        update_user_meta(
+            get_current_user_id(),
+            'profile_avatar',
+            esc_url_raw($upload['url'])
+        );
+        $avatar = get_user_meta(
+            get_current_user_id(),
+            'profile_avatar',
+            true
+        );
+        wp_send_json_success([
+            'message' => 'Profile updated.',
+            'avatar' => $avatar
+        ]);
+    }
+    wp_send_json_success([
+        'massage' => 'Profile updated successfully.'
+    ]);
+}
+
+
+add_action(
+    'wp_ajax_change_password_ajax',
+    'change_password_ajax'
+);
+function change_password_ajax() {
+    if (!is_user_logged_in()) {
+        wp_send_json_error([
+            'message' => 'Unauthorized'
+        ]);
+    }
+    $current_password = trim($_POST['password'] ?? '');
+    $new_password = trim($_POST['new_password'] ?? '');
+    $confirm_password = trim($_POST['confirm_password'] ?? '');
+    $errors = [];
+    if (empty($current_password)) {
+        $errors['password'] =
+            'Current password is required.';
+    }
+    if (strlen($new_password) < 4) {
+        $errors['new_password'] =
+            'Password is too short.';
+    }
+    if ($new_password !== $confirm_password) {
+        $errors['confirm_password'] =
+            'Passwords do not match.';
+    }
+    $user = wp_get_current_user();
+    if (!wp_check_password(
+        $current_password,
+        $user->user_pass,
+        $user->ID
+    )) {
+
+        $errors['password'] =
+            'Current password is incorrect.';
+    }
+    if (!empty($errors)) {
+        wp_send_json_error([
+            'errors' => $errors
+        ]);
+    }
+    wp_set_password(
+        $new_password,
+        $user->ID
+    );
+    wp_set_current_user($user->ID);
+    wp_set_auth_cookie($user->ID);
+
+    wp_send_json_success([
+        'message' => 'Password changed successfully.'
     ]);
 }
 

@@ -190,7 +190,7 @@
                     <div class="account">
                         <?php if (is_user_logged_in()) : ?>
                             <?php $current_user = wp_get_current_user(); ?>
-                            <a href="#"
+                            <a href="<?php echo get_permalink(get_page_by_path('profile')); ?>"
                             class="account-link">
                                 <img
                                     src="<?php bloginfo('template_directory'); ?>/assets/img/shop-user.svg"

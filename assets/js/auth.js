@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         const actions = {
             register: "register_user_ajax",
             login: "login_user_ajax",
+            profile: "update_profile_ajax",
         };
         const action = actions[mode];
         if (!action) {
@@ -18,17 +19,16 @@ document.addEventListener("DOMContentLoaded", async function () {
         inputs.forEach((input) => {
             input.addEventListener("blur", () => {
                 validateField(form, input, mode);
-                updateSubmitButton(form);
+                updateSubmitButton(form, mode);
             });
             input.addEventListener("input", () => {
                 clearFieldState(input);
                 validateField(form, input, mode);
-                updateSubmitButton(form);
+                updateSubmitButton(form, mode);
             });
         });
         form.addEventListener("submit", async function (e) {
             e.preventDefault();
-            clearFieldState(form);
             let hasErrors = false;
             inputs.forEach((input) => {
                 const error = validateField(form, input, mode);
@@ -36,9 +36,16 @@ document.addEventListener("DOMContentLoaded", async function () {
                     hasErrors = true;
                 }
             });
-            updateSubmitButton(form);
-            if (hasErrors) return;
-            await authRequest(form, action);
+            updateSubmitButton(form, mode);
+            if (hasErrors && mode !== "profile") {
+                return;
+            } else {
+                await authRequest(form, action);
+            }
+            if (mode === "profile" && hasPasswordChanges(form, mode)) {
+                await changePassword(form);
+            }
+            clearFieldState(form);
         });
     }
 
@@ -67,34 +74,44 @@ document.addEventListener("DOMContentLoaded", async function () {
                 : "Login successful.",
             "success",
         );
+        if (result.data.avatar) {
+            document.querySelector("#profile-avatar-preview").src =
+                result.data.avatar;
+        }
         if (result.data.redirect) {
             setTimeout(() => {
                 window.location.href = result.data.redirect;
             }, 2000);
         }
     }
-    // function validateAuthForm(form, mode = "register") {
-    //     const errors = {};
-    //     const email = form.email?.value.trim() || "";
-    //     const password = form.password?.value || "";
-    //     const username = form.username?.value.trim() || "";
-    //     if (mode === "register" && username.length < 2) {
-    //         errors.username =
-    //             "Username is too short. Must be at least 2 characters";
-    //     }
-    //     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    //     if (!emailRegex.test(email)) {
-    //         errors.email = "Invalid email. Please enter a valid email address.";
-    //     }
-    //     if (mode === "register" && password.length < 4) {
-    //         errors.password =
-    //             "Password is too short. Must be at least 4 characters";
-    //     }
-    //     if (mode === "login" && !password.length) {
-    //         errors.password = "Password is required";
-    //     }
-    //     return errors;
-    // }
+    function hasPasswordChanges(form, mode) {
+        return (
+            form.password?.value.trim() ||
+            form.new_password?.value.trim() ||
+            form.confirm_password?.value.trim()
+        );
+    }
+    async function changePassword(form) {
+        const formData = new FormData(form);
+        formData.append("action", "change_password_ajax");
+        const request = {
+            url: product_obj.ajaxurl,
+            method: "POST",
+            body: formData,
+        };
+        const result = await getProducts(request);
+        if (!result.success) {
+            if (result.errors) {
+                Object.values(result.errors).forEach((message) => {
+                    showAuthAlert(message, "error");
+                });
+            } else {
+                showAuthAlert(result.errors || "Something went wrong", "error");
+            }
+            return;
+        }
+        showAuthAlert(result.message, "success");
+    }
     function showFormErrors(form, errors) {
         Object.entries(errors).forEach(([field, message]) => {
             const input = form[field];
@@ -110,17 +127,31 @@ document.addEventListener("DOMContentLoaded", async function () {
         });
     }
     function clearFieldState(input) {
+        if (input instanceof HTMLFormElement) {
+            input.querySelectorAll("input").forEach((field) => {
+                field.classList.remove("error");
+                field.classList.remove("valid");
+                const errorEl =
+                    field.parentElement.querySelector(".auth__error");
+                if (errorEl) {
+                    errorEl.textContent = "";
+                }
+            });
+            return;
+        }
         input.classList.remove("error");
         input.classList.remove("valid");
         const errorEl = input.parentElement.querySelector(".auth__error");
-        if (errorEl) errorEl.textContent = "";
+        if (errorEl) {
+            errorEl.textContent = "";
+        }
     }
 
     function validateField(form, input, mode) {
         const name = input.name;
         const value = input.value.trim();
         let error = "";
-        if (value === "") {
+        if (value === "" && mode !== "profile") {
             error = "This field is required";
         } else {
             if (name === "email") {
@@ -130,24 +161,26 @@ document.addEventListener("DOMContentLoaded", async function () {
                         "Invalid email. Please enter a valid email address.";
                 }
             }
-            if (name === "password") {
-                if (!value.length) {
+            if (
+                name === "password" ||
+                name === "confirm_password" ||
+                name === "new_password"
+            ) {
+                if (!value.length && mode !== "profile") {
                     error = "Password required";
                 } else if (value.length < 4) {
                     error =
                         "Password too short. Must be at least 4 characters.";
                 }
             }
-            if (name === "username" && mode === "register") {
+            if (name === "username") {
                 if (value.length < 2) {
                     error =
                         "Username too short. Must be at least 2 characters.";
                 }
             }
         }
-
         const errorEl = input.parentElement.querySelector(".auth__error");
-
         if (error) {
             input.classList.add("error");
             input.classList.remove("valid");
@@ -159,9 +192,10 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
         return error;
     }
-    function updateSubmitButton(form) {
+    function updateSubmitButton(form, mode) {
         const btn = form.querySelector("button[type='submit']");
         const hasError = form.querySelector(".error");
+        if (mode === "profile") return;
         if (hasError) {
             btn.classList.add("disabled");
             btn.disabled = true;

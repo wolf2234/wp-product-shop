@@ -1,0 +1,148 @@
+.profile {
+    padding: 110px 0px 150px 0px;
+}
+
+.profile .woocommerce-breadcrumb .breadcrumb-separator {
+    color: #808080;
+}
+
+.profile .woocommerce-breadcrumb a {
+    color: #808080;
+    text-decoration: none;
+}
+
+.profile__text,
+.profile__name {
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-style: 'Regular';
+    font-size: 16px;
+    color: rgba(0, 0, 0, 1);
+}
+
+.profile__name {
+    color: rgba(219, 68, 68, 1);
+}
+
+.profile-avatar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 30px;
+}
+
+.profile__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 0px 50px 0px;
+}
+
+.profile__breadcrumb {}
+
+.profile__body {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.profile__password {}
+
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    width: 60%;
+    padding: 30px 50px;
+    box-shadow: 0 0 18px rgba(0, 0, 0, 0.05);
+}
+
+.profile__menu {
+    width: 40%;
+}
+
+.profile__menu ul {
+    padding-left: 0px;
+}
+
+.profile__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 50px;
+}
+
+
+.profile__menu,
+.profile-form__body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile-form__body {
+    row-gap: 25px;
+}
+
+.profile-avatar img {
+    display: inline-block;
+    width: 400px;
+    height: 480px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.profile-form__field {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.profile__password .profile-form__label,
+.profile-form__field .profile-form__label {
+    display: inline-block;
+    text-transform: capitalize;
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-style: 'Regular';
+    font-size: 16px;
+    color: rgba(0, 0, 0, 1);
+    padding: 0px 0px 15px 0px;
+}
+
+
+.profile-form__field input,
+.profile-form__field input::placeholder,
+.profile__password input::placeholder,
+.profile__password input {
+    width: 100%;
+    padding: 10px 0px 10px 15px;
+    border-radius: 4px;
+    color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(245, 245, 245, 1);
+}
+
+.profile-form__field input:focus,
+.profile__password input:focus {
+    outline: none;
+}
+
+.auth__error {}
+
+.profile__password {
+    display: flex;
+    flex-direction: column;
+    row-gap: 35px;
+}
+
+.profile-form__btn {
+    width: 100%;
+    max-width: 230px;
+    color: #fff;
+    text-transform: capitalize;
+    background-color: rgba(219, 68, 68, 1);
+    border-radius: 4px;
+    padding: 16px 48px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.2;
+}
