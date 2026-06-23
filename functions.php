@@ -43,12 +43,14 @@ function product_shop_styles() {
     wp_enqueue_style('modal-view', get_template_directory_uri() . '/assets/css/modal-view.css');
     wp_enqueue_style( 'customSelectField', get_template_directory_uri() . '/modules/customSelectField/css/select-custom.css');
     wp_enqueue_style('burger-style', get_template_directory_uri() . '/assets/css/burger.css');
+    wp_enqueue_style('breadcrumbs-style', get_template_directory_uri() . '/assets/css/breadcrumbs.css');
     wp_enqueue_style('cart-style', get_template_directory_uri() . '/assets/css/cart.css');
     wp_enqueue_style('orders-style', get_template_directory_uri() . '/assets/css/orders.css');
     wp_enqueue_style('cupon-style', get_template_directory_uri() . '/assets/css/cupon.css');
     wp_enqueue_style('wish-list-style', get_template_directory_uri() . '/assets/css/wish-list.css');
     wp_enqueue_style('auth-style', get_template_directory_uri() . '/assets/css/auth.css');
     wp_enqueue_style('profile-style', get_template_directory_uri() . '/assets/css/profile.css');
+    wp_enqueue_style('contact-style', get_template_directory_uri() . '/assets/css/contact.css');
 }
 
 function product_shop_scripts() {
@@ -297,6 +299,7 @@ function prepare_auth_data($data) {
     return $auth_data;
 }
 
+
 function validate_auth_data($data, $mode = 'register') {
     $errors = [];
     $username = trim(
@@ -368,7 +371,30 @@ function validate_auth_data($data, $mode = 'register') {
                 'Password is too short. Must be at least 4 characters.';
         }
     }
+    return $errors;
+}
 
+function validate_contact_data($data) {
+    $errors = [];
+    $username = trim(sanitize_text_field($data['contact-name']) ?? '');
+    $phone = trim(sanitize_text_field($data['phone']) ?? '');
+    $email = sanitize_email($data['email']) ?? '';
+    $message = trim($data['message']) ?? '';
+    if (empty($username)) {
+        $errors['contact-name'] = 'Name is required.';
+    }
+    if (!is_email($email)) {
+        $errors['email'] =
+            'Invalid email.';
+    }
+    if (empty($phone)) {
+        $errors['phone'] =
+            'Phone is required.';
+    }
+    if (empty($message)) {
+        $errors['message'] =
+            'Message is required.';
+    }
     return $errors;
 }
 
@@ -956,6 +982,23 @@ function change_password_ajax() {
 
     wp_send_json_success([
         'message' => 'Password changed successfully.'
+    ]);
+}
+
+
+add_action('wp_ajax_nopriv_send_contact_ajax','send_contact_ajax');
+add_action('wp_ajax_send_contact_ajax','send_contact_ajax');
+function send_contact_ajax() {
+    $errors = validate_contact_data($_POST);
+    if (!empty($errors)) {
+        wp_send_json_error([
+            'errors' => $errors
+        ]);
+    }
+    // wp_mail(get_option('admin_email'),'New contact message', $_POST['message']);
+    wp_mail(get_option('pahitom485@fishnone.com'),'New contact message', $_POST['message']);
+    wp_send_json_success([
+        'message' => 'Email sent successfully.'
     ]);
 }
 

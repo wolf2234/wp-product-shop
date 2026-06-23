@@ -2,15 +2,6 @@
     padding: 110px 0px 150px 0px;
 }
 
-.profile .woocommerce-breadcrumb .breadcrumb-separator {
-    color: #808080;
-}
-
-.profile .woocommerce-breadcrumb a {
-    color: #808080;
-    text-decoration: none;
-}
-
 .profile__text,
 .profile__name {
     font-family: 'Poppins';

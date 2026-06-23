@@ -2,7 +2,9 @@
     <div class="cart-content__body">
         <div class="container-large">
             <div class="cart-content__head">
-                <?php woocommerce_breadcrumb(); ?>
+                <div class="breadcrumbs">
+                    <?php woocommerce_breadcrumb(); ?>
+                </div>
             </div>
             <div class="orders">
                 <div class="orders__row">

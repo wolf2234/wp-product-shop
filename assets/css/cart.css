@@ -2,16 +2,6 @@
     padding: 100px 0px 150px;
 }
 
-.cart-content .woocommerce-breadcrumb a {
-    color: #808080;
-    text-decoration: none;
-}
-
-.cart-content .woocommerce-breadcrumb .breadcrumb-separator {
-    color: #808080;
-}
-
-
 .cart-content__head {
     padding: 0px 0px 60px 0px;
 }

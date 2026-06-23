@@ -1,0 +1,8 @@
+.breadcrumbs .woocommerce-breadcrumb .breadcrumb-separator {
+    color: #808080;
+}
+
+.breadcrumbs .woocommerce-breadcrumb a {
+    color: #808080;
+    text-decoration: none;
+}

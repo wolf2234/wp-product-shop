@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             register: "register_user_ajax",
             login: "login_user_ajax",
             profile: "update_profile_ajax",
+            contact: "send_contact_ajax",
         };
         const action = actions[mode];
         if (!action) {
@@ -37,6 +38,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 }
             });
             updateSubmitButton(form, mode);
+            console.log(hasErrors);
             if (hasErrors && mode !== "profile") {
                 return;
             } else {
@@ -50,6 +52,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     async function authRequest(form, action) {
+        const mode = form.dataset.authType;
         const formData = new FormData(form);
         formData.append("action", action);
         const request = {
@@ -58,22 +61,34 @@ document.addEventListener("DOMContentLoaded", async function () {
             body: formData,
         };
         const result = await getProducts(request);
+        console.log(result);
         if (!result.success) {
             if (result.errors) {
                 Object.values(result.errors).forEach((message) => {
                     showAuthAlert(message, "error");
                 });
             } else {
-                showAuthAlert(result.errors || "Something went wrong", "error");
+                showAuthAlert(
+                    result.errors || "Something went wrong1",
+                    "error",
+                );
             }
             return;
         }
-        showAuthAlert(
-            action === "register_user_ajax"
-                ? "Registration successful. You are now logged in."
-                : "Login successful.",
-            "success",
-        );
+        if (mode === "register") {
+            showAuthAlert(
+                "Registration successful. You are now logged in.",
+                "success",
+            );
+        } else if (mode === "profile") {
+            showAuthAlert("Profile updated successfully.", "success");
+        } else if (mode === "login") {
+            showAuthAlert("Login successful.", "success");
+        } else if (mode === "contact") {
+            showAuthAlert("Email sent successfully.1.", "success");
+        } else {
+            showAuthAlert("successful.", "success");
+        }
         if (result.data.avatar) {
             document.querySelector("#profile-avatar-preview").src =
                 result.data.avatar;
@@ -177,6 +192,12 @@ document.addEventListener("DOMContentLoaded", async function () {
                 if (value.length < 2) {
                     error =
                         "Username too short. Must be at least 2 characters.";
+                }
+            }
+            if (name === "phone") {
+                const phoneRegex = /^[0-9+\-\s()]{8,20}$/;
+                if (!phoneRegex.test(value)) {
+                    error = "Invalid phone number.";
                 }
             }
         }

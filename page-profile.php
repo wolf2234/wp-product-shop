@@ -16,7 +16,9 @@ get_header();
             ?>
             <div class="container-large">
                 <div class="profile__header">
-                    <?php woocommerce_breadcrumb(); ?>
+                    <div class="breadcrumbs">
+                        <?php woocommerce_breadcrumb(); ?>
+                    </div>
                     <div class="profile__text">
                         Welcome!
                         <span class="profile__name">
