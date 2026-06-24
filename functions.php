@@ -129,7 +129,6 @@ add_filter('duplicate_comment_id', '__return_false');
 // После этого код можно удалить.
 
 
-
 add_action( 'save_post_product', function( $post_id ) {
 
     if ( wp_is_post_autosave( $post_id ) || wp_is_post_revision( $post_id ) ) {
@@ -151,6 +150,35 @@ add_action( 'comment_post', function ( $comment_id ) {
         );
     }
 });
+
+
+add_action('phpmailer_init', function ($phpmailer) {
+    $phpmailer->isSMTP();
+    $phpmailer->Host = 'sandbox.smtp.mailtrap.io';
+    $phpmailer->SMTPAuth = true;
+    $phpmailer->Port = 2525;
+    $phpmailer->Username = 'da98037ed33222';
+    $phpmailer->Password = '795d39dcd756e2';
+    $phpmailer->From = 'noreply@example.com';
+    $phpmailer->FromName = 'Product Shop';
+    $phpmailer->SMTPSecure = 'tls';
+});
+
+add_filter('wp_mail_from', function () {
+    return 'noreply@example.com';
+});
+
+add_filter('wp_mail_from_name', function () {
+    return 'Product Shop';
+});
+
+// add_action('wp_mail_failed', function ($wp_error) {
+//     echo "<pre>";
+//     print_r($wp_error->get_error_data());
+//     print_r($wp_error->get_error_messages());
+//     echo "</pre>";
+//     exit;
+// });
 
 
 function get_product_average_rating_half( $product_id ) {
@@ -989,17 +1017,39 @@ function change_password_ajax() {
 add_action('wp_ajax_nopriv_send_contact_ajax','send_contact_ajax');
 add_action('wp_ajax_send_contact_ajax','send_contact_ajax');
 function send_contact_ajax() {
-    $errors = validate_contact_data($_POST);
+    $data = [
+        'contact-name' => sanitize_text_field($_POST['contact-name']),
+        'email' => sanitize_email($_POST['email']),
+        'phone' => sanitize_text_field($_POST['phone']),
+        'message' => sanitize_textarea_field($_POST['message']),
+    ];
+    $errors = validate_contact_data($data);
     if (!empty($errors)) {
         wp_send_json_error([
             'errors' => $errors
         ]);
     }
-    // wp_mail(get_option('admin_email'),'New contact message', $_POST['message']);
-    wp_mail(get_option('pahitom485@fishnone.com'),'New contact message', $_POST['message']);
+    $message =
+        "Name: {$data['contact-name']}\n".
+        "Email: {$data['email']}\n".
+        "Phone: {$data['phone']}\n\n".
+        "Message:\n{$data['message']}";
+    $mail_sent = wp_mail(
+        get_option('admin_email'),
+        'New contact message',
+        $message
+    );
+    // var_dump($mail_sent);
+    // exit;
+    if (!$mail_sent) {
+        wp_send_json_error([
+            'errors' => ['message' => 'Failed to send email.']
+        ]);
+    }
+    // wp_mail(get_option('admin_email'),'New contact message', $data['message']);
+    // wp_mail(get_option('pahitom485@fishnone.com'),'New contact message', $_POST['message']);
     wp_send_json_success([
         'message' => 'Email sent successfully.'
     ]);
 }
-
 ?>
