@@ -51,6 +51,7 @@ function product_shop_styles() {
     wp_enqueue_style('auth-style', get_template_directory_uri() . '/assets/css/auth.css');
     wp_enqueue_style('profile-style', get_template_directory_uri() . '/assets/css/profile.css');
     wp_enqueue_style('contact-style', get_template_directory_uri() . '/assets/css/contact.css');
+    wp_enqueue_style('page-errors-style', get_template_directory_uri() . '/assets/css/page-errors.css');
 }
 
 function product_shop_scripts() {
