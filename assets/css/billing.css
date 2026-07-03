@@ -1,0 +1,199 @@
+.billing {}
+
+.billing__head {
+    padding: 0px 0px 40px;
+}
+
+.billing__body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.billing__details {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    width: 70%;
+}
+
+.billing__order {
+    width: 30%;
+}
+
+.billing__title {
+    font-family: 'Inter';
+    font-weight: 500;
+    font-style: 'Medium';
+    font-size: 36px;
+    padding-bottom: 30px;
+}
+
+.billing__items {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+
+
+.billing__field {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+
+.custom-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.custom-checkbox input {
+    display: none;
+}
+
+.custom-checkbox .custom-checkbox__mark {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    position: relative;
+    background: #fff;
+}
+
+.custom-checkbox input:checked+.custom-checkbox__mark {
+    background-color: rgba(219, 68, 68, 1);
+    /* цвет фона */
+    border-color: rgba(219, 68, 68, 1);
+    /* цвет границы */
+}
+
+.custom-checkbox input:checked+.custom-checkbox__mark::after {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid #fff;
+    /* белая галочка */
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.billing .billing__field label {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.billing .billing__field input,
+.billing .billing__field input::placeholder {
+    width: 100%;
+    padding: 10px 0px 10px 15px;
+    border-radius: 4px;
+    color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(245, 245, 245, 1);
+    max-width: 400px;
+}
+
+
+.billing__goods {
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+}
+
+.billing__item,
+.billing__good {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.billing__item {
+    padding: 15px 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.billing__item:last-of-type {
+    border-bottom: none;
+}
+
+.billing__good-info {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+}
+
+
+
+.billing__img {}
+
+.billing__name {
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-style: 'Regular';
+    font-size: 16px;
+}
+
+.billing__price {}
+
+.billing__summary {
+    padding: 30px 0px 15px;
+}
+
+.billing__total-label {}
+
+.billing__total-amount {}
+
+.billing__radio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.billing__radio-option {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.billing__bank {
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+}
+
+.banks {
+    display: flex;
+    column-gap: 8px;
+}
+
+.banks img {
+    display: inline-block;
+    width: 38px;
+    height: 16px;
+}
+
+.billing__good img {
+    width: 50px;
+    height: 40px;
+    object-fit: cover;
+}
+
+
+.billing .cupon .cupon__btn {
+    padding: 16px 30px;
+}
+
+.pay-btn {
+    display: inline-block;
+    border-radius: 4px;
+    padding: 16px 48px;
+    background-color: rgba(219, 68, 68, 1);
+    color: #fff;
+    max-width: 200px;
+    text-transform: capitalize;
+}

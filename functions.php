@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 add_action('wp_enqueue_scripts', 'product_shop_styles');
 add_action('wp_enqueue_scripts', 'product_shop_scripts');
 add_action('after_setup_theme', 'product_shop_nav_menu');
@@ -52,6 +53,8 @@ function product_shop_styles() {
     wp_enqueue_style('profile-style', get_template_directory_uri() . '/assets/css/profile.css');
     wp_enqueue_style('contact-style', get_template_directory_uri() . '/assets/css/contact.css');
     wp_enqueue_style('page-errors-style', get_template_directory_uri() . '/assets/css/page-errors.css');
+    wp_enqueue_style('checkout-style', get_template_directory_uri() . '/assets/css/checkout.css');
+    wp_enqueue_style('billing-style', get_template_directory_uri() . '/assets/css/billing.css');
 }
 
 function product_shop_scripts() {
@@ -68,6 +71,8 @@ function product_shop_scripts() {
     wp_enqueue_script('swiper-js', get_template_directory_uri() . '/modules/swiper/js/swiper-bundle.min.js', array('jquery'), null, true);
     wp_enqueue_script('swiper-script-js', get_template_directory_uri() . '/modules/swiper/js/swiper-script.js', array('jquery'), null, true);
     wp_enqueue_script( 'stars', get_template_directory_uri() . '/assets/js/stars.js', array('jquery'), null, true);
+    // wp_enqueue_script( 'stripe-js', get_template_directory_uri() . '/assets/js/stripe.js', array('jquery'), null, true);
+    wp_enqueue_script('stripe-js', 'https://js.stripe.com/v3/', [], null, true);
     // wp_enqueue_script( 'view-all', get_template_directory_uri() . '/assets/js/view-all.js', array('jquery'), null, true);
     wp_enqueue_script( 'view-all-db', get_template_directory_uri() . '/assets/js/view-all-db.js', array('jquery'), null, true);
     wp_localize_script('view-all-db', 'product_obj', array('ajaxurl' => admin_url('admin-ajax.php')));
@@ -86,11 +91,14 @@ function product_shop_scripts() {
     wp_localize_script('cart', 'cart_obj', array('ajaxurl' => admin_url('admin-ajax.php')));
     wp_enqueue_script('orders', get_template_directory_uri() . '/assets/js/orders.js', array('jquery'), null, true);
     wp_enqueue_script( 'wish-list', get_template_directory_uri() . '/assets/js/wish-list.js', array('jquery'), null, true);
-    wp_enqueue_script('auth-list', get_template_directory_uri() . '/assets/js/auth.js', array('jquery'), null, true);
-    wp_enqueue_script('profile-list', get_template_directory_uri() . '/assets/js/profile.js', array('jquery'), null, true);
+    wp_enqueue_script('auth', get_template_directory_uri() . '/assets/js/auth.js', array('jquery'), null, true);
+    wp_enqueue_script('profile', get_template_directory_uri() . '/assets/js/profile.js', array('jquery'), null, true);
+    wp_enqueue_script('checkout', get_template_directory_uri() . '/assets/js/checkout.js', array('jquery'), null, true);
+    wp_localize_script('checkout', 'stripe_data', ['publishable_key' => STRIPE_PUBLIC_KEY,]);
 }
 
 add_theme_support('custom-logo');
+
 
 add_action( 'after_setup_theme', 'theme_add_woocommerce_support' );
 function theme_add_woocommerce_support() {
@@ -1053,4 +1061,52 @@ function send_contact_ajax() {
         'message' => 'Email sent successfully.'
     ]);
 }
+
+
+add_action(
+    'wp_ajax_create_checkout_session',
+    'create_checkout_session'
+);
+add_action(
+    'wp_ajax_nopriv_create_checkout_session',
+    'create_checkout_session'
+);
+function create_checkout_session() {
+    $secret_key = STRIPE_SECRET_KEY;
+    $body = [
+        'mode' => 'payment',
+        'success_url' => home_url('/success'),
+        'cancel_url' => home_url('/cancel'),
+    ];
+    $current_user = wp_get_current_user();
+    if ($current_user->exists()) {
+        $body['customer_email'] = $current_user->user_email;
+    }
+    $index = 0;
+    foreach (WC()->cart->get_cart() as $cart_item) {
+        $product = $cart_item['data'];
+        $body["line_items[$index][price_data][currency]"] = 'usd';
+        $body["line_items[$index][price_data][product_data][name]"] = $product->get_name();
+        $body["line_items[$index][price_data][unit_amount]"] = intval($product->get_price() * 100);
+        $body["line_items[$index][quantity]"] = $cart_item['quantity'];
+        $index++;
+    }
+    $response = wp_remote_post(
+        'https://api.stripe.com/v1/checkout/sessions',
+        [
+            'headers' => [
+                'Authorization' => 'Bearer ' . $secret_key,
+            ],
+            'body' => $body,
+        ]
+    );
+    $data = json_decode(
+        wp_remote_retrieve_body($response),
+        true
+    );
+    wp_send_json_success([
+        'session_id' => $data['id']
+    ]);
+}
+
 ?>
