@@ -7,9 +7,7 @@ document.getElementById("pay-btn").addEventListener("click", async () => {
         body: formData,
     });
     const result = await response.json();
-    console.log("Result:->", result);
     stripe.redirectToCheckout({
         sessionId: result.data.session_id,
     });
 });
-console.log(typeof Stripe);

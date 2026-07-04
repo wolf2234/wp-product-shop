@@ -55,6 +55,7 @@ function product_shop_styles() {
     wp_enqueue_style('page-errors-style', get_template_directory_uri() . '/assets/css/page-errors.css');
     wp_enqueue_style('checkout-style', get_template_directory_uri() . '/assets/css/checkout.css');
     wp_enqueue_style('billing-style', get_template_directory_uri() . '/assets/css/billing.css');
+    wp_enqueue_style('success-order-style', get_template_directory_uri() . '/assets/css/success-order.css');
 }
 
 function product_shop_scripts() {
@@ -1075,10 +1076,29 @@ function create_checkout_session() {
     $secret_key = STRIPE_SECRET_KEY;
     $body = [
         'mode' => 'payment',
-        'success_url' => home_url('/success'),
+        'success_url' => home_url('/success-order'),
         'cancel_url' => home_url('/cancel'),
     ];
     $current_user = wp_get_current_user();
+    $order = wc_create_order();
+    foreach (WC()->cart->get_cart() as $cart_item) {
+        $order->add_product(
+            $cart_item['data'],
+            $cart_item['quantity']
+        );
+    }
+    if ($current_user->exists()) {
+        $order->set_customer_id(
+            $current_user->ID
+        );
+    }
+    $order->calculate_totals();
+    $order->save();
+    $order_id = $order->get_id();
+    WC()->session->set(
+        'last_order_id',
+        $order_id
+    );
     if ($current_user->exists()) {
         $body['customer_email'] = $current_user->user_email;
     }

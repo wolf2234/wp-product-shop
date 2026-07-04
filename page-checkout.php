@@ -4,7 +4,6 @@ Template Name: Checkout
 */
 get_header();
 ?>
-
 <div class="checkout">
     <div class="container-large">
         <div class="billing">
