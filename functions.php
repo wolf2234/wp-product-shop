@@ -910,7 +910,7 @@ function update_profile_ajax() {
     $result = wp_update_user($update_data);
     if (is_wp_error($result)) {
         wp_send_json_error([
-            'errors' => ['massage' => $result->get_error_message()]
+            'errors' => ['message' => $result->get_error_message()]
         ]);
     }
     if (!empty($_FILES['avatar']['name'])) {
@@ -965,7 +965,7 @@ function update_profile_ajax() {
         ]);
     }
     wp_send_json_success([
-        'massage' => 'Profile updated successfully.'
+        'message' => 'Profile updated successfully.'
     ]);
 }
 
@@ -1064,6 +1064,69 @@ function send_contact_ajax() {
 }
 
 
+
+add_action('init', function () {
+    add_rewrite_rule(
+        '^webhook/?$',
+        'index.php?stripe_webhook=1',
+        'top'
+    );
+});
+
+add_filter('query_vars', function ($vars) {
+    $vars[] = 'stripe_webhook';
+    return $vars;
+});
+
+// remove_action(
+//     'template_redirect',
+//     'redirect_canonical'
+// );
+
+add_action('template_redirect', function () {
+    if (!get_query_var('stripe_webhook')) {
+        return;
+    }
+
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        wp_send_json_error([
+            'message' => 'POST only'
+        ]);
+    }
+    $payload = file_get_contents('php://input');
+    file_put_contents(
+        WP_CONTENT_DIR . '/stripe-webhook.log',
+        $payload . PHP_EOL,
+        FILE_APPEND
+    );
+    $event = json_decode($payload, true);
+    if (
+        ($event['type'] ?? '') ===
+        'checkout.session.completed'
+    ) {
+
+        $session =
+            $event['data']['object'];
+
+        $order_id =
+            $session['metadata']['order_id'] ?? null;
+
+        if ($order_id) {
+
+            $order =
+                wc_get_order($order_id);
+
+            if ($order) {
+
+                $order->update_status(
+                    'processing'
+                );
+            }
+        }
+    }
+});
+
+
 add_action(
     'wp_ajax_create_checkout_session',
     'create_checkout_session'
@@ -1102,6 +1165,7 @@ function create_checkout_session() {
     if ($current_user->exists()) {
         $body['customer_email'] = $current_user->user_email;
     }
+    $body['metadata[order_id]'] = $order_id;
     $index = 0;
     foreach (WC()->cart->get_cart() as $cart_item) {
         $product = $cart_item['data'];
@@ -1129,4 +1193,29 @@ function create_checkout_session() {
     ]);
 }
 
+add_action('template_redirect', function () {
+
+    if (strpos($_SERVER['REQUEST_URI'], 'webhook') !== false) {
+
+        error_log('WEBHOOK URI: ' . $_SERVER['REQUEST_URI']);
+
+    }
+    var_dump(home_url());
+    exit;
+
+}, 1);
+
+add_filter(
+    'redirect_canonical',
+    function ($redirect_url, $requested_url) {
+
+        if (get_query_var('stripe_webhook')) {
+            return false;
+        }
+
+        return $redirect_url;
+    },
+    10,
+    2
+);
 ?>
