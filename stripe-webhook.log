@@ -1,0 +1,3947 @@
+{
+"id": "evt_1Tqbi92Xb69vQ1wSkLimKfto",
+"object": "event",
+"api_version": "2026-06-24.dahlia",
+"created": 1783441145,
+"data": {
+"object": {
+    "id": "prod_UqIIQ0ThChO9c5",
+    "object": "product",
+    "active": true,
+    "attributes": [],
+    "created": 1783441145,
+    "default_price": null,
+    "description": "(created by Stripe CLI)",
+    "images": [],
+    "livemode": false,
+    "marketing_features": [],
+    "metadata": {},
+    "name": "myproduct",
+    "package_dimensions": null,
+    "shippable": null,
+    "statement_descriptor": null,
+    "tax_code": null,
+    "tax_details": null,
+    "type": "service",
+    "unit_label": null,
+    "updated": 1783441145,
+    "url": null
+}
+},
+"livemode": false,
+"pending_webhooks": 2,
+"request": {
+"id": "req_rYo1EDYI0HOnSi",
+"idempotency_key": "4b9d0c22-7b00-4e46-81d5-cb59cc8fbd92"
+},
+"type": "product.created"
+}
+
+{
+"id": "evt_1TqbiA2Xb69vQ1wSiOu4yVxv",
+"object": "event",
+"api_version": "2026-06-24.dahlia",
+"created": 1783441146,
+"data": {
+"object": {
+    "id": "price_1TqbiA2Xb69vQ1wSAPgeaVbI",
+    "object": "price",
+    "active": true,
+    "billing_scheme": "per_unit",
+    "created": 1783441146,
+    "currency": "usd",
+    "custom_unit_amount": null,
+    "livemode": false,
+    "lookup_key": null,
+    "metadata": {},
+    "nickname": null,
+    "product": "prod_UqIIQ0ThChO9c5",
+    "recurring": null,
+    "tax_behavior": "unspecified",
+    "tiers_mode": null,
+    "transform_quantity": null,
+    "type": "one_time",
+    "unit_amount": 1500,
+    "unit_amount_decimal": "1500"
+}
+},
+"livemode": false,
+"pending_webhooks": 2,
+"request": {
+"id": "req_aKoS1oJLfhx2tw",
+"idempotency_key": "f0a13ca3-eb3e-4f13-a016-ebb005ed9933"
+},
+"type": "price.created"
+}
+
+{
+"id": "evt_3TqbiB2Xb69vQ1wS0vGAbnnS",
+"object": "event",
+"api_version": "2026-06-24.dahlia",
+"created": 1783441148,
+"data": {
+"object": {
+    "id": "ch_3TqbiB2Xb69vQ1wS0Y2z1q3O",
+    "object": "charge",
+    "amount": 3000,
+    "amount_captured": 3000,
+    "amount_refunded": 0,
+    "application": null,
+    "application_fee": null,
+    "application_fee_amount": null,
+    "balance_transaction": null,
+    "billing_details": {
+    "address": {
+        "city": "South San Francisco",
+        "country": "US",
+        "line1": "354 Oyster Point Blvd",
+        "line2": null,
+        "postal_code": "94080",
+        "state": "CA"
+    },
+    "email": "stripe@example.com",
+    "name": "Jenny Rosen",
+    "phone": null,
+    "tax_id": null
+    },
+    "calculated_statement_descriptor": "Stripe",
+    "captured": true,
+    "created": 1783441148,
+    "currency": "usd",
+    "customer": null,
+    "description": null,
+    "destination": null,
+    "dispute": null,
+    "disputed": false,
+    "failure_balance_transaction": null,
+    "failure_code": null,
+    "failure_message": null,
+    "fraud_details": {},
+    "livemode": false,
+    "metadata": {},
+    "on_behalf_of": null,
+    "order": null,
+    "outcome": {
+    "advice_code": null,
+    "network_advice_code": null,
+    "network_decline_code": null,
+    "network_status": "approved_by_network",
+    "reason": null,
+    "risk_level": "normal",
+    "risk_score": 32,
+    "seller_message": "Payment complete.",
+    "type": "authorized"
+    },
+    "paid": true,
+    "payment_intent": "pi_3TqbiB2Xb69vQ1wS02idtrou",
+    "payment_method": "pm_1TqbiB2Xb69vQ1wSHORJwCnZ",
+    "payment_method_details": {
+    "card": {
+        "amount_authorized": 3000,
+        "authorization_code": "400628",
+        "brand": "visa",
+        "checks": {
+        "address_line1_check": "pass",
+        "address_postal_code_check": "pass",
+        "cvc_check": "pass"
+        },
+        "country": "US",
+        "exp_month": 7,
+        "exp_year": 2027,
+        "extended_authorization": {
+        "status": "disabled"
+        },
+        "fingerprint": "AcrYjryNKswmr0AB",
+        "funding": "credit",
+        "incremental_authorization": {
+        "status": "unavailable"
+        },
+        "installments": null,
+        "last4": "4242",
+        "mandate": null,
+        "multicapture": {
+        "status": "unavailable"
+        },
+        "network": "visa",
+        "network_token": {
+        "used": false
+        },
+        "network_transaction_id": "659911489106114",
+        "overcapture": {
+        "maximum_amount_capturable": 3000,
+        "status": "unavailable"
+        },
+        "regulated_status": "unregulated",
+        "three_d_secure": null,
+        "transaction_link_id": null,
+        "wallet": null
+    },
+    "type": "card"
+    },
+    "radar_options": {},
+    "receipt_email": null,
+    "receipt_number": null,
+    "receipt_url": "https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xVG1IOG8yWGI2OXZRMXdTKPzNtNIGMgZUutskcnY6LBb2-7F415jfkOwd3saNkVCB-VQmOpb4kY2MW3TzUUAEcrf2SFAF-D-B32VM",
+    "refunded": false,
+    "review": null,
+    "shipping": {
+    "address": {
+        "city": "San Francisco",
+        "country": "US",
+        "line1": "510 Townsend St",
+        "line2": null,
+        "postal_code": "94103",
+        "state": "CA"
+    },
+    "carrier": null,
+    "name": "Jenny Rosen",
+    "phone": null,
+    "tracking_number": null
+    },
+    "source": null,
+    "source_transfer": null,
+    "statement_descriptor": null,
+    "statement_descriptor_suffix": null,
+    "status": "succeeded",
+    "transfer_data": null,
+    "transfer_group": null
+}
+},
+"livemode": false,
+"pending_webhooks": 2,
+"request": {
+"id": null,
+"idempotency_key": "62270992-7fc9-445c-9a9c-13300ac6ae21"
+},
+"type": "charge.succeeded"
+}
+
+{
+"id": "evt_3TqbiB2Xb69vQ1wS0CKYt3xJ",
+"object": "event",
+"api_version": "2026-06-24.dahlia",
+"created": 1783441147,
+"data": {
+"object": {
+    "id": "pi_3TqbiB2Xb69vQ1wS02idtrou",
+    "object": "payment_intent",
+    "amount": 3000,
+    "amount_capturable": 0,
+    "amount_details": {
+    "tip": {}
+    },
+    "amount_received": 0,
+    "application": null,
+    "application_fee_amount": null,
+    "automatic_payment_methods": null,
+    "canceled_at": null,
+    "cancellation_reason": null,
+    "capture_method": "automatic_async",
+    "client_secret": "pi_3TqbiB2Xb69vQ1wS02idtrou_secret_gw2LFHQ3D6i2uPU3IOrXuXumY",
+    "confirmation_method": "automatic",
+    "created": 1783441147,
+    "currency": "usd",
+    "customer": null,
+    "customer_account": null,
+    "description": null,
+    "excluded_payment_method_types": null,
+    "last_payment_error": null,
+    "latest_charge": null,
+    "livemode": false,
+    "managed_payments": {
+    "enabled": false
+    },
+    "metadata": {},
+    "next_action": null,
+    "on_behalf_of": null,
+    "payment_method": null,
+    "payment_method_configuration_details": null,
+    "payment_method_options": {
+    "card": {
+        "installments": null,
+        "mandate_options": null,
+        "network": null,
+        "request_three_d_secure": "automatic"
+    }
+    },
+    "payment_method_types": [
+    "card"
+    ],
+    "processing": null,
+    "receipt_email": null,
+    "review": null,
+    "setup_future_usage": null,
+    "shared_payment_granted_token": null,
+    "shipping": {
+    "address": {
+        "city": "San Francisco",
+        "country": "US",
+        "line1": "510 Townsend St",
+        "line2": null,
+        "postal_code": "94103",
+        "state": "CA"
+    },
+    "carrier": null,
+    "name": "Jenny Rosen",
+    "phone": null,
+    "tracking_number": null
+    },
+    "source": null,
+    "statement_descriptor": null,
+    "statement_descriptor_suffix": null,
+    "status": "requires_payment_method",
+    "transfer_data": null,
+    "transfer_group": null
+}
+},
+"livemode": false,
+"pending_webhooks": 2,
+"request": {
+"id": null,
+"idempotency_key": "62270992-7fc9-445c-9a9c-13300ac6ae21"
+},
+"type": "payment_intent.created"
+}
+
+{
+"id": "evt_1TqbiC2Xb69vQ1wS8sSSNivZ",
+"object": "event",
+"api_version": "2026-06-24.dahlia",
+"created": 1783441148,
+"data": {
+"object": {
+    "id": "cs_test_a1YwTfkueqR28EO1dG5SFTS1S7gnq4Tlcrp6FnJdrrFsTlbs5xIcw593Gi",
+    "object": "checkout.session",
+    "adaptive_pricing": {
+    "enabled": true
+    },
+    "after_expiration": null,
+    "allow_promotion_codes": null,
+    "amount_subtotal": 3000,
+    "amount_total": 3000,
+    "automatic_tax": {
+    "enabled": false,
+    "liability": null,
+    "provider": null,
+    "status": null
+    },
+    "billing_address_collection": null,
+    "branding_settings": {
+    "background_color": "#ffffff",
+    "border_style": "rounded",
+    "button_color": "#0074d4",
+    "display_name": "AlexViktor sandbox",
+    "font_family": "default",
+    "icon": null,
+    "logo": null
+    },
+    "cancel_url": "https://httpbin.org/post",
+    "client_reference_id": null,
+    "client_secret": null,
+    "collected_information": null,
+    "consent": null,
+    "consent_collection": null,
+    "created": 1783441146,
+    "currency": "usd",
+    "currency_conversion": null,
+    "custom_fields": [],
+    "custom_text": {
+    "after_submit": null,
+    "shipping_address": null,
+    "submit": null,
+    "terms_of_service_acceptance": null
+    },
+    "customer": null,
+    "customer_account": null,
+    "customer_creation": "if_required",
+    "customer_details": {
+    "address": {
+        "city": "South San Francisco",
+        "country": "US",
+        "line1": "354 Oyster Point Blvd",
+        "line2": null,
+        "postal_code": "94080",
+        "state": "CA"
+    },
+    "business_name": null,
+    "email": "stripe@example.com",
+    "individual_name": null,
+    "name": "Jenny Rosen",
+    "phone": null,
+    "tax_exempt": "none",
+    "tax_ids": []
+    },
+    "customer_email": null,
+    "discounts": [],
+    "expires_at": 1783527546,
+    "integration_identifier": null,
+    "invoice": null,
+    "invoice_creation": {
+    "enabled": false,
+    "invoice_data": {
+        "account_tax_ids": null,
+        "custom_fields": null,
+        "description": null,
+        "footer": null,
+        "issuer": null,
+        "metadata": {},
+        "rendering_options": null
+    }
+    },
+    "livemode": false,
+    "locale": null,
+    "managed_payments": {
+    "enabled": false
+    },
+    "metadata": {},
+    "mode": "payment",
+    "origin_context": null,
+    "payment_intent": "pi_3TqbiB2Xb69vQ1wS02idtrou",
+    "payment_link": null,
+    "payment_method_collection": "if_required",
+    "payment_method_configuration_details": {
+    "id": "pmc_1TmH9M2Xb69vQ1wS4MStORZe",
+    "parent": null
+    },
+    "payment_method_options": {
+    "card": {
+        "request_three_d_secure": "automatic"
+    }
+    },
+    "payment_method_types": [
+    "card",
+    "klarna",
+    "link",
+    "cashapp",
+    "amazon_pay"
+    ],
+    "payment_status": "paid",
+    "permissions": null,
+    "phone_number_collection": {
+    "enabled": false
+    },
+    "recovered_from": null,
+    "saved_payment_method_options": null,
+    "setup_intent": null,
+    "shipping_address_collection": null,
+    "shipping_cost": null,
+    "shipping_options": [],
+    "status": "complete",
+    "submit_type": null,
+    "subscription": null,
+    "success_url": "https://httpbin.org/post",
+    "total_details": {
+    "amount_discount": 0,
+    "amount_shipping": 0,
+    "amount_tax": 0
+    },
+    "ui_mode": "hosted_page",
+    "url": null,
+    "wallet_options": null
+}
+},
+"livemode": false,
+"pending_webhooks": 2,
+"request": {
+"id": null,
+"idempotency_key": null
+},
+"type": "checkout.session.completed"
+}
+
+{
+"id": "evt_3TqbiB2Xb69vQ1wS0BWv3tVg",
+"object": "event",
+"api_version": "2026-06-24.dahlia",
+"created": 1783441148,
+"data": {
+"object": {
+    "id": "pi_3TqbiB2Xb69vQ1wS02idtrou",
+    "object": "payment_intent",
+    "amount": 3000,
+    "amount_capturable": 0,
+    "amount_details": {
+    "shipping": {
+        "amount": 0,
+        "from_postal_code": null,
+        "to_postal_code": null
+    },
+    "tax": {
+        "total_tax_amount": 0
+    },
+    "tip": {}
+    },
+    "amount_received": 3000,
+    "application": null,
+    "application_fee_amount": null,
+    "automatic_payment_methods": null,
+    "canceled_at": null,
+    "cancellation_reason": null,
+    "capture_method": "automatic_async",
+    "client_secret": "pi_3TqbiB2Xb69vQ1wS02idtrou_secret_gw2LFHQ3D6i2uPU3IOrXuXumY",
+    "confirmation_method": "automatic",
+    "created": 1783441147,
+    "currency": "usd",
+    "customer": null,
+    "customer_account": null,
+    "description": null,
+    "excluded_payment_method_types": null,
+    "last_payment_error": null,
+    "latest_charge": "ch_3TqbiB2Xb69vQ1wS0Y2z1q3O",
+    "livemode": false,
+    "managed_payments": {
+    "enabled": false
+    },
+    "metadata": {},
+    "next_action": null,
+    "on_behalf_of": null,
+    "payment_details": {
+    "customer_reference": null,
+    "order_reference": "cs_test_a1YwTfkueqR28EO1dG5SFTS1S7gnq4Tlcrp6FnJdrrFsTlbs5xIcw593Gi"
+    },
+    "payment_method": "pm_1TqbiB2Xb69vQ1wSHORJwCnZ",
+    "payment_method_configuration_details": null,
+    "payment_method_options": {
+    "card": {
+        "installments": null,
+        "mandate_options": null,
+        "network": null,
+        "request_three_d_secure": "automatic"
+    }
+    },
+    "payment_method_types": [
+    "card"
+    ],
+    "processing": null,
+    "receipt_email": null,
+    "review": null,
+    "setup_future_usage": null,
+    "shared_payment_granted_token": null,
+    "shipping": {
+    "address": {
+        "city": "San Francisco",
+        "country": "US",
+        "line1": "510 Townsend St",
+        "line2": null,
+        "postal_code": "94103",
+        "state": "CA"
+    },
+    "carrier": null,
+    "name": "Jenny Rosen",
+    "phone": null,
+    "tracking_number": null
+    },
+    "source": null,
+    "statement_descriptor": null,
+    "statement_descriptor_suffix": null,
+    "status": "succeeded",
+    "transfer_data": null,
+    "transfer_group": null
+}
+},
+"livemode": false,
+"pending_webhooks": 2,
+"request": {
+"id": null,
+"idempotency_key": "62270992-7fc9-445c-9a9c-13300ac6ae21"
+},
+"type": "payment_intent.succeeded"
+}
+
+{
+"id": "evt_3TqbiB2Xb69vQ1wS0qaoXHHv",
+"object": "event",
+"api_version": "2026-06-24.dahlia",
+"created": 1783441151,
+"data": {
+"object": {
+    "id": "ch_3TqbiB2Xb69vQ1wS0Y2z1q3O",
+    "object": "charge",
+    "amount": 3000,
+    "amount_captured": 3000,
+    "amount_refunded": 0,
+    "application": null,
+    "application_fee": null,
+    "application_fee_amount": null,
+    "balance_transaction": "txn_3TqbiB2Xb69vQ1wS0Ge0JA1u",
+    "billing_details": {
+    "address": {
+        "city": "South San Francisco",
+        "country": "US",
+        "line1": "354 Oyster Point Blvd",
+        "line2": null,
+        "postal_code": "94080",
+        "state": "CA"
+    },
+    "email": "stripe@example.com",
+    "name": "Jenny Rosen",
+    "phone": null,
+    "tax_id": null
+    },
+    "calculated_statement_descriptor": "Stripe",
+    "captured": true,
+    "created": 1783441148,
+    "currency": "usd",
+    "customer": null,
+    "description": null,
+    "destination": null,
+    "dispute": null,
+    "disputed": false,
+    "failure_balance_transaction": null,
+    "failure_code": null,
+    "failure_message": null,
+    "fraud_details": {},
+    "livemode": false,
+    "metadata": {},
+    "on_behalf_of": null,
+    "order": null,
+    "outcome": {
+    "advice_code": null,
+    "network_advice_code": null,
+    "network_decline_code": null,
+    "network_status": "approved_by_network",
+    "reason": null,
+    "risk_level": "normal",
+    "risk_score": 32,
+    "seller_message": "Payment complete.",
+    "type": "authorized"
+    },
+    "paid": true,
+    "payment_intent": "pi_3TqbiB2Xb69vQ1wS02idtrou",
+    "payment_method": "pm_1TqbiB2Xb69vQ1wSHORJwCnZ",
+    "payment_method_details": {
+    "card": {
+        "amount_authorized": 3000,
+        "authorization_code": "400628",
+        "brand": "visa",
+        "checks": {
+        "address_line1_check": "pass",
+        "address_postal_code_check": "pass",
+        "cvc_check": "pass"
+        },
+        "country": "US",
+        "exp_month": 7,
+        "exp_year": 2027,
+        "extended_authorization": {
+        "status": "disabled"
+        },
+        "fingerprint": "AcrYjryNKswmr0AB",
+        "funding": "credit",
+        "incremental_authorization": {
+        "status": "unavailable"
+        },
+        "installments": null,
+        "last4": "4242",
+        "mandate": null,
+        "multicapture": {
+        "status": "unavailable"
+        },
+        "network": "visa",
+        "network_token": {
+        "used": false
+        },
+        "network_transaction_id": "659911489106114",
+        "overcapture": {
+        "maximum_amount_capturable": 3000,
+        "status": "unavailable"
+        },
+        "regulated_status": "unregulated",
+        "three_d_secure": null,
+        "transaction_link_id": null,
+        "wallet": null
+    },
+    "type": "card"
+    },
+    "radar_options": {},
+    "receipt_email": null,
+    "receipt_number": null,
+    "receipt_url": "https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xVG1IOG8yWGI2OXZRMXdTKP_NtNIGMgbMpAiD8Kk6LBZdWrm9A8i-UxWSBcncUm_HXmxzwi6qGfBs1Ufe2al36z6t1hHkGfsekZUL",
+    "refunded": false,
+    "review": null,
+    "shipping": {
+    "address": {
+        "city": "San Francisco",
+        "country": "US",
+        "line1": "510 Townsend St",
+        "line2": null,
+        "postal_code": "94103",
+        "state": "CA"
+    },
+    "carrier": null,
+    "name": "Jenny Rosen",
+    "phone": null,
+    "tracking_number": null
+    },
+    "source": null,
+    "source_transfer": null,
+    "statement_descriptor": null,
+    "statement_descriptor_suffix": null,
+    "status": "succeeded",
+    "transfer_data": null,
+    "transfer_group": null
+},
+"previous_attributes": {
+    "balance_transaction": null,
+    "receipt_url": "https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xVG1IOG8yWGI2OXZRMXdTKP_NtNIGMgaT1wMAM9A6LBbUIps7_Yz4b7HOGktzJkLLIoV09ThPJgIWFYPCabz6YCNHyyeOutvflkbm"
+}
+},
+"livemode": false,
+"pending_webhooks": 2,
+"request": {
+"id": null,
+"idempotency_key": null
+},
+"type": "charge.updated"
+}
+
+{
+  "id": "evt_1TqbrI2Xb69vQ1wSHd4mPhFA",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783441712,
+  "data": {
+    "object": {
+      "id": "prod_UqISTo7McGZWW4",
+      "object": "product",
+      "active": true,
+      "attributes": [],
+      "created": 1783441712,
+      "default_price": null,
+      "description": "(created by Stripe CLI)",
+      "images": [],
+      "livemode": false,
+      "marketing_features": [],
+      "metadata": {},
+      "name": "myproduct",
+      "package_dimensions": null,
+      "shippable": null,
+      "statement_descriptor": null,
+      "tax_code": null,
+      "tax_details": null,
+      "type": "service",
+      "unit_label": null,
+      "updated": 1783441712,
+      "url": null
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": "req_lt3EXVNvj7W9Z4",
+    "idempotency_key": "11bcce91-bf91-433d-848e-d4874773090f"
+  },
+  "type": "product.created"
+}
+
+{
+  "id": "evt_1TqbrI2Xb69vQ1wSyOvEdN7K",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783441712,
+  "data": {
+    "object": {
+      "id": "price_1TqbrI2Xb69vQ1wSZaTNfPqD",
+      "object": "price",
+      "active": true,
+      "billing_scheme": "per_unit",
+      "created": 1783441712,
+      "currency": "usd",
+      "custom_unit_amount": null,
+      "livemode": false,
+      "lookup_key": null,
+      "metadata": {},
+      "nickname": null,
+      "product": "prod_UqISTo7McGZWW4",
+      "recurring": null,
+      "tax_behavior": "unspecified",
+      "tiers_mode": null,
+      "transform_quantity": null,
+      "type": "one_time",
+      "unit_amount": 1500,
+      "unit_amount_decimal": "1500"
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": "req_lU4uHMB0RZuXuN",
+    "idempotency_key": "9e999f90-570a-4e08-93af-01a037ec09d4"
+  },
+  "type": "price.created"
+}
+
+{
+  "id": "evt_3TqbrK2Xb69vQ1wS0vfb7N63",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783441714,
+  "data": {
+    "object": {
+      "id": "ch_3TqbrK2Xb69vQ1wS0EUjSxUS",
+      "object": "charge",
+      "amount": 3000,
+      "amount_captured": 3000,
+      "amount_refunded": 0,
+      "application": null,
+      "application_fee": null,
+      "application_fee_amount": null,
+      "balance_transaction": null,
+      "billing_details": {
+        "address": {
+          "city": "South San Francisco",
+          "country": "US",
+          "line1": "354 Oyster Point Blvd",
+          "line2": null,
+          "postal_code": "94080",
+          "state": "CA"
+        },
+        "email": "stripe@example.com",
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tax_id": null
+      },
+      "calculated_statement_descriptor": "Stripe",
+      "captured": true,
+      "created": 1783441714,
+      "currency": "usd",
+      "customer": null,
+      "description": null,
+      "destination": null,
+      "dispute": null,
+      "disputed": false,
+      "failure_balance_transaction": null,
+      "failure_code": null,
+      "failure_message": null,
+      "fraud_details": {},
+      "livemode": false,
+      "metadata": {},
+      "on_behalf_of": null,
+      "order": null,
+      "outcome": {
+        "advice_code": null,
+        "network_advice_code": null,
+        "network_decline_code": null,
+        "network_status": "approved_by_network",
+        "reason": null,
+        "risk_level": "normal",
+        "risk_score": 6,
+        "seller_message": "Payment complete.",
+        "type": "authorized"
+      },
+      "paid": true,
+      "payment_intent": "pi_3TqbrK2Xb69vQ1wS0XJ00CUq",
+      "payment_method": "pm_1TqbrJ2Xb69vQ1wSlIyBkfYo",
+      "payment_method_details": {
+        "card": {
+          "amount_authorized": 3000,
+          "authorization_code": "716791",
+          "brand": "visa",
+          "checks": {
+            "address_line1_check": "pass",
+            "address_postal_code_check": "pass",
+            "cvc_check": "pass"
+          },
+          "country": "US",
+          "exp_month": 7,
+          "exp_year": 2027,
+          "extended_authorization": {
+            "status": "disabled"
+          },
+          "fingerprint": "AcrYjryNKswmr0AB",
+          "funding": "credit",
+          "incremental_authorization": {
+            "status": "unavailable"
+          },
+          "installments": null,
+          "last4": "4242",
+          "mandate": null,
+          "multicapture": {
+            "status": "unavailable"
+          },
+          "network": "visa",
+          "network_token": {
+            "used": false
+          },
+          "network_transaction_id": "659911489106114",
+          "overcapture": {
+            "maximum_amount_capturable": 3000,
+            "status": "unavailable"
+          },
+          "regulated_status": "unregulated",
+          "three_d_secure": null,
+          "transaction_link_id": null,
+          "wallet": null
+        },
+        "type": "card"
+      },
+      "radar_options": {},
+      "receipt_email": null,
+      "receipt_number": null,
+      "receipt_url": "https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xVG1IOG8yWGI2OXZRMXdTKLPStNIGMgawFDhU63g6LBbnjRXDUA0QtYkXjWOdy-Am6BgsfTNgIEFnbCVkKmScMvaIlUr1CEGEBESf",
+      "refunded": false,
+      "review": null,
+      "shipping": {
+        "address": {
+          "city": "San Francisco",
+          "country": "US",
+          "line1": "510 Townsend St",
+          "line2": null,
+          "postal_code": "94103",
+          "state": "CA"
+        },
+        "carrier": null,
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tracking_number": null
+      },
+      "source": null,
+      "source_transfer": null,
+      "statement_descriptor": null,
+      "statement_descriptor_suffix": null,
+      "status": "succeeded",
+      "transfer_data": null,
+      "transfer_group": null
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": null,
+    "idempotency_key": "238d3f7e-88c0-4508-aba6-82e6c44dbdaa"
+  },
+  "type": "charge.succeeded"
+}
+
+{
+  "id": "evt_3TqbrK2Xb69vQ1wS0mjS7QdZ",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783441714,
+  "data": {
+    "object": {
+      "id": "pi_3TqbrK2Xb69vQ1wS0XJ00CUq",
+      "object": "payment_intent",
+      "amount": 3000,
+      "amount_capturable": 0,
+      "amount_details": {
+        "tip": {}
+      },
+      "amount_received": 0,
+      "application": null,
+      "application_fee_amount": null,
+      "automatic_payment_methods": null,
+      "canceled_at": null,
+      "cancellation_reason": null,
+      "capture_method": "automatic_async",
+      "client_secret": "pi_3TqbrK2Xb69vQ1wS0XJ00CUq_secret_gXigtoeizuFIeTSuUXFCt7vKd",
+      "confirmation_method": "automatic",
+      "created": 1783441714,
+      "currency": "usd",
+      "customer": null,
+      "customer_account": null,
+      "description": null,
+      "excluded_payment_method_types": null,
+      "last_payment_error": null,
+      "latest_charge": null,
+      "livemode": false,
+      "managed_payments": {
+        "enabled": false
+      },
+      "metadata": {},
+      "next_action": null,
+      "on_behalf_of": null,
+      "payment_method": null,
+      "payment_method_configuration_details": null,
+      "payment_method_options": {
+        "card": {
+          "installments": null,
+          "mandate_options": null,
+          "network": null,
+          "request_three_d_secure": "automatic"
+        }
+      },
+      "payment_method_types": [
+        "card"
+      ],
+      "processing": null,
+      "receipt_email": null,
+      "review": null,
+      "setup_future_usage": null,
+      "shared_payment_granted_token": null,
+      "shipping": {
+        "address": {
+          "city": "San Francisco",
+          "country": "US",
+          "line1": "510 Townsend St",
+          "line2": null,
+          "postal_code": "94103",
+          "state": "CA"
+        },
+        "carrier": null,
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tracking_number": null
+      },
+      "source": null,
+      "statement_descriptor": null,
+      "statement_descriptor_suffix": null,
+      "status": "requires_payment_method",
+      "transfer_data": null,
+      "transfer_group": null
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": null,
+    "idempotency_key": "238d3f7e-88c0-4508-aba6-82e6c44dbdaa"
+  },
+  "type": "payment_intent.created"
+}
+
+{
+  "id": "evt_1TqbrL2Xb69vQ1wS9CuwyrRR",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783441715,
+  "data": {
+    "object": {
+      "id": "cs_test_a1HqBAhptqViECNLq1FglfBM29qmRfZoYjMr40qsAUDMxOW6VbLQWj87MA",
+      "object": "checkout.session",
+      "adaptive_pricing": {
+        "enabled": true
+      },
+      "after_expiration": null,
+      "allow_promotion_codes": null,
+      "amount_subtotal": 3000,
+      "amount_total": 3000,
+      "automatic_tax": {
+        "enabled": false,
+        "liability": null,
+        "provider": null,
+        "status": null
+      },
+      "billing_address_collection": null,
+      "branding_settings": {
+        "background_color": "#ffffff",
+        "border_style": "rounded",
+        "button_color": "#0074d4",
+        "display_name": "AlexViktor sandbox",
+        "font_family": "default",
+        "icon": null,
+        "logo": null
+      },
+      "cancel_url": "https://httpbin.org/post",
+      "client_reference_id": null,
+      "client_secret": null,
+      "collected_information": null,
+      "consent": null,
+      "consent_collection": null,
+      "created": 1783441712,
+      "currency": "usd",
+      "currency_conversion": null,
+      "custom_fields": [],
+      "custom_text": {
+        "after_submit": null,
+        "shipping_address": null,
+        "submit": null,
+        "terms_of_service_acceptance": null
+      },
+      "customer": null,
+      "customer_account": null,
+      "customer_creation": "if_required",
+      "customer_details": {
+        "address": {
+          "city": "South San Francisco",
+          "country": "US",
+          "line1": "354 Oyster Point Blvd",
+          "line2": null,
+          "postal_code": "94080",
+          "state": "CA"
+        },
+        "business_name": null,
+        "email": "stripe@example.com",
+        "individual_name": null,
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tax_exempt": "none",
+        "tax_ids": []
+      },
+      "customer_email": null,
+      "discounts": [],
+      "expires_at": 1783528112,
+      "integration_identifier": null,
+      "invoice": null,
+      "invoice_creation": {
+        "enabled": false,
+        "invoice_data": {
+          "account_tax_ids": null,
+          "custom_fields": null,
+          "description": null,
+          "footer": null,
+          "issuer": null,
+          "metadata": {},
+          "rendering_options": null
+        }
+      },
+      "livemode": false,
+      "locale": null,
+      "managed_payments": {
+        "enabled": false
+      },
+      "metadata": {},
+      "mode": "payment",
+      "origin_context": null,
+      "payment_intent": "pi_3TqbrK2Xb69vQ1wS0XJ00CUq",
+      "payment_link": null,
+      "payment_method_collection": "if_required",
+      "payment_method_configuration_details": {
+        "id": "pmc_1TmH9M2Xb69vQ1wS4MStORZe",
+        "parent": null
+      },
+      "payment_method_options": {
+        "card": {
+          "request_three_d_secure": "automatic"
+        }
+      },
+      "payment_method_types": [
+        "card",
+        "klarna",
+        "link",
+        "cashapp",
+        "amazon_pay"
+      ],
+      "payment_status": "paid",
+      "permissions": null,
+      "phone_number_collection": {
+        "enabled": false
+      },
+      "recovered_from": null,
+      "saved_payment_method_options": null,
+      "setup_intent": null,
+      "shipping_address_collection": null,
+      "shipping_cost": null,
+      "shipping_options": [],
+      "status": "complete",
+      "submit_type": null,
+      "subscription": null,
+      "success_url": "https://httpbin.org/post",
+      "total_details": {
+        "amount_discount": 0,
+        "amount_shipping": 0,
+        "amount_tax": 0
+      },
+      "ui_mode": "hosted_page",
+      "url": null,
+      "wallet_options": null
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": null,
+    "idempotency_key": null
+  },
+  "type": "checkout.session.completed"
+}
+
+l
+    },
+    "previous_attributes": {
+      "balance_transaction": null,
+      "receipt_url": "https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xVG1IOG8yWGI2OXZRMXdTKLXStNIGMgaor_KpcFQ6LBby_S7Li9albPcrIZ9TjY0eWEkVQgb9VQg0JDv0__smDipi1cTZ5fZO9QGI"
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": null,
+    "idempotency_key": null
+  },
+  "type": "charge.updated"
+}
+
+{
+  "id": "evt_1Tqbsn2Xb69vQ1wSDTtgGZcf",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783441805,
+  "data": {
+    "object": {
+      "id": "prod_UqITQBMDUvTu2L",
+      "object": "product",
+      "active": true,
+      "attributes": [],
+      "created": 1783441805,
+      "default_price": null,
+      "description": "(created by Stripe CLI)",
+      "images": [],
+      "livemode": false,
+      "marketing_features": [],
+      "metadata": {},
+      "name": "myproduct",
+      "package_dimensions": null,
+      "shippable": null,
+      "statement_descriptor": null,
+      "tax_code": null,
+      "tax_details": null,
+      "type": "service",
+      "unit_label": null,
+      "updated": 1783441805,
+      "url": null
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": "req_TDap8sFTquBKJH",
+    "idempotency_key": "e9c7c8af-96a6-4fe0-a402-8bc4ca1293e5"
+  },
+  "type": "product.created"
+}
+
+{
+  "id": "evt_1Tqbsn2Xb69vQ1wSEZy06rlu",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783441805,
+  "data": {
+    "object": {
+      "id": "price_1Tqbsn2Xb69vQ1wSl4qB7wB0",
+      "object": "price",
+      "active": true,
+      "billing_scheme": "per_unit",
+      "created": 1783441805,
+      "currency": "usd",
+      "custom_unit_amount": null,
+      "livemode": false,
+      "lookup_key": null,
+      "metadata": {},
+      "nickname": null,
+      "product": "prod_UqITQBMDUvTu2L",
+      "recurring": null,
+      "tax_behavior": "unspecified",
+      "tiers_mode": null,
+      "transform_quantity": null,
+      "type": "one_time",
+      "unit_amount": 1500,
+      "unit_amount_decimal": "1500"
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": "req_f55LEKwEF69PTA",
+    "idempotency_key": "b65a0bc1-71c5-4bac-8467-5619fcc69710"
+  },
+  "type": "price.created"
+}
+
+{
+  "id": "evt_3Tqbsp2Xb69vQ1wS1NJ2A26M",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783441807,
+  "data": {
+    "object": {
+      "id": "ch_3Tqbsp2Xb69vQ1wS1hCA3D1F",
+      "object": "charge",
+      "amount": 3000,
+      "amount_captured": 3000,
+      "amount_refunded": 0,
+      "application": null,
+      "application_fee": null,
+      "application_fee_amount": null,
+      "balance_transaction": null,
+      "billing_details": {
+        "address": {
+          "city": "South San Francisco",
+          "country": "US",
+          "line1": "354 Oyster Point Blvd",
+          "line2": null,
+          "postal_code": "94080",
+          "state": "CA"
+        },
+        "email": "stripe@example.com",
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tax_id": null
+      },
+      "calculated_statement_descriptor": "Stripe",
+      "captured": true,
+      "created": 1783441807,
+      "currency": "usd",
+      "customer": null,
+      "description": null,
+      "destination": null,
+      "dispute": null,
+      "disputed": false,
+      "failure_balance_transaction": null,
+      "failure_code": null,
+      "failure_message": null,
+      "fraud_details": {},
+      "livemode": false,
+      "metadata": {},
+      "on_behalf_of": null,
+      "order": null,
+      "outcome": {
+        "advice_code": null,
+        "network_advice_code": null,
+        "network_decline_code": null,
+        "network_status": "approved_by_network",
+        "reason": null,
+        "risk_level": "normal",
+        "risk_score": 52,
+        "seller_message": "Payment complete.",
+        "type": "authorized"
+      },
+      "paid": true,
+      "payment_intent": "pi_3Tqbsp2Xb69vQ1wS10rlm6YD",
+      "payment_method": "pm_1Tqbso2Xb69vQ1wSgG4CJ3mW",
+      "payment_method_details": {
+        "card": {
+          "amount_authorized": 3000,
+          "authorization_code": "626920",
+          "brand": "visa",
+          "checks": {
+            "address_line1_check": "pass",
+            "address_postal_code_check": "pass",
+            "cvc_check": "pass"
+          },
+          "country": "US",
+          "exp_month": 7,
+          "exp_year": 2027,
+          "extended_authorization": {
+            "status": "disabled"
+          },
+          "fingerprint": "AcrYjryNKswmr0AB",
+          "funding": "credit",
+          "incremental_authorization": {
+            "status": "unavailable"
+          },
+          "installments": null,
+          "last4": "4242",
+          "mandate": null,
+          "multicapture": {
+            "status": "unavailable"
+          },
+          "network": "visa",
+          "network_token": {
+            "used": false
+          },
+          "network_transaction_id": "659911489106114",
+          "overcapture": {
+            "maximum_amount_capturable": 3000,
+            "status": "unavailable"
+          },
+          "regulated_status": "unregulated",
+          "three_d_secure": null,
+          "transaction_link_id": null,
+          "wallet": null
+        },
+        "type": "card"
+      },
+      "radar_options": {},
+      "receipt_email": null,
+      "receipt_number": null,
+      "receipt_url": "https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xVG1IOG8yWGI2OXZRMXdTKI_TtNIGMgaTPlz1oQI6LBYBQLC_Sh5fzhDFuJAtw6q1kWq0ishp4f7MC8KRmO0o-givOIKgpkbSFI2G",
+      "refunded": false,
+      "review": null,
+      "shipping": {
+        "address": {
+          "city": "San Francisco",
+          "country": "US",
+          "line1": "510 Townsend St",
+          "line2": null,
+          "postal_code": "94103",
+          "state": "CA"
+        },
+        "carrier": null,
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tracking_number": null
+      },
+      "source": null,
+      "source_transfer": null,
+      "statement_descriptor": null,
+      "statement_descriptor_suffix": null,
+      "status": "succeeded",
+      "transfer_data": null,
+      "transfer_group": null
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": null,
+    "idempotency_key": "b962a5de-d394-46b5-b362-8155cdffa4e1"
+  },
+  "type": "charge.succeeded"
+}
+
+{
+  "id": "evt_3Tqbsp2Xb69vQ1wS1paAAwNt",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783441807,
+  "data": {
+    "object": {
+      "id": "pi_3Tqbsp2Xb69vQ1wS10rlm6YD",
+      "object": "payment_intent",
+      "amount": 3000,
+      "amount_capturable": 0,
+      "amount_details": {
+        "shipping": {
+          "amount": 0,
+          "from_postal_code": null,
+          "to_postal_code": null
+        },
+        "tax": {
+          "total_tax_amount": 0
+        },
+        "tip": {}
+      },
+      "amount_received": 3000,
+      "application": null,
+      "application_fee_amount": null,
+      "automatic_payment_methods": null,
+      "canceled_at": null,
+      "cancellation_reason": null,
+      "capture_method": "automatic_async",
+      "client_secret": "pi_3Tqbsp2Xb69vQ1wS10rlm6YD_secret_OysxE4ZiZTA3anpAQNH0bneJM",
+      "confirmation_method": "automatic",
+      "created": 1783441807,
+      "currency": "usd",
+      "customer": null,
+      "customer_account": null,
+      "description": null,
+      "excluded_payment_method_types": null,
+      "last_payment_error": null,
+      "latest_charge": "ch_3Tqbsp2Xb69vQ1wS1hCA3D1F",
+      "livemode": false,
+      "managed_payments": {
+        "enabled": false
+      },
+      "metadata": {},
+      "next_action": null,
+      "on_behalf_of": null,
+      "payment_details": {
+        "customer_reference": null,
+        "order_reference": "cs_test_a18H8jBDykpiU6VpEPs0EkQsw25SxWUQ7d4AAyfpzKKELAQrjaX3ydbn4i"
+      },
+      "payment_method": "pm_1Tqbso2Xb69vQ1wSgG4CJ3mW",
+      "payment_method_configuration_details": null,
+      "payment_method_options": {
+        "card": {
+          "installments": null,
+          "mandate_options": null,
+          "network": null,
+          "request_three_d_secure": "automatic"
+        }
+      },
+      "payment_method_types": [
+        "card"
+      ],
+      "processing": null,
+      "receipt_email": null,
+      "review": null,
+      "setup_future_usage": null,
+      "shared_payment_granted_token": null,
+      "shipping": {
+        "address": {
+          "city": "San Francisco",
+          "country": "US",
+          "line1": "510 Townsend St",
+          "line2": null,
+          "postal_code": "94103",
+          "state": "CA"
+        },
+        "carrier": null,
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tracking_number": null
+      },
+      "source": null,
+      "statement_descriptor": null,
+      "statement_descriptor_suffix": null,
+      "status": "succeeded",
+      "transfer_data": null,
+      "transfer_group": null
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": null,
+    "idempotency_key": "b962a5de-d394-46b5-b362-8155cdffa4e1"
+  },
+  "type": "payment_intent.succeeded"
+}
+
+{
+  "id": "evt_3Tqbsp2Xb69vQ1wS10BeWOnU",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783441807,
+  "data": {
+    "object": {
+      "id": "pi_3Tqbsp2Xb69vQ1wS10rlm6YD",
+      "object": "payment_intent",
+      "amount": 3000,
+      "amount_capturable": 0,
+      "amount_details": {
+        "tip": {}
+      },
+      "amount_received": 0,
+      "application": null,
+      "application_fee_amount": null,
+      "automatic_payment_methods": null,
+      "canceled_at": null,
+      "cancellation_reason": null,
+      "capture_method": "automatic_async",
+      "client_secret": "pi_3Tqbsp2Xb69vQ1wS10rlm6YD_secret_OysxE4ZiZTA3anpAQNH0bneJM",
+      "confirmation_method": "automatic",
+      "created": 1783441807,
+      "currency": "usd",
+      "customer": null,
+      "customer_account": null,
+      "description": null,
+      "excluded_payment_method_types": null,
+      "last_payment_error": null,
+      "latest_charge": null,
+      "livemode": false,
+      "managed_payments": {
+        "enabled": false
+      },
+      "metadata": {},
+      "next_action": null,
+      "on_behalf_of": null,
+      "payment_method": null,
+      "payment_method_configuration_details": null,
+      "payment_method_options": {
+        "card": {
+          "installments": null,
+          "mandate_options": null,
+          "network": null,
+          "request_three_d_secure": "automatic"
+        }
+      },
+      "payment_method_types": [
+        "card"
+      ],
+      "processing": null,
+      "receipt_email": null,
+      "review": null,
+      "setup_future_usage": null,
+      "shared_payment_granted_token": null,
+      "shipping": {
+        "address": {
+          "city": "San Francisco",
+          "country": "US",
+          "line1": "510 Townsend St",
+          "line2": null,
+          "postal_code": "94103",
+          "state": "CA"
+        },
+        "carrier": null,
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tracking_number": null
+      },
+      "source": null,
+      "statement_descriptor": null,
+      "statement_descriptor_suffix": null,
+      "status": "requires_payment_method",
+      "transfer_data": null,
+      "transfer_group": null
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": null,
+    "idempotency_key": "b962a5de-d394-46b5-b362-8155cdffa4e1"
+  },
+  "type": "payment_intent.created"
+}
+
+{
+  "id": "evt_1Tqbsq2Xb69vQ1wS1lgKDy7L",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783441807,
+  "data": {
+    "object": {
+      "id": "cs_test_a18H8jBDykpiU6VpEPs0EkQsw25SxWUQ7d4AAyfpzKKELAQrjaX3ydbn4i",
+      "object": "checkout.session",
+      "adaptive_pricing": {
+        "enabled": true
+      },
+      "after_expiration": null,
+      "allow_promotion_codes": null,
+      "amount_subtotal": 3000,
+      "amount_total": 3000,
+      "automatic_tax": {
+        "enabled": false,
+        "liability": null,
+        "provider": null,
+        "status": null
+      },
+      "billing_address_collection": null,
+      "branding_settings": {
+        "background_color": "#ffffff",
+        "border_style": "rounded",
+        "button_color": "#0074d4",
+        "display_name": "AlexViktor sandbox",
+        "font_family": "default",
+        "icon": null,
+        "logo": null
+      },
+      "cancel_url": "https://httpbin.org/post",
+      "client_reference_id": null,
+      "client_secret": null,
+      "collected_information": null,
+      "consent": null,
+      "consent_collection": null,
+      "created": 1783441805,
+      "currency": "usd",
+      "currency_conversion": null,
+      "custom_fields": [],
+      "custom_text": {
+        "after_submit": null,
+        "shipping_address": null,
+        "submit": null,
+        "terms_of_service_acceptance": null
+      },
+      "customer": null,
+      "customer_account": null,
+      "customer_creation": "if_required",
+      "customer_details": {
+        "address": {
+          "city": "South San Francisco",
+          "country": "US",
+          "line1": "354 Oyster Point Blvd",
+          "line2": null,
+          "postal_code": "94080",
+          "state": "CA"
+        },
+        "business_name": null,
+        "email": "stripe@example.com",
+        "individual_name": null,
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tax_exempt": "none",
+        "tax_ids": []
+      },
+      "customer_email": null,
+      "discounts": [],
+      "expires_at": 1783528205,
+      "integration_identifier": null,
+      "invoice": null,
+      "invoice_creation": {
+        "enabled": false,
+        "invoice_data": {
+          "account_tax_ids": null,
+          "custom_fields": null,
+          "description": null,
+          "footer": null,
+          "issuer": null,
+          "metadata": {},
+          "rendering_options": null
+        }
+      },
+      "livemode": false,
+      "locale": null,
+      "managed_payments": {
+        "enabled": false
+      },
+      "metadata": {},
+      "mode": "payment",
+      "origin_context": null,
+      "payment_intent": "pi_3Tqbsp2Xb69vQ1wS10rlm6YD",
+      "payment_link": null,
+      "payment_method_collection": "if_required",
+      "payment_method_configuration_details": {
+        "id": "pmc_1TmH9M2Xb69vQ1wS4MStORZe",
+        "parent": null
+      },
+      "payment_method_options": {
+        "card": {
+          "request_three_d_secure": "automatic"
+        }
+      },
+      "payment_method_types": [
+        "card",
+        "klarna",
+        "link",
+        "cashapp",
+        "amazon_pay"
+      ],
+      "payment_status": "paid",
+      "permissions": null,
+      "phone_number_collection": {
+        "enabled": false
+      },
+      "recovered_from": null,
+      "saved_payment_method_options": null,
+      "setup_intent": null,
+      "shipping_address_collection": null,
+      "shipping_cost": null,
+      "shipping_options": [],
+      "status": "complete",
+      "submit_type": null,
+      "subscription": null,
+      "success_url": "https://httpbin.org/post",
+      "total_details": {
+        "amount_discount": 0,
+        "amount_shipping": 0,
+        "amount_tax": 0
+      },
+      "ui_mode": "hosted_page",
+      "url": null,
+      "wallet_options": null
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": null,
+    "idempotency_key": null
+  },
+  "type": "checkout.session.completed"
+}
+
+{
+  "id": "evt_3Tqbsp2Xb69vQ1wS1EA74h2U",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783441810,
+  "data": {
+    "object": {
+      "id": "ch_3Tqbsp2Xb69vQ1wS1hCA3D1F",
+      "object": "charge",
+      "amount": 3000,
+      "amount_captured": 3000,
+      "amount_refunded": 0,
+      "application": null,
+      "application_fee": null,
+      "application_fee_amount": null,
+      "balance_transaction": "txn_3Tqbsp2Xb69vQ1wS1gfXrpaj",
+      "billing_details": {
+        "address": {
+          "city": "South San Francisco",
+          "country": "US",
+          "line1": "354 Oyster Point Blvd",
+          "line2": null,
+          "postal_code": "94080",
+          "state": "CA"
+        },
+        "email": "stripe@example.com",
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tax_id": null
+      },
+      "calculated_statement_descriptor": "Stripe",
+      "captured": true,
+      "created": 1783441807,
+      "currency": "usd",
+      "customer": null,
+      "description": null,
+      "destination": null,
+      "dispute": null,
+      "disputed": false,
+      "failure_balance_transaction": null,
+      "failure_code": null,
+      "failure_message": null,
+      "fraud_details": {},
+      "livemode": false,
+      "metadata": {},
+      "on_behalf_of": null,
+      "order": null,
+      "outcome": {
+        "advice_code": null,
+        "network_advice_code": null,
+        "network_decline_code": null,
+        "network_status": "approved_by_network",
+        "reason": null,
+        "risk_level": "normal",
+        "risk_score": 52,
+        "seller_message": "Payment complete.",
+        "type": "authorized"
+      },
+      "paid": true,
+      "payment_intent": "pi_3Tqbsp2Xb69vQ1wS10rlm6YD",
+      "payment_method": "pm_1Tqbso2Xb69vQ1wSgG4CJ3mW",
+      "payment_method_details": {
+        "card": {
+          "amount_authorized": 3000,
+          "authorization_code": "626920",
+          "brand": "visa",
+          "checks": {
+            "address_line1_check": "pass",
+            "address_postal_code_check": "pass",
+            "cvc_check": "pass"
+          },
+          "country": "US",
+          "exp_month": 7,
+          "exp_year": 2027,
+          "extended_authorization": {
+            "status": "disabled"
+          },
+          "fingerprint": "AcrYjryNKswmr0AB",
+          "funding": "credit",
+          "incremental_authorization": {
+            "status": "unavailable"
+          },
+          "installments": null,
+          "last4": "4242",
+          "mandate": null,
+          "multicapture": {
+            "status": "unavailable"
+          },
+          "network": "visa",
+          "network_token": {
+            "used": false
+          },
+          "network_transaction_id": "659911489106114",
+          "overcapture": {
+            "maximum_amount_capturable": 3000,
+            "status": "unavailable"
+          },
+          "regulated_status": "unregulated",
+          "three_d_secure": null,
+          "transaction_link_id": null,
+          "wallet": null
+        },
+        "type": "card"
+      },
+      "radar_options": {},
+      "receipt_email": null,
+      "receipt_number": null,
+      "receipt_url": "https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xVG1IOG8yWGI2OXZRMXdTKJLTtNIGMgYnnH-wECU6LBbg1CF4OQeZKuSNXYO-WRaU68a5zI-bceGcMHKZu-UYaB7iLh9p4T8kjTVm",
+      "refunded": false,
+      "review": null,
+      "shipping": {
+        "address": {
+          "city": "San Francisco",
+          "country": "US",
+          "line1": "510 Townsend St",
+          "line2": null,
+          "postal_code": "94103",
+          "state": "CA"
+        },
+        "carrier": null,
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tracking_number": null
+      },
+      "source": null,
+      "source_transfer": null,
+      "statement_descriptor": null,
+      "statement_descriptor_suffix": null,
+      "status": "succeeded",
+      "transfer_data": null,
+      "transfer_group": null
+    },
+    "previous_attributes": {
+      "balance_transaction": null,
+      "receipt_url": "https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xVG1IOG8yWGI2OXZRMXdTKJLTtNIGMgaos_XVr_U6LBZD6gSNstqQY3kvLJeZjExPkThImGw7yEwTF9t2HYIGb5P5m3xMfnkGflTp"
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": null,
+    "idempotency_key": null
+  },
+  "type": "charge.updated"
+}
+
+{
+  "id": "evt_1TqbuS2Xb69vQ1wSIJb6UK2w",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783441908,
+  "data": {
+    "object": {
+      "id": "prod_UqIVxYcXbP5gBV",
+      "object": "product",
+      "active": true,
+      "attributes": [],
+      "created": 1783441908,
+      "default_price": null,
+      "description": "(created by Stripe CLI)",
+      "images": [],
+      "livemode": false,
+      "marketing_features": [],
+      "metadata": {},
+      "name": "myproduct",
+      "package_dimensions": null,
+      "shippable": null,
+      "statement_descriptor": null,
+      "tax_code": null,
+      "tax_details": null,
+      "type": "service",
+      "unit_label": null,
+      "updated": 1783441908,
+      "url": null
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": "req_I3sTLGkXXWEzeX",
+    "idempotency_key": "2e81c6d9-6f26-466a-b196-388230fdce19"
+  },
+  "type": "product.created"
+}
+
+{
+  "id": "evt_1TqbuS2Xb69vQ1wSyHNB5x2K",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783441908,
+  "data": {
+    "object": {
+      "id": "price_1TqbuS2Xb69vQ1wSSiQDuDzL",
+      "object": "price",
+      "active": true,
+      "billing_scheme": "per_unit",
+      "created": 1783441908,
+      "currency": "usd",
+      "custom_unit_amount": null,
+      "livemode": false,
+      "lookup_key": null,
+      "metadata": {},
+      "nickname": null,
+      "product": "prod_UqIVxYcXbP5gBV",
+      "recurring": null,
+      "tax_behavior": "unspecified",
+      "tiers_mode": null,
+      "transform_quantity": null,
+      "type": "one_time",
+      "unit_amount": 1500,
+      "unit_amount_decimal": "1500"
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": "req_zsCWNFdattauRd",
+    "idempotency_key": "103e3384-2821-4a65-a826-3b4ecdeacab5"
+  },
+  "type": "price.created"
+}
+
+{
+  "id": "evt_1TqbuV2Xb69vQ1wS0UZdwFVh",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783441911,
+  "data": {
+    "object": {
+      "id": "cs_test_a1gVbcpK1fMianUh9NtrFhFpcG8F6NrvwpJsncm4pzWt38RFFm7X5nWI5g",
+      "object": "checkout.session",
+      "adaptive_pricing": {
+        "enabled": true
+      },
+      "after_expiration": null,
+      "allow_promotion_codes": null,
+      "amount_subtotal": 3000,
+      "amount_total": 3000,
+      "automatic_tax": {
+        "enabled": false,
+        "liability": null,
+        "provider": null,
+        "status": null
+      },
+      "billing_address_collection": null,
+      "branding_settings": {
+        "background_color": "#ffffff",
+        "border_style": "rounded",
+        "button_color": "#0074d4",
+        "display_name": "AlexViktor sandbox",
+        "font_family": "default",
+        "icon": null,
+        "logo": null
+      },
+      "cancel_url": "https://httpbin.org/post",
+      "client_reference_id": null,
+      "client_secret": null,
+      "collected_information": null,
+      "consent": null,
+      "consent_collection": null,
+      "created": 1783441909,
+      "currency": "usd",
+      "currency_conversion": null,
+      "custom_fields": [],
+      "custom_text": {
+        "after_submit": null,
+        "shipping_address": null,
+        "submit": null,
+        "terms_of_service_acceptance": null
+      },
+      "customer": null,
+      "customer_account": null,
+      "customer_creation": "if_required",
+      "customer_details": {
+        "address": {
+          "city": "South San Francisco",
+          "country": "US",
+          "line1": "354 Oyster Point Blvd",
+          "line2": null,
+          "postal_code": "94080",
+          "state": "CA"
+        },
+        "business_name": null,
+        "email": "stripe@example.com",
+        "individual_name": null,
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tax_exempt": "none",
+        "tax_ids": []
+      },
+      "customer_email": null,
+      "discounts": [],
+      "expires_at": 1783528309,
+      "integration_identifier": null,
+      "invoice": null,
+      "invoice_creation": {
+        "enabled": false,
+        "invoice_data": {
+          "account_tax_ids": null,
+          "custom_fields": null,
+          "description": null,
+          "footer": null,
+          "issuer": null,
+          "metadata": {},
+          "rendering_options": null
+        }
+      },
+      "livemode": false,
+      "locale": null,
+      "managed_payments": {
+        "enabled": false
+      },
+      "metadata": {},
+      "mode": "payment",
+      "origin_context": null,
+      "payment_intent": "pi_3TqbuU2Xb69vQ1wS0WrxhJ2y",
+      "payment_link": null,
+      "payment_method_collection": "if_required",
+      "payment_method_configuration_details": {
+        "id": "pmc_1TmH9M2Xb69vQ1wS4MStORZe",
+        "parent": null
+      },
+      "payment_method_options": {
+        "card": {
+          "request_three_d_secure": "automatic"
+        }
+      },
+      "payment_method_types": [
+        "card",
+        "klarna",
+        "link",
+        "cashapp",
+        "amazon_pay"
+      ],
+      "payment_status": "paid",
+      "permissions": null,
+      "phone_number_collection": {
+        "enabled": false
+      },
+      "recovered_from": null,
+      "saved_payment_method_options": null,
+      "setup_intent": null,
+      "shipping_address_collection": null,
+      "shipping_cost": null,
+      "shipping_options": [],
+      "status": "complete",
+      "submit_type": null,
+      "subscription": null,
+      "success_url": "https://httpbin.org/post",
+      "total_details": {
+        "amount_discount": 0,
+        "amount_shipping": 0,
+        "amount_tax": 0
+      },
+      "ui_mode": "hosted_page",
+      "url": null,
+      "wallet_options": null
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": null,
+    "idempotency_key": null
+  },
+  "type": "checkout.session.completed"
+}
+
+{
+  "id": "evt_3TqbuU2Xb69vQ1wS0IM64WN8",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783441910,
+  "data": {
+    "object": {
+      "id": "pi_3TqbuU2Xb69vQ1wS0WrxhJ2y",
+      "object": "payment_intent",
+      "amount": 3000,
+      "amount_capturable": 0,
+      "amount_details": {
+        "tip": {}
+      },
+      "amount_received": 0,
+      "application": null,
+      "application_fee_amount": null,
+      "automatic_payment_methods": null,
+      "canceled_at": null,
+      "cancellation_reason": null,
+      "capture_method": "automatic_async",
+      "client_secret": "pi_3TqbuU2Xb69vQ1wS0WrxhJ2y_secret_UatRotZdvoLf89DMM6a6pjU9n",
+      "confirmation_method": "automatic",
+      "created": 1783441910,
+      "currency": "usd",
+      "customer": null,
+      "customer_account": null,
+      "description": null,
+      "excluded_payment_method_types": null,
+      "last_payment_error": null,
+      "latest_charge": null,
+      "livemode": false,
+      "managed_payments": {
+        "enabled": false
+      },
+      "metadata": {},
+      "next_action": null,
+      "on_behalf_of": null,
+      "payment_method": null,
+      "payment_method_configuration_details": null,
+      "payment_method_options": {
+        "card": {
+          "installments": null,
+          "mandate_options": null,
+          "network": null,
+          "request_three_d_secure": "automatic"
+        }
+      },
+      "payment_method_types": [
+        "card"
+      ],
+      "processing": null,
+      "receipt_email": null,
+      "review": null,
+      "setup_future_usage": null,
+      "shared_payment_granted_token": null,
+      "shipping": {
+        "address": {
+          "city": "San Francisco",
+          "country": "US",
+          "line1": "510 Townsend St",
+          "line2": null,
+          "postal_code": "94103",
+          "state": "CA"
+        },
+        "carrier": null,
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tracking_number": null
+      },
+      "source": null,
+      "statement_descriptor": null,
+      "statement_descriptor_suffix": null,
+      "status": "requires_payment_method",
+      "transfer_data": null,
+      "transfer_group": null
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": null,
+    "idempotency_key": "9092b52c-f737-468b-aac1-9f42d257f089"
+  },
+  "type": "payment_intent.created"
+}
+
+{
+  "id": "evt_3TqbuU2Xb69vQ1wS05tisNMF",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783441911,
+  "data": {
+    "object": {
+      "id": "ch_3TqbuU2Xb69vQ1wS0VESeNy9",
+      "object": "charge",
+      "amount": 3000,
+      "amount_captured": 3000,
+      "amount_refunded": 0,
+      "application": null,
+      "application_fee": null,
+      "application_fee_amount": null,
+      "balance_transaction": null,
+      "billing_details": {
+        "address": {
+          "city": "South San Francisco",
+          "country": "US",
+          "line1": "354 Oyster Point Blvd",
+          "line2": null,
+          "postal_code": "94080",
+          "state": "CA"
+        },
+        "email": "stripe@example.com",
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tax_id": null
+      },
+      "calculated_statement_descriptor": "Stripe",
+      "captured": true,
+      "created": 1783441910,
+      "currency": "usd",
+      "customer": null,
+      "description": null,
+      "destination": null,
+      "dispute": null,
+      "disputed": false,
+      "failure_balance_transaction": null,
+      "failure_code": null,
+      "failure_message": null,
+      "fraud_details": {},
+      "livemode": false,
+      "metadata": {},
+      "on_behalf_of": null,
+      "order": null,
+      "outcome": {
+        "advice_code": null,
+        "network_advice_code": null,
+        "network_decline_code": null,
+        "network_status": "approved_by_network",
+        "reason": null,
+        "risk_level": "normal",
+        "risk_score": 33,
+        "seller_message": "Payment complete.",
+        "type": "authorized"
+      },
+      "paid": true,
+      "payment_intent": "pi_3TqbuU2Xb69vQ1wS0WrxhJ2y",
+      "payment_method": "pm_1TqbuU2Xb69vQ1wSt5gEbjJ5",
+      "payment_method_details": {
+        "card": {
+          "amount_authorized": 3000,
+          "authorization_code": "135993",
+          "brand": "visa",
+          "checks": {
+            "address_line1_check": "pass",
+            "address_postal_code_check": "pass",
+            "cvc_check": "pass"
+          },
+          "country": "US",
+          "exp_month": 7,
+          "exp_year": 2027,
+          "extended_authorization": {
+            "status": "disabled"
+          },
+          "fingerprint": "AcrYjryNKswmr0AB",
+          "funding": "credit",
+          "incremental_authorization": {
+            "status": "unavailable"
+          },
+          "installments": null,
+          "last4": "4242",
+          "mandate": null,
+          "multicapture": {
+            "status": "unavailable"
+          },
+          "network": "visa",
+          "network_token": {
+            "used": false
+          },
+          "network_transaction_id": "659911489106114",
+          "overcapture": {
+            "maximum_amount_capturable": 3000,
+            "status": "unavailable"
+          },
+          "regulated_status": "unregulated",
+          "three_d_secure": null,
+          "transaction_link_id": null,
+          "wallet": null
+        },
+        "type": "card"
+      },
+      "radar_options": {},
+      "receipt_email": null,
+      "receipt_number": null,
+      "receipt_url": "https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xVG1IOG8yWGI2OXZRMXdTKPfTtNIGMgYI7xxdh0U6LBYUssxQlp5ySmIHsZVUViSptTKfV9VBkGa5Q-P8M_6O21qgDBKIhXczDZIp",
+      "refunded": false,
+      "review": null,
+      "shipping": {
+        "address": {
+          "city": "San Francisco",
+          "country": "US",
+          "line1": "510 Townsend St",
+          "line2": null,
+          "postal_code": "94103",
+          "state": "CA"
+        },
+        "carrier": null,
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tracking_number": null
+      },
+      "source": null,
+      "source_transfer": null,
+      "statement_descriptor": null,
+      "statement_descriptor_suffix": null,
+      "status": "succeeded",
+      "transfer_data": null,
+      "transfer_group": null
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": null,
+    "idempotency_key": "9092b52c-f737-468b-aac1-9f42d257f089"
+  },
+  "type": "charge.succeeded"
+}
+
+{
+  "id": "evt_3TqbuU2Xb69vQ1wS0LSiDxIh",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783441911,
+  "data": {
+    "object": {
+      "id": "pi_3TqbuU2Xb69vQ1wS0WrxhJ2y",
+      "object": "payment_intent",
+      "amount": 3000,
+      "amount_capturable": 0,
+      "amount_details": {
+        "shipping": {
+          "amount": 0,
+          "from_postal_code": null,
+          "to_postal_code": null
+        },
+        "tax": {
+          "total_tax_amount": 0
+        },
+        "tip": {}
+      },
+      "amount_received": 3000,
+      "application": null,
+      "application_fee_amount": null,
+      "automatic_payment_methods": null,
+      "canceled_at": null,
+      "cancellation_reason": null,
+      "capture_method": "automatic_async",
+      "client_secret": "pi_3TqbuU2Xb69vQ1wS0WrxhJ2y_secret_UatRotZdvoLf89DMM6a6pjU9n",
+      "confirmation_method": "automatic",
+      "created": 1783441910,
+      "currency": "usd",
+      "customer": null,
+      "customer_account": null,
+      "description": null,
+      "excluded_payment_method_types": null,
+      "last_payment_error": null,
+      "latest_charge": "ch_3TqbuU2Xb69vQ1wS0VESeNy9",
+      "livemode": false,
+      "managed_payments": {
+        "enabled": false
+      },
+      "metadata": {},
+      "next_action": null,
+      "on_behalf_of": null,
+      "payment_details": {
+        "customer_reference": null,
+        "order_reference": "cs_test_a1gVbcpK1fMianUh9NtrFhFpcG8F6NrvwpJsncm4pzWt38RFFm7X5nWI5g"
+      },
+      "payment_method": "pm_1TqbuU2Xb69vQ1wSt5gEbjJ5",
+      "payment_method_configuration_details": null,
+      "payment_method_options": {
+        "card": {
+          "installments": null,
+          "mandate_options": null,
+          "network": null,
+          "request_three_d_secure": "automatic"
+        }
+      },
+      "payment_method_types": [
+        "card"
+      ],
+      "processing": null,
+      "receipt_email": null,
+      "review": null,
+      "setup_future_usage": null,
+      "shared_payment_granted_token": null,
+      "shipping": {
+        "address": {
+          "city": "San Francisco",
+          "country": "US",
+          "line1": "510 Townsend St",
+          "line2": null,
+          "postal_code": "94103",
+          "state": "CA"
+        },
+        "carrier": null,
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tracking_number": null
+      },
+      "source": null,
+      "statement_descriptor": null,
+      "statement_descriptor_suffix": null,
+      "status": "succeeded",
+      "transfer_data": null,
+      "transfer_group": null
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": null,
+    "idempotency_key": "9092b52c-f737-468b-aac1-9f42d257f089"
+  },
+  "type": "payment_intent.succeeded"
+}
+
+{
+  "id": "evt_3TqbuU2Xb69vQ1wS0qinKpDh",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783441914,
+  "data": {
+    "object": {
+      "id": "ch_3TqbuU2Xb69vQ1wS0VESeNy9",
+      "object": "charge",
+      "amount": 3000,
+      "amount_captured": 3000,
+      "amount_refunded": 0,
+      "application": null,
+      "application_fee": null,
+      "application_fee_amount": null,
+      "balance_transaction": "txn_3TqbuU2Xb69vQ1wS0ROxgvmo",
+      "billing_details": {
+        "address": {
+          "city": "South San Francisco",
+          "country": "US",
+          "line1": "354 Oyster Point Blvd",
+          "line2": null,
+          "postal_code": "94080",
+          "state": "CA"
+        },
+        "email": "stripe@example.com",
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tax_id": null
+      },
+      "calculated_statement_descriptor": "Stripe",
+      "captured": true,
+      "created": 1783441910,
+      "currency": "usd",
+      "customer": null,
+      "description": null,
+      "destination": null,
+      "dispute": null,
+      "disputed": false,
+      "failure_balance_transaction": null,
+      "failure_code": null,
+      "failure_message": null,
+      "fraud_details": {},
+      "livemode": false,
+      "metadata": {},
+      "on_behalf_of": null,
+      "order": null,
+      "outcome": {
+        "advice_code": null,
+        "network_advice_code": null,
+        "network_decline_code": null,
+        "network_status": "approved_by_network",
+        "reason": null,
+        "risk_level": "normal",
+        "risk_score": 33,
+        "seller_message": "Payment complete.",
+        "type": "authorized"
+      },
+      "paid": true,
+      "payment_intent": "pi_3TqbuU2Xb69vQ1wS0WrxhJ2y",
+      "payment_method": "pm_1TqbuU2Xb69vQ1wSt5gEbjJ5",
+      "payment_method_details": {
+        "card": {
+          "amount_authorized": 3000,
+          "authorization_code": "135993",
+          "brand": "visa",
+          "checks": {
+            "address_line1_check": "pass",
+            "address_postal_code_check": "pass",
+            "cvc_check": "pass"
+          },
+          "country": "US",
+          "exp_month": 7,
+          "exp_year": 2027,
+          "extended_authorization": {
+            "status": "disabled"
+          },
+          "fingerprint": "AcrYjryNKswmr0AB",
+          "funding": "credit",
+          "incremental_authorization": {
+            "status": "unavailable"
+          },
+          "installments": null,
+          "last4": "4242",
+          "mandate": null,
+          "multicapture": {
+            "status": "unavailable"
+          },
+          "network": "visa",
+          "network_token": {
+            "used": false
+          },
+          "network_transaction_id": "659911489106114",
+          "overcapture": {
+            "maximum_amount_capturable": 3000,
+            "status": "unavailable"
+          },
+          "regulated_status": "unregulated",
+          "three_d_secure": null,
+          "transaction_link_id": null,
+          "wallet": null
+        },
+        "type": "card"
+      },
+      "radar_options": {},
+      "receipt_email": null,
+      "receipt_number": null,
+      "receipt_url": "https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xVG1IOG8yWGI2OXZRMXdTKPrTtNIGMgY9HaUFyrY6LBbV1ciVokZtWKATo7TU6gNsM83LpqbjGlbyfdgAxxQywnLrl5e8DjzFGQKA",
+      "refunded": false,
+      "review": null,
+      "shipping": {
+        "address": {
+          "city": "San Francisco",
+          "country": "US",
+          "line1": "510 Townsend St",
+          "line2": null,
+          "postal_code": "94103",
+          "state": "CA"
+        },
+        "carrier": null,
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tracking_number": null
+      },
+      "source": null,
+      "source_transfer": null,
+      "statement_descriptor": null,
+      "statement_descriptor_suffix": null,
+      "status": "succeeded",
+      "transfer_data": null,
+      "transfer_group": null
+    },
+    "previous_attributes": {
+      "balance_transaction": null,
+      "receipt_url": "https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xVG1IOG8yWGI2OXZRMXdTKPrTtNIGMgZBKv2g7zA6LBYn29R0mJW8UxGbVXFGWq6xpNhY1jpTkYB6zoPAuCUBHaM4wizRBpEG3r0f"
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": null,
+    "idempotency_key": null
+  },
+  "type": "charge.updated"
+}
+
+{
+  "id": "evt_1Tqbxd2Xb69vQ1wSgCdMQXQh",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783442105,
+  "data": {
+    "object": {
+      "id": "prod_UqIYC0IZqkK6ZP",
+      "object": "product",
+      "active": true,
+      "attributes": [],
+      "created": 1783442105,
+      "default_price": null,
+      "description": "(created by Stripe CLI)",
+      "images": [],
+      "livemode": false,
+      "marketing_features": [],
+      "metadata": {},
+      "name": "myproduct",
+      "package_dimensions": null,
+      "shippable": null,
+      "statement_descriptor": null,
+      "tax_code": null,
+      "tax_details": null,
+      "type": "service",
+      "unit_label": null,
+      "updated": 1783442105,
+      "url": null
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": "req_V4fgkinZbymg4q",
+    "idempotency_key": "fa163f95-24de-4461-838c-bcf5ece84876"
+  },
+  "type": "product.created"
+}
+
+{
+  "id": "evt_1Tqbxe2Xb69vQ1wSno0aSm25",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783442106,
+  "data": {
+    "object": {
+      "id": "price_1Tqbxe2Xb69vQ1wSHDoL5JTT",
+      "object": "price",
+      "active": true,
+      "billing_scheme": "per_unit",
+      "created": 1783442106,
+      "currency": "usd",
+      "custom_unit_amount": null,
+      "livemode": false,
+      "lookup_key": null,
+      "metadata": {},
+      "nickname": null,
+      "product": "prod_UqIYC0IZqkK6ZP",
+      "recurring": null,
+      "tax_behavior": "unspecified",
+      "tiers_mode": null,
+      "transform_quantity": null,
+      "type": "one_time",
+      "unit_amount": 1500,
+      "unit_amount_decimal": "1500"
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": "req_ckO5ZXwjmz5SsR",
+    "idempotency_key": "7e1d657d-d9d3-4f62-a7ae-21e7d1e6b776"
+  },
+  "type": "price.created"
+}
+
+{
+  "id": "evt_3Tqbxf2Xb69vQ1wS0d1c8VBZ",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783442108,
+  "data": {
+    "object": {
+      "id": "pi_3Tqbxf2Xb69vQ1wS0Mv7QjkW",
+      "object": "payment_intent",
+      "amount": 3000,
+      "amount_capturable": 0,
+      "amount_details": {
+        "shipping": {
+          "amount": 0,
+          "from_postal_code": null,
+          "to_postal_code": null
+        },
+        "tax": {
+          "total_tax_amount": 0
+        },
+        "tip": {}
+      },
+      "amount_received": 3000,
+      "application": null,
+      "application_fee_amount": null,
+      "automatic_payment_methods": null,
+      "canceled_at": null,
+      "cancellation_reason": null,
+      "capture_method": "automatic_async",
+      "client_secret": "pi_3Tqbxf2Xb69vQ1wS0Mv7QjkW_secret_8uVSY068s8wxGyigHXY927RUl",
+      "confirmation_method": "automatic",
+      "created": 1783442107,
+      "currency": "usd",
+      "customer": null,
+      "customer_account": null,
+      "description": null,
+      "excluded_payment_method_types": null,
+      "last_payment_error": null,
+      "latest_charge": "ch_3Tqbxf2Xb69vQ1wS0Lad0TJz",
+      "livemode": false,
+      "managed_payments": {
+        "enabled": false
+      },
+      "metadata": {},
+      "next_action": null,
+      "on_behalf_of": null,
+      "payment_details": {
+        "customer_reference": null,
+        "order_reference": "cs_test_a1Fm0buOW3hRuy3WDVWUL7UNeuzIF9DamV4ok1g7C64VZ22Mr7lVu7YNrt"
+      },
+      "payment_method": "pm_1Tqbxf2Xb69vQ1wSk4H6mjbr",
+      "payment_method_configuration_details": null,
+      "payment_method_options": {
+        "card": {
+          "installments": null,
+          "mandate_options": null,
+          "network": null,
+          "request_three_d_secure": "automatic"
+        }
+      },
+      "payment_method_types": [
+        "card"
+      ],
+      "processing": null,
+      "receipt_email": null,
+      "review": null,
+      "setup_future_usage": null,
+      "shared_payment_granted_token": null,
+      "shipping": {
+        "address": {
+          "city": "San Francisco",
+          "country": "US",
+          "line1": "510 Townsend St",
+          "line2": null,
+          "postal_code": "94103",
+          "state": "CA"
+        },
+        "carrier": null,
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tracking_number": null
+      },
+      "source": null,
+      "statement_descriptor": null,
+      "statement_descriptor_suffix": null,
+      "status": "succeeded",
+      "transfer_data": null,
+      "transfer_group": null
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": null,
+    "idempotency_key": "10dd70ab-117b-4573-8400-3e1338cda739"
+  },
+  "type": "payment_intent.succeeded"
+}
+
+{
+  "id": "evt_3Tqbxf2Xb69vQ1wS0cRJZCrR",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783442108,
+  "data": {
+    "object": {
+      "id": "ch_3Tqbxf2Xb69vQ1wS0Lad0TJz",
+      "object": "charge",
+      "amount": 3000,
+      "amount_captured": 3000,
+      "amount_refunded": 0,
+      "application": null,
+      "application_fee": null,
+      "application_fee_amount": null,
+      "balance_transaction": null,
+      "billing_details": {
+        "address": {
+          "city": "South San Francisco",
+          "country": "US",
+          "line1": "354 Oyster Point Blvd",
+          "line2": null,
+          "postal_code": "94080",
+          "state": "CA"
+        },
+        "email": "stripe@example.com",
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tax_id": null
+      },
+      "calculated_statement_descriptor": "Stripe",
+      "captured": true,
+      "created": 1783442107,
+      "currency": "usd",
+      "customer": null,
+      "description": null,
+      "destination": null,
+      "dispute": null,
+      "disputed": false,
+      "failure_balance_transaction": null,
+      "failure_code": null,
+      "failure_message": null,
+      "fraud_details": {},
+      "livemode": false,
+      "metadata": {},
+      "on_behalf_of": null,
+      "order": null,
+      "outcome": {
+        "advice_code": null,
+        "network_advice_code": null,
+        "network_decline_code": null,
+        "network_status": "approved_by_network",
+        "reason": null,
+        "risk_level": "normal",
+        "risk_score": 47,
+        "seller_message": "Payment complete.",
+        "type": "authorized"
+      },
+      "paid": true,
+      "payment_intent": "pi_3Tqbxf2Xb69vQ1wS0Mv7QjkW",
+      "payment_method": "pm_1Tqbxf2Xb69vQ1wSk4H6mjbr",
+      "payment_method_details": {
+        "card": {
+          "amount_authorized": 3000,
+          "authorization_code": "699197",
+          "brand": "visa",
+          "checks": {
+            "address_line1_check": "pass",
+            "address_postal_code_check": "pass",
+            "cvc_check": "pass"
+          },
+          "country": "US",
+          "exp_month": 7,
+          "exp_year": 2027,
+          "extended_authorization": {
+            "status": "disabled"
+          },
+          "fingerprint": "AcrYjryNKswmr0AB",
+          "funding": "credit",
+          "incremental_authorization": {
+            "status": "unavailable"
+          },
+          "installments": null,
+          "last4": "4242",
+          "mandate": null,
+          "multicapture": {
+            "status": "unavailable"
+          },
+          "network": "visa",
+          "network_token": {
+            "used": false
+          },
+          "network_transaction_id": "659911489106114",
+          "overcapture": {
+            "maximum_amount_capturable": 3000,
+            "status": "unavailable"
+          },
+          "regulated_status": "unregulated",
+          "three_d_secure": null,
+          "transaction_link_id": null,
+          "wallet": null
+        },
+        "type": "card"
+      },
+      "radar_options": {},
+      "receipt_email": null,
+      "receipt_number": null,
+      "receipt_url": "https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xVG1IOG8yWGI2OXZRMXdTKLzVtNIGMgaECRnucM46LBYwIoAcfuTIE49FofJQ8Q_KEGQcugdqF2K5eaYQqM0w_dNCsD1-YBKuNieh",
+      "refunded": false,
+      "review": null,
+      "shipping": {
+        "address": {
+          "city": "San Francisco",
+          "country": "US",
+          "line1": "510 Townsend St",
+          "line2": null,
+          "postal_code": "94103",
+          "state": "CA"
+        },
+        "carrier": null,
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tracking_number": null
+      },
+      "source": null,
+      "source_transfer": null,
+      "statement_descriptor": null,
+      "statement_descriptor_suffix": null,
+      "status": "succeeded",
+      "transfer_data": null,
+      "transfer_group": null
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": null,
+    "idempotency_key": "10dd70ab-117b-4573-8400-3e1338cda739"
+  },
+  "type": "charge.succeeded"
+}
+
+{
+  "id": "evt_3Tqbxf2Xb69vQ1wS0M25QCsO",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783442107,
+  "data": {
+    "object": {
+      "id": "pi_3Tqbxf2Xb69vQ1wS0Mv7QjkW",
+      "object": "payment_intent",
+      "amount": 3000,
+      "amount_capturable": 0,
+      "amount_details": {
+        "tip": {}
+      },
+      "amount_received": 0,
+      "application": null,
+      "application_fee_amount": null,
+      "automatic_payment_methods": null,
+      "canceled_at": null,
+      "cancellation_reason": null,
+      "capture_method": "automatic_async",
+      "client_secret": "pi_3Tqbxf2Xb69vQ1wS0Mv7QjkW_secret_8uVSY068s8wxGyigHXY927RUl",
+      "confirmation_method": "automatic",
+      "created": 1783442107,
+      "currency": "usd",
+      "customer": null,
+      "customer_account": null,
+      "description": null,
+      "excluded_payment_method_types": null,
+      "last_payment_error": null,
+      "latest_charge": null,
+      "livemode": false,
+      "managed_payments": {
+        "enabled": false
+      },
+      "metadata": {},
+      "next_action": null,
+      "on_behalf_of": null,
+      "payment_method": null,
+      "payment_method_configuration_details": null,
+      "payment_method_options": {
+        "card": {
+          "installments": null,
+          "mandate_options": null,
+          "network": null,
+          "request_three_d_secure": "automatic"
+        }
+      },
+      "payment_method_types": [
+        "card"
+      ],
+      "processing": null,
+      "receipt_email": null,
+      "review": null,
+      "setup_future_usage": null,
+      "shared_payment_granted_token": null,
+      "shipping": {
+        "address": {
+          "city": "San Francisco",
+          "country": "US",
+          "line1": "510 Townsend St",
+          "line2": null,
+          "postal_code": "94103",
+          "state": "CA"
+        },
+        "carrier": null,
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tracking_number": null
+      },
+      "source": null,
+      "statement_descriptor": null,
+      "statement_descriptor_suffix": null,
+      "status": "requires_payment_method",
+      "transfer_data": null,
+      "transfer_group": null
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": null,
+    "idempotency_key": "10dd70ab-117b-4573-8400-3e1338cda739"
+  },
+  "type": "payment_intent.created"
+}
+
+{
+  "id": "evt_1Tqbxg2Xb69vQ1wSS3iPZyes",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783442108,
+  "data": {
+    "object": {
+      "id": "cs_test_a1Fm0buOW3hRuy3WDVWUL7UNeuzIF9DamV4ok1g7C64VZ22Mr7lVu7YNrt",
+      "object": "checkout.session",
+      "adaptive_pricing": {
+        "enabled": true
+      },
+      "after_expiration": null,
+      "allow_promotion_codes": null,
+      "amount_subtotal": 3000,
+      "amount_total": 3000,
+      "automatic_tax": {
+        "enabled": false,
+        "liability": null,
+        "provider": null,
+        "status": null
+      },
+      "billing_address_collection": null,
+      "branding_settings": {
+        "background_color": "#ffffff",
+        "border_style": "rounded",
+        "button_color": "#0074d4",
+        "display_name": "AlexViktor sandbox",
+        "font_family": "default",
+        "icon": null,
+        "logo": null
+      },
+      "cancel_url": "https://httpbin.org/post",
+      "client_reference_id": null,
+      "client_secret": null,
+      "collected_information": null,
+      "consent": null,
+      "consent_collection": null,
+      "created": 1783442106,
+      "currency": "usd",
+      "currency_conversion": null,
+      "custom_fields": [],
+      "custom_text": {
+        "after_submit": null,
+        "shipping_address": null,
+        "submit": null,
+        "terms_of_service_acceptance": null
+      },
+      "customer": null,
+      "customer_account": null,
+      "customer_creation": "if_required",
+      "customer_details": {
+        "address": {
+          "city": "South San Francisco",
+          "country": "US",
+          "line1": "354 Oyster Point Blvd",
+          "line2": null,
+          "postal_code": "94080",
+          "state": "CA"
+        },
+        "business_name": null,
+        "email": "stripe@example.com",
+        "individual_name": null,
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tax_exempt": "none",
+        "tax_ids": []
+      },
+      "customer_email": null,
+      "discounts": [],
+      "expires_at": 1783528506,
+      "integration_identifier": null,
+      "invoice": null,
+      "invoice_creation": {
+        "enabled": false,
+        "invoice_data": {
+          "account_tax_ids": null,
+          "custom_fields": null,
+          "description": null,
+          "footer": null,
+          "issuer": null,
+          "metadata": {},
+          "rendering_options": null
+        }
+      },
+      "livemode": false,
+      "locale": null,
+      "managed_payments": {
+        "enabled": false
+      },
+      "metadata": {},
+      "mode": "payment",
+      "origin_context": null,
+      "payment_intent": "pi_3Tqbxf2Xb69vQ1wS0Mv7QjkW",
+      "payment_link": null,
+      "payment_method_collection": "if_required",
+      "payment_method_configuration_details": {
+        "id": "pmc_1TmH9M2Xb69vQ1wS4MStORZe",
+        "parent": null
+      },
+      "payment_method_options": {
+        "card": {
+          "request_three_d_secure": "automatic"
+        }
+      },
+      "payment_method_types": [
+        "card",
+        "klarna",
+        "link",
+        "cashapp",
+        "amazon_pay"
+      ],
+      "payment_status": "paid",
+      "permissions": null,
+      "phone_number_collection": {
+        "enabled": false
+      },
+      "recovered_from": null,
+      "saved_payment_method_options": null,
+      "setup_intent": null,
+      "shipping_address_collection": null,
+      "shipping_cost": null,
+      "shipping_options": [],
+      "status": "complete",
+      "submit_type": null,
+      "subscription": null,
+      "success_url": "https://httpbin.org/post",
+      "total_details": {
+        "amount_discount": 0,
+        "amount_shipping": 0,
+        "amount_tax": 0
+      },
+      "ui_mode": "hosted_page",
+      "url": null,
+      "wallet_options": null
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": null,
+    "idempotency_key": null
+  },
+  "type": "checkout.session.completed"
+}
+
+{
+  "id": "evt_3Tqbxf2Xb69vQ1wS0lX8MW41",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783442110,
+  "data": {
+    "object": {
+      "id": "ch_3Tqbxf2Xb69vQ1wS0Lad0TJz",
+      "object": "charge",
+      "amount": 3000,
+      "amount_captured": 3000,
+      "amount_refunded": 0,
+      "application": null,
+      "application_fee": null,
+      "application_fee_amount": null,
+      "balance_transaction": "txn_3Tqbxf2Xb69vQ1wS0xuiJzHP",
+      "billing_details": {
+        "address": {
+          "city": "South San Francisco",
+          "country": "US",
+          "line1": "354 Oyster Point Blvd",
+          "line2": null,
+          "postal_code": "94080",
+          "state": "CA"
+        },
+        "email": "stripe@example.com",
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tax_id": null
+      },
+      "calculated_statement_descriptor": "Stripe",
+      "captured": true,
+      "created": 1783442107,
+      "currency": "usd",
+      "customer": null,
+      "description": null,
+      "destination": null,
+      "dispute": null,
+      "disputed": false,
+      "failure_balance_transaction": null,
+      "failure_code": null,
+      "failure_message": null,
+      "fraud_details": {},
+      "livemode": false,
+      "metadata": {},
+      "on_behalf_of": null,
+      "order": null,
+      "outcome": {
+        "advice_code": null,
+        "network_advice_code": null,
+        "network_decline_code": null,
+        "network_status": "approved_by_network",
+        "reason": null,
+        "risk_level": "normal",
+        "risk_score": 47,
+        "seller_message": "Payment complete.",
+        "type": "authorized"
+      },
+      "paid": true,
+      "payment_intent": "pi_3Tqbxf2Xb69vQ1wS0Mv7QjkW",
+      "payment_method": "pm_1Tqbxf2Xb69vQ1wSk4H6mjbr",
+      "payment_method_details": {
+        "card": {
+          "amount_authorized": 3000,
+          "authorization_code": "699197",
+          "brand": "visa",
+          "checks": {
+            "address_line1_check": "pass",
+            "address_postal_code_check": "pass",
+            "cvc_check": "pass"
+          },
+          "country": "US",
+          "exp_month": 7,
+          "exp_year": 2027,
+          "extended_authorization": {
+            "status": "disabled"
+          },
+          "fingerprint": "AcrYjryNKswmr0AB",
+          "funding": "credit",
+          "incremental_authorization": {
+            "status": "unavailable"
+          },
+          "installments": null,
+          "last4": "4242",
+          "mandate": null,
+          "multicapture": {
+            "status": "unavailable"
+          },
+          "network": "visa",
+          "network_token": {
+            "used": false
+          },
+          "network_transaction_id": "659911489106114",
+          "overcapture": {
+            "maximum_amount_capturable": 3000,
+            "status": "unavailable"
+          },
+          "regulated_status": "unregulated",
+          "three_d_secure": null,
+          "transaction_link_id": null,
+          "wallet": null
+        },
+        "type": "card"
+      },
+      "radar_options": {},
+      "receipt_email": null,
+      "receipt_number": null,
+      "receipt_url": "https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xVG1IOG8yWGI2OXZRMXdTKL7VtNIGMgY3GbOLp546LBY5MEm4CFvVT7FgrJk2cCNJW-0KjuUCgcF49Ke5wEyEZ_flRC4Qz-lk37_p",
+      "refunded": false,
+      "review": null,
+      "shipping": {
+        "address": {
+          "city": "San Francisco",
+          "country": "US",
+          "line1": "510 Townsend St",
+          "line2": null,
+          "postal_code": "94103",
+          "state": "CA"
+        },
+        "carrier": null,
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tracking_number": null
+      },
+      "source": null,
+      "source_transfer": null,
+      "statement_descriptor": null,
+      "statement_descriptor_suffix": null,
+      "status": "succeeded",
+      "transfer_data": null,
+      "transfer_group": null
+    },
+    "previous_attributes": {
+      "balance_transaction": null,
+      "receipt_url": "https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xVG1IOG8yWGI2OXZRMXdTKL7VtNIGMgbvwtMkVEM6LBYeErzDEBgsz1kwcYPlSgpiuAP4UYgJcwblSbZgS-_4mN6AGELcmDC1R3mQ"
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": null,
+    "idempotency_key": null
+  },
+  "type": "charge.updated"
+}
+
+{
+  "id": "evt_1TqdwG2Xb69vQ1wS52rwnulF",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783449708,
+  "data": {
+    "object": {
+      "id": "prod_UqKbMURk01orbG",
+      "object": "product",
+      "active": true,
+      "attributes": [],
+      "created": 1783449708,
+      "default_price": null,
+      "description": "(created by Stripe CLI)",
+      "images": [],
+      "livemode": false,
+      "marketing_features": [],
+      "metadata": {},
+      "name": "myproduct",
+      "package_dimensions": null,
+      "shippable": null,
+      "statement_descriptor": null,
+      "tax_code": null,
+      "tax_details": null,
+      "type": "service",
+      "unit_label": null,
+      "updated": 1783449708,
+      "url": null
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": "req_wQEzCKi1aqWQWe",
+    "idempotency_key": "ff1c25e8-93c8-436a-b123-176a95cc9337"
+  },
+  "type": "product.created"
+}
+
+{
+  "id": "evt_1TqdwG2Xb69vQ1wSFWpvQlOA",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783449708,
+  "data": {
+    "object": {
+      "id": "price_1TqdwG2Xb69vQ1wSyaVBqTpg",
+      "object": "price",
+      "active": true,
+      "billing_scheme": "per_unit",
+      "created": 1783449708,
+      "currency": "usd",
+      "custom_unit_amount": null,
+      "livemode": false,
+      "lookup_key": null,
+      "metadata": {},
+      "nickname": null,
+      "product": "prod_UqKbMURk01orbG",
+      "recurring": null,
+      "tax_behavior": "unspecified",
+      "tiers_mode": null,
+      "transform_quantity": null,
+      "type": "one_time",
+      "unit_amount": 1500,
+      "unit_amount_decimal": "1500"
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": "req_PCHiKvRj4Yamdh",
+    "idempotency_key": "4398d742-0dff-4e19-a03e-9f1de42367ba"
+  },
+  "type": "price.created"
+}
+
+{
+  "id": "evt_3TqdwI2Xb69vQ1wS1EbABnaM",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783449710,
+  "data": {
+    "object": {
+      "id": "pi_3TqdwI2Xb69vQ1wS10Ch9eQL",
+      "object": "payment_intent",
+      "amount": 3000,
+      "amount_capturable": 0,
+      "amount_details": {
+        "shipping": {
+          "amount": 0,
+          "from_postal_code": null,
+          "to_postal_code": null
+        },
+        "tax": {
+          "total_tax_amount": 0
+        },
+        "tip": {}
+      },
+      "amount_received": 3000,
+      "application": null,
+      "application_fee_amount": null,
+      "automatic_payment_methods": null,
+      "canceled_at": null,
+      "cancellation_reason": null,
+      "capture_method": "automatic_async",
+      "client_secret": "pi_3TqdwI2Xb69vQ1wS10Ch9eQL_secret_AhZgMP4NXxXcrT8gOF2NfJQWu",
+      "confirmation_method": "automatic",
+      "created": 1783449710,
+      "currency": "usd",
+      "customer": null,
+      "customer_account": null,
+      "description": null,
+      "excluded_payment_method_types": null,
+      "last_payment_error": null,
+      "latest_charge": "ch_3TqdwI2Xb69vQ1wS1gqkcDw6",
+      "livemode": false,
+      "managed_payments": {
+        "enabled": false
+      },
+      "metadata": {},
+      "next_action": null,
+      "on_behalf_of": null,
+      "payment_details": {
+        "customer_reference": null,
+        "order_reference": "cs_test_a1fKoFbnFY9RLEfQsJXPLXnTy1jYPdQGosXJZIGX8kMrTBjXxxBYJi4bdf"
+      },
+      "payment_method": "pm_1TqdwH2Xb69vQ1wSCZFu9Np7",
+      "payment_method_configuration_details": null,
+      "payment_method_options": {
+        "card": {
+          "installments": null,
+          "mandate_options": null,
+          "network": null,
+          "request_three_d_secure": "automatic"
+        }
+      },
+      "payment_method_types": [
+        "card"
+      ],
+      "processing": null,
+      "receipt_email": null,
+      "review": null,
+      "setup_future_usage": null,
+      "shared_payment_granted_token": null,
+      "shipping": {
+        "address": {
+          "city": "San Francisco",
+          "country": "US",
+          "line1": "510 Townsend St",
+          "line2": null,
+          "postal_code": "94103",
+          "state": "CA"
+        },
+        "carrier": null,
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tracking_number": null
+      },
+      "source": null,
+      "statement_descriptor": null,
+      "statement_descriptor_suffix": null,
+      "status": "succeeded",
+      "transfer_data": null,
+      "transfer_group": null
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": null,
+    "idempotency_key": "4662570b-2bfe-46f4-b4aa-abd5ccad2d44"
+  },
+  "type": "payment_intent.succeeded"
+}
+
+{
+  "id": "evt_3TqdwI2Xb69vQ1wS1mbyYgk2",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783449710,
+  "data": {
+    "object": {
+      "id": "ch_3TqdwI2Xb69vQ1wS1gqkcDw6",
+      "object": "charge",
+      "amount": 3000,
+      "amount_captured": 3000,
+      "amount_refunded": 0,
+      "application": null,
+      "application_fee": null,
+      "application_fee_amount": null,
+      "balance_transaction": null,
+      "billing_details": {
+        "address": {
+          "city": "South San Francisco",
+          "country": "US",
+          "line1": "354 Oyster Point Blvd",
+          "line2": null,
+          "postal_code": "94080",
+          "state": "CA"
+        },
+        "email": "stripe@example.com",
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tax_id": null
+      },
+      "calculated_statement_descriptor": "Stripe",
+      "captured": true,
+      "created": 1783449710,
+      "currency": "usd",
+      "customer": null,
+      "description": null,
+      "destination": null,
+      "dispute": null,
+      "disputed": false,
+      "failure_balance_transaction": null,
+      "failure_code": null,
+      "failure_message": null,
+      "fraud_details": {},
+      "livemode": false,
+      "metadata": {},
+      "on_behalf_of": null,
+      "order": null,
+      "outcome": {
+        "advice_code": null,
+        "network_advice_code": null,
+        "network_decline_code": null,
+        "network_status": "approved_by_network",
+        "reason": null,
+        "risk_level": "normal",
+        "risk_score": 52,
+        "seller_message": "Payment complete.",
+        "type": "authorized"
+      },
+      "paid": true,
+      "payment_intent": "pi_3TqdwI2Xb69vQ1wS10Ch9eQL",
+      "payment_method": "pm_1TqdwH2Xb69vQ1wSCZFu9Np7",
+      "payment_method_details": {
+        "card": {
+          "amount_authorized": 3000,
+          "authorization_code": "262388",
+          "brand": "visa",
+          "checks": {
+            "address_line1_check": "pass",
+            "address_postal_code_check": "pass",
+            "cvc_check": "pass"
+          },
+          "country": "US",
+          "exp_month": 7,
+          "exp_year": 2027,
+          "extended_authorization": {
+            "status": "disabled"
+          },
+          "fingerprint": "AcrYjryNKswmr0AB",
+          "funding": "credit",
+          "incremental_authorization": {
+            "status": "unavailable"
+          },
+          "installments": null,
+          "last4": "4242",
+          "mandate": null,
+          "multicapture": {
+            "status": "unavailable"
+          },
+          "network": "visa",
+          "network_token": {
+            "used": false
+          },
+          "network_transaction_id": "659911489106114",
+          "overcapture": {
+            "maximum_amount_capturable": 3000,
+            "status": "unavailable"
+          },
+          "regulated_status": "unregulated",
+          "three_d_secure": null,
+          "transaction_link_id": null,
+          "wallet": null
+        },
+        "type": "card"
+      },
+      "radar_options": {},
+      "receipt_email": null,
+      "receipt_number": null,
+      "receipt_url": "https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xVG1IOG8yWGI2OXZRMXdTKO-QtdIGMgadTgnam1E6LBZImqHncsCry8Z55g-6s8fCbl7YyHacO15BuSKLXv-pSl1rwBNIOreMhpYg",
+      "refunded": false,
+      "review": null,
+      "shipping": {
+        "address": {
+          "city": "San Francisco",
+          "country": "US",
+          "line1": "510 Townsend St",
+          "line2": null,
+          "postal_code": "94103",
+          "state": "CA"
+        },
+        "carrier": null,
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tracking_number": null
+      },
+      "source": null,
+      "source_transfer": null,
+      "statement_descriptor": null,
+      "statement_descriptor_suffix": null,
+      "status": "succeeded",
+      "transfer_data": null,
+      "transfer_group": null
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": null,
+    "idempotency_key": "4662570b-2bfe-46f4-b4aa-abd5ccad2d44"
+  },
+  "type": "charge.succeeded"
+}
+
+{
+  "id": "evt_3TqdwI2Xb69vQ1wS1d3stXWn",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783449710,
+  "data": {
+    "object": {
+      "id": "pi_3TqdwI2Xb69vQ1wS10Ch9eQL",
+      "object": "payment_intent",
+      "amount": 3000,
+      "amount_capturable": 0,
+      "amount_details": {
+        "tip": {}
+      },
+      "amount_received": 0,
+      "application": null,
+      "application_fee_amount": null,
+      "automatic_payment_methods": null,
+      "canceled_at": null,
+      "cancellation_reason": null,
+      "capture_method": "automatic_async",
+      "client_secret": "pi_3TqdwI2Xb69vQ1wS10Ch9eQL_secret_AhZgMP4NXxXcrT8gOF2NfJQWu",
+      "confirmation_method": "automatic",
+      "created": 1783449710,
+      "currency": "usd",
+      "customer": null,
+      "customer_account": null,
+      "description": null,
+      "excluded_payment_method_types": null,
+      "last_payment_error": null,
+      "latest_charge": null,
+      "livemode": false,
+      "managed_payments": {
+        "enabled": false
+      },
+      "metadata": {},
+      "next_action": null,
+      "on_behalf_of": null,
+      "payment_method": null,
+      "payment_method_configuration_details": null,
+      "payment_method_options": {
+        "card": {
+          "installments": null,
+          "mandate_options": null,
+          "network": null,
+          "request_three_d_secure": "automatic"
+        }
+      },
+      "payment_method_types": [
+        "card"
+      ],
+      "processing": null,
+      "receipt_email": null,
+      "review": null,
+      "setup_future_usage": null,
+      "shared_payment_granted_token": null,
+      "shipping": {
+        "address": {
+          "city": "San Francisco",
+          "country": "US",
+          "line1": "510 Townsend St",
+          "line2": null,
+          "postal_code": "94103",
+          "state": "CA"
+        },
+        "carrier": null,
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tracking_number": null
+      },
+      "source": null,
+      "statement_descriptor": null,
+      "statement_descriptor_suffix": null,
+      "status": "requires_payment_method",
+      "transfer_data": null,
+      "transfer_group": null
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": null,
+    "idempotency_key": "4662570b-2bfe-46f4-b4aa-abd5ccad2d44"
+  },
+  "type": "payment_intent.created"
+}
+
+{
+  "id": "evt_1TqdwJ2Xb69vQ1wSb1ctPtDi",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783449711,
+  "data": {
+    "object": {
+      "id": "cs_test_a1fKoFbnFY9RLEfQsJXPLXnTy1jYPdQGosXJZIGX8kMrTBjXxxBYJi4bdf",
+      "object": "checkout.session",
+      "adaptive_pricing": {
+        "enabled": true
+      },
+      "after_expiration": null,
+      "allow_promotion_codes": null,
+      "amount_subtotal": 3000,
+      "amount_total": 3000,
+      "automatic_tax": {
+        "enabled": false,
+        "liability": null,
+        "provider": null,
+        "status": null
+      },
+      "billing_address_collection": null,
+      "branding_settings": {
+        "background_color": "#ffffff",
+        "border_style": "rounded",
+        "button_color": "#0074d4",
+        "display_name": "AlexViktor sandbox",
+        "font_family": "default",
+        "icon": null,
+        "logo": null
+      },
+      "cancel_url": "https://httpbin.org/post",
+      "client_reference_id": null,
+      "client_secret": null,
+      "collected_information": null,
+      "consent": null,
+      "consent_collection": null,
+      "created": 1783449709,
+      "currency": "usd",
+      "currency_conversion": null,
+      "custom_fields": [],
+      "custom_text": {
+        "after_submit": null,
+        "shipping_address": null,
+        "submit": null,
+        "terms_of_service_acceptance": null
+      },
+      "customer": null,
+      "customer_account": null,
+      "customer_creation": "if_required",
+      "customer_details": {
+        "address": {
+          "city": "South San Francisco",
+          "country": "US",
+          "line1": "354 Oyster Point Blvd",
+          "line2": null,
+          "postal_code": "94080",
+          "state": "CA"
+        },
+        "business_name": null,
+        "email": "stripe@example.com",
+        "individual_name": null,
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tax_exempt": "none",
+        "tax_ids": []
+      },
+      "customer_email": null,
+      "discounts": [],
+      "expires_at": 1783536108,
+      "integration_identifier": null,
+      "invoice": null,
+      "invoice_creation": {
+        "enabled": false,
+        "invoice_data": {
+          "account_tax_ids": null,
+          "custom_fields": null,
+          "description": null,
+          "footer": null,
+          "issuer": null,
+          "metadata": {},
+          "rendering_options": null
+        }
+      },
+      "livemode": false,
+      "locale": null,
+      "managed_payments": {
+        "enabled": false
+      },
+      "metadata": {},
+      "mode": "payment",
+      "origin_context": null,
+      "payment_intent": "pi_3TqdwI2Xb69vQ1wS10Ch9eQL",
+      "payment_link": null,
+      "payment_method_collection": "if_required",
+      "payment_method_configuration_details": {
+        "id": "pmc_1TmH9M2Xb69vQ1wS4MStORZe",
+        "parent": null
+      },
+      "payment_method_options": {
+        "card": {
+          "request_three_d_secure": "automatic"
+        }
+      },
+      "payment_method_types": [
+        "card",
+        "klarna",
+        "link",
+        "cashapp",
+        "amazon_pay"
+      ],
+      "payment_status": "paid",
+      "permissions": null,
+      "phone_number_collection": {
+        "enabled": false
+      },
+      "recovered_from": null,
+      "saved_payment_method_options": null,
+      "setup_intent": null,
+      "shipping_address_collection": null,
+      "shipping_cost": null,
+      "shipping_options": [],
+      "status": "complete",
+      "submit_type": null,
+      "subscription": null,
+      "success_url": "https://httpbin.org/post",
+      "total_details": {
+        "amount_discount": 0,
+        "amount_shipping": 0,
+        "amount_tax": 0
+      },
+      "ui_mode": "hosted_page",
+      "url": null,
+      "wallet_options": null
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": null,
+    "idempotency_key": null
+  },
+  "type": "checkout.session.completed"
+}
+
+{
+  "id": "evt_3TqdwI2Xb69vQ1wS1bpfphUW",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1783449713,
+  "data": {
+    "object": {
+      "id": "ch_3TqdwI2Xb69vQ1wS1gqkcDw6",
+      "object": "charge",
+      "amount": 3000,
+      "amount_captured": 3000,
+      "amount_refunded": 0,
+      "application": null,
+      "application_fee": null,
+      "application_fee_amount": null,
+      "balance_transaction": "txn_3TqdwI2Xb69vQ1wS1fwchieS",
+      "billing_details": {
+        "address": {
+          "city": "South San Francisco",
+          "country": "US",
+          "line1": "354 Oyster Point Blvd",
+          "line2": null,
+          "postal_code": "94080",
+          "state": "CA"
+        },
+        "email": "stripe@example.com",
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tax_id": null
+      },
+      "calculated_statement_descriptor": "Stripe",
+      "captured": true,
+      "created": 1783449710,
+      "currency": "usd",
+      "customer": null,
+      "description": null,
+      "destination": null,
+      "dispute": null,
+      "disputed": false,
+      "failure_balance_transaction": null,
+      "failure_code": null,
+      "failure_message": null,
+      "fraud_details": {},
+      "livemode": false,
+      "metadata": {},
+      "on_behalf_of": null,
+      "order": null,
+      "outcome": {
+        "advice_code": null,
+        "network_advice_code": null,
+        "network_decline_code": null,
+        "network_status": "approved_by_network",
+        "reason": null,
+        "risk_level": "normal",
+        "risk_score": 52,
+        "seller_message": "Payment complete.",
+        "type": "authorized"
+      },
+      "paid": true,
+      "payment_intent": "pi_3TqdwI2Xb69vQ1wS10Ch9eQL",
+      "payment_method": "pm_1TqdwH2Xb69vQ1wSCZFu9Np7",
+      "payment_method_details": {
+        "card": {
+          "amount_authorized": 3000,
+          "authorization_code": "262388",
+          "brand": "visa",
+          "checks": {
+            "address_line1_check": "pass",
+            "address_postal_code_check": "pass",
+            "cvc_check": "pass"
+          },
+          "country": "US",
+          "exp_month": 7,
+          "exp_year": 2027,
+          "extended_authorization": {
+            "status": "disabled"
+          },
+          "fingerprint": "AcrYjryNKswmr0AB",
+          "funding": "credit",
+          "incremental_authorization": {
+            "status": "unavailable"
+          },
+          "installments": null,
+          "last4": "4242",
+          "mandate": null,
+          "multicapture": {
+            "status": "unavailable"
+          },
+          "network": "visa",
+          "network_token": {
+            "used": false
+          },
+          "network_transaction_id": "659911489106114",
+          "overcapture": {
+            "maximum_amount_capturable": 3000,
+            "status": "unavailable"
+          },
+          "regulated_status": "unregulated",
+          "three_d_secure": null,
+          "transaction_link_id": null,
+          "wallet": null
+        },
+        "type": "card"
+      },
+      "radar_options": {},
+      "receipt_email": null,
+      "receipt_number": null,
+      "receipt_url": "https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xVG1IOG8yWGI2OXZRMXdTKPGQtdIGMgZLf27uIvg6LBa4e6OheUfhyVHmOuE9fRoXVNQgDeq6eSpMfhAPf3rOjKSvtWErjO8BIroQ",
+      "refunded": false,
+      "review": null,
+      "shipping": {
+        "address": {
+          "city": "San Francisco",
+          "country": "US",
+          "line1": "510 Townsend St",
+          "line2": null,
+          "postal_code": "94103",
+          "state": "CA"
+        },
+        "carrier": null,
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tracking_number": null
+      },
+      "source": null,
+      "source_transfer": null,
+      "statement_descriptor": null,
+      "statement_descriptor_suffix": null,
+      "status": "succeeded",
+      "transfer_data": null,
+      "transfer_group": null
+    },
+    "previous_attributes": {
+      "balance_transaction": null,
+      "receipt_url": "https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xVG1IOG8yWGI2OXZRMXdTKPGQtdIGMgYMT-X0JMg6LBb9vqAw-pYWy-wSe8qAn_EETIx05yMdImuCO_ZoP1OGQxzVoQIch72PbTcv"
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": null,
+    "idempotency_key": null
+  },
+  "type": "charge.updated"
+}
+

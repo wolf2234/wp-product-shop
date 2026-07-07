@@ -55,7 +55,8 @@
 
 
 /* Стрілка */
-.banner .slick-arrow {
+.banner .slick-arrow,
+.employees .slick-arrow {
     font-size: 0px;
     z-index: 5;
     width: 50px;
@@ -63,7 +64,8 @@
 }
 
 /* Точки (буліти) */
-.banner .slick-dots {
+.banner .slick-dots,
+.employees .slick-dots {
     position: absolute;
     bottom: 5px;
     width: 100%;
@@ -79,12 +81,14 @@
     gap: 10px;
 }
 
-.banner .slick-dots li {
+.banner .slick-dots li,
+.employees .slick-dots li {
     list-style: none;
 }
 
 /* Елемент точки */
-.banner .slick-dots li button {
+.banner .slick-dots li button,
+.employees .slick-dots li button {
     font-size: 0px;
     width: 14px;
     height: 14px;
@@ -92,7 +96,8 @@
     border-radius: 50%;
 }
 
-.banner .slick-dots li.slick-active button {
+.banner .slick-dots li.slick-active button,
+.employees .slick-dots li.slick-active button {
     background-color: rgba(219, 68, 68, 1);
     outline: 2px solid rgba(255, 255, 255, 1);
 }
@@ -146,7 +151,8 @@
 .slider,
 .slider-category,
 .slider-products,
-.slider-happy-customers {
+.slider-happy-customers,
+.employees {
     position: relative;
     height: 100%;
     z-index: 1;
@@ -158,7 +164,8 @@
 .slider__item,
 .slider-category__item,
 .slider-products__item,
-.slider-happy-customers__item {
+.slider-happy-customers__item,
+.employees__item {
     position: relative;
     width: 100%;
     height: 100%;
@@ -201,7 +208,9 @@
 }
 
 @media (max-width: 600px) {
-    .banner .slick-dots li button {
+
+    .banner .slick-dots li button,
+    .employees .slick-dots li button {
         font-size: 0px;
         width: 10px;
         height: 10px;

@@ -9,6 +9,16 @@ $(document).ready(function () {
         autoplay: false,
         autoplaySpeed: 2000,
     });
+    $(".employees").slick({
+        arrows: false,
+        dots: true,
+        adaptiveHeight: true,
+        // Infinity: true,
+        // autoplay: true,
+        Infinity: false,
+        autoplay: false,
+        autoplaySpeed: 2000,
+    });
     $(".slider").slick({
         arrows: true,
         dots: false,

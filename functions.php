@@ -56,6 +56,7 @@ function product_shop_styles() {
     wp_enqueue_style('checkout-style', get_template_directory_uri() . '/assets/css/checkout.css');
     wp_enqueue_style('billing-style', get_template_directory_uri() . '/assets/css/billing.css');
     wp_enqueue_style('success-order-style', get_template_directory_uri() . '/assets/css/success-order.css');
+    wp_enqueue_style('about-style', get_template_directory_uri() . '/assets/css/about.css');
 }
 
 function product_shop_scripts() {
@@ -1064,67 +1065,31 @@ function send_contact_ajax() {
 }
 
 
-
-add_action('init', function () {
-    add_rewrite_rule(
-        '^webhook/?$',
-        'index.php?stripe_webhook=1',
-        'top'
-    );
-});
-
-add_filter('query_vars', function ($vars) {
-    $vars[] = 'stripe_webhook';
-    return $vars;
-});
-
-// remove_action(
-//     'template_redirect',
-//     'redirect_canonical'
-// );
-
 add_action('template_redirect', function () {
-    if (!get_query_var('stripe_webhook')) {
+    if (strpos($_SERVER['REQUEST_URI'], '/webhook') === false) {
         return;
     }
-
-    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-        wp_send_json_error([
-            'message' => 'POST only'
-        ]);
-    }
     $payload = file_get_contents('php://input');
+    $event = json_decode($payload, true);
+
+    if (
+        isset($event['type']) &&
+        $event['type'] === 'checkout.session.completed'
+    ) {
+        update_option(
+            'last_checkout_completed',
+            $payload
+        );
+    }
     file_put_contents(
-        WP_CONTENT_DIR . '/stripe-webhook.log',
-        $payload . PHP_EOL,
+        __DIR__ . '/stripe-webhook.log',
+        $payload . PHP_EOL . PHP_EOL,
         FILE_APPEND
     );
-    $event = json_decode($payload, true);
-    if (
-        ($event['type'] ?? '') ===
-        'checkout.session.completed'
-    ) {
-
-        $session =
-            $event['data']['object'];
-
-        $order_id =
-            $session['metadata']['order_id'] ?? null;
-
-        if ($order_id) {
-
-            $order =
-                wc_get_order($order_id);
-
-            if ($order) {
-
-                $order->update_status(
-                    'processing'
-                );
-            }
-        }
-    }
+    status_header(200);
+    exit('Webhook received');
 });
+
 
 
 add_action(
@@ -1193,26 +1158,13 @@ function create_checkout_session() {
     ]);
 }
 
-add_action('template_redirect', function () {
-
-    if (strpos($_SERVER['REQUEST_URI'], 'webhook') !== false) {
-
-        error_log('WEBHOOK URI: ' . $_SERVER['REQUEST_URI']);
-
-    }
-    var_dump(home_url());
-    exit;
-
-}, 1);
 
 add_filter(
     'redirect_canonical',
     function ($redirect_url, $requested_url) {
-
         if (get_query_var('stripe_webhook')) {
             return false;
         }
-
         return $redirect_url;
     },
     10,
