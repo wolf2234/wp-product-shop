@@ -84,6 +84,10 @@
     border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
+.bisness-results__item:hover.bisness-results__item_border:hover {
+    border: 1px solid rgba(219, 68, 68, 1);
+}
+
 .bisness-results__item img {
     display: inline-block;
     width: 32px;
@@ -105,6 +109,22 @@
     padding: 10px 10px 10px 10px;
     outline: 10px solid rgba(0, 0, 0, 0.3);
     margin-bottom: 15px;
+}
+
+.bisness-results__item:hover {
+    background-color: rgba(219, 68, 68, 1);
+    box-shadow: 8px 8px 20px rgba(120, 120, 120, 0.4);
+}
+
+.bisness-results__item:hover .bisness-results__img,
+.bisness-results__item:hover .bisness-results__img:hover {
+    background-color: #ffffff;
+    outline: 10px solid rgba(255, 255, 255, 0.3);
+}
+
+.bisness-results__item:hover span,
+.bisness-results__item:hover p {
+    color: #ffffff;
 }
 
 .employees-content {
