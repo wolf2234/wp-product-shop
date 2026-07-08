@@ -46,32 +46,52 @@
     width: 1200px;
 }
 
-.bisness_results {
+.bisness-results {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.bisness-results_title {
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-style: 'SemiBold';
+    font-size: 20px;
+}
+
+.bisness-results_text {
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-style: 'Regular';
+    font-size: 14px;
+}
+
+.bisness-results_padding {
     padding: 0px 0px 130px 0px;
 }
 
-.bisness_results__item {
+.bisness-results__item {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     row-gap: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 4px;
     padding: 30px;
 }
 
-.bisness_results__item img {
+.bisness-results__item_border {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.bisness-results__item img {
     display: inline-block;
     width: 32px;
     height: 30px;
     object-fit: cover;
 }
 
-.bisness_results__item span {
+.bisness-results__item span {
     display: inline-block;
     font-family: 'Inter';
     font-weight: 700;
@@ -79,7 +99,7 @@
     font-size: 32px;
 }
 
-.bisness_results__item .bisness_results__img {
+.bisness-results__item .bisness-results__img {
     background-color: #000;
     border-radius: 50%;
     padding: 10px 10px 10px 10px;
@@ -87,15 +107,20 @@
     margin-bottom: 15px;
 }
 
+.employees-content {
+    position: relative;
+    padding: 0px 0px 130px 40px;
+}
 
 .employees {
     width: 100%;
-    padding: 0px 0px 20px 40px;
     position: relative;
+    padding: 0px 0px 50px 40px;
     height: 100%;
     z-index: 1;
     min-width: 0px;
 }
+
 
 .employees__item {
     display: flex;
@@ -115,12 +140,19 @@
     font-size: 32px;
 }
 
+
 .employees__img {
     background-color: rgba(245, 245, 245, 1);
     padding: 30px 35px 0px 35px;
     margin-bottom: 15px;
 }
 
+
+.employees__links {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+}
 
 /* Banner and slider */
 
@@ -182,6 +214,7 @@
 .employees .slick-dots {
     position: absolute;
     bottom: -50px;
+    left: -48px;
     width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
