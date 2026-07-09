@@ -1170,4 +1170,64 @@ add_filter(
     10,
     2
 );
+add_action('template_redirect', function () {
+    if (!get_query_var('stripe_webhook')) {
+        return;
+    }
+    $payload = file_get_contents('php://input');
+    $event = json_decode($payload, true);
+    if (!$event) {
+        http_response_code(400);
+        exit('Invalid JSON');
+    }
+    /*
+     * Для отладки
+     */
+    update_option(
+        'last_stripe_webhook',
+        $payload
+    );
+    /*
+     * Нас интересует только успешная оплата
+     */
+    if (($event['type'] ?? '') !== 'checkout.session.completed') {
+        http_response_code(200);
+        exit('Ignored');
+    }
+    $session = $event['data']['object'];
+    /*
+     * Получаем номер заказа,
+     * который сами положили в metadata
+     */
+    $order_id = $session['metadata']['order_id'] ?? null;
+    if (!$order_id) {
+        http_response_code(200);
+        exit('No order');
+    }
+    $order = wc_get_order($order_id);
+    if (!$order) {
+        http_response_code(200);
+        exit('Order not found');
+    }
+    /*
+     * Записываем оплату
+     */
+    $order->payment_complete(
+        $session['payment_intent']
+    );
+
+    /*
+     * Сохраняем ID платежа Stripe
+     */
+    $order->update_meta_data(
+        '_stripe_payment_intent',
+        $session['payment_intent']
+    );
+
+    $order->save();
+
+    http_response_code(200);
+    exit('OK');
+
+});
 ?>

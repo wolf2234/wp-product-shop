@@ -96,7 +96,7 @@
                             </div>
                         </div>
                         <div class="cart-total__footer">
-                            <a href="<?php echo wc_get_checkout_url(); ?>" class="proceed-to-checkout">
+                            <a href="<?php echo home_url('/checkout'); ?>" class="proceed-to-checkout">
                                 Proceed To Checkout
                             </a>
                         </div>
