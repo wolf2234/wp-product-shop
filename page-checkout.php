@@ -17,27 +17,27 @@ get_header();
                 <div class="billing__details">
                     <div class="billing__field">
                         <label for="first-name">First Name</label>
-                        <input type="text" name="first-name" id="first-name">
+                        <input type="text" name="first-name" id="first-name" data-checkout-field="first_name">
                     </div>
                     <div class="billing__field">
                         <label for="company-name">Company Name</label>
-                        <input type="text" name="company-name" id="company-name">
+                        <input type="text" name="company-name" id="company-name" data-checkout-field="company">
                     </div>
                     <div class="billing__field">
                         <label for="street-address">Street Address</label>
-                        <input type="text" name="street-address" id="street-address">
+                        <input type="text" name="street-address" id="street-address" data-checkout-field="street-address">
                     </div>
                     <div class="billing__field">
                         <label for="apartment-number">Apartment, floor, etc. (optional)</label>
-                        <input type="text" name="apartment-number" id="apartment-number">
+                        <input type="text" name="apartment-number" id="apartment-number" data-checkout-field="apartment">
                     </div>
                     <div class="billing__field">
                         <label for="town-city">Town/City</label>
-                        <input type="text" name="town-city" id="town-city">
+                        <input type="text" name="town-city" id="town-city" data-checkout-field="city">
                     </div>
                     <div class="billing__field">
                         <label for="phone-number">Phone Number</label>
-                        <input type="text" name="phone-number" id="phone-number">
+                        <input type="text" name="phone-number" id="phone-number" data-checkout-field="phone">
                     </div>
                     <div class="billing__field">
                         <label for="email-address">Email Address*</label>

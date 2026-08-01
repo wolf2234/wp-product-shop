@@ -1,0 +1,380 @@
+{
+  "id": "evt_3Tv0zX2Xb69vQ1wS1aRr92QY",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1784491635,
+  "data": {
+    "object": {
+      "id": "pi_3Tv0zX2Xb69vQ1wS1YSyJK4g",
+      "object": "payment_intent",
+      "allowed_payment_method_types": null,
+      "amount": 2000,
+      "amount_capturable": 0,
+      "amount_details": {
+        "tip": {}
+      },
+      "amount_received": 2000,
+      "application": null,
+      "application_fee_amount": null,
+      "automatic_payment_methods": null,
+      "canceled_at": null,
+      "cancellation_reason": null,
+      "capture_method": "automatic_async",
+      "client_secret": "pi_3Tv0zX2Xb69vQ1wS1YSyJK4g_secret_8EwfUeu7mvjrGUnKxCOVXF5Ra",
+      "confirmation_method": "automatic",
+      "created": 1784491635,
+      "currency": "usd",
+      "customer": null,
+      "customer_account": null,
+      "description": "(created by Stripe CLI)",
+      "excluded_payment_method_types": null,
+      "last_payment_error": null,
+      "latest_charge": "ch_3Tv0zX2Xb69vQ1wS1ryG7M1M",
+      "livemode": false,
+      "managed_payments": {
+        "enabled": false
+      },
+      "metadata": {},
+      "next_action": null,
+      "on_behalf_of": null,
+      "payment_method": "pm_1Tv0zW2Xb69vQ1wSEBDirDJz",
+      "payment_method_configuration_details": null,
+      "payment_method_options": {
+        "card": {
+          "installments": null,
+          "mandate_options": null,
+          "network": null,
+          "request_three_d_secure": "automatic"
+        }
+      },
+      "payment_method_types": [
+        "card"
+      ],
+      "processing": null,
+      "receipt_email": null,
+      "review": null,
+      "setup_future_usage": null,
+      "shared_payment_granted_token": null,
+      "shipping": {
+        "address": {
+          "city": "San Francisco",
+          "country": "US",
+          "line1": "510 Townsend St",
+          "line2": null,
+          "postal_code": "94103",
+          "state": "CA"
+        },
+        "carrier": null,
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tracking_number": null
+      },
+      "source": null,
+      "statement_descriptor": null,
+      "statement_descriptor_suffix": null,
+      "status": "succeeded",
+      "transfer_data": null,
+      "transfer_group": null
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": "req_JiJJdBIjokvw9j",
+    "idempotency_key": "61f6eb5b-3266-4a6e-b841-020d679143b1"
+  },
+  "type": "payment_intent.succeeded"
+}
+----------------
+
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1784491638,
+  "data": {
+    "object": {
+      "id": "ch_3Tv0zX2Xb69vQ1wS1ryG7M1M",
+      "object": "charge",
+      "amount": 2000,
+      "amount_captured": 2000,
+      "amount_refunded": 0,
+      "application": null,
+      "application_fee": null,
+      "application_fee_amount": null,
+      "balance_transaction": "txn_3Tv0zX2Xb69vQ1wS1fStn5Gt",
+      "billing_details": {
+        "address": {
+          "city": null,
+          "country": null,
+          "line1": null,
+          "line2": null,
+          "postal_code": null,
+          "state": null
+        },
+        "email": null,
+        "name": null,
+        "phone": null,
+        "tax_id": null
+      },
+      "calculated_statement_descriptor": "Stripe",
+      "captured": true,
+      "created": 1784491635,
+      "currency": "usd",
+      "customer": null,
+      "description": "(created by Stripe CLI)",
+      "destination": null,
+      "dispute": null,
+      "disputed": false,
+      "failure_balance_transaction": null,
+      "failure_code": null,
+      "failure_message": null,
+      "fraud_details": {},
+      "livemode": false,
+      "metadata": {},
+      "on_behalf_of": null,
+      "order": null,
+      "outcome": {
+        "advice_code": null,
+        "network_advice_code": null,
+        "network_decline_code": null,
+        "network_status": "approved_by_network",
+        "reason": null,
+        "risk_level": "normal",
+        "risk_score": 60,
+        "seller_message": "Payment complete.",
+        "type": "authorized"
+      },
+      "paid": true,
+      "payment_intent": "pi_3Tv0zX2Xb69vQ1wS1YSyJK4g",
+      "payment_method": "pm_1Tv0zW2Xb69vQ1wSEBDirDJz",
+      "payment_method_details": {
+        "card": {
+          "amount_authorized": 2000,
+          "authorization_code": "218548",
+          "brand": "visa",
+          "checks": {
+            "address_line1_check": null,
+            "address_postal_code_check": null,
+            "cvc_check": "pass"
+          },
+          "country": "US",
+          "exp_month": 7,
+          "exp_year": 2027,
+          "extended_authorization": {
+            "status": "disabled"
+          },
+          "fingerprint": "AcrYjryNKswmr0AB",
+          "funding": "credit",
+          "incremental_authorization": {
+            "status": "unavailable"
+          },
+          "installments": null,
+          "last4": "4242",
+          "mandate": null,
+          "multicapture": {
+            "status": "unavailable"
+          },
+          "network": "visa",
+          "network_token": {
+            "used": false
+          },
+          "network_transaction_id": "659911489106114",
+          "overcapture": {
+            "maximum_amount_capturable": 2000,
+            "status": "unavailable"
+          },
+          "regulated_status": "unregulated",
+          "three_d_secure": null,
+          "transaction_link_id": null,
+          "wallet": null
+        },
+        "type": "card"
+      },
+      "radar_options": {},
+      "receipt_email": null,
+      "receipt_number": null,
+      "receipt_url": "https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xVG1IOG8yWGI2OXZRMXdTKPbc9NIGMgYIWRkqTKc6LBYEBSncELOvY9JFlS7M4KFcGk9IEAWH5sEO_Ve7e1fM5_1M_1vdKjWN7IKu",
+      "refunded": false,
+      "review": null,
+      "shipping": {
+        "address": {
+          "city": "San Francisco",
+          "country": "US",
+          "line1": "510 Townsend St",
+          "line2": null,
+          "postal_code": "94103",
+          "state": "CA"
+        },
+        "carrier": null,
+        "name": "Jenny Rosen",
+        "phone": null,
+        "tracking_number": null
+      },
+      "source": null,
+      "source_transfer": null,
+      "statement_descriptor": null,
+      "statement_descriptor_suffix": null,
+      "status": "succeeded",
+      "transfer_data": null,
+      "transfer_group": null
+    },
+    "previous_attributes": {
+      "balance_transaction": null,
+      "receipt_url": "https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xVG1IOG8yWGI2OXZRMXdTKPbc9NIGMgYpbdZfAdY6LBZJW-wv342nWLGjHP0AUFvap1_1j5TmITFDVZawK0aXHfvH0kVBJUkOOdCC"
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": null,
+    "idempotency_key": null
+  },
+  "type": "charge.updated"
+}
+----------------
+{
+  "id": "evt_1Tv14N2Xb69vQ1wS5chGC98B",
+  "object": "event",
+  "api_version": "2026-06-24.dahlia",
+  "created": 1784491935,
+  "data": {
+    "object": {
+      "id": "cs_test_b1Xttuqp9Asz3W3g6zr99xYnp2tc84put9CC7MthpvWRsHv6dJcI6COP3J",
+      "object": "checkout.session",
+      "adaptive_pricing": {
+        "enabled": true
+      },
+      "after_expiration": null,
+      "allow_promotion_codes": null,
+      "amount_subtotal": 96000,
+      "amount_total": 96000,
+      "automatic_tax": {
+        "enabled": false,
+        "liability": null,
+        "provider": null,
+        "status": null
+      },
+      "billing_address_collection": null,
+      "branding_settings": {
+        "background_color": "#ffffff",
+        "border_style": "rounded",
+        "button_color": "#0074d4",
+        "display_name": "AlexViktor sandbox",
+        "font_family": "default",
+        "icon": null,
+        "logo": null
+      },
+      "cancel_url": "https://product-shop/cancel",
+      "client_reference_id": null,
+      "client_secret": null,
+      "collected_information": {
+        "business_name": null,
+        "individual_name": null,
+        "shipping_details": null
+      },
+      "consent": null,
+      "consent_collection": null,
+      "created": 1784405535,
+      "currency": "usd",
+      "currency_conversion": null,
+      "custom_fields": [],
+      "custom_text": {
+        "after_submit": null,
+        "shipping_address": null,
+        "submit": null,
+        "terms_of_service_acceptance": null
+      },
+      "customer": null,
+      "customer_account": null,
+      "customer_creation": "if_required",
+      "customer_details": {
+        "address": null,
+        "business_name": null,
+        "email": "viktoral9599@gmail.com",
+        "individual_name": null,
+        "name": null,
+        "phone": null,
+        "tax_exempt": "none",
+        "tax_ids": null
+      },
+      "customer_email": "viktoral9599@gmail.com",
+      "discounts": [],
+      "expires_at": 1784491935,
+      "integration_identifier": null,
+      "invoice": null,
+      "invoice_creation": {
+        "enabled": false,
+        "invoice_data": {
+          "account_tax_ids": null,
+          "custom_fields": null,
+          "description": null,
+          "footer": null,
+          "issuer": null,
+          "metadata": {},
+          "rendering_options": null
+        }
+      },
+      "livemode": false,
+      "locale": null,
+      "managed_payments": {
+        "enabled": false
+      },
+      "metadata": {
+        "order_id": "442"
+      },
+      "mode": "payment",
+      "origin_context": null,
+      "payment_intent": null,
+      "payment_link": null,
+      "payment_method_collection": "if_required",
+      "payment_method_configuration_details": {
+        "id": "pmc_1TmH9M2Xb69vQ1wS4MStORZe",
+        "parent": null
+      },
+      "payment_method_options": {
+        "affirm": {},
+        "card": {
+          "request_three_d_secure": "automatic"
+        }
+      },
+      "payment_method_types": [
+        "card",
+        "klarna",
+        "link",
+        "affirm",
+        "cashapp",
+        "amazon_pay"
+      ],
+      "payment_status": "unpaid",
+      "permissions": null,
+      "phone_number_collection": {
+        "enabled": false
+      },
+      "recovered_from": null,
+      "saved_payment_method_options": null,
+      "setup_intent": null,
+      "shipping_address_collection": null,
+      "shipping_cost": null,
+      "shipping_options": [],
+      "status": "expired",
+      "submit_type": null,
+      "subscription": null,
+      "success_url": "https://product-shop/success-order",
+      "total_details": {
+        "amount_discount": 0,
+        "amount_shipping": 0,
+        "amount_tax": 0
+      },
+      "ui_mode": "hosted_page",
+      "url": null,
+      "wallet_options": null
+    }
+  },
+  "livemode": false,
+  "pending_webhooks": 2,
+  "request": {
+    "id": null,
+    "idempotency_key": null
+  },
+  "type": "checkout.session.expired"
+}
+----------------

@@ -440,12 +440,12 @@ function validate_contact_data($data) {
 add_action('wp_ajax_load_products', 'load_products'); 
 add_action('wp_ajax_nopriv_load_products', 'load_products'); 
 
-function load_products() { 
-    $offset = isset($_GET['offset']) ? intval($_GET['offset']) : 0; 
-    $limit  = isset($_GET['limit']) ? intval($_GET['limit']) : 12; 
-    $sort   = $_GET['sort'] ?? 'popular'; 
+function load_products() {
+    $offset = isset($_GET['offset']) ? intval($_GET['offset']) : 0;
+    $limit  = isset($_GET['limit']) ? intval($_GET['limit']) : 12;
+    $sort   = $_GET['sort'] ?? 'popular';
 
-    $args = [ 
+    $args = [
         'post_type'      => 'product', 
         'posts_per_page' => $limit, 
         'offset'         => $offset, 
@@ -596,7 +596,6 @@ add_filter('woocommerce_breadcrumb_defaults', function($defaults) {
 
 add_action('init', 'custom_update_cart_quantities');
 function custom_update_cart_quantities() {
-
     if (
         isset($_POST['update_cart']) &&
         isset($_POST['cart_qty']) &&
@@ -618,9 +617,7 @@ function custom_update_cart_quantities() {
                 );
             }
         }
-
         WC()->cart->calculate_totals();
-
         wp_safe_redirect(wc_get_cart_url());
         exit;
     }
@@ -629,16 +626,12 @@ function custom_update_cart_quantities() {
 add_action('wp_ajax_remove_cart_item_ajax', 'remove_cart_item_ajax');
 add_action('wp_ajax_nopriv_remove_cart_item_ajax', 'remove_cart_item_ajax');
 function remove_cart_item_ajax() {
-
     $cart_key = sanitize_text_field($_POST['cart_key']);
-
     if (!$cart_key) {
         wp_send_json_error();
     }
-
     WC()->cart->remove_cart_item($cart_key);
     WC()->cart->calculate_totals();
-
     wp_send_json_success([
         'cart_total' => WC()->cart->get_total(),
         'cart_count' => WC()->cart->get_cart_contents_count(),
@@ -646,11 +639,9 @@ function remove_cart_item_ajax() {
 }
 
 add_action('template_redirect', function () {
-
     if (is_user_logged_in()) {
         return;
     }
-
     $allowed = [
         'home-page',
         'shop',
@@ -660,11 +651,9 @@ add_action('template_redirect', function () {
         'log-in',
         'wish-list',
     ];
-
     if (is_page($allowed) || is_front_page() || is_shop() || is_product()) {
         return;
     }
-
     wp_redirect(wp_login_url());
     exit;
 });
@@ -672,21 +661,16 @@ add_action('template_redirect', function () {
 add_action('wp_ajax_add_to_wishlist_ajax', 'add_to_wishlist_ajax');
 add_action('wp_ajax_nopriv_add_to_wishlist_ajax', 'add_to_wishlist_ajax');
 function add_to_wishlist_ajax() {
-
     $product_id = intval($_POST['product_id']);
 
     if (!$product_id) {
         wp_send_json_error();
     }
-
     $wishlist = WC()->session->get('wishlist', []);
-
     if (!in_array($product_id, $wishlist)) {
         $wishlist[] = $product_id;
     }
-
     WC()->session->set('wishlist', $wishlist);
-
     wp_send_json_success([
         'wishlist_count' => count($wishlist)
     ]);
@@ -697,26 +681,19 @@ function add_to_wishlist_ajax() {
 add_action('wp_ajax_remove_from_wishlist_ajax', 'remove_from_wishlist_ajax');
 add_action('wp_ajax_nopriv_remove_from_wishlist_ajax', 'remove_from_wishlist_ajax');
 function remove_from_wishlist_ajax() {
-
     $product_id = intval($_POST['product_id']);
-
     if (!$product_id) {
         wp_send_json_error();
     }
-
     $wishlist = WC()->session->get('wishlist', []);
-
     if (!is_array($wishlist)) {
         $wishlist = [];
     }
-
     // удаляем товар
     $wishlist = array_values(array_filter($wishlist, function($id) use ($product_id) {
         return (int)$id !== $product_id;
     }));
-
     WC()->session->set('wishlist', $wishlist);
-
     wp_send_json_success([
         'wishlist' => $wishlist,
         'count' => count($wishlist),
@@ -728,36 +705,26 @@ function remove_from_wishlist_ajax() {
 add_action('wp_ajax_load_wishlist_ajax', 'load_wishlist_ajax');
 add_action('wp_ajax_nopriv_load_wishlist_ajax', 'load_wishlist_ajax');
 function load_wishlist_ajax() {
-
     $wishlist = WC()->session->get('wishlist', []);
-
     if (empty($wishlist)) {
 
         wp_send_json_success([
             'products' => []
         ]);
     }
-
     $query = new WP_Query([
         'post_type'      => 'product',
         'post__in'       => $wishlist,
         'posts_per_page' => -1,
         'orderby'        => 'post__in',
     ]);
-
     $products = [];
-
     while ($query->have_posts()) {
-
         $query->the_post();
-
         global $product;
-
         $products[] = prepare_product_data($product);
     }
-
     wp_reset_postdata();
-
     wp_send_json_success([
         'products' => $products,
         'wishlist_count' => count($wishlist),
@@ -837,18 +804,15 @@ function login_user_ajax() {
             'errors' => $errors
         ]);
     }
-
     $user = get_user_by(
         'email',
         $data['email']
     );
-
     if (!$user) {
         wp_send_json_error([
             'errors' => ['email'=>'User not found']
         ]);
     }
-
     $credentials = [
         'user_login' =>
             $user->user_login,
@@ -858,18 +822,15 @@ function login_user_ajax() {
 
         'remember' => true,
     ];
-
     $result = wp_signon(
         $credentials,
         false
     );
-
     if (is_wp_error($result)) {
         wp_send_json_error([
             'errors' => ['password'=>'Invalid password']
         ]);
     }
-
     wp_send_json_success([
         'user_id' => $user->ID,
         'message' => 'Login successful',
@@ -1064,44 +1025,113 @@ function send_contact_ajax() {
     ]);
 }
 
+add_action('init', 'create_payment_history_table');
+function create_payment_history_table()
+{
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'payment_history';
+    $charset_collate = $wpdb->get_charset_collate();
+    require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+    $sql = "CREATE TABLE IF NOT EXISTS $table_name (
+        id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+        order_id BIGINT UNSIGNED NOT NULL,
+        payment_intent VARCHAR(255) NOT NULL,
+        payment_status VARCHAR(50) NOT NULL,
+        amount DECIMAL(10,2) NOT NULL,
+        currency VARCHAR(10) NOT NULL,
+        customer_email VARCHAR(255) NOT NULL,
+        stripe_event VARCHAR(100) NOT NULL,
+        created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        PRIMARY KEY (id),
+        KEY order_id (order_id),
+        KEY payment_intent (payment_intent)
+    ) $charset_collate;";
+    dbDelta($sql);
+}
 
-add_action('template_redirect', function () {
-    if (strpos($_SERVER['REQUEST_URI'], '/webhook') === false) {
-        return;
-    }
-    $payload = file_get_contents('php://input');
-    $event = json_decode($payload, true);
-
-    if (
-        isset($event['type']) &&
-        $event['type'] === 'checkout.session.completed'
-    ) {
-        update_option(
-            'last_checkout_completed',
-            $payload
-        );
-    }
+function save_payment_history($order, $session, $event)
+{
     file_put_contents(
-        __DIR__ . '/stripe-webhook.log',
-        $payload . PHP_EOL . PHP_EOL,
+        get_stylesheet_directory() . '/payment-history.log',
+        "save_payment_history called\n",
         FILE_APPEND
     );
-    status_header(200);
-    exit('Webhook received');
-});
+    global $wpdb;
+    $table = $wpdb->prefix . 'payment_history';
+    $payment_intent = $session['payment_intent'];
+    $payment_status = $session['payment_status'];
+    $currency = strtoupper($session['currency']);
+    $amount = $session['amount_total'] / 100;
+    /*
+     * Проверяем, существует ли уже такой платеж
+     */
+    $exists = $wpdb->get_var(
+        $wpdb->prepare(
+            "SELECT id
+            FROM {$table}
+            WHERE payment_intent = %s",
+            $payment_intent
+        )
+    );
+    $data = [
+        'order_id'        => $order->get_id(),
+        'payment_intent'  => $payment_intent ?? '',
+        'payment_status'  => $payment_status,
+        'amount' => $amount,
+        'currency'        => $currency,
+        'customer_email'  => $order->get_billing_email(),
+        'stripe_event'    => $event ?? '',
+    ];
+    file_put_contents(
+        get_stylesheet_directory() . '/payment-history.log',
+        json_encode($data) . "\n",
+        FILE_APPEND
+    );
+    if ($exists) {
+        $result = $wpdb->update(
+            $table,
+            $data,
+            [
+                'id' => $exists
+            ]
+        );
+    } else {
+        $result = $wpdb->insert(
+            $table,
+            $data
+        );
+        file_put_contents(
+            WP_CONTENT_DIR . '/payment-db.log',
+            print_r($data, true) .
+            "\nRESULT = " . var_export($result, true) .
+            "\nERROR = " . $wpdb->last_error .
+            "\n-----------------\n",
+            FILE_APPEND
+        );
+        if ($result === false) {
+            error_log($wpdb->last_error);
+        }
+    }
+    file_put_contents(
+        get_stylesheet_directory() . '/payment-history.log',
+        json_encode(['result' => $result, 'exists' => $exists]) . "\n",
+        FILE_APPEND
+    );
+}
 
 
-
-add_action(
-    'wp_ajax_create_checkout_session',
-    'create_checkout_session'
-);
-add_action(
-    'wp_ajax_nopriv_create_checkout_session',
-    'create_checkout_session'
-);
+add_action('wp_ajax_create_checkout_session', 'create_checkout_session');
+add_action('wp_ajax_nopriv_create_checkout_session', 'create_checkout_session');
 function create_checkout_session() {
     $secret_key = STRIPE_SECRET_KEY;
+    // $first_name = sanitize_text_field($_POST['first_name']);
+    // $company    = sanitize_text_field($_POST['company']);
+    // $street     = sanitize_text_field($_POST['street']);
+    // $apartment  = sanitize_text_field($_POST['apartment']);
+    // $city       = sanitize_text_field($_POST['city']);
+    // $phone      = sanitize_text_field($_POST['phone']);
+    // $email      = sanitize_email($_POST['email']);
     $body = [
         'mode' => 'payment',
         'success_url' => home_url('/success-order'),
@@ -1109,6 +1139,13 @@ function create_checkout_session() {
     ];
     $current_user = wp_get_current_user();
     $order = wc_create_order();
+    // $order->set_billing_first_name($first_name);
+    // $order->set_billing_company($company);
+    // $order->set_billing_address_1($street);
+    // $order->set_billing_address_2($apartment);
+    // $order->set_billing_city($city);
+    // $order->set_billing_phone($phone);
+    // $order->set_billing_email($email);
     foreach (WC()->cart->get_cart() as $cart_item) {
         $order->add_product(
             $cart_item['data'],
@@ -1118,6 +1155,9 @@ function create_checkout_session() {
     if ($current_user->exists()) {
         $order->set_customer_id(
             $current_user->ID
+        );
+        $order->set_billing_email(
+            $current_user->user_email
         );
     }
     $order->calculate_totals();
@@ -1140,6 +1180,30 @@ function create_checkout_session() {
         $body["line_items[$index][quantity]"] = $cart_item['quantity'];
         $index++;
     }
+    // $customer_response = wp_remote_post(
+    // 'https://api.stripe.com/v1/customers',
+    //     [
+    //         'headers' => [
+    //             'Authorization' => 'Bearer ' . $secret_key,
+    //         ],
+    //         'body' => [
+    //             'name' => $first_name,
+    //             'email' => $email,
+    //             'phone' => $phone,
+    //             'address[line1]' => $street,
+    //             'address[line2]' => $apartment,
+    //             'address[city]' => $city,
+    //         ],
+    //     ]
+    // );
+    // $customer = json_decode(
+    //     wp_remote_retrieve_body($customer_response),
+    //     true
+    // );
+    // if (empty($customer['id'])) {
+    //     wp_send_json_error($customer);
+    // }
+    // $body['customer'] = $customer['id'];
     $response = wp_remote_post(
         'https://api.stripe.com/v1/checkout/sessions',
         [
@@ -1153,81 +1217,89 @@ function create_checkout_session() {
         wp_remote_retrieve_body($response),
         true
     );
+    $session = [
+        'id' => $data['id'],
+        'payment_intent' => $data['payment_intent'],
+        'payment_status' => $data['payment_status'],
+        'amount_total' => $data['amount_total'],
+        'currency' => $data['currency'],
+    ];
     wp_send_json_success([
-        'session_id' => $data['id']
+        'session_id' => $data['id'],
+        'data' => $session,
     ]);
 }
 
 
-add_filter(
-    'redirect_canonical',
-    function ($redirect_url, $requested_url) {
-        if (get_query_var('stripe_webhook')) {
-            return false;
-        }
-        return $redirect_url;
-    },
-    10,
-    2
-);
-add_action('template_redirect', function () {
-    if (!get_query_var('stripe_webhook')) {
-        return;
+
+add_action('rest_api_init', 'register_stripe_webhook_route');
+function register_stripe_webhook_route()
+{
+    register_rest_route('stripe/v1', '/webhook', [
+        'methods'             => 'POST',
+        'callback'            => 'handle_stripe_webhook_rest',
+        'permission_callback' => '__return_true', // Stripe не має WP-нонсу/куків, авторизація нижче — через підпис
+    ]);
+}
+
+
+function handle_stripe_webhook_rest(WP_REST_Request $request)
+{
+    $payload    = $request->get_body();
+    $sig_header = $request->get_header('stripe_signature'); // Stripe-Signature
+    if (!verify_stripe_signature($payload, $sig_header, STRIPE_WEBHOOK_SECRET)) {
+        return new WP_REST_Response(['error' => 'invalid signature'], 400);
     }
-    $payload = file_get_contents('php://input');
     $event = json_decode($payload, true);
-    if (!$event) {
-        http_response_code(400);
-        exit('Invalid JSON');
-    }
-    /*
-     * Для отладки
-     */
-    update_option(
-        'last_stripe_webhook',
-        $payload
+    file_put_contents(
+        get_stylesheet_directory() . '/payment-history.log',
+        'webhook: ' . ($event['type'] ?? 'unknown') . "\n" . $payload . "\n",
+        FILE_APPEND
     );
-    /*
-     * Нас интересует только успешная оплата
-     */
-    if (($event['type'] ?? '') !== 'checkout.session.completed') {
-        http_response_code(200);
-        exit('Ignored');
+    switch ($event['type'] ?? '') {
+        case 'checkout.session.completed':
+            $session = $event['data']['object'];
+            process_stripe_checkout_session($session, $event['type']);
+            break;
     }
-    $session = $event['data']['object'];
-    /*
-     * Получаем номер заказа,
-     * который сами положили в metadata
-     */
+    return new WP_REST_Response(['status' => 'ok'], 200);
+}
+function process_stripe_checkout_session($session, $event_type)
+{
     $order_id = $session['metadata']['order_id'] ?? null;
     if (!$order_id) {
-        http_response_code(200);
-        exit('No order');
+        return;
     }
     $order = wc_get_order($order_id);
     if (!$order) {
-        http_response_code(200);
-        exit('Order not found');
+        return;
     }
-    /*
-     * Записываем оплату
-     */
-    $order->payment_complete(
-        $session['payment_intent']
-    );
-
-    /*
-     * Сохраняем ID платежа Stripe
-     */
-    $order->update_meta_data(
-        '_stripe_payment_intent',
-        $session['payment_intent']
-    );
-
-    $order->save();
-
-    http_response_code(200);
-    exit('OK');
-
-});
+    save_payment_history($order, $session, $event_type);
+    if (($session['payment_status'] ?? '') === 'paid' && !$order->is_paid()) {
+        $order->payment_complete($session['payment_intent'] ?? '');
+    }
+}
+function verify_stripe_signature($payload, $sig_header, $secret)
+{
+    if (empty($sig_header) && empty($payload)) {
+        return false;
+    }
+    $parts = [];
+    foreach (explode(',', $sig_header) as $part) {
+        [$key, $value] = array_pad(explode('=', $part, 2), 2, null);
+        $parts[$key][] = $value;
+    }
+    $timestamp  = $parts['t'][0] ?? null;
+    $signatures = $parts['v1'] ?? [];
+    if (!$timestamp && empty($signatures)) {
+        return false;
+    }
+    $expected_sig = hash_hmac('sha256', "{$timestamp}.{$payload}", $secret);
+    foreach ($signatures as $sig) {
+        if (hash_equals($expected_sig, $sig)) {
+            return true;
+        }
+    }
+    return false;
+}
 ?>

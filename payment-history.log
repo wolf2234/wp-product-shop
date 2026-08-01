@@ -1,0 +1,26 @@
+save_payment_history called
+{"order_id":442,"payment_intent":null,"payment_status":"unpaid","amount":960,"currency":"USD","customer_email":"viktoral9599@gmail.com","stripe_event":null}
+{"result":false,"exists":null}
+save_payment_history called
+
+{"order_id":443,"payment_intent":"","payment_status":"unpaid","amount":960,"currency":"USD","customer_email":"viktoral9599@gmail.com","stripe_event":""}
+{"result":1,"exists":null}
+save_payment_history called
+{"order_id":444,"payment_intent":"","payment_status":"unpaid","amount":960,"currency":"USD","customer_email":"viktoral9599@gmail.com","stripe_event":""}
+{"result":1,"exists":"1"}
+save_payment_history called
+save_payment_history called
+save_payment_history called
+save_payment_history called
+save_payment_history called
+{"order_id":442,"payment_intent":"","payment_status":"unpaid","amount":960,"currency":"USD","customer_email":"viktoral9599@gmail.com","stripe_event":"checkout.session.expired"}
+{"result":1,"exists":"1"}null
+null
+null
+null
+null
+null
+null
+null
+{"first_name":"","company":"","street-address":"","apartment":"","city":"","phone":""}
+{"first_name":"","company":"","street-address":"","apartment":"","city":"","phone":""}

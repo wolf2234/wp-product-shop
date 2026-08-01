@@ -1,0 +1,10 @@
+RESULT = false
+ERROR = Column 'payment_intent' cannot be null
+RESULT = false
+ERROR = Column 'payment_intent' cannot be null
+RESULT = false
+ERROR = Column 'payment_intent' cannot be null
+RESULT = false
+ERROR = Column 'payment_intent' cannot be null
+RESULT = false
+ERROR = Column 'payment_intent' cannot be null
