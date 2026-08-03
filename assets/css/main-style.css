@@ -150,7 +150,7 @@ body.lock::before {
 
 @media (max-width: 1630px) {
     .info {
-        padding: 0px 20px 30px;
+        padding: 25px 20px 30px;
     }
 
     .info__links {
@@ -204,7 +204,7 @@ body.lock::before {
     }
 
     .info {
-        padding: 0px 6px 15px;
+        padding: 25px 6px 15px;
     }
 
     .info__links {
@@ -310,6 +310,12 @@ body.lock::before {
 
     .footer .logo {
         order: 0;
+    }
+}
+
+@media (max-width: 650px) {
+    .info {
+        padding: 50px 6px 15px;
     }
 }
 

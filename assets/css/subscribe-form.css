@@ -44,6 +44,7 @@
 
 .subscribe-form__title {
     max-width: 551px;
+    line-height: 1.6;
 }
 
 .subscribe-form__input,
@@ -95,4 +96,119 @@
     font-size: 16px;
     line-height: 1;
     letter-spacing: 0%;
+}
+
+@media (max-width: 1630px) {
+    .subscribe-form__title {
+        font-size: 32px;
+        max-width: 400px;
+        line-height: 1.6;
+    }
+
+    .subscribe-form {
+        max-width: 1150px;
+    }
+}
+
+@media (max-width: 1330px) {
+    .subscribe-form__title {
+        font-size: 32px;
+        max-width: 400px;
+    }
+
+    .subscribe-form {
+        max-width: 1000px;
+    }
+}
+
+@media (max-width: 1200px) {
+    /* .subscribe {
+        padding: 0px 120px;
+    } */
+
+    .subscribe-form__title {
+        font-size: 25px;
+        max-width: 350px;
+    }
+
+    .subscribe-form {
+        max-width: 900px;
+    }
+
+    .subscribe-form__input,
+    .subscribe-form__btn {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 1015px) {
+    .subscribe-form {
+        top: -175px;
+        max-width: 700px;
+        padding: 25px 44px;
+    }
+
+    .subscribe-form__title {
+        font-size: 20px;
+        max-width: 250px;
+    }
+
+    .subscribe-form__input,
+    .subscribe-form__btn:hover,
+    .subscribe-form__btn {
+        max-width: 250px;
+        padding: 10px 14px;
+    }
+}
+
+@media (max-width: 650px) {
+    .subscribe-form {
+        top: -235px;
+        max-width: 350px;
+        padding: 30px 50px 40px;
+    }
+
+    .subscribe-form__title {
+        font-size: 20px;
+        max-width: 250px;
+        text-align: center;
+    }
+
+    .subscribe-form__wrapper {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        row-gap: 25px;
+        align-items: center;
+    }
+
+    .subscribe-form__column {
+        align-items: center;
+    }
+
+    .subscribe-form__column:last-of-type {
+        align-items: center;
+    }
+}
+
+@media (max-width: 450px) {
+    .subscribe-form {
+        top: -200px;
+        max-width: 300px;
+        padding: 25px 40px 35px;
+    }
+
+    .subscribe-form__title {
+        font-size: 15px;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .subscribe-form__input,
+    .subscribe-form__btn:hover,
+    .subscribe-form__btn {
+        font-size: 14px;
+        max-width: 250px;
+        padding: 8px 10px;
+    }
 }
