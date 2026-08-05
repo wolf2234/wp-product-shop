@@ -24,145 +24,18 @@
                 </div>
                 <nav class="nav-menu">
                     <div class="nav-menu__filters">
-                        <div class="filters" data-parent-filter="">
-                            <?php
-                                $categories = get_terms([
-                                    'taxonomy' => 'product_cat',
-                                    'hide_empty' => true,
-                                ]);
-                                $colors = get_terms([
-                                    'taxonomy' => 'pa_color',
-                                    'hide_empty' => true,
-                                ]);
-                                $sizes = get_terms([
-                                    'taxonomy' => 'pa_size',
-                                    'hide_empty' => true,
-                                ]);
-                            ?>
-                            <div class="filters__body">
-                                <div class="filters__header">
-                                    <h3 class="filters__title">Filters</h3>
-                                    <img src="<?php bloginfo('template_directory'); ?>/assets/img/Setting.svg" alt="">
-                                </div>
-                                <div class="filters__content">
-                                    <div class="filters__item">
-                                        <div class="filters__categories">
-                                            <?php foreach ($categories as $cat): ?>
-                                                <a href="#" class="filters__link">
-                                                    <?php echo $cat->name; ?>
-                                                </a>
-                                            <?php endforeach; ?>
-                                        </div>
-                                    </div>
-                                    <div class="filters__item">
-                                        <div class="product-filters active">
-                                            <div class="product-filters__head">
-                                                <h3 class="product-filters__title">Price</h3>
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/arrow.svg" alt="">
-                                            </div>
-                                            <div class="product-filters__content">
-                                                <div class="price-slider">
-                                                    <div id="price-slider" class="noui-body"></div>
-                                                    <div class="price-values"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="filters__item">
-                                        <div class="product-filters active">
-                                            <div class="product-filters__head">
-                                                <h3 class="product-filters__title">Colors</h3>
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/arrow.svg" alt="">
-                                            </div>
-                                            <div class="product-filters__content">
-                                                <div class="colors">
-                                                    <div class="colors__items">
-                                                        <?php foreach ($colors as $color): ?>
-                                                            <label class="color-radio">
-                                                                <input type="checkbox"
-                                                                        name="attribute_pa_color[]"
-                                                                        value="<?php echo esc_attr($color->slug); ?>" hidden>
-                                                                <span class="color-circle" style="background-color: <?php echo esc_attr($color->description); ?>"></span>
-                                                            </label>
-                                                        <?php endforeach; ?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="filters__item">
-                                        <div class="product-filters active">
-                                            <div class="product-filters__head">
-                                                <h3 class="product-filters__title">Size</h3>
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/arrow.svg" alt="">
-                                            </div>
-                                            <div class="product-filters__content">
-                                                <div class="sizes">
-                                                    <div class="sizes__items">
-                                                        <?php foreach ($sizes as $size): ?>
-                                                            <label class="size-radio">
-                                                                <input type="checkbox"
-                                                                    name="attribute_pa_size[]"
-                                                                    value="<?php echo esc_attr($size->slug); ?>" hidden>
-                                                                <span class="sizes__name"><?php echo esc_attr($size->name); ?></span>
-                                                            </label>
-                                                        <?php endforeach; ?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="filters__item">
-                                        <div class="product-filters active">
-                                            <div class="product-filters__head">
-                                                <h3 class="product-filters__title">Menu</h3>
-                                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/arrow.svg" alt="">
-                                            </div>
-                                            <div class="product-filters__content">
-                                                <div class="dropdown">
-                                                    <div class="dropdown__dropbtn">
-                                                        <a href="#" class="dropdown__link">Shop</a>
-                                                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/arrow.svg" class="dropdown__arrow" alt="">
-                                                    </div>
-                                                    <div class="dropdown__content">
-                                                        <a href="#">All Products</a>
-                                                        <a href="#">New Arrivals</a>
-                                                        <a href="#">Best Sellers</a>
-                                                        <a href="#">Sale Items</a>
-                                                    </div>
-                                                </div>
-                                                <?php wp_nav_menu(array(
-                                                    'theme_location' => 'top', 
-                                                    'menu' => 'nav-menu',
-                                                    'container' => null,
-                                                    'menu_class' => 'menu',
-                                                ));
-                                                ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="filters__btn-wrapper">
-                                    <button class="filters__btn">Apply Filter</button>
-                                </div>
-                            </div>
-                        </div>
+                        <?php
+                            if (is_page('contact')) {
+                                include get_template_directory() . '/includes/contact-filters.php';
+                            } else {
+                                include get_template_directory() . '/includes/filters.php';
+                            }
+                        ?>
                     </div>
                 </nav>
                 <div class="nav-menu-header">
                     <div class="nav-menu__main">
-                        <div class="dropdown">
-                            <div class="dropdown__dropbtn">
-                                <a href="#" class="dropdown__link">Shop</a>
-                                <img src="<?php bloginfo('template_directory'); ?>/assets/img/arrow.svg" class="dropdown__arrow" alt="">
-                            </div>
-                            <div class="dropdown__content">
-                                <a href="#">All Products</a>
-                                <a href="#">New Arrivals</a>
-                                <a href="#">Best Sellers</a>
-                                <a href="#">Sale Items</a>
-                            </div>
-                        </div>
+                        <?php include 'includes/dropdown.php';?>
                         <?php wp_nav_menu(array(
                             'theme_location' => 'top', 
                             'menu' => 'nav-menu',

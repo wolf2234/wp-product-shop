@@ -1,8 +1,31 @@
+
 <div class="contact">
     <div class="container-large">
+        <div class="contact__breadcrumbs">
+            <div class="breadcrumbs">
+                <?php woocommerce_breadcrumb(); ?>
+            </div>
+        </div>
         <div class="contact-form">
             <div class="contact-form__info">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum et numquam ipsa explicabo nemo! A vitae minus illum dolorum. Nostrum.
+                <?php if (have_rows('contact')) : ?>
+                    <?php while (have_rows('contact')) : the_row(); ?>
+                        <div class="contact-item">
+                            <h3><?php the_sub_field('title'); ?></h3>
+                            <p><?php the_sub_field('text'); ?></p>
+                            <?php if (get_sub_field('phone')): ?>
+                                <a href="tel:+<?php echo esc_attr(get_sub_field('phone')); ?>">
+                                    <span>+<?php the_sub_field('phone'); ?></span>
+                                </a>
+                            <?php endif; ?>
+                            <?php if (get_sub_field('email')): ?>
+                                <a href="mailto:<?php echo esc_attr(get_sub_field('email')); ?>">
+                                    <?php the_sub_field('email'); ?>
+                                </a>
+                            <?php endif; ?>
+                        </div>
+                    <?php endwhile; ?>
+                <?php endif; ?>
             </div>
             <form class="contact-form__body" data-auth-type="contact" novalidate>
                 <div class="contact-form__row">
@@ -15,7 +38,7 @@
                         >
                         <span class="auth__error"></span>
                     </label>
-            
+
                     <label>
                         <input
                             type="email"
@@ -25,7 +48,7 @@
                         >
                         <span class="auth__error"></span>
                     </label>
-            
+
                     <label>
                         <input
                             type="tel"
