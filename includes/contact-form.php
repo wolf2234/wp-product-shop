@@ -11,16 +11,20 @@
                 <?php if (have_rows('contact')) : ?>
                     <?php while (have_rows('contact')) : the_row(); ?>
                         <div class="contact-item">
-                            <h3><?php the_sub_field('title'); ?></h3>
-                            <p><?php the_sub_field('text'); ?></p>
+                            <?php if (get_sub_field('title')): ?>
+                                <h3><?php the_sub_field('title'); ?></h3>
+                            <?php endif; ?>
+                            <?php if (get_sub_field('text')): ?>
+                                <p><?php the_sub_field('text'); ?></p>
+                            <?php endif; ?>
                             <?php if (get_sub_field('phone')): ?>
                                 <a href="tel:+<?php echo esc_attr(get_sub_field('phone')); ?>">
-                                    <span>+<?php the_sub_field('phone'); ?></span>
+                                    <span>Phone: +<?php the_sub_field('phone'); ?></span>
                                 </a>
                             <?php endif; ?>
                             <?php if (get_sub_field('email')): ?>
                                 <a href="mailto:<?php echo esc_attr(get_sub_field('email')); ?>">
-                                    <?php the_sub_field('email'); ?>
+                                    <span>Email: <?php the_sub_field('email'); ?></span>
                                 </a>
                             <?php endif; ?>
                         </div>
