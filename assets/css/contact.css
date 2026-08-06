@@ -52,7 +52,7 @@
     margin-bottom: 0px;
 }
 
-.contact-form__info a {
+.contact-item a {
     display: inline-block;
     text-decoration: none;
     color: #000;
@@ -176,6 +176,16 @@
 
     .contact-form input {
         width: 50%;
+    }
+
+    .contact-item h3 {
+        font-size: 20px;
+    }
+
+    .contact-item p,
+    .contact-item a,
+    .contact-item span {
+        font-size: 15px;
     }
 }
 
