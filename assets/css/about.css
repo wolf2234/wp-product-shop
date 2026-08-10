@@ -48,8 +48,25 @@
 
 .bisness-results {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: 30px;
+    row-gap: 30px;
+    justify-content: center;
+}
+
+.bisness-results__item {
+    box-sizing: border-box;
+    flex: 0 0 250px;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 .bisness-results_title {
@@ -70,7 +87,7 @@
     padding: 0px 0px 130px 0px;
 }
 
-.bisness-results__item {
+/* .bisness-results__item {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -78,7 +95,7 @@
     row-gap: 5px;
     border-radius: 4px;
     padding: 30px;
-}
+} */
 
 .bisness-results__item_border {
     border: 1px solid rgba(0, 0, 0, 0.3);
@@ -287,11 +304,118 @@
     padding: 0px;
 }
 
-@media (max-width: 1200px) {}
+@media (max-width: 1800px) {
+    .about .about-container {
+        padding: 0px 55px;
+    }
 
-@media (max-width: 1150px) {}
+    .our-story__column img {
+        width: 950px;
+    }
 
-@media (max-width: 768px) {}
+    .our-story {
+        column-gap: 50px;
+    }
+}
+
+@media (max-width: 1700px) {
+    .about-content {
+        padding: 0px 30px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .our-story__column img {
+        width: 800px;
+    }
+}
+
+@media (max-width: 1250px) {
+    .our-story__column img {
+        width: 600px;
+    }
+}
+
+
+@media (max-width: 1150px) {
+
+    .about .breadcrumbs {
+        padding-bottom: 50px;
+    }
+
+    .our-story__column img {
+        width: 400px;
+    }
+}
+
+
+@media (max-width: 900px) {
+    .our-story {
+        align-items: flex-start;
+    }
+
+    .our-story__column:first-of-type {
+        max-width: 500px;
+    }
+
+    .our-story__column h2 {
+        font-size: 40px;
+        padding: 0px 0px 15px 0px;
+    }
+
+    .our-story__column p {
+        font-size: 14px;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+    .about {
+        padding: 40px 0px 150px 0px;
+    }
+
+    .about .about-container {
+        padding: 0px 30px;
+    }
+
+    .about .breadcrumbs {
+        padding-bottom: 30px;
+    }
+
+    .our-story {
+        flex-direction: column;
+        row-gap: 20px;
+    }
+
+    .our-story__column:first-of-type,
+    .our-story__column {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .our-story__column img {
+        width: 100%;
+    }
+
+    .our-story__column:first-of-type {
+        order: 2;
+    }
+
+    .our-story__column:last-of-type {
+        order: 1;
+    }
+
+    .our-story__column h2 {
+        font-size: 35px;
+        padding: 0px 0px 15px 0px;
+    }
+
+    .our-story__column p {
+        font-size: 14px;
+    }
+}
+
 
 @media (max-width: 600px) {
     .employees .slick-dots li button {
