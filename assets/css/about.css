@@ -144,33 +144,45 @@
     color: #ffffff;
 }
 
-.employees-content {
-    position: relative;
-    padding: 0px 0px 130px 40px;
-}
-
 .employees {
     width: 100%;
-    position: relative;
-    padding: 0px 0px 50px 40px;
     height: 100%;
-    z-index: 1;
+    position: relative;
+    padding: 0px 0px 130px 0px;
     min-width: 0px;
+    overflow: hidden;
 }
 
+.employees .swiper-slide {}
 
-.employees__item {
+.employees .employees-content.swiper-wrapper {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    padding: 0px 0px 50px 0px;
+    z-index: 1;
+}
+
+/* .employees__slide {
     display: flex;
     justify-content: space-between;
-}
+} */
+
+
+/* .employees__item {
+    display: flex;
+    justify-content: space-between;
+} */
 
 .employees__person {
     display: flex;
     flex-direction: column;
     row-gap: 5px;
+    width: 100%;
+    height: 100%;
 }
 
-.employees__item h3 {
+.employees__person h3 {
     font-family: 'Inter';
     font-weight: 500;
     font-style: 'Medium';
@@ -182,8 +194,17 @@
     background-color: rgba(245, 245, 245, 1);
     padding: 30px 35px 0px 35px;
     margin-bottom: 15px;
+    height: 100%;
+    width: 100%;
+    max-width: 500px;
+    max-height: 500px;
+
 }
 
+.employees__img img {
+    height: 100%;
+    width: 100%;
+}
 
 .employees__links {
     display: flex;
@@ -191,64 +212,36 @@
     column-gap: 20px;
 }
 
+.employees .employees__pagination {
+    bottom: 0px;
+    text-align: center;
+}
+
+.employees .employees__pagination .swiper-pagination-bullet {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+}
+
+.employees .employees__pagination .swiper-pagination-bullet-active {
+    background-color: rgba(219, 68, 68, 1);
+}
+
 /* Banner and slider */
 
 /* Обмежувальна оболонка */
-.slick-list {
+/* .slick-list {
     overflow: hidden;
-}
+} */
 
 /* Стрічка слайдів */
-.slick-track {
+/* .slick-track {
     display: flex;
     align-items: flex-start;
-}
-
-/* Слайдер */
-
-.slick-slider {}
-
-/* Слайдер запущений */
-
-.slick-slider.slick-initialized {}
-
-/* Слайдер з крапками */
-
-.slick-slider.slick-dotted {}
-
-
-/* Слайд */
-
-.slick-slide {}
-
-/* Слайд активний (показується) */
-
-.slick-slide.slick-active {}
-
-/* Слайд основний */
-
-.slick-slide.slick-current {}
-
-/* Слайд по центру */
-
-.slick-slide.slick-center {}
-
-/* Клонований слайд */
-
-.slick-slide.slick-cloned {}
-
-/* Стрілка вліво */
-
-.slick-arrow.slick-prev {}
-
-/* Стрілка вправо */
-
-.slick-arrow.slick-next {}
-
-
+} */
 
 /* Точки (буліти) */
-.employees .slick-dots {
+/* .employees .slick-dots {
     position: absolute;
     bottom: -50px;
     left: -48px;
@@ -270,7 +263,7 @@
 }
 
 /* Елемент точки */
-.employees .slick-dots li button {
+/* .employees .slick-dots li button {
     font-size: 0px;
     width: 14px;
     height: 14px;
@@ -281,27 +274,15 @@
 .employees .slick-dots li.slick-active button {
     background-color: rgba(219, 68, 68, 1);
     outline: 2px solid rgba(0, 0, 0, 0.3);
-}
-
-/* Стрілка не активна */
-.slick-arrow.slick-disabled {}
+} */
 
 
-/* Активна точка */
-.slick-dots li.slick-active {}
-
-
-
-.employees__item {
+.employees__person {
     position: relative;
     width: 100%;
     height: 100%;
     min-width: 0px;
     z-index: 2;
-}
-
-.slider {
-    padding: 0px;
 }
 
 @media (max-width: 1800px) {
@@ -338,13 +319,16 @@
 
 
 @media (max-width: 1150px) {
-
     .about .breadcrumbs {
         padding-bottom: 50px;
     }
 
     .our-story__column img {
         width: 400px;
+    }
+
+    .employees__img {
+        padding: 30px 12px 0px 12px;
     }
 }
 
@@ -418,11 +402,11 @@
 
 
 @media (max-width: 600px) {
-    .employees .slick-dots li button {
+    /* .employees .slick-dots li button {
         font-size: 0px;
         width: 10px;
         height: 10px;
         background-color: rgba(0, 0, 0, 0.3);
         border-radius: 50%;
-    }
+    } */
 }

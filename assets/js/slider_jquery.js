@@ -9,21 +9,11 @@ $(document).ready(function () {
         autoplay: false,
         autoplaySpeed: 2000,
     });
-    $(".employees").slick({
-        arrows: false,
-        dots: true,
-        adaptiveHeight: true,
-        // Infinity: true,
-        // autoplay: true,
-        Infinity: false,
-        autoplay: false,
-        autoplaySpeed: 2000,
-    });
     $(".slider").slick({
         arrows: true,
         dots: false,
         adaptiveHeight: true,
-        Infinity: true,
+        infinite: true,
         autoplay: false,
         autoplaySpeed: 2000,
         nextArrow: $("#next"),
@@ -35,7 +25,7 @@ $(document).ready(function () {
         arrows: true,
         dots: false,
         adaptiveHeight: true,
-        Infinity: true,
+        infinite: true,
         autoplay: false,
         autoplaySpeed: 2000,
         nextArrow: $("#category-next"),

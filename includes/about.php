@@ -38,104 +38,102 @@
                     <p>Anual gross sale in our site</p>
                 </div>
             </div>
-            <div class="employees-content">
-                <div class="employees">
-                    <div class="employees__item">
-                        <div class="employees__person">
-                            <div class="employees__img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/Tom-Cruise.png" alt="Tom Cruise"></div>
-                            <h3>Tom Cruise</h3>
-                            <p>Founder & Chairman</p>
-                            <div class="employees__links">
-                                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/twitter-black.svg" alt="Twitter"></a>
-                                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/instagram-black.svg" alt="Instagram"></a>
-                                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/linkedin-black.svg" alt="LinkedIn"></a>
-                            </div>
+            <div class="employees swiper-container">
+                <div class="employees-content swiper-wrapper">
+                    <div class="employees__person swiper-slide">
+                        <div class="employees__img">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/Tom-Cruise.png" alt="Tom Cruise">
                         </div>
-                        <div class="employees__person">
-                            <div class="employees__img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/Emma-Watson.png" alt="Emma Watson"></div>
-                            <h3>Emma Watson</h3>
-                            <p>Marketing Manager</p>
-                            <div class="employees__links">
-                                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/twitter-black.svg" alt="Twitter"></a>
-                                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/instagram-black.svg" alt="Instagram"></a>
-                                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/linkedin-black.svg" alt="LinkedIn"></a>
-                            </div>
-                        </div>
-                        <div class="employees__person">
-                            <div class="employees__img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/Will-Smith.png" alt="Will Smith"></div>
-                            <h3>Will Smith</h3>
-                            <p>Lead Developer</p>
-                            <div class="employees__links">
-                                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/twitter-black.svg" alt="Twitter"></a>
-                                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/instagram-black.svg" alt="Instagram"></a>
-                                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/linkedin-black.svg" alt="LinkedIn"></a>
-                            </div>
+                        <h3>Tom Cruise</h3>
+                        <p>Founder & Chairman</p>
+                        <div class="employees__links">
+                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/twitter-black.svg" alt="Twitter"></a>
+                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/instagram-black.svg" alt="Instagram"></a>
+                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/linkedin-black.svg" alt="LinkedIn"></a>
                         </div>
                     </div>
-                    <div class="employees__item">
-                        <div class="employees__person">
-                            <div class="employees__img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/Tom-Cruise.png" alt="Tom Cruise"></div>
-                            <h3>Tom Cruise</h3>
-                            <p>Founder & Chairman</p>
-                            <div class="employees__links">
-                                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/twitter-black.svg" alt="Twitter"></a>
-                                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/instagram-black.svg" alt="Instagram"></a>
-                                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/linkedin-black.svg" alt="LinkedIn"></a>
-                            </div>
-                        </div>
-                        <div class="employees__person">
-                            <div class="employees__img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/Emma-Watson.png" alt="Emma Watson"></div>
-                            <h3>Emma Watson</h3>
-                            <p>Marketing Manager</p>
-                            <div class="employees__links">
-                                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/twitter-black.svg" alt="Twitter"></a>
-                                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/instagram-black.svg" alt="Instagram"></a>
-                                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/linkedin-black.svg" alt="LinkedIn"></a>
-                            </div>
-                        </div>
-                        <div class="employees__person">
-                            <div class="employees__img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/Will-Smith.png" alt="Will Smith"></div>
-                            <h3>Will Smith</h3>
-                            <p>Lead Developer</p>
-                            <div class="employees__links">
-                                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/twitter-black.svg" alt="Twitter"></a>
-                                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/instagram-black.svg" alt="Instagram"></a>
-                                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/linkedin-black.svg" alt="LinkedIn"></a>
-                            </div>
+                    <div class="employees__person swiper-slide">
+                        <div class="employees__img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/Emma-Watson.png" alt="Emma Watson"></div>
+                        <h3>Emma Watson</h3>
+                        <p>Marketing Manager</p>
+                        <div class="employees__links">
+                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/twitter-black.svg" alt="Twitter"></a>
+                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/instagram-black.svg" alt="Instagram"></a>
+                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/linkedin-black.svg" alt="LinkedIn"></a>
                         </div>
                     </div>
-                    <div class="employees__item">
-                        <div class="employees__person">
-                            <div class="employees__img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/Tom-Cruise.png" alt="Tom Cruise"></div>
-                            <h3>Tom Cruise</h3>
-                            <p>Founder & Chairman</p>
-                            <div class="employees__links">
-                                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/twitter-black.svg" alt="Twitter"></a>
-                                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/instagram-black.svg" alt="Instagram"></a>
-                                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/linkedin-black.svg" alt="LinkedIn"></a>
-                            </div>
-                        </div>
-                        <div class="employees__person">
-                            <div class="employees__img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/Emma-Watson.png" alt="Emma Watson"></div>
-                            <h3>Emma Watson</h3>
-                            <p>Marketing Manager</p>
-                            <div class="employees__links">
-                                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/twitter-black.svg" alt="Twitter"></a>
-                                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/instagram-black.svg" alt="Instagram"></a>
-                                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/linkedin-black.svg" alt="LinkedIn"></a>
-                            </div>
-                        </div>
-                        <div class="employees__person">
-                            <div class="employees__img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/Will-Smith.png" alt="Will Smith"></div>
-                            <h3>Will Smith</h3>
-                            <p>Lead Developer</p>
-                            <div class="employees__links">
-                                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/twitter-black.svg" alt="Twitter"></a>
-                                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/instagram-black.svg" alt="Instagram"></a>
-                                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/linkedin-black.svg" alt="LinkedIn"></a>
-                            </div>
+                    <div class="employees__person swiper-slide">
+                        <div class="employees__img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/Will-Smith.png" alt="Will Smith"></div>
+                        <h3>Will Smith</h3>
+                        <p>Lead Developer</p>
+                        <div class="employees__links">
+                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/twitter-black.svg" alt="Twitter"></a>
+                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/instagram-black.svg" alt="Instagram"></a>
+                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/linkedin-black.svg" alt="LinkedIn"></a>
                         </div>
                     </div>
+                    <div class="employees__person swiper-slide">
+                        <div class="employees__img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/Tom-Cruise.png" alt="Tom Cruise"></div>
+                        <h3>Tom Cruise</h3>
+                        <p>Founder & Chairman</p>
+                        <div class="employees__links">
+                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/twitter-black.svg" alt="Twitter"></a>
+                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/instagram-black.svg" alt="Instagram"></a>
+                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/linkedin-black.svg" alt="LinkedIn"></a>
+                        </div>
+                    </div>
+                    <div class="employees__person swiper-slide">
+                        <div class="employees__img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/Emma-Watson.png" alt="Emma Watson"></div>
+                        <h3>Emma Watson</h3>
+                        <p>Marketing Manager</p>
+                        <div class="employees__links">
+                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/twitter-black.svg" alt="Twitter"></a>
+                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/instagram-black.svg" alt="Instagram"></a>
+                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/linkedin-black.svg" alt="LinkedIn"></a>
+                        </div>
+                    </div>
+                    <div class="employees__person swiper-slide">
+                        <div class="employees__img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/Will-Smith.png" alt="Will Smith"></div>
+                        <h3>Will Smith</h3>
+                        <p>Lead Developer</p>
+                        <div class="employees__links">
+                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/twitter-black.svg" alt="Twitter"></a>
+                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/instagram-black.svg" alt="Instagram"></a>
+                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/linkedin-black.svg" alt="LinkedIn"></a>
+                        </div>
+                    </div>
+                    <div class="employees__person swiper-slide">
+                        <div class="employees__img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/Tom-Cruise.png" alt="Tom Cruise"></div>
+                        <h3>Tom Cruise</h3>
+                        <p>Founder & Chairman</p>
+                        <div class="employees__links">
+                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/twitter-black.svg" alt="Twitter"></a>
+                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/instagram-black.svg" alt="Instagram"></a>
+                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/linkedin-black.svg" alt="LinkedIn"></a>
+                        </div>
+                    </div>
+                    <div class="employees__person swiper-slide">
+                        <div class="employees__img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/Emma-Watson.png" alt="Emma Watson"></div>
+                        <h3>Emma Watson</h3>
+                        <p>Marketing Manager</p>
+                        <div class="employees__links">
+                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/twitter-black.svg" alt="Twitter"></a>
+                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/instagram-black.svg" alt="Instagram"></a>
+                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/linkedin-black.svg" alt="LinkedIn"></a>
+                        </div>
+                    </div>
+                    <div class="employees__person swiper-slide">
+                        <div class="employees__img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/Will-Smith.png" alt="Will Smith"></div>
+                        <h3>Will Smith</h3>
+                        <p>Lead Developer</p>
+                        <div class="employees__links">
+                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/twitter-black.svg" alt="Twitter"></a>
+                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/instagram-black.svg" alt="Instagram"></a>
+                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/linkedin-black.svg" alt="LinkedIn"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="employees__pagination">
                 </div>
             </div>
             <div class="bisness-results">

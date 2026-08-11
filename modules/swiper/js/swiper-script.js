@@ -30,4 +30,21 @@ document.addEventListener("DOMContentLoaded", function () {
             },
         },
     });
+    new Swiper(".employees", {
+        direction: "horizontal",
+        slidesPerView: 3,
+        mousewheel: true,
+        autoHeight: true,
+        pagination: {
+            el: ".employees__pagination",
+            clickable: true,
+        },
+        simulateTouch: true,
+        touchRatio: 1,
+        TouchAngle: 45,
+        grabCursor: true,
+        watchOverflow: true,
+        spaceBetween: 200,
+        slidesPerGroup: 3,
+    });
 });
