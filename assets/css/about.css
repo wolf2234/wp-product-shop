@@ -144,6 +144,7 @@
     color: #ffffff;
 }
 
+
 .employees {
     width: 100%;
     position: relative;
@@ -224,6 +225,8 @@
 
 .employees .employees__pagination .swiper-pagination-bullet-active {
     background-color: rgba(219, 68, 68, 1);
+    border: 1px solid #fff;
+    outline: 2px solid rgb(179, 179, 179);
 }
 
 
@@ -295,6 +298,10 @@
 
 
 @media (max-width: 900px) {
+    .employees__wrapper {
+        text-align: center;
+        width: 100%;
+    }
 
     .employees__person h3 {
         font-size: 25px;
@@ -304,19 +311,42 @@
         font-size: 14px;
     }
 
+    .employees__img {
+        width: min(400px, 100%);
+        aspect-ratio: 4 / 5;
+    }
+
     .employees__links img {
         width: 18px;
         height: 18px;
     }
 
     .employees {
+        display: inline-block;
         height: 650px;
-        text-align: center;
+        width: 100%;
+        max-width: 450px;
+        padding-left: 35px;
+        box-sizing: border-box;
     }
 
     .employees .employees__pagination {
         position: absolute;
         top: 220px;
+        left: 0;
+        width: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        transform: translateY(-50%);
+        z-index: 3;
+    }
+
+    .employees .employees__pagination .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        margin: 0;
     }
 
     .employees .employees__person {
