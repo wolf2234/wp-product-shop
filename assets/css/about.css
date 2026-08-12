@@ -146,40 +146,31 @@
 
 .employees {
     width: 100%;
-    height: 100%;
     position: relative;
-    padding: 0px 0px 130px 0px;
-    min-width: 0px;
+    padding-bottom: 130px;
+    min-width: 0;
     overflow: hidden;
 }
 
-.employees .swiper-slide {}
-
-.employees .employees-content.swiper-wrapper {
-    display: flex;
-    align-items: stretch;
-    width: 100%;
-    padding: 0px 0px 50px 0px;
-    z-index: 1;
+.employees .swiper-slide {
+    height: auto;
+    box-sizing: border-box;
 }
 
-/* .employees__slide {
+.employees .employees-content {
     display: flex;
-    justify-content: space-between;
-} */
-
-
-/* .employees__item {
-    display: flex;
-    justify-content: space-between;
-} */
+    align-items: stretch;
+    padding: 0px 0px 50px 0px;
+}
 
 .employees__person {
     display: flex;
     flex-direction: column;
     row-gap: 5px;
+    position: relative;
     width: 100%;
-    height: 100%;
+    min-width: 0px;
+    z-index: 2;
 }
 
 .employees__person h3 {
@@ -191,19 +182,27 @@
 
 
 .employees__img {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
     background-color: rgba(245, 245, 245, 1);
-    padding: 30px 35px 0px 35px;
     margin-bottom: 15px;
-    height: 100%;
+    padding: 20px 25px 0px;
     width: 100%;
-    max-width: 500px;
-    max-height: 500px;
-
+    max-width: 400px;
+    aspect-ratio: 4 / 5;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .employees__img img {
-    height: 100%;
+    display: inline-block;
     width: 100%;
+    height: 100%;
+    max-width: 320px;
+    max-height: 430px;
+    object-fit: contain;
+    object-position: bottom center;
 }
 
 .employees__links {
@@ -227,63 +226,6 @@
     background-color: rgba(219, 68, 68, 1);
 }
 
-/* Banner and slider */
-
-/* Обмежувальна оболонка */
-/* .slick-list {
-    overflow: hidden;
-} */
-
-/* Стрічка слайдів */
-/* .slick-track {
-    display: flex;
-    align-items: flex-start;
-} */
-
-/* Точки (буліти) */
-/* .employees .slick-dots {
-    position: absolute;
-    bottom: -50px;
-    left: -48px;
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.employees .slick-dots li {
-    list-style: none;
-}
-
-/* Елемент точки */
-/* .employees .slick-dots li button {
-    font-size: 0px;
-    width: 14px;
-    height: 14px;
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 50%;
-}
-
-.employees .slick-dots li.slick-active button {
-    background-color: rgba(219, 68, 68, 1);
-    outline: 2px solid rgba(0, 0, 0, 0.3);
-} */
-
-
-.employees__person {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    min-width: 0px;
-    z-index: 2;
-}
 
 @media (max-width: 1800px) {
     .about .about-container {
@@ -318,7 +260,7 @@
 }
 
 
-@media (max-width: 1150px) {
+@media (max-width: 1180px) {
     .about .breadcrumbs {
         padding-bottom: 50px;
     }
@@ -327,13 +269,60 @@
         width: 400px;
     }
 
-    .employees__img {
-        padding: 30px 12px 0px 12px;
+    .employees__person h3 {
+        font-size: 18px;
+    }
+
+    .employees__person p {
+        font-size: 14px;
+    }
+
+    .employees__links img {
+        width: 16px;
+        height: 16px;
+    }
+
+    .employees .employees-content {
+        padding: 0px 0px 35px 0px;
+    }
+
+    .employees .employees__pagination .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
     }
 }
 
 
 @media (max-width: 900px) {
+
+    .employees__person h3 {
+        font-size: 25px;
+    }
+
+    .employees__person p {
+        font-size: 14px;
+    }
+
+    .employees__links img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .employees {
+        height: 650px;
+        text-align: center;
+    }
+
+    .employees .employees__pagination {
+        position: absolute;
+        top: 220px;
+    }
+
+    .employees .employees__person {
+        align-items: center;
+    }
+
     .our-story {
         align-items: flex-start;
     }

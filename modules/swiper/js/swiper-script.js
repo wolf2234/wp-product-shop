@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         direction: "horizontal",
         slidesPerView: 3,
         mousewheel: true,
-        autoHeight: true,
+        autoHeight: false,
         pagination: {
             el: ".employees__pagination",
             clickable: true,
@@ -44,7 +44,21 @@ document.addEventListener("DOMContentLoaded", function () {
         TouchAngle: 45,
         grabCursor: true,
         watchOverflow: true,
-        spaceBetween: 200,
+        spaceBetween: 150,
         slidesPerGroup: 3,
+        breakpoints: {
+            0: {
+                direction: "vertical",
+                slidesPerView: 1,
+                slidesPerGroup: 1,
+                spaceBetween: 130,
+            },
+            901: {
+                direction: "horizontal",
+                slidesPerView: 3,
+                slidesPerGroup: 3,
+                spaceBetween: 150,
+            },
+        },
     });
 });
