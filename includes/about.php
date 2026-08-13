@@ -17,22 +17,22 @@
     <div class="container-large">
         <div class="about-content">
             <div class="bisness-results bisness-results_padding">
-                <div class="bisness-results__item bisness-results__item_border">
+                <div class="bisness-results__item bisness-results__item_styles">
                     <div class="bisness-results__img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/house.svg" alt="house"></div>
                     <span>10.5k</span>
                     <p>Sallers active our site</p>
                 </div>
-                <div class="bisness-results__item bisness-results__item_border">
+                <div class="bisness-results__item bisness-results__item_styles">
                     <div class="bisness-results__img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/vallet.svg" alt="vallet"></div>
                     <span>33k</span>
                     <p>Mopnthly Produduct Sale</p>
                 </div>
-                <div class="bisness-results__item bisness-results__item_border">
+                <div class="bisness-results__item bisness-results__item_styles">
                     <div class="bisness-results__img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/pocket.svg" alt="pocket"></div>
                     <span>45.5k</span>
                     <p>Customer active in our site</p>
                 </div>
-                <div class="bisness-results__item bisness-results__item_border">
+                <div class="bisness-results__item bisness-results__item_styles">
                     <div class="bisness-results__img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/Icon-Moneybag.svg" alt="Icon Moneybag"></div>
                     <span>25k</span>
                     <p>Anual gross sale in our site</p>
@@ -138,7 +138,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bisness-results">
+            <div class="bisness-results bisness-results_gap bisness-results_padding">
                 <div class="bisness-results__item">
                     <div class="bisness-results__img">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/car.svg" alt="car">
