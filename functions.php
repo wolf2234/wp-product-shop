@@ -1302,4 +1302,42 @@ function verify_stripe_signature($payload, $sig_header, $secret)
     }
     return false;
 }
+
+
+add_action('wp_ajax_save_profile_address', 'save_profile_address');
+function save_profile_address() {
+    if (!is_user_logged_in()) {
+        wp_send_json_error([
+            'message' => 'User is not logged in.'
+        ], 403);
+    }
+    $user_id = get_current_user_id();
+    $fields = [
+        'billing_first_name',
+        'billing_last_name',
+        'billing_company',
+        'billing_address_1',
+        'billing_address_2',
+        'billing_city',
+        'billing_state',
+        'billing_postcode',
+        'billing_country',
+        'billing_phone',
+        'billing_email',
+    ];
+    foreach ($fields as $field) {
+        if (isset($_POST[$field])) {
+            $value = sanitize_text_field($_POST[$field]);
+            update_user_meta(
+                $user_id,
+                $field,
+                $value
+            );
+        }
+    }
+    wp_send_json_success([
+        'message' => 'Address saved successfully.'
+    ]);
+}
+
 ?>

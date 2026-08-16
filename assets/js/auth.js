@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             login: "login_user_ajax",
             profile: "update_profile_ajax",
             contact: "send_contact_ajax",
+            addresses: "save_profile_address",
         };
         const action = actions[mode];
         if (!action) {
@@ -38,7 +39,6 @@ document.addEventListener("DOMContentLoaded", async function () {
                 }
             });
             updateSubmitButton(form, mode);
-            console.log(hasErrors);
             if (hasErrors && mode !== "profile") {
                 return;
             } else {

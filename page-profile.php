@@ -90,8 +90,8 @@ get_header();
                                         <span class="profile-form__label">Email</span>
                                         <input id="email" 
                                         type="email" 
-                                        name="email" 
-                                        placeholder="Email" 
+                                        name="email"
+                                        placeholder="Email"
                                         value="<?php echo esc_attr($current_user->user_email); ?>" required>
                                         <span class="auth__error"></span>
                                     </label>
@@ -131,7 +131,10 @@ get_header();
                                 Save Changes
                             </button>
                         </form>
-                        <form class="profile-content" data-profile-content="addresses" id="#addresses" novalidate>
+                        <form class="profile-content" 
+                        data-profile-content="addresses"
+                        data-auth-type="addresses"
+                        id="#addresses" novalidate>
                             <div class="profile-form__body">
                                 <div class="profile__row">
                                     <label class="profile-form__field" for="billing_first_name">
@@ -141,7 +144,7 @@ get_header();
                                             type="text"
                                             name="billing_first_name"
                                             placeholder="First Name"
-                                            value="<?php echo esc_attr($current_user->first_name); ?>"
+                                            value="<?php echo esc_attr(get_user_meta($current_user->ID, 'billing_first_name', true)); ?>"
                                         >
                                         <span class="auth__error"></span>
                                     </label>
@@ -152,7 +155,7 @@ get_header();
                                             type="text"
                                             name="billing_last_name"
                                             placeholder="Last Name"
-                                            value="<?php echo esc_attr($current_user->last_name); ?>"
+                                            value="<?php echo esc_attr(get_user_meta($current_user->ID, 'billing_last_name', true)); ?>"
                                         >
                                         <span class="auth__error"></span>
                                     </label>
